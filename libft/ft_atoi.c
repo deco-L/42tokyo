@@ -6,11 +6,11 @@
 /*   By: sakamoto <sakamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:35:04 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/04/24 17:51:47 by sakamoto         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:43:04 by sakamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_space(const char *nptr, int i);
 int	ft_pulmi(const char *nptr, int i);
