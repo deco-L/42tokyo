@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto <sakamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 14:41:26 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/04/27 15:06:34 by sakamoto         ###   ########.fr       */
+/*   Created: 2023/04/27 15:04:09 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/04/27 15:21:36 by sakamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
 
-void	ft_bzero(void *s, size_t n)
-{
-	char	*c;
-	size_t	i;
+// void	*ft_calloc(size_t nmemb, size_t size)
+// {
+// 	char	*c;
+// 	size_t	i;
 
-	c = (char *)s;
-	i = 0;
-	while (i < n)
-	{
-		c[i] = 0;
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (i < nmemb * size)
+// 	{
+// 		c[i] = '\0';
+// 		i++;
+// 	}
+// }
