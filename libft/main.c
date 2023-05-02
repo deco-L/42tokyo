@@ -6,5 +6,7 @@ int	main(void)
 	printf("ft_isalnum : %d\n", ft_isalnum('!'));
 	printf("ft_isalpha : %d\n", ft_isalpha('1'));
 	printf("ft_isascii : %d\n", ft_isascii(200));
+	printf("ft_isdigit : %d\n", ft_isdigit('a'));
+	printf("ft_isprint : %d\n", ft_isprint('\n'));
 	return (0);
 }
