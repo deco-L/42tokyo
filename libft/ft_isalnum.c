@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto <sakamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 14:41:26 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/02 16:42:42 by sakamoto         ###   ########.fr       */
+/*   Created: 2023/05/02 16:28:15 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/02 16:46:16 by sakamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n);
+int	ft_isalnum(int c);
 
-void	ft_bzero(void *s, size_t n)
+int	ft_isalnum(int c)
 {
-	char	*c;
-	size_t	i;
+	int	flag;
 
-	c = (char *)s;
-	i = 0;
-	while (i < n)
-	{
-		c[i] = 0;
-		i++;
-	}
+	flag = 0;
+	if (48 <= c && c <= 57)
+		flag = 1;
+	if (65 <= c && c <= 90)
+		flag = 1;
+	if (97 <= c && c <= 122)
+		flag = 1;
+	return (flag);
 }
