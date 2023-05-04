@@ -1,0 +1,1 @@
+	// result[digit] = '\0';

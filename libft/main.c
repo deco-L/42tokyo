@@ -8,5 +8,6 @@ int	main(void)
 	printf("ft_isascii : %d\n", ft_isascii(200));
 	printf("ft_isdigit : %d\n", ft_isdigit('a'));
 	printf("ft_isprint : %d\n", ft_isprint('\n'));
+	printf("ft_itoa : %s\n", ft_itoa(-100));
 	return (0);
 }
