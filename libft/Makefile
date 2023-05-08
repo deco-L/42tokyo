@@ -6,14 +6,14 @@
 #    By: sakamoto <sakamoto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/05/08 16:36:59 by sakamoto         ###   ########.fr        #
+#    Updated: 2023/05/08 17:01:08 by sakamoto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 
 SRC			= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-				ft_isdigit.c ft_isprint.c ft_itoa.c ft_memcpy.c\
+				ft_isdigit.c ft_isprint.c ft_itoa.c ft_memcpy.c ft_putchar_fd.c\
 				main.c
 
 OBJS		= ${SRC:.c=.o}

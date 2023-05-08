@@ -13,5 +13,8 @@ int	main(void)
 	printf("ft_isprint : %d\n", ft_isprint('\n'));
 	printf("ft_itoa : %s\n", ft_itoa(-100));
 	printf("ft_memcpy : %s\n", ft_memcpy(dest, src, 3));
+	printf(" : ft_putchar_fd");
+	ft_putchar_fd('0', 1);
+	printf("\n");
 	return (0);
 }

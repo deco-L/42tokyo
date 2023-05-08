@@ -16,5 +16,6 @@ int		ft_isdigit(int c);
 int		ft_isprint(int c);
 char	*ft_itoa(int n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	ft_putchar_fd(char c, int fd);
 
 #endif
