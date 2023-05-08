@@ -3,7 +3,7 @@
 int	main(void)
 {
 	char	dest[10] = "abcdefghi";
-	char	src[5] = "abcd";
+	char	src[13] = "jklmnopqrstu";
 
 	printf("ft_atoi : %d\n",ft_atoi("   	\t\v-129851h3gajer"));
 	printf("ft_isalnum : %d\n", ft_isalnum('!'));
@@ -12,7 +12,8 @@ int	main(void)
 	printf("ft_isdigit : %d\n", ft_isdigit('a'));
 	printf("ft_isprint : %d\n", ft_isprint('\n'));
 	printf("ft_itoa : %s\n", ft_itoa(-100));
-	printf("ft_memcpy : %s\n", ft_memcpy(dest, src, 3));
+	printf("ft_memccpy : %s\n", (char *)ft_memccpy(dest, src, 'c', 9));
+	printf("ft_memcpy : %s\n", (char *)ft_memcpy(dest, src, 5));
 	printf(" : ft_putchar_fd");
 	ft_putchar_fd('0', 1);
 	printf("\n");

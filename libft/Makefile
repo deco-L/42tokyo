@@ -3,19 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sakamoto <sakamoto@student.42.fr>          +#+  +:+       +#+         #
+#    By: yayoi <yayoi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/05/08 17:17:38 by sakamoto         ###   ########.fr        #
+#    Updated: 2023/05/09 03:10:03 by yayoi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 
 SRC			= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-				ft_isdigit.c ft_isprint.c ft_itoa.c ft_memcpy.c ft_putchar_fd.c \
+				ft_isdigit.c ft_isprint.c ft_itoa.c ft_memccpy.c ft_memcpy.c ft_putchar_fd.c \
 				ft_strlen.c \
-				main.c
 
 OBJS		= ${SRC:.c=.o}
 
