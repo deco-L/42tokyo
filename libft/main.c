@@ -16,5 +16,6 @@ int	main(void)
 	printf(" : ft_putchar_fd");
 	ft_putchar_fd('0', 1);
 	printf("\n");
+	printf("ft_strlen : %zu\n", ft_strlen(dest));
 	return (0);
 }
