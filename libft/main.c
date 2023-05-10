@@ -12,13 +12,14 @@ int	main(void)
 	printf("ft_isdigit : %d\n", ft_isdigit('a'));
 	printf("ft_isprint : %d\n", ft_isprint('\n'));
 	printf("ft_itoa : %s\n", ft_itoa(-100));
-	printf("ft_memccpy : %p\n", ft_memccpy(dest, src, 'z', 9));
+	printf("ft_memccpy : %p\n", ft_memccpy(dest, src, 'd', 9));
+	printf("ft_memchr : %p\n", ft_memchr(dest, 'e', 9));
 	printf("ft_memcpy : %s\n", (char *)ft_memcpy(dest, src, 5));
 	ft_putstr_fd("ft_putchar_fd : ", 1);
 	ft_putchar_fd('0', 1);
 	printf("\n");
 	ft_putstr_fd("ft_putstr_fd : ", 1);
-	ft_putstr_fd(src, 1);
+	ft_putstr_fd(dest, 1);
 	printf("\n");
 	ft_putstr_fd("ft_putendl_fd : ", 1);
 	ft_putendl_fd(src, 1);

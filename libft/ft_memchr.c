@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sakamoto <sakamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 02:47:41 by yayoi             #+#    #+#             */
-/*   Updated: 2023/05/10 15:49:17 by sakamoto         ###   ########.fr       */
+/*   Created: 2023/05/10 15:38:38 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/10 16:08:43 by sakamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
+void	*ft_memchr(const void *buf, int c, size_t n);
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memchr(const void *buf, int c, size_t n)
 {
-	int				flag;
-	size_t			i;
-	unsigned char	*result;
-	unsigned char	*origin;
+	int			flag;
+	size_t		i;
+	const char	*dest;
+	void		*result;
 
-	flag = 0;
 	i = 0;
-	result = (unsigned char *) dest;
-	origin = (unsigned char *) src;
-	while (i < n)
+	flag = 0;
+	dest = (char *) buf;
+	while (dest[i] != '\0' && i < n)
 	{
-		if (result[i] == c)
+		if (dest[i] == c)
 		{
 			flag = 1;
 			break ;
 		}
-		result[i] = origin[i];
 		i++;
 	}
 	if (flag == 1)
 	{
-		dest = (void *)&result[i + 1];
-		return (dest);
+		result = (void *)&dest[i];
+		return (result);
 	}
 	return (NULL);
 }
