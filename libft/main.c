@@ -14,6 +14,7 @@ int	main(void)
 	printf("ft_itoa : %s\n", ft_itoa(-100));
 	printf("ft_memccpy : %p\n", ft_memccpy(dest, src, 'd', 9));
 	printf("ft_memchr : %p\n", ft_memchr(dest, 'e', 9));
+	printf("ft_memcmp : %d\n", ft_memcmp(dest, src, 14));
 	printf("ft_memcpy : %s\n", (char *)ft_memcpy(dest, src, 5));
 	ft_putstr_fd("ft_putchar_fd : ", 1);
 	ft_putchar_fd('0', 1);
