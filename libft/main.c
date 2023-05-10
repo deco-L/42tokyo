@@ -15,7 +15,7 @@ int	main(void)
 	printf("ft_memccpy : %p\n", ft_memccpy(dest, src, 'd', 9));
 	printf("ft_memchr : %p\n", ft_memchr(dest, 'e', 9));
 	printf("ft_memcmp : %d\n", ft_memcmp(dest, src, 14));
-	printf("ft_memcpy : %s\n", (char *)ft_memcpy(dest, src, 5));
+	printf("ft_memcpy : %s\n", (char *)ft_memcpy(dest, src, 2));
 	ft_putstr_fd("ft_putchar_fd : ", 1);
 	ft_putchar_fd('0', 1);
 	printf("\n");
@@ -27,6 +27,7 @@ int	main(void)
 	ft_putstr_fd("ft_putnbr_fd : ", 1);
 	ft_putnbr_fd(-2147483648, 1);
 	printf("\n");
+	printf("ft_strchr : %p\n", ft_strchr(dest, 'e'));
 	printf("ft_strlen : %zu\n", ft_strlen(dest));
 	printf("ft_tolower : %c\n", ft_tolower('A'));
 	printf("ft_toupper : %c\n", ft_toupper('c'));
