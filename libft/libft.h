@@ -26,7 +26,7 @@ void	ft_putnbr_fd(int n, int fd);
 char	**ft_split(const char *str, char c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *str);
-cahr	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
 int		ft_tolower(int c);
