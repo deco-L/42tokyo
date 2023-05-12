@@ -28,6 +28,8 @@ int	main(void)
 	ft_putnbr_fd(-2147483648, 1);
 	printf("\n");
 	printf("ft_strchr : %p\n", ft_strchr(dest, 'e'));
+	printf("ft_strdup : %s\n", ft_strdup(src));
+	printf("ft_strlcpy : %zu\n", ft_strlcpy(dest, src, 5));
 	printf("ft_strlen : %zu\n", ft_strlen(dest));
 	printf("ft_tolower : %c\n", ft_tolower('A'));
 	printf("ft_toupper : %c\n", ft_toupper('c'));
