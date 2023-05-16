@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "externalConsole": false,
+      "cwd": "/Users/csakamot/program/42tokyo/libft",
+      "program": "/Users/csakamot/program/42tokyo/libft/build/Debug/outDebug",
+      "MIMode": "gdb"
+    }
+  ]
+}

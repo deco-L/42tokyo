@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakamoto <sakamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:28:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/12 17:00:05 by sakamoto         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:16:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	**ft_split(const char *str, char c)
 		return (NULL);
 	while (count < words)
 	{
-		while (ft_check(str[i] , c))
+		while (ft_check(str[i], c))
 			i++;
 		lcnt = ft_letter_cnt(str, c, i);
 		result[count] = ft_in(malloc(sizeof(char) * (lcnt + 1)), str, lcnt, i);
