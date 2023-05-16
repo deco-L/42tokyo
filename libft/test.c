@@ -45,5 +45,6 @@ int	main(void)
 	i = 12345;
 	itoa(i, wk, 10);
 	printf( "wk=%s\n", wk);
+	// printf("strnstr : %s", strnstr("abcdefg", "de", 6));
 	return (0);
 }

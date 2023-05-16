@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 17:08:07 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/16 19:15:01 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/16 16:47:31 by csakamot          #+#    #+#             */
+/*   Updated: 2023/05/16 19:18:34 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c);
+char	*strrchr(const char *s, int c);
 
-char	*ft_strchr(const char *str, int c)
+char	*strrchr(const char *s, int c)
 {
 	int		i;
-	char	*result;
+	int		buff;
+	char	*s1;
 
 	i = 0;
-	result = (char *)str;
-	while (result[i] != '\0')
+	buff = 0;
+	s1 = (char *)s;
+	while (s1[i] != '\0')
 	{
-		if (result[i] == c)
-			return (&result[i]);
+		if (s1[i] == c)
+			buff = i;
 		i++;
 	}
+	if (buff)
+		return (s1[buff]);
 	return (NULL);
 }
