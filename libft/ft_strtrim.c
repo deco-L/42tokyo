@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:03:00 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/16 20:28:08 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:16:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	i = 0;
 	while (i < len_s1 + 1)
 	{
-		if (&s1[i] == &start)
+		if (&s1[i] == start)
 			i += len_s2;
 		*result = s1[i];
 		result++;

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:47:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/16 20:28:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:14:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ char	*strrchr(const char *s, int c)
 		i++;
 	}
 	if (buff)
-		return (s1[buff]);
+		return (&s1[buff]);
 	return (NULL);
 }

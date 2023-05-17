@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:28:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/16 16:16:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:07:42 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_letter_cnt(const char *str, char c, int i)
 	return (letter_cnt);
 }
 
-char	*ft_in(char *dest, char *str, int letter_cnt, int i)
+char	*ft_in(char *dest, const char *str, int letter_cnt, int i)
 {
 	int	j;
 
