@@ -33,5 +33,6 @@ int	main(void)
 	printf("ft_strlen : %zu\n", ft_strlen(dest));
 	printf("ft_tolower : %c\n", ft_tolower('A'));
 	printf("ft_toupper : %c\n", ft_toupper('c'));
+	printf("ft_strchr : %d\n", ft_strchr(dest, '\0'));
 	return (0);
 }

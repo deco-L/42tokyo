@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
+#include "libft.h"
 
 // atoi
 // int	main(void)
@@ -49,3 +51,21 @@
 // 	return (0);
 // }
 
+// strchr
+int main(void)
+{
+	char *s = "libft-test-tokyo";
+	if(strchr(s, 'i' - 256))
+		printf("Yes\n");
+	else
+		printf("No\n");
+	if (ft_strchr(s, 'l' + 256))
+		printf("Yes\n");
+	else
+		printf("NO\n");
+	printf("strchr : %p\n", strchr(s, 'i' - 256));
+	printf("ft_strchr : %p\n", ft_strchr(s, 'l' + 256));
+	printf("strrchr : %p\n", strrchr(s, '\0'));
+	printf("ft_strrchr : %p\n", ft_strrchr(s, '\0'));
+	return (0);
+}
