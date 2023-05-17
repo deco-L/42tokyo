@@ -37,14 +37,15 @@
 // 	return (0);
 // }
 
-int	main(void)
-{
-	char	wk[1024];
-	int i = 0;
+// int	main(void)
+// {
+// 	char	wk[1024];
+// 	int i = 0;
 
-	i = 12345;
-	itoa(i, wk, 10);
-	printf( "wk=%s\n", wk);
-	// printf("strnstr : %s", strnstr("abcdefg", "de", 6));
-	return (0);
-}
+// 	i = 12345;
+// 	itoa(i, wk, 10);
+// 	printf( "wk=%s\n", wk);
+// 	// printf("strnstr : %s", strnstr("abcdefg", "de", 6));
+// 	return (0);
+// }
+
