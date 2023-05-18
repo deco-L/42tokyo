@@ -100,17 +100,39 @@
 // 	// printf("ft_strlcat : %zu\n", ft_strlcat(dest2, NULL, 0));
 // }
 
-// strncmp
+// // strncmp
+// int	main(void)
+// {
+// 	char *str = "libft";
+// 	char *cmp = "libft-test-tokyo";
+// 	int	len = strlen(str);
+// 	char *cmp2 = calloc(10, 1);
+// 	strlcpy(cmp2, "libft", 10);
+
+// 	cmp2[5] = -1;
+// 	printf("strncmp : %d\n", strncmp(str, cmp, len));
+// 	printf("ft_strncmp : %d\n", ft_strncmp(str, cmp, len));
+// 	return (0);
+// }
+
+// // memchr
+// int	main(void)
+// {
+// 	char *s = calloc(30, sizeof(char));
+// 	memcpy(s, "libft-test-tokyo", 17);
+// 	memcpy(s + 20, "acdfg", 5);
+
+// 	printf("memchr : %p\n", memchr(s, '\0',30));
+// 	printf("ft_memchr : %p\n", ft_memchr(s, '\0',30));
+// 	return (0);
+// }
+
+// strnstr
 int	main(void)
 {
-	char *str = "libft";
-	char *cmp = "libft-test-tokyo";
-	int	len = strlen(str);
-	char *cmp2 = calloc(10, 1);
-	strlcpy(cmp2, "libft", 10);
-
-	cmp2[5] = -1;
-	printf("strncmp : %d\n", strncmp(str, cmp, len));
-	printf("ft_strncmp : %d\n", ft_strncmp(str, cmp, len));
+	printf("strstr : %p\n", strnstr("", "", 0));
+	printf("ft_strstr : %p\n", ft_strnstr("", "", 0));
+	printf("strstr : %p\n", strnstr("libft-test-tokyo", "test", 10));
+	printf("ft_strstr : %p\n", ft_strnstr("libft-test-tokyo", "test", 10));
 	return (0);
 }
