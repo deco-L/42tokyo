@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:28:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/17 16:07:42 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:30:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_letter_cnt(const char *str, char c, int i)
 	int	letter_cnt;
 
 	letter_cnt = 0;
-	while (ft_check(str[i], c) && str[i] != '\0')
+	while (!ft_check(str[i], c) && str[i] != '\0')
 	{
 		letter_cnt++;
 		i++;

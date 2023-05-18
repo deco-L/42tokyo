@@ -160,3 +160,15 @@
 // 	printf("strjoin : %s\n", ft_strjoin("hello", "world"));
 // 	return (0);
 // }
+
+// split
+int	main(void)
+{
+	char	**result;
+	result = ft_split("hello,world,42,tokyo", ',');
+	for (int i = 0; i < 5; i++)
+	{
+		printf("ft_split : %s\n", result[i]);
+	}
+	return (0);
+}
