@@ -138,11 +138,25 @@
 // 	return (0);
 // }
 
-// calloc
-int	main(void)
-{
-	printf("calloc : %p\n", calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
-	printf("calloc : %p\n", ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
-	printf("size_t_MAX : %zu\n", SIZE_MAX / 10 + 1);
-	return (0);
-}
+// // calloc
+// int	main(void)
+// {
+// 	printf("calloc : %p\n", calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+// 	printf("calloc : %p\n", ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+// 	printf("size_t_MAX : %zu\n", SIZE_MAX / 10 + 1);
+// 	return (0);
+// }
+
+// // substr
+// int	main(void)
+// {
+// 	char *s = "libft-test-tokyo";
+// 	printf("ft_suaaabstr : %s\n", ft_substr(s, 20, 100));
+// }
+
+// // strjoin
+// int	main(void)
+// {
+// 	printf("strjoin : %s\n", ft_strjoin("hello", "world"));
+// 	return (0);
+// }

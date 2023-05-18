@@ -6,32 +6,32 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 16:40:51 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/16 16:14:37 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:00:42 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strjoin(const char *s1, const char *s2);
-char	*ft_in(char *result, const char *s1, const char *s2, size_t len);
+char	*ft_in(char *result, const char *s1, const char *s2);
 
-char	*ft_in(char *result, const char *s1, const char *s2, size_t len)
+char	*ft_in(char *result, const char *s1, const char *s2)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
-	while (i < len)
+	while (s1[i] != '\0')
 	{
-		if (s1[i] != '\0')
-			result[i] = s1[i];
-		else if (s1[i] == '\0')
-		{
-			result[i] = s2[j];
-			j++;
-		}
+		result[i] = s1[i];
 		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		result[i] = s2[j];
+		i++;
+		j++;
 	}
 	result[i] = '\0';
 	return (result);
@@ -50,6 +50,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	result = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (result == NULL)
 		return (NULL);
-	result = ft_in(result, s1, s2, s1_len + s2_len);
+	result = ft_in(result, s1, s2);
 	return (result);
 }
