@@ -147,12 +147,12 @@
 // 	return (0);
 // }
 
-// // substr
-// int	main(void)
-// {
-// 	char *s = "libft-test-tokyo";
-// 	printf("ft_suaaabstr : %s\n", ft_substr(s, 20, 100));
-// }
+// substr
+int	main(void)
+{
+	char *s = "libft-test-tokyo";
+	printf("%s\n", ft_substr(s, 20, 100));
+}
 
 // // strjoin
 // int	main(void)
