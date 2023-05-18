@@ -4,12 +4,12 @@
 #include <string.h>
 #include "libft.h"
 
-// // atoi
-// int	main(void)
-// {
-// 	printf("atoi : %d\n", atoi("-2147483649"));
-// 	printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
-// }
+// atoi
+int	main(void)
+{
+	printf("atoi : %d\n", atoi("2147483648"));
+	printf("ft_atoi : %d\n", ft_atoi("2147483648"));
+}
 
 // isalnum
 // int	main(void)
@@ -147,12 +147,12 @@
 // 	return (0);
 // }
 
-// substr
-int	main(void)
-{
-	char *s = "libft-test-tokyo";
-	printf("%s\n", ft_substr(s, 20, 100));
-}
+// // substr
+// int	main(void)
+// {
+// 	char *s = "libft-test-tokyo";
+// 	printf("%s\n", ft_substr(s, 20, 100));
+// }
 
 // // strjoin
 // int	main(void)
