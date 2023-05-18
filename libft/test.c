@@ -4,10 +4,11 @@
 #include <string.h>
 #include "libft.h"
 
-// atoi
+// // atoi
 // int	main(void)
 // {
-// 	printf("%d\n", atoi("   --1	\t\v-123gajer"));
+// 	printf("atoi : %d\n", atoi("-2147483649"));
+// 	printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
 // }
 
 // isalnum
@@ -127,12 +128,21 @@
 // 	return (0);
 // }
 
-// strnstr
+// // strnstr
+// int	main(void)
+// {
+// 	printf("strstr : %p\n", strnstr("", "", 0));
+// 	printf("ft_strstr : %p\n", ft_strnstr("", "", 0));
+// 	printf("strstr : %p\n", strnstr("libft-test-tokyo", "test", 10));
+// 	printf("ft_strstr : %p\n", ft_strnstr("libft-test-tokyo", "test", 10));
+// 	return (0);
+// }
+
+// calloc
 int	main(void)
 {
-	printf("strstr : %p\n", strnstr("", "", 0));
-	printf("ft_strstr : %p\n", ft_strnstr("", "", 0));
-	printf("strstr : %p\n", strnstr("libft-test-tokyo", "test", 10));
-	printf("ft_strstr : %p\n", ft_strnstr("libft-test-tokyo", "test", 10));
+	printf("calloc : %p\n", calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+	printf("calloc : %p\n", ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+	printf("size_t_MAX : %zu\n", SIZE_MAX / 10 + 1);
 	return (0);
 }
