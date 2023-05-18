@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:35:04 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/18 14:50:48 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/18 21:04:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] != '\0')
 	{
 		if (48 <= nptr[i] && nptr[i] <= 57)
-			result = result * 10 + (nptr[i] - '0');
+		{
+			result = result * 10;
+			result += (nptr[i] - '0');
+		}
 		else
 			break ;
 		i++;

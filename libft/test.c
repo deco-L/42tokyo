@@ -7,8 +7,18 @@
 // atoi
 int	main(void)
 {
-	printf("atoi : %d\n", atoi("2147483648"));
-	printf("ft_atoi : %d\n", ft_atoi("2147483648"));
+	printf("atoi : %d\n", atoi("2147483650"));
+	printf("ft_atoi : %d\n", ft_atoi("2147483650"));
+	printf("atoi : %d\n", atoi("-2147483649"));
+	printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
+	printf("atoi : %d\n", atoi("9223372036854775801"));
+	printf("ft_atoi : %d\n", ft_atoi("9223372036854775801"));
+	printf("atoi : %d\n", atoi("-9223372036854775809"));
+	printf("ft_atoi : %d\n", ft_atoi("-9223372036854775809"));
+	printf("atoi : %d\n", atoi("1844674407370955161"));
+	printf("ft_atoi : %d\n", ft_atoi("1844674407370955161"));
+	printf("atoi : %d\n", atoi("18446744073709551616"));
+	printf("ft_atoi : %d\n", ft_atoi("18446744073709551616"));
 }
 
 // isalnum
