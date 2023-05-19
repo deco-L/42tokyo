@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:03:00 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/19 17:00:32 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/19 17:06:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,20 @@ size_t	ft_setlen(const char *s1, const char *set, size_t len_s1)
 
 char	*ft_in(char *result, const char *s1, const char *set, size_t len)
 {
-	int	i;
+	int		i;
+	size_t	j;
 
 	i = 0;
+	j = 0;
 	while (ft_check(s1[i], set) && s1[i] != '\0')
 		i++;
-	while (len--)
+	while (j < len)
 	{
-		result[i] = s1[i];
+		result[j] = s1[i];
 		i++;
+		j++;
 	}
-	result[i] = '\0';
+	result[j] = '\0';
 	return (result);
 }
 
