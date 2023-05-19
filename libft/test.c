@@ -4,22 +4,92 @@
 #include <string.h>
 #include "libft.h"
 
-// atoi
-int	main(void)
-{
-	printf("atoi : %d\n", atoi("2147483650"));
-	printf("ft_atoi : %d\n", ft_atoi("2147483650"));
-	printf("atoi : %d\n", atoi("-2147483649"));
-	printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
-	printf("atoi : %d\n", atoi("9223372036854775801"));
-	printf("ft_atoi : %d\n", ft_atoi("9223372036854775801"));
-	printf("atoi : %d\n", atoi("-9223372036854775809"));
-	printf("ft_atoi : %d\n", ft_atoi("-9223372036854775809"));
-	printf("atoi : %d\n", atoi("1844674407370955161"));
-	printf("ft_atoi : %d\n", ft_atoi("1844674407370955161"));
-	printf("atoi : %d\n", atoi("18446744073709551616"));
-	printf("ft_atoi : %d\n", ft_atoi("18446744073709551616"));
-}
+// // atoi
+// int	main(void)
+// {
+// 	printf("atoi : %d\n", atoi("2147483650"));
+// 	printf("ft_atoi : %d\n", ft_atoi("2147483650"));
+// 	printf("atoi : %d\n", atoi("-2147483649"));
+// 	printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
+// 	printf("atoi : %d\n", atoi("9223372036854775801"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775801"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775809"));
+// 	printf("ft_atoi : %d\n", ft_atoi("-9223372036854775809"));
+// 	printf("atoi : %d\n", atoi("1844674407370955161"));
+// 	printf("ft_atoi : %d\n", ft_atoi("1844674407370955161"));
+// 	printf("atoi : %d\n", atoi("18446744073709551616"));
+// 	printf("ft_atoi : %d\n", ft_atoi("18446744073709551616"));
+// }
+
+// int	main(void)
+// {
+// 	printf("atoi : %d\n", atoi("2147483643"));
+// 	printf("atoi : %d\n", atoi("2147483644"));
+// 	printf("atoi : %d\n", atoi("2147483645"));
+// 	printf("atoi : %d\n", atoi("2147483646"));
+// 	printf("atoi : %d\n", atoi("2147483647"));
+// 	printf("atoi : %d\n", atoi("2147483648"));
+// 	printf("atoi : %d\n", atoi("2147483649"));
+// 	printf("atoi : %d\n", atoi("2147483650"));
+// 	printf("atoi : %d\n", atoi("4294967293"));
+// 	printf("atoi : %d\n", atoi("4294967294"));
+// 	printf("atoi : %d\n", atoi("4294967295"));
+// 	printf("atoi : %d\n", atoi("4294967296"));
+// 	printf("atoi : %d\n", atoi("4294967297"));
+// 	printf("atoi : %d\n", atoi("4294967298"));
+// 	printf("atoi : %d\n", atoi("4294967299"));
+// 	printf("atoi : %d\n", atoi("4294967300"));
+// 	printf("atoi : %d\n", atoi("9223372036854775805"));
+// 	printf("atoi : %d\n", atoi("9223372036854775806"));
+// 	printf("atoi_max : %d\n", atoi("9223372036854775807"));
+// 	printf("atoi : %d\n", atoi("9223372036854775808"));
+// 	printf("atoi : %d\n", atoi("9223372036854775809"));
+// 	printf("atoi : %d\n", atoi("9223372036854775810"));
+// 	printf("atoi : %d\n", atoi("9223372036854775811"));
+// 	printf("atoi : %d\n", atoi("9223372036854775812"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775803"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775804"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775805"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775806"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775807"));
+// 	printf("atoi_min : %d\n", atoi("-9223372036854775808"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775809"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775810"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775811"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775812"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775813"));
+// 	printf("atoi : %d\n", atoi("-9223372036854775814"));
+// 	printf("atoi : %d\n", atoi("10000000000000000000"));
+// 	printf("atoi : %d\n", atoi("18446744073709551615"));
+// 	printf("atoi : %d\n", atoi("18446744073709551616"));
+// 	printf("atoi : %d\n", atoi("18446744073709551617"));
+// 	// printf("atoi : %d\n", atoi("100000000000000000000"));
+// 	// printf("atoi : %d\n", atoi("1000000000000000000000"));
+// 	// printf("atoi : %d\n", atoi("10000000000000000000000"));
+// 	printf("atoi : %d\n\n", atoi("10000000000000000000000000"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775807"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775808"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775809"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775810"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775811"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775812"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775813"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775814"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775815"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775816"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775817"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775818"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775819"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775820"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775821"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775822"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775823"));
+// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775824"));
+// 	printf("ft_atoi : %d\n", ft_atoi("10000000000000000000"));
+// 	printf("ft_atoi : %d\n", ft_atoi("18446744073709551615"));
+// 	printf("ft_atoi : %d\n", ft_atoi("18446744073709551616"));
+// 	printf("ft_atoi : %d\n", ft_atoi("18446744073709551617"));
+// }
 
 // isalnum
 // int	main(void)

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:35:04 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/18 21:04:06 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/19 13:43:15 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 int	ft_space(const char *nptr, int i);
 int	ft_pulmi(const char *nptr, int i);
+int	ft_check(const char *nptr, unsigned long long result, int count, int i);
 int	ft_atoi(const char	*nptr);
 
 int	ft_space(const char *nptr, int i)
 {
-	int	flag;
-
-	flag = 0;
 	if (9 <= nptr[i] && nptr[i] <= 13)
-		flag++;
+		i++;
 	if (nptr[i] == ' ' || nptr[i] == '	')
-		flag++;
-	return (flag);
+		i++;
+	return (i);
 }
 
 int	ft_pulmi(const char *nptr, int i)
@@ -40,29 +38,42 @@ int	ft_pulmi(const char *nptr, int i)
 	return (flag);
 }
 
+int	ft_check(const char *nptr, unsigned long long result, int count, int i)
+{
+	int	flag;
+
+	flag = 0;
+	if (result >= 9223372036854775807 && count != 2)
+		flag = 1;
+	else if (result == 1844674407370955161 && nptr[i + 1] > '5')
+		flag = 1;
+	else if (result > 9223372036854775807 && count == 2)
+		flag = 2;
+	return (flag);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	count;
-	int	result;
+	int					i;
+	int					count;
+	unsigned long long	result;
 
 	i = 0;
-	count = 0;
 	result = 0;
-	while (ft_space(nptr, i))
-		i++;
+	i = ft_space(nptr, i);
 	count = ft_pulmi(nptr, i);
 	if (ft_pulmi(nptr, i))
 		i++;
 	while (nptr[i] != '\0')
 	{
 		if (48 <= nptr[i] && nptr[i] <= 57)
-		{
-			result = result * 10;
-			result += (nptr[i] - '0');
-		}
+			result = result * 10 + (nptr[i] - '0');
 		else
 			break ;
+		if (ft_check(nptr, result, count, i) == 1)
+			return (-1);
+		else if (ft_check(nptr, result, count, i) == 2)
+			return (0);
 		i++;
 	}
 	if (count == 2)
