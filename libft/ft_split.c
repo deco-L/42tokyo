@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:28:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/19 17:23:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:15:11 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ char	**ft_split(const char *str, char c)
 	i = 0;
 	count = 0;
 	words = ft_word_cnt(str, c);
-	printf("%d\n", words);
 	result = (char **)malloc(sizeof(char *) * (words + 1));
 	if (result == NULL)
 		return (NULL);
