@@ -6,39 +6,87 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:03:00 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/18 16:19:22 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/19 17:00:32 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int		ft_check(const char s1, const char *set);
+size_t	ft_setlen(const char *s1, const char *set, size_t len_s1);
+char	*ft_in(char *result, const char *s1, const char *set, size_t len);
 char	*ft_strtrim(const char *s1, const char *set);
+
+int	ft_check(const char s1, const char *set)
+{
+	int	i;
+
+	i = 0;
+	while (set[i] != '\0')
+	{
+		if (s1 == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+size_t	ft_setlen(const char *s1, const char *set, size_t len_s1)
+{
+	size_t		i;
+	size_t		len;
+
+	i = 0;
+	len = 0;
+	while (s1[i] != '\0')
+	{
+		if (ft_check(s1[i], set))
+			len++;
+		else
+			break ;
+		i++;
+	}
+	if (len == len_s1)
+		return (len);
+	i = len_s1;
+	while (i > 0)
+	{
+		if (ft_check(s1[i - 1], set))
+			len++;
+		else
+			break ;
+		i--;
+	}
+	return (len);
+}
+
+char	*ft_in(char *result, const char *s1, const char *set, size_t len)
+{
+	int	i;
+
+	i = 0;
+	while (ft_check(s1[i], set) && s1[i] != '\0')
+		i++;
+	while (len--)
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
+}
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*result;
-	char	*start;
-	size_t	i;
 	size_t	len_s1;
 	size_t	len_s2;
 
 	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(set);
-	if (len_s1 < len_s2)
-		return (NULL);
-	start = ft_strnstr(s1, set, len_s1);
+	len_s2 = ft_setlen(s1, set, len_s1);
 	result = (char *)malloc(sizeof(char) * (len_s1 - len_s2 + 1));
-	if (result == NULL || !(*start))
+	if (result == NULL)
 		return (NULL);
-	i = 0;
-	while (i < len_s1 + 1)
-	{
-		if (&s1[i] == start)
-			i += len_s2;
-		*result = s1[i];
-		result++;
-		i++;
-	}
-	result -= (len_s1 - len_s2 + 1);
+	ft_in(result, s1, set, len_s1 - len_s2);
 	return (result);
 }

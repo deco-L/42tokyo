@@ -252,3 +252,14 @@
 // 	}
 // 	return (0);
 // }
+
+int	main(void)
+{
+	printf("|%s|\n", (ft_strtrim("hello world", "world"), "hello "));
+	printf("|%s|\n", (ft_strtrim("hello world", "hello"), " world"));
+	printf("|%s|\n", (ft_strtrim("hello world", ""), "hello world"));
+	printf("|%s|\n", (ft_strtrim("", ""), ""));
+	printf("|%s|\n", (ft_strtrim("    hello world     ", " "), "hello world"));
+	printf("|%s|\n", (ft_strtrim(" \n\t\r    hello \n\t\r world     \r\t\n\t \r\n", " \n\t\r"), "hello \n\t\r world"));
+	printf("|%s|\n", (ft_strtrim("hello world", "abcdefghijklmnopqrstuvwxyz"), " "));
+}
