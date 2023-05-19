@@ -241,25 +241,46 @@
 // 	return (0);
 // }
 
-// // split
-// int	main(void)
-// {
-// 	char	**result;
-// 	result = ft_split("hello,world,42,tokyo", ',');
-// 	for (int i = 0; i < 5; i++)
-// 	{
-// 		printf("ft_split : %s\n", result[i]);
-// 	}
-// 	return (0);
-// }
-
+// split
 int	main(void)
 {
-	printf("|%s|\n", (ft_strtrim("hello world", "world"), "hello "));
-	printf("|%s|\n", (ft_strtrim("hello world", "hello"), " world"));
-	printf("|%s|\n", (ft_strtrim("hello world", ""), "hello world"));
-	printf("|%s|\n", (ft_strtrim("", ""), ""));
-	printf("|%s|\n", (ft_strtrim("    hello world     ", " "), "hello world"));
-	printf("|%s|\n", (ft_strtrim(" \n\t\r    hello \n\t\r world     \r\t\n\t \r\n", " \n\t\r"), "hello \n\t\r world"));
-	printf("|%s|\n", (ft_strtrim("hello world", "abcdefghijklmnopqrstuvwxyz"), " "));
+	char	**result;
+	char	**result1;
+	result = ft_split("hello,world,42,tokyo", ',');
+	result1 = ft_split("\0aa\0bbb", '\0');
+	for (int i = 0; i < 5; i++)
+	{
+		printf("ft_split : %s\n", result[i]);
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		printf("result[%d] : %s\n", i, result1[i]);
+	}
+	return (0);
 }
+
+// int	main(void)
+// {
+// 	printf("|%s|\n", (ft_strtrim("hello world", "world"), "hello "));
+// 	printf("|%s|\n", (ft_strtrim("hello world", "hello"), " world"));
+// 	printf("|%s|\n", (ft_strtrim("hello world", ""), "hello world"));
+// 	printf("|%s|\n", (ft_strtrim("", ""), ""));
+// 	printf("|%s|\n", (ft_strtrim("    hello world     ", " "), "hello world"));
+// 	printf("|%s|\n", (ft_strtrim(" \n\t\r    hello \n\t\r world     \r\t\n\t \r\n", " \n\t\r"), "hello \n\t\r world"));
+// 	printf("|%s|\n", (ft_strtrim("hello world", "abcdefghijklmnopqrstuvwxyz"), " "));
+// }
+
+// int	main(void)
+// {
+// 	int		size;
+// 	size_t	i;
+
+// 	size = 5;
+// 	i = 3;
+// 	while (size--)
+// 	{
+// 		i--;
+// 	}
+// 	printf("size_t minus : %zu\n", i);
+// 	return (0);
+// }
