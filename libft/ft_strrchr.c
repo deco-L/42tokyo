@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:47:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/18 11:11:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:40:22 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ char	*ft_strrchr(const char *s, int c)
 	int				buff;
 	int				flag;
 	unsigned char	cbuf;
-	char			*s1;
+	unsigned char	*s1;
 
 	i = 0;
 	buff = -1;
 	flag = 0;
 	cbuf = (unsigned char)c;
-	s1 = (char *)s;
+	s1 = (unsigned char *)s;
 	if (cbuf == '\0')
 		flag++;
 	while (s1[i] != '\0')
