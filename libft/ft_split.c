@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:28:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/19 18:15:11 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/20 09:25:14 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	**ft_split(const char *str, char c);
 int		ft_check(char str, char c);
 int		ft_word_cnt(const char *str, char c);
 int		ft_letter_cnt(const char *str, char c, int i);
+char	*ft_in(char *dest, const char *str, int letter_cnt, int i);
 
 int	ft_check(char str, char c)
 {

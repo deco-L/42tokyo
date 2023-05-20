@@ -232,6 +232,7 @@
 // {
 // 	char *s = "libft-test-tokyo";
 // 	printf("%s\n", ft_substr(s, 20, 100));
+// 	printf("|%s|\n", ft_substr(s, 20, 5));
 // }
 
 // // strjoin
@@ -246,16 +247,23 @@ int	main(void)
 {
 	char	**result;
 	char	**result1;
+	char	**result2;
+	char	**result3;
 	result = ft_split("hello,world,42,tokyo", ',');
 	result1 = ft_split("\0aa\0bbb", '\0');
+	result2 = ft_split("", 'a');
+	result3 = ft_split(NULL, 'a');
 	for (int i = 0; i < 5; i++)
 	{
 		printf("ft_split : %s\n", result[i]);
 	}
 	for (int i = 0; i < 3; i++)
 	{
-		printf("result[%d] : %s\n", i, result1[i]);
+		printf("result1[%d] : %s\n", i, result1[i]);
+		i++;
 	}
+	printf("|| : %s\n", result2[0]);
+	// printf("NULL : %s\n", result3[0]);
 	return (0);
 }
 
