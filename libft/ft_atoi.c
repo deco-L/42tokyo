@@ -6,27 +6,38 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:35:04 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/19 13:43:15 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:01:11 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_space(const char *nptr, int i);
-int	ft_pulmi(const char *nptr, int i);
-int	ft_check(const char *nptr, unsigned long long result, int count, int i);
-int	ft_atoi(const char	*nptr);
+static int	ft_space(const char *nptr, int i);
+static int	ft_pulmi(const char *nptr, int i);
+static int	ftch(const char *nptr, unsigned long long result, int count, int i);
+int			ft_atoi(const char	*nptr);
 
-int	ft_space(const char *nptr, int i)
+static int	ft_space(const char *nptr, int i)
 {
-	if (9 <= nptr[i] && nptr[i] <= 13)
-		i++;
-	if (nptr[i] == ' ' || nptr[i] == '	')
-		i++;
+	int	flag;
+
+	flag = 0;
+	while (('9' < nptr[i] || nptr[i] < '0') && nptr[i] != '\0')
+	{
+		flag = 0;
+		if (9 <= nptr[i] && nptr[i] <= 13)
+			flag++;
+		if (nptr[i] == ' ' || nptr[i] == '	')
+			flag++;
+		if (flag != 0)
+			i++;
+		else
+			break ;
+	}
 	return (i);
 }
 
-int	ft_pulmi(const char *nptr, int i)
+static int	ft_pulmi(const char *nptr, int i)
 {
 	int	flag;
 
@@ -38,7 +49,7 @@ int	ft_pulmi(const char *nptr, int i)
 	return (flag);
 }
 
-int	ft_check(const char *nptr, unsigned long long result, int count, int i)
+static int	ftch(const char *nptr, unsigned long long result, int count, int i)
 {
 	int	flag;
 
@@ -70,9 +81,9 @@ int	ft_atoi(const char *nptr)
 			result = result * 10 + (nptr[i] - '0');
 		else
 			break ;
-		if (ft_check(nptr, result, count, i) == 1)
+		if (ftch(nptr, result, count, i) == 1)
 			return (-1);
-		else if (ft_check(nptr, result, count, i) == 2)
+		else if (ftch(nptr, result, count, i) == 2)
 			return (0);
 		i++;
 	}

@@ -4,22 +4,22 @@
 #include <string.h>
 #include "libft.h"
 
-// // atoi
-// int	main(void)
-// {
-// 	printf("atoi : %d\n", atoi("2147483650"));
-// 	printf("ft_atoi : %d\n", ft_atoi("2147483650"));
-// 	printf("atoi : %d\n", atoi("-2147483649"));
-// 	printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
-// 	printf("atoi : %d\n", atoi("9223372036854775801"));
-// 	printf("ft_atoi : %d\n", ft_atoi("9223372036854775801"));
-// 	printf("atoi : %d\n", atoi("-9223372036854775809"));
-// 	printf("ft_atoi : %d\n", ft_atoi("-9223372036854775809"));
-// 	printf("atoi : %d\n", atoi("1844674407370955161"));
-// 	printf("ft_atoi : %d\n", ft_atoi("1844674407370955161"));
-// 	printf("atoi : %d\n", atoi("18446744073709551616"));
-// 	printf("ft_atoi : %d\n", ft_atoi("18446744073709551616"));
-// }
+// atoi
+int	main(void)
+{
+	printf("atoi : %d\n", atoi("  	  12   "));
+	printf("ft_atoi : %d\n", ft_atoi("  	  12   "));
+	// printf("atoi : %d\n", atoi("-2147483649"));
+	// printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
+	// printf("atoi : %d\n", atoi("9223372036854775801"));
+	// printf("ft_atoi : %d\n", ft_atoi("9223372036854775801"));
+	// printf("atoi : %d\n", atoi("-9223372036854775809"));
+	// printf("ft_atoi : %d\n", ft_atoi("-9223372036854775809"));
+	// printf("atoi : %d\n", atoi("1844674407370955161"));
+	// printf("ft_atoi : %d\n", ft_atoi("1844674407370955161"));
+	// printf("atoi : %d\n", atoi("18446744073709551616"));
+	// printf("ft_atoi : %d\n", ft_atoi("18446744073709551616"));
+}
 
 // int	main(void)
 // {
@@ -160,6 +160,8 @@
 // 	char	*dst = malloc(20);
 // 	printf("memmove : %s\n", (char *)memmove(dst, src, 10));
 // 	printf("ft_memmove : %s\n", (char *)ft_memmove(dst, src, 10));
+// 	printf("memmove : %s\n", (char *)memmove(NULL, NULL, 5));
+// 	printf("ft_memmove : %s\n", (char *)ft_memmove(NULL, NULL, 5));
 // 	return (0);
 // }
 
@@ -293,17 +295,17 @@
 // 	return (0);
 // }
 
-// strlcpy
-int	main(void)
-{
-	char *dst1 = calloc(10, sizeof(char));
-	char *dst2 = calloc(10, sizeof(char));
-	char *src1 = calloc(10, sizeof(char));
-	char *src2 = calloc(10, sizeof(char));
+// // strlcpy
+// int	main(void)
+// {
+// 	char *dst1 = calloc(10, sizeof(char));
+// 	char *dst2 = calloc(10, sizeof(char));
+// 	char *src1 = calloc(10, sizeof(char));
+// 	char *src2 = calloc(10, sizeof(char));
 
-	strlcpy(dst2, src2, 0);
-	ft_strlcpy(dst1, src1, 0);
-	printf("%s\n", dst2);
-	printf("%s\n", dst1);
-	return (0);
-}
+// 	strlcpy(dst2, src2, 0);
+// 	ft_strlcpy(dst1, src1, 0);
+// 	printf("%s\n", dst2);
+// 	printf("%s\n", dst1);
+// 	return (0);
+// }

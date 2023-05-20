@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:24:04 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/18 16:55:43 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:14:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*result;
 
+	if (!s)
+		return (NULL);
 	if (start > ft_strlen(s))
 		return ((char *)ft_calloc(1, sizeof(char)));
 	i = 0;

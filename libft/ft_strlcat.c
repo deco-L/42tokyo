@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 01:50:50 by yayoi             #+#    #+#             */
-/*   Updated: 2023/05/20 10:15:32 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/20 12:51:32 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 	i = 0;
 	s_len = ft_strlen(src);
-	if (dest == NULL)
+	if (dest == NULL && size == 0)
 		return (size + s_len);
 	d_len = ft_strlen(dest);
 	if (size < d_len + 1)

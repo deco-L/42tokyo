@@ -6,17 +6,17 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 22:50:17 by yayoi             #+#    #+#             */
-/*   Updated: 2023/05/18 14:20:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/20 12:39:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n);
-int		get_digit(long nbr);
-char	*insert_number(long nbr, char *result, unsigned int digit);
+char		*ft_itoa(int n);
+static int	get_digit(long nbr);
+static char	*insert_number(long nbr, char *result, unsigned int digit);
 
-int	get_digit(long nbr)
+static int	get_digit(long nbr)
 {
 	unsigned int	count;
 
@@ -34,7 +34,7 @@ int	get_digit(long nbr)
 	return (count);
 }
 
-char	*insert_number(long nbr, char *result, unsigned int digit)
+static char	*insert_number(long nbr, char *result, unsigned int digit)
 {
 	int	flag;
 
