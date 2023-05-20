@@ -242,30 +242,30 @@
 // 	return (0);
 // }
 
-// split
-int	main(void)
-{
-	char	**result;
-	char	**result1;
-	char	**result2;
-	char	**result3;
-	result = ft_split("hello,world,42,tokyo", ',');
-	result1 = ft_split("\0aa\0bbb", '\0');
-	result2 = ft_split("", 'a');
-	result3 = ft_split(NULL, 'a');
-	for (int i = 0; i < 5; i++)
-	{
-		printf("ft_split : %s\n", result[i]);
-	}
-	for (int i = 0; i < 3; i++)
-	{
-		printf("result1[%d] : %s\n", i, result1[i]);
-		i++;
-	}
-	printf("|| : %s\n", result2[0]);
-	// printf("NULL : %s\n", result3[0]);
-	return (0);
-}
+// // split
+// int	main(void)
+// {
+// 	char	**result;
+// 	char	**result1;
+// 	char	**result2;
+// 	char	**result3;
+// 	result = ft_split("hello,world,42,tokyo", ',');
+// 	result1 = ft_split("\0aa\0bbb", '\0');
+// 	result2 = ft_split("", 'a');
+// 	result3 = ft_split(NULL, 'a');
+// 	for (int i = 0; i < 5; i++)
+// 	{
+// 		printf("ft_split : %s\n", result[i]);
+// 	}
+// 	for (int i = 0; i < 3; i++)
+// 	{
+// 		printf("result1[%d] : %s\n", i, result1[i]);
+// 		i++;
+// 	}
+// 	printf("|| : %s\n", result2[0]);
+// 	// printf("NULL : %s\n", result3[0]);
+// 	return (0);
+// }
 
 // int	main(void)
 // {
@@ -292,3 +292,18 @@ int	main(void)
 // 	printf("size_t minus : %zu\n", i);
 // 	return (0);
 // }
+
+// strlcpy
+int	main(void)
+{
+	char *dst1 = calloc(10, sizeof(char));
+	char *dst2 = calloc(10, sizeof(char));
+	char *src1 = calloc(10, sizeof(char));
+	char *src2 = calloc(10, sizeof(char));
+
+	strlcpy(dst2, src2, 0);
+	ft_strlcpy(dst1, src1, 0);
+	printf("%s\n", dst2);
+	printf("%s\n", dst1);
+	return (0);
+}
