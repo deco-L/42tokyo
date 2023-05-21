@@ -98,12 +98,12 @@
 // 	int		num;
 // 	char	c;
 
-// isslpha
-int main(void)
-{
-	int	c = -1;
-	printf("isalpha : %d, ft_isalpha : %d\n", isalpha(c), ft_isalpha(c));
-}
+// // isslpha
+// int main(void)
+// {
+// 	int	c = -1;
+// 	printf("isalpha : %d, ft_isalpha : %d\n", isalpha(c), ft_isalpha(c));
+// }
 
 // 	c = '!';
 // 	num = isalnum(c);
@@ -170,6 +170,7 @@ int main(void)
 // 	printf("ft_memmove : %s\n", (char *)ft_memmove(dst, src, 10));
 // 	printf("memmove : %s\n", (char *)memmove(NULL, NULL, 5));
 // 	printf("ft_memmove : %s\n", (char *)ft_memmove(NULL, NULL, 5));
+// 	printf("%p\n", ft_memmove(dst, NULL, 1));
 // 	return (0);
 // }
 
@@ -317,3 +318,12 @@ int main(void)
 // 	printf("%s\n", dst1);
 // 	return (0);
 // }
+
+// calloc
+
+int main(void)
+{
+	printf("%s\n", ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+	printf("%p\n", calloc(0, 0));
+	printf("%p\n", ft_calloc(5, 0));
+}
