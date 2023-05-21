@@ -4,22 +4,23 @@
 #include <string.h>
 #include "libft.h"
 
-// atoi
-int	main(void)
-{
-	printf("atoi : %d\n", atoi("  	  12   "));
-	printf("ft_atoi : %d\n", ft_atoi("  	  12   "));
-	// printf("atoi : %d\n", atoi("-2147483649"));
-	// printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
-	// printf("atoi : %d\n", atoi("9223372036854775801"));
-	// printf("ft_atoi : %d\n", ft_atoi("9223372036854775801"));
-	// printf("atoi : %d\n", atoi("-9223372036854775809"));
-	// printf("ft_atoi : %d\n", ft_atoi("-9223372036854775809"));
-	// printf("atoi : %d\n", atoi("1844674407370955161"));
-	// printf("ft_atoi : %d\n", ft_atoi("1844674407370955161"));
-	// printf("atoi : %d\n", atoi("18446744073709551616"));
-	// printf("ft_atoi : %d\n", ft_atoi("18446744073709551616"));
-}
+// // atoi
+// int	main(void)
+// {
+// 	printf("atoi : %d\n", atoi("  	  12   "));
+// 	printf("ft_atoi : %d\n", ft_atoi("  	  12   "));
+// 	write(-1, 'a', 1);
+// 	// printf("atoi : %d\n", atoi("-2147483649"));
+// 	// printf("ft_atoi : %d\n", ft_atoi("-2147483649"));
+// 	// printf("atoi : %d\n", atoi("9223372036854775801"));
+// 	// printf("ft_atoi : %d\n", ft_atoi("9223372036854775801"));
+// 	// printf("atoi : %d\n", atoi("-9223372036854775809"));
+// 	// printf("ft_atoi : %d\n", ft_atoi("-9223372036854775809"));
+// 	// printf("atoi : %d\n", atoi("1844674407370955161"));
+// 	// printf("ft_atoi : %d\n", ft_atoi("1844674407370955161"));
+// 	// printf("atoi : %d\n", atoi("18446744073709551616"));
+// 	// printf("ft_atoi : %d\n", ft_atoi("18446744073709551616"));
+// }
 
 // int	main(void)
 // {
@@ -96,6 +97,13 @@ int	main(void)
 // {
 // 	int		num;
 // 	char	c;
+
+// isslpha
+int main(void)
+{
+	int	c = -1;
+	printf("isalpha : %d, ft_isalpha : %d\n", isalpha(c), ft_isalpha(c));
+}
 
 // 	c = '!';
 // 	num = isalnum(c);

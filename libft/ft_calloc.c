@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:04:09 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/18 16:39:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:59:32 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		c[i] = '\0';
 		i++;
 	}
-	return (c);
+	return ((void *)c);
 }

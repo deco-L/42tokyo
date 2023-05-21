@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/05/20 18:06:24 by csakamot         ###   ########.fr        #
+#    Updated: 2023/05/21 14:57:13 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,19 +23,15 @@ SRC			= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
 
 OBJS		= ${SRC:.c=.o}
 
-HEAD		= libft.h
-
 CC			= cc
 
 CFLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -fr
 
-AR			= ar r
+AR			= ar rcs
 
 all:		${NAME}
-
-.c.o:		${CC} -c -I ${HEAD} $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 			${AR} ${NAME} ${OBJS}
@@ -47,3 +43,5 @@ fclean:		clean
 			rm -f ${NAME}
 
 re:			fclean all
+
+.PHONY:		all clean fclean re
