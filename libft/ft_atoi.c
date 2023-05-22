@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:35:04 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/20 17:01:11 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:31:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ static int	ftch(const char *nptr, unsigned long long result, int count, int i)
 	int	flag;
 
 	flag = 0;
-	if (result >= 9223372036854775807 && count != 2)
+	if (result >= LONG_MAX && count != 2)
 		flag = 1;
-	else if (result == 1844674407370955161 && nptr[i + 1] > '5')
+	else if (result == SIZE_MAX / 10 && nptr[i + 1] > '5')
 		flag = 1;
-	else if (result > 9223372036854775807 && count == 2)
+	else if (result > LONG_MAX && count == 2)
 		flag = 2;
 	return (flag);
 }

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 09:01:05 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/21 16:32:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:32:27 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 int		ft_atoi(const char *nprt);
 void	ft_bzero(void *s, size_t n);

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:39:35 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/20 12:31:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:20:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ void	*ft_memmove(void *dest, const void *src, size_t size)
 	if (dest <= src)
 	{
 		while (size--)
-		{
 			*result++ = *origin++;
-		}
 	}
 	else
 	{

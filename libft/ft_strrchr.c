@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:47:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:44:20 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:23:38 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *s, int c);
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int				i;
+	size_t			i;
 	int				buff;
 	int				flag;
 	unsigned char	cbuf;
