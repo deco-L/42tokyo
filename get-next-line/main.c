@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/23 15:51:38 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/23 15:12:55 by csakamot          #+#    #+#             */
+/*   Updated: 2023/05/23 15:54:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fcntl.h>
+#include <stdio.h>
 #include "get_next_line.h"
 
-char	*get_next_line(int fd);
-
-char	*get_next_line(int fd)
+int	main(int argc, char **argv)
 {
-	size_t			i;
-	unsigned char	*sbuf;
-	unsigned char	*line;
+	int		fd;
+	int		rc;
+	char	*line;
+	char	*line_file;
 
-	i = 0;
-	sbuf = (unsigned char *)malloc(BUFFER_SIZE * sizeof(unsigned char));
-	if (read(fd, sbuf, BUFFER_SIZE))
-	{
-		while (i < BUFFER_SIZE)
-		{
-			i++;
-		}
-	}
-	return ((char *)line);
+	fd = open(*argv, O_RDONLY);
+	line = get_next_line(fd);
+	printf("%s\n", line);
+	printf("fd : %d\n", fd);
+	close(fd);
+	printf("%d\n", fd);
+
+	fd = open("file.txt", O_RDONLY);
+	line_file = get_next_line(fd);
+	printf("%s\n", line_file);
+	printf("%d\n", fd);
+	close(fd);
+	printf("%d\n", fd);
+	return (0);
 }
