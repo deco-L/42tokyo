@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/05/21 15:47:46 by csakamot         ###   ########.fr        #
+#    Updated: 2023/05/23 12:57:06 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,9 @@ RM			= rm -fr
 
 AR			= ar rcs
 
-all:		${NAME}
+all:		$(NAME)
 
-${NAME}:	${OBJS}
+$(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}
 
 clean:
