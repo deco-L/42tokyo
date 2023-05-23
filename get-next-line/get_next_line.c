@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/23 15:51:38 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:26:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ char	*get_next_line(int fd)
 	unsigned char	*line;
 
 	i = 0;
-	sbuf = (unsigned char *)malloc(BUFFER_SIZE * sizeof(unsigned char));
-	if (read(fd, sbuf, BUFFER_SIZE))
+	while (read(fd, sbuf, BUFFER_SIZE))
 	{
+		sbuf = (unsigned char *)malloc(BUFFER_SIZE * sizeof(unsigned char));
 		while (i < BUFFER_SIZE)
 		{
+			if (sbuf[i] != '\n')
+				line[]
 			i++;
 		}
 	}
