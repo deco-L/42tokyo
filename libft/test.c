@@ -140,26 +140,26 @@
 // 	return (0);
 // }
 
-// strchr
-int main(void)
-{
-	char *s = "ibft-test-tokyol";
-	if(strchr(s, 'i' - 256))
-		printf("Yes\n");
-	else
-		printf("No\n");
-	if (ft_strchr(s, 'l' + 256))
-		printf("Yes\n");
-	else
-		printf("NO\n");
-	printf("strchr : %p\n", strchr(s, 'i' - 256));
-	printf("ft_strchr : %p\n", ft_strchr(s, 'l' + 256));
-	printf("strrchr : %p\n", strrchr(s, 'l' + 256));
-	printf("ft_strrchr : %p\n", ft_strrchr(s, 'l' + 256));
-	printf("strrchr : %p\n", strrchr(s, 'l'));
-	printf("ft_strrchr : %p\n", ft_strrchr(s, 'l'));
-	return (0);
-}
+// // strchr
+// int main(void)
+// {
+// 	char *s = "ibft-test-tokyol";
+// 	if(strchr(s, 'i' - 256))
+// 		printf("Yes\n");
+// 	else
+// 		printf("No\n");
+// 	if (ft_strchr(s, 'l' + 256))
+// 		printf("Yes\n");
+// 	else
+// 		printf("NO\n");
+// 	printf("strchr : %p\n", strchr(s, 'i' - 256));
+// 	printf("ft_strchr : %p\n", ft_strchr(s, 'l' + 256));
+// 	printf("strrchr : %p\n", strrchr(s, 'l' + 256));
+// 	printf("ft_strrchr : %p\n", ft_strrchr(s, 'l' + 256));
+// 	printf("strrchr : %p\n", strrchr(s, 'l'));
+// 	printf("ft_strrchr : %p\n", ft_strrchr(s, 'l'));
+// 	return (0);
+// }
 
 // // memmove
 // int	main(void)
@@ -323,9 +323,16 @@ int main(void)
 
 // calloc
 
-// int main(void)
-// {
-// 	printf("%s\n", ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
-// 	printf("%p\n", calloc(0, 0));
-// 	printf("%p\n", ft_calloc(5, 0));
-// }
+int main(void)
+{
+	void	*test;
+
+	test = calloc(0, 0);
+	printf("%s\n", ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+	printf("%s\n", calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+	printf("%p\n", calloc(0, 0));
+	printf("%p\n", malloc(0));
+	if (test == NULL)
+		printf("ok : %p\n", calloc(0, 0));
+	printf("%p\n", ft_calloc(5, 0));
+}
