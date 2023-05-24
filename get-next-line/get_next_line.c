@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/23 21:30:28 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:47:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	*get_next_line(int fd)
 		{
 			if (sbuf[line_len] != '\n')
 				line_len++;
+			else
+				break ;
 		}
 		printf("sbuf : %s\n",sbuf);
 		line = (unsigned char *)malloc(sizeof(unsigned char) * (line_len + 1));
