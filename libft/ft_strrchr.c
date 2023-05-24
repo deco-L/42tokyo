@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:47:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/23 13:27:51 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:30:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*ft_strrchr(const char *s, int c)
 	len = ft_strlen(s);
 	s1 = (unsigned char *) s;
 	cbuf = (unsigned char) c;
-
 	while (len)
 	{
 		if (s1[len] == cbuf)
