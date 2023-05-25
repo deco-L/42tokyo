@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/26 03:13:44 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/26 04:53:49 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ unsigned char	*ft_reader(unsigned char *result, int fd, unsigned char **buf)
 char	*get_next_line(int fd)
 {
 	unsigned char			*result;
-	static unsigned char	*buf[512];
+	static unsigned char	*buf[_SC_OPEN_MAX];
 
 	// if (buf[fd])
 	// 	printf("buf : %s\n", buf[fd]);
