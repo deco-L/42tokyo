@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/25 14:51:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:06:04 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,22 @@
 
 char			*get_next_line(int fd);
 unsigned char	*ft_reader(int fd, unsigned char *buf);
+unsigned char	*ft_buf_check(int fd);
+
+unsigned char	*ft_buf_check(int fd)
+{
+	char			*c;
+	unsigned char	*result;
+
+	c = ft_substr(buf[fd], '\n');
+	retult = malloc(0);
+	if (*c)
+	{
+		result = ft_substr(buf[fd], 0, c - buf[fd]);
+		buf[fd] = ft_substr(buf[fd], c - buf[fd], BUFFER_SIZE);
+	}
+	return (result);
+}
 
 unsigned char	*ft_reader(int fd, unsigned char *buf)
 {
