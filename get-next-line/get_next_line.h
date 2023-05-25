@@ -6,12 +6,14 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/25 13:23:32 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:43:11 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# define OPEN_MAX 20
 
 # include <stdlib.h>
 # include <unistd.h>
