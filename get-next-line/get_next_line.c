@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/25 15:06:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:42:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ unsigned char	*ft_buf_check(int fd)
 
 	c = ft_substr(buf[fd], '\n');
 	retult = malloc(0);
-	if (*c)
+	if (*c && buf[fd])
 	{
 		result = ft_substr(buf[fd], 0, c - buf[fd]);
 		buf[fd] = ft_substr(buf[fd], c - buf[fd], BUFFER_SIZE);
 	}
+	else (!*c && buf[fd])
 	return (result);
 }
 
