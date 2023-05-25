@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/25 14:18:20 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:51:49 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ unsigned char	*ft_reader(int fd, unsigned char *buf);
 unsigned char	*ft_reader(int fd, unsigned char *buf)
 {
 	char	*c;
-	char	*result;
+	char	*result = "";
 	char	*stock;
 
 	stock = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -30,8 +30,8 @@ unsigned char	*ft_reader(int fd, unsigned char *buf)
 		c = ft_strchr(stock, '\n');
 		if (*c)
 		{
-			printf("ok\n");
-			ft_strjoin(result, ft_substr(stock, 0, c - stock));
+			printf("substr : %s\n", ft_substr(stock, 0, c - stock));
+			result = ft_strjoin(result, ft_substr(stock, 0, c - stock));
 			break ;
 		}
 		else
@@ -41,7 +41,7 @@ unsigned char	*ft_reader(int fd, unsigned char *buf)
 			ft_reader(fd, buf);
 		}
 	}
-	printf("%s\n\n", result);
+	printf("result : %s\n\n", result);
 	return ((unsigned char *)result);
 }
 
