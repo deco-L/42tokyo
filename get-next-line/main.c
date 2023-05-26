@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:12:55 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/26 12:45:18 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/26 13:51:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,12 @@ int	main(int argc, char **argv)
 	char	*line_file;
 
 	fd = open(argv[1], O_RDONLY);
-	printf("ok\n");
+	line = get_next_line(fd);
+	printf("main.c : %s", line);
+	line = get_next_line(fd);
+	printf("main.c : %s", line);
+	line = get_next_line(fd);
+	printf("main.c : %s", line);
 	line = get_next_line(fd);
 	printf("main.c : %s", line);
 	printf("fd : %d\n", fd);
