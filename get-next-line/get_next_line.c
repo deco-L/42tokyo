@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/26 14:43:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:56:27 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,25 @@ unsigned char	*ft_reader(char *result, int fd, unsigned char **buf)
 	char			*s1;
 
 	stock = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	while (read(fd, stock, BUFFER_SIZE))
+	while (read(fd, stock, BUFFER_SIZE) || !ft_strchr(stock, '\0'))
 	{
 		stock[BUFFER_SIZE] = '\0';
 		c = ft_strchr(stock, '\n');
+		s1 = stock;
 		if (c)
 		{
-			s1 = stock;
 			result = ft_strjoin(result, ft_substr(s1, 0, c - s1 + 1));
 			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, BUFFER_SIZE);
 			return ((unsigned char *)result);
 		}
 		else
 		{
-			s1 = stock;
 			result = ft_strjoin(result, s1);
 			continue ;
 		}
 	}
+	if (stock)
+		return ((unsigned char *)result);
 	return (NULL);
 }
 
