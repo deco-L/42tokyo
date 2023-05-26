@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/26 04:53:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:43:58 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 char			*get_next_line(int fd);
 unsigned char	*ft_buf_check(int fd, unsigned char **buf);
-unsigned char	*ft_reader(unsigned char *result, int fd, unsigned char **buf);
+unsigned char	*ft_reader(char *result, int fd, unsigned char **buf);
 
 unsigned char	*ft_buf_check(int fd, unsigned char **buf)
 {
-	unsigned char	*stock;
-	unsigned char	*cbuf;
+	char			*stock;
+	char			*c;
+	unsigned char	*result;
 
 	if (buf[fd] == NULL)
 		return (NULL);
-	cbuf = ft_strchr(buf[fd], '\n');
-	if (cbuf)
+	c = ft_strchr((char *)buf[fd], '\n');
+	if (c)
 	{
-	stock = buf[fd];
-	buf[fd] = ft_substr(stock, cbuf - stock + 1, BUFFER_SIZE);
-	return (ft_substr(stock, 0, cbuf - stock + 1));
+		stock = (char *)buf[fd];
+		buf[fd] = (unsigned char *)ft_substr(stock, c - stock + 1, BUFFER_SIZE);
+		result = ((unsigned char *)ft_substr((char *)stock, 0, c - stock + 1));
+		return (result);
 	}
 	else
 	{
@@ -36,14 +38,14 @@ unsigned char	*ft_buf_check(int fd, unsigned char **buf)
 	}
 }
 
-unsigned char	*ft_reader(unsigned char *result, int fd, unsigned char **buf)
+unsigned char	*ft_reader(char *result, int fd, unsigned char **buf)
 {
-	unsigned char	*s1;
-	unsigned char	*stock;
-	unsigned char	*c;
+	char			*c;
+	char			*stock;
+	char			*s1;
 
 	if (buf[fd])
-		result = buf[fd];
+		result = (char *)buf[fd];
 	else
 		result = malloc(0);
 	stock = malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -55,8 +57,8 @@ unsigned char	*ft_reader(unsigned char *result, int fd, unsigned char **buf)
 		{
 			s1 = stock;
 			result = ft_strjoin(result, ft_substr(s1, 0, c - s1 + 1));
-			buf[fd] = ft_substr(s1, c - s1 + 1, BUFFER_SIZE);
-			return (result);
+			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, BUFFER_SIZE);
+			return ((unsigned char *)result);
 		}
 		else
 		{
@@ -71,14 +73,16 @@ unsigned char	*ft_reader(unsigned char *result, int fd, unsigned char **buf)
 char	*get_next_line(int fd)
 {
 	unsigned char			*result;
-	static unsigned char	*buf[_SC_OPEN_MAX];
+	static unsigned char	*buf[OPEN_MAX];
 
 	// if (buf[fd])
 	// 	printf("buf : %s\n", buf[fd]);
+	if (fd < 0)
+		return (NULL);
 	result = ft_buf_check(fd, buf);
 	if (result)
 		return ((char *)result);
-	result = ft_reader(result, fd, buf);
+	result = ft_reader((char *)result, fd, buf);
 	return ((char *)result);
 }
 
