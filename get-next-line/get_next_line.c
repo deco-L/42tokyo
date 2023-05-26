@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/26 14:56:27 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:23:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char			*get_next_line(int fd);
 unsigned char	*ft_buf_check(int fd, unsigned char **buf);
-unsigned char	*ft_reader(char *result, int fd, unsigned char **buf);
+unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1);
 
 unsigned char	*ft_buf_check(int fd, unsigned char **buf)
 {
@@ -38,37 +38,37 @@ unsigned char	*ft_buf_check(int fd, unsigned char **buf)
 	}
 }
 
-unsigned char	*ft_reader(char *result, int fd, unsigned char **buf)
+unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 {
 	char			*c;
-	char			*stock;
-	char			*s1;
 
-	stock = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	while (read(fd, stock, BUFFER_SIZE) || !ft_strchr(stock, '\0'))
+	while (read(fd, s1, BUFFER_SIZE) || !ft_strchr(s1, '\0'))
 	{
-		stock[BUFFER_SIZE] = '\0';
-		c = ft_strchr(stock, '\n');
-		s1 = stock;
+		s1[BUFFER_SIZE] = '\0';
+		c = ft_strchr(s1, '\n');
 		if (c)
 		{
 			result = ft_strjoin(result, ft_substr(s1, 0, c - s1 + 1));
 			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, BUFFER_SIZE);
+			free(s1);
 			return ((unsigned char *)result);
 		}
 		else
-		{
 			result = ft_strjoin(result, s1);
-			continue ;
-		}
 	}
-	if (stock)
+	if (s1)
+	{
+		buf[fd] = NULL;
+		free(s1);
 		return ((unsigned char *)result);
+	}
+	free(s1);
 	return (NULL);
 }
 
 char	*get_next_line(int fd)
 {
+	char					*stock;
 	unsigned char			*result;
 	static unsigned char	*buf[OPEN_MAX];
 
@@ -84,7 +84,10 @@ char	*get_next_line(int fd)
 		result = malloc(0);
 		result[0] = '\0';
 	}
-	result = ft_reader((char *)result, fd, buf);
+	stock = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (stock == NULL)
+		return (NULL);
+	result = ft_reader((char *)result, fd, buf, stock);
 	return ((char *)result);
 }
 
