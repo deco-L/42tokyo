@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:47:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/16 16:14:58 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/29 11:46:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_tolower(int c);
 
 int	ft_tolower(int c)
 {
-	if (65 <= c && c <= 90)
+	if ('A' <= c && c <= 'Z')
 	{
 		c += 32;
 	}

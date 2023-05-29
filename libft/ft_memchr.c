@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:38:38 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/20 18:06:12 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/29 12:19:11 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,24 @@ void	*ft_memchr(const void *buf, int c, size_t n);
 
 void	*ft_memchr(const void *buf, int c, size_t n)
 {
-	int				flag;
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	cbuf;
-	void			*result;
+	int					flag;
+	size_t				i;
+	const unsigned char	*dest;
+	unsigned char		cbuf;
+	void				*result;
 
 	i = 0;
 	flag = 0;
-	dest = (unsigned char *) buf;
+	dest = (const unsigned char *) buf;
 	cbuf = (unsigned char)c;
 	while (i < n)
 	{
 		if (dest[i] == cbuf)
 		{
-			flag = 1;
-			break ;
+			result = (void *)&dest[i];
+			return (result);
 		}
 		i++;
-	}
-	if (flag == 1 || cbuf == '\0')
-	{
-		result = (void *)&dest[i];
-		return (result);
 	}
 	return (NULL);
 }
