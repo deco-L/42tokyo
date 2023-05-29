@@ -255,30 +255,45 @@
 // 	return (0);
 // }
 
-// // split
-// int	main(void)
-// {
-// 	char	**result;
-// 	char	**result1;
-// 	char	**result2;
-// 	char	**result3;
-// 	result = ft_split("hello,world,42,tokyo", ',');
-// 	result1 = ft_split("\0aa\0bbb", '\0');
-// 	result2 = ft_split("", 'a');
-// 	result3 = ft_split(NULL, 'a');
-// 	for (int i = 0; i < 5; i++)
-// 	{
-// 		printf("ft_split : %s\n", result[i]);
-// 	}
-// 	for (int i = 0; i < 3; i++)
-// 	{
-// 		printf("result1[%d] : %s\n", i, result1[i]);
-// 		i++;
-// 	}
-// 	printf("|| : %s\n", result2[0]);
-// 	// printf("NULL : %s\n", result3[0]);
-// 	return (0);
-// }
+// split
+#include <libc.h>
+
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q a.out");
+}
+
+int	main(void)
+{
+	char	**result;
+	char	**result1;
+	char	**result2;
+	char	**result3;
+	result = ft_split("hello,world,42,tokyo", ',');
+	// free(result[0]);
+	// free(result[1]);
+	// free(result[2]);
+	// free(result[3]);
+	// free(result);
+	// result1 = ft_split("\0aa\0bbb", '\0');
+	// free(result1);
+	// result2 = ft_split("", 'a');
+	// free(result2);
+	// result3 = ft_split(NULL, 'a');
+	// free(result3);
+	// for (int i = 0; i < 5; i++)
+	// {
+	// 	printf("ft_split : %s\n", result[i]);
+	// }
+	// for (int i = 0; i < 3; i++)
+	// {
+	// 	printf("result1[%d] : %s\n", i, result1[i]);
+	// 	i++;
+	// }
+	// printf("|| : %s\n", result2[0]);
+	// printf("NULL : %s\n", result3[0]);
+	return (0);
+}
 
 // int	main(void)
 // {
@@ -323,16 +338,16 @@
 
 // calloc
 
-int main(void)
-{
-	void	*test;
+// int main(void)
+// {
+// 	void	*test;
 
-	test = calloc(0, 0);
-	printf("%s\n", ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
-	printf("%s\n", calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
-	printf("%p\n", calloc(0, 0));
-	printf("%p\n", malloc(0));
-	if (test == NULL)
-		printf("ok : %p\n", calloc(0, 0));
-	printf("%p\n", ft_calloc(5, 0));
-}
+// 	test = calloc(0, 0);
+// 	printf("%s\n", ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+// 	printf("%s\n", calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10));
+// 	printf("%p\n", calloc(0, 0));
+// 	printf("%p\n", malloc(0));
+// 	if (test == NULL)
+// 		printf("ok : %p\n", calloc(0, 0));
+// 	printf("%p\n", ft_calloc(5, 0));
+// }
