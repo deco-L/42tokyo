@@ -1,7 +1,21 @@
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 15:50:41 by csakamot          #+#    #+#             */
+/*   Updated: 2023/05/29 18:23:10 by csakamot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# define OPEN_MAX 20
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 33
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>

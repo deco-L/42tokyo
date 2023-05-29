@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:50:54 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/16 16:15:00 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/29 11:46:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_toupper(int c);
 
 int	ft_toupper(int c)
 {
-	if (97 <= c && c <= 122)
+	if ('a' <= c && c <= 'z')
 	{
 		c -= 32;
 	}

@@ -6,14 +6,16 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/25 18:43:11 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:23:03 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define OPEN_MAX 20
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 33
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>

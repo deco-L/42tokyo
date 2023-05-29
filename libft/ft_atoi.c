@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:35:04 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/22 14:31:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:33:48 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ static int	ftch(const char *nptr, unsigned long long result, int count, int i)
 
 int	ft_atoi(const char *nptr)
 {
-	int					i;
-	int					count;
-	unsigned long long	result;
+	int			i;
+	int			count;
+	long long	result;
 
 	i = 0;
 	result = 0;

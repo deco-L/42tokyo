@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:20:42 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/16 16:14:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/29 12:04:33 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_putnbr_fd(int n, int fd);
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	nbr;
+	long long	nbr;
 
-	nbr = (long) n;
+	nbr = (long long) n;
 	if (n < 0)
 	{
 		write(fd, "-", 1);
