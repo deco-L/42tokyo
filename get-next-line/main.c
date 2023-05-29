@@ -6,13 +6,20 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:12:55 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/26 15:06:03 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/29 16:25:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <stdio.h>
 #include "get_next_line.h"
+
+#include <libc.h>
+
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q a.out");
+}
 
 int	main(int argc, char **argv)
 {
@@ -22,7 +29,7 @@ int	main(int argc, char **argv)
 	char	*line;
 	char	*line_file;
 
-	fd = open(argv[1], O_RDONLY);
+	fd = 1000;
 	line = get_next_line(fd);
 	printf("main.c : %s", line);
 	line = get_next_line(fd);
