@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:12:55 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/30 19:15:20 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/31 02:17:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int	main(int argc, char **argv)
 	char	*line;
 	char	*line_file;
 
-	fd = open("./file.txt", O_RDONLY);
+	// fd = open("./file.txt", O_RDONLY);
 	// fd = 2;
+	fd = open("./file.txt", O_RDONLY);
 	line = get_next_line(fd);
 	printf("main.c : %s", line);
 	line = get_next_line(fd);
@@ -46,27 +47,27 @@ int	main(int argc, char **argv)
 	printf("fd : %d\n", fd);
 	printf("%d\n", fd);
 
-	fd = open("./test_003.txt", O_RDONLY);
-	count = 0;
+	// fd = open("./test_003.txt", O_RDONLY);
+	// count = 0;
 
-	line_file = get_next_line(fd);
-	printf("main.c : %s", line_file);
-	// fd = open("./file2.txt", O_RDONLY);
-	line_file = get_next_line(fd);
-	printf("main2.c : %s", line_file);
-	line_file = get_next_line(fd);
-	printf("main.c : %s", line_file);
-	line_file = get_next_line(fd);
-	printf("main.c : %s", line_file);
-	line_file = get_next_line(fd);
-	printf("main.c : %s", line_file);
-	line_file = get_next_line(fd);
-	printf("main.c : %s", line_file);
-	free(line_file);
-	printf("fd : %d\n", fd);
-	close(fd);
-	printf("%d\n", fd);
-	free(line);
+	// line_file = get_next_line(fd);
+	// printf("main.c : %s", line_file);
+	// // fd = open("./file2.txt", O_RDONLY);
+	// line_file = get_next_line(fd);
+	// printf("main2.c : %s", line_file);
+	// line_file = get_next_line(fd);
+	// printf("main.c : %s", line_file);
+	// line_file = get_next_line(fd);
+	// printf("main.c : %s", line_file);
+	// line_file = get_next_line(fd);
+	// printf("main.c : %s", line_file);
+	// line_file = get_next_line(fd);
+	// printf("main.c : %s", line_file);
+	// free(line_file);
+	// printf("fd : %d\n", fd);
+	// close(fd);
+	// printf("%d\n", fd);
+	// free(line);
 
 	return (0);
 }
