@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/29 19:34:58 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:21:42 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,19 @@ unsigned char	*ft_buf_check(int fd, unsigned char **buf)
 
 unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 {
+	long long		len;
 	char			*c;
 
-	while (read(fd, s1, BUFFER_SIZE) || !ft_strchr(s1, '\0'))
+	len = 1;
+	while (len)
 	{
+		len = read(fd, s1, BUFFER_SIZE);
 		s1[BUFFER_SIZE] = '\0';
 		c = ft_strchr(s1, '\n');
 		if (c)
 		{
 			result = ft_strjoin(result, ft_substr(s1, 0, c - s1 + 1));
-			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, BUFFER_SIZE);
+			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, len);
 			free(s1);
 			return ((unsigned char *)result);
 		}
@@ -79,11 +82,7 @@ char	*get_next_line(int fd)
 		return ((char *)result);
 	if (buf[fd])
 		result = buf[fd];
-	else
-	{
-		result = malloc(0);
-		result[0] = '\0';
-	}
+	result = NULL;
 	stock = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (stock == NULL)
 		return (NULL);

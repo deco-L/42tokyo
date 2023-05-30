@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/29 18:23:00 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:25:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,19 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	size_t	s1_len;
 	size_t	s2_len;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
+	if (s1 == NULL)
+		s1_len = 0;
+	else
+		s1_len = ft_strlen(s1);
+	if (s2 == NULL)
+		s2_len = 0;
+	else
+		s2_len = ft_strlen(s2);
 	result = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (result == NULL)
 		return (NULL);
 	result = ft_in_strjoin(result, s1, s2);
+	free((void *)s1);
+	free((void *)s2);
 	return (result);
 }
