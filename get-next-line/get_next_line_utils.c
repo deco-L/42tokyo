@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/30 17:25:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:37:58 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,22 @@ static char	*ft_in_strjoin(char *result, const char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
-	while (s1[i] != '\0')
+	if (s1)
 	{
-		result[i] = s1[i];
-		i++;
+		while (s1[i] != '\0')
+		{
+			result[i] = s1[i];
+			i++;
+		}
 	}
-	while (s2[j] != '\0')
+	if (s2)
 	{
-		result[i] = s2[j];
-		i++;
-		j++;
+		while (s2[j] != '\0')
+		{
+			result[i] = s2[j];
+			i++;
+			j++;
+		}
 	}
 	result[i] = '\0';
 	return (result);
@@ -113,9 +119,11 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		s2_len = ft_strlen(s2);
 	result = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (result == NULL)
+	{
+		free((void *)s1);
 		return (NULL);
+	}
 	result = ft_in_strjoin(result, s1, s2);
 	free((void *)s1);
-	free((void *)s2);
 	return (result);
 }

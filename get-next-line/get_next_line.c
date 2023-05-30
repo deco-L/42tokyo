@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/30 17:21:42 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:01:15 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ unsigned char	*ft_buf_check(int fd, unsigned char **buf)
 	if (c)
 	{
 		stock = (char *)buf[fd];
-		buf[fd] = (unsigned char *)ft_substr(stock, c - stock + 1, BUFFER_SIZE);
+		buf[fd] = (unsigned char *)ft_substr(stock, c - stock + 1, ft_strlen(buf[fd]));
 		result = ((unsigned char *)ft_substr((char *)stock, 0, c - stock + 1));
 		return (result);
 	}
@@ -44,36 +44,36 @@ unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 	char			*c;
 
 	len = 1;
+	s1[BUFFER_SIZE] = '\0';
 	while (len)
 	{
 		len = read(fd, s1, BUFFER_SIZE);
-		s1[BUFFER_SIZE] = '\0';
+		if (len == -1)
+			return (NULL);
+		else if (len == 0)
+		{
+			if (result == NULL)
+				return NULL;
+			buf[fd] = NULL;
+			return ((unsigned char *)result);
+		}
 		c = ft_strchr(s1, '\n');
 		if (c)
 		{
 			result = ft_strjoin(result, ft_substr(s1, 0, c - s1 + 1));
 			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, len);
-			free(s1);
 			return ((unsigned char *)result);
 		}
 		else
-			result = ft_strjoin(result, s1);
+			result = ft_strjoin(result, ft_substr(s1, 0, len));
 	}
-	if (s1)
-	{
-		buf[fd] = NULL;
-		free(s1);
-		return ((unsigned char *)result);
-	}
-	free(s1);
-	return (NULL);
 }
 
 char	*get_next_line(int fd)
 {
 	char					*stock;
 	unsigned char			*result;
-	static unsigned char	*buf[_SC_OPEN_MAX];
+	static unsigned char	*buf[20];
 
 	if (fd < 0)
 		return (NULL);
