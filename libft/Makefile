@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/05/23 12:57:06 by csakamot         ###   ########.fr        #
+#    Updated: 2023/05/30 14:25:31 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,11 @@ SRC			= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
 
 OBJS		= ${SRC:.c=.o}
 
+BONUS_SRC	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
+				ft_lstdelone.c
+
+BONUS_OBJS	= ${BONUS_SRC:.c=.o}
+
 CC			= cc
 
 CFLAGS		= -Wall -Wextra -Werror
@@ -36,8 +41,11 @@ all:		$(NAME)
 $(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}
 
+bonus:		${OBJS} ${BONUS_OBJS}
+			${AR} ${NAME} ${OBJS} ${BONUS_OBJS}
+
 clean:
-			rm -f ${OBJS}
+			rm -f ${OBJS} ${BONUS_OBJS}
 
 fclean:		clean
 			rm -f ${NAME}
