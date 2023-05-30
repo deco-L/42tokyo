@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:07:55 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/30 16:50:29 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:11:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ft_lstdelone(lst, del);
 		return (NULL);
 	}
-	while (lst -> next)
+	lst = lst -> next;
+	while (lst)
 	{
 		tmp = ft_lstnew(f(lst -> content));
 		if (!tmp)
 		{
-			ft_lstdelone(tmp, del);
+			ft_lstdelone(new, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&new, tmp);
