@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:24:04 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/24 15:27:19 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/31 13:07:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	i = 0;
 	result = (char *)malloc(len + 1);
 	if (result == NULL)
+	{
+		free(result);
 		return (NULL);
+	}
 	while (i < len && s[start] != '\0')
 	{
 		result[i] = s[start];

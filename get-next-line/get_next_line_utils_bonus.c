@@ -11,6 +11,8 @@ size_t	ft_strlen(const char *str)
 	size_t	len;
 
 	len = 0;
+	if (!str)
+		return (0);
 	while (str[len] != '\0')
 		len++;
 	return (len);
@@ -52,7 +54,10 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	i = 0;
 	result = (char *)malloc(len + 1);
 	if (result == NULL)
+	{
+		free(result);
 		return (NULL);
+	}
 	while (i < len && s[start] != '\0')
 	{
 		result[i] = s[start];
@@ -91,7 +96,7 @@ static char	*ft_in_strjoin(char *result, const char *s1, const char *s2)
 	return (result);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin_gnl(const char *s1, const char *s2)
 {
 	char	*result;
 	size_t	s1_len;

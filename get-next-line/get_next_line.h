@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/31 12:15:26 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/31 13:08:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ char		*get_next_line(int fd);
 size_t		ft_strlen(const char *str);
 char		*ft_strchr(const char *str, int c);
 char		*ft_substr(const char *s, unsigned int start, size_t len);
-char		*ft_strjoin(const char *s1, const char *s2);
+char		*ft_strjoin_gnl(const char *s1, const char *s2);
 
 #endif

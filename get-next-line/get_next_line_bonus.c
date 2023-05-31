@@ -3,6 +3,7 @@
 char			*get_next_line(int fd);
 unsigned char	*ft_buf_check(int fd, char **buf);
 unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1);
+int				ft_rech(char *res, int fd, unsigned char **buf, long long len);
 
 unsigned char	*ft_buf_check(int fd, char **buf)
 {
@@ -26,34 +27,45 @@ unsigned char	*ft_buf_check(int fd, char **buf)
 	}
 }
 
+int	ft_rech(char *res, int fd, unsigned char **buf, long long len)
+{
+	if (len == -1)
+		return (0);
+	else if (len == 0)
+	{
+		if (!ft_strlen(res))
+			return (0);
+		buf[fd] = NULL;
+		return (1);
+	}
+	return (2);
+}
+
 unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 {
 	long long		len;
+	long long		sep;
 	char			*c;
 
 	len = 1;
-	s1[BUFFER_SIZE] = '\0';
 	while (len)
 	{
 		len = read(fd, s1, BUFFER_SIZE);
-		if (len == -1)
-			return (NULL);
-		else if (len == 0)
-		{
-			if (result == NULL)
-				return NULL;
-			buf[fd] = NULL;
+		if (ft_rech(result, fd, buf, len) == 1)
 			return ((unsigned char *)result);
-		}
+		else if (ft_rech(result, fd, buf, len) == 0)
+			return (NULL);
+		s1[len] = '\0';
 		c = ft_strchr(s1, '\n');
 		if (c)
 		{
-			result = ft_strjoin(result, ft_substr(s1, 0, c - s1 + 1));
-			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, len);
+			sep = c - s1 + 1;
+			result = ft_strjoin_gnl(result, ft_substr(s1, 0, sep));
+			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, len - sep);
 			return ((unsigned char *)result);
 		}
 		else
-			result = ft_strjoin(result, ft_substr(s1, 0, len));
+			result = ft_strjoin_gnl(result, ft_substr(s1, 0, len));
 	}
 	return ((unsigned char *)result);
 }
@@ -62,7 +74,7 @@ char	*get_next_line(int fd)
 {
 	char					*stock;
 	unsigned char			*result;
-	static unsigned char	*buf[20];
+	static unsigned char	*buf[OPEN_MAX];
 
 	if (fd < 0)
 		return (NULL);
