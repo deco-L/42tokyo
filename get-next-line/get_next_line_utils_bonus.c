@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:14:53 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/31 14:14:54 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:17:20 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 	if (result == NULL)
 	{
 		free((void *)s1);
+		free((void *)s2);
 		return (NULL);
 	}
 	result = ft_in_strjoin(result, s1, s2);
