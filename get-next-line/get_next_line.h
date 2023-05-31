@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/29 18:23:03 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:15:26 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 33
+#  define BUFFER_SIZE 1
 # endif
 
 # include <stdlib.h>

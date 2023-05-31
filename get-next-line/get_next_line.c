@@ -6,19 +6,19 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/31 02:12:37 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:18:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 char			*get_next_line(int fd);
-unsigned char	*ft_buf_check(int fd, unsigned char **buf);
+unsigned char	*ft_buf_check(int fd, char **buf);
 unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1);
 
-unsigned char	*ft_buf_check(int fd, unsigned char **buf)
+unsigned char	*ft_buf_check(int fd, char **buf)
 {
-	char			*stock;
+	char			*s1;
 	char			*c;
 	unsigned char	*result;
 
@@ -27,9 +27,9 @@ unsigned char	*ft_buf_check(int fd, unsigned char **buf)
 	c = ft_strchr((char *)buf[fd], '\n');
 	if (c)
 	{
-		stock = (char *)buf[fd];
-		buf[fd] = (unsigned char *)ft_substr(stock, c - stock + 1, ft_strlen(buf[fd]));
-		result = ((unsigned char *)ft_substr((char *)stock, 0, c - stock + 1));
+		s1 = (char *)buf[fd];
+		buf[fd] = ft_substr(s1, c - s1 + 1, ft_strlen((const char *)buf[fd]));
+		result = ((unsigned char *)ft_substr((char *)s1, 0, c - s1 + 1));
 		return (result);
 	}
 	else
@@ -41,10 +41,10 @@ unsigned char	*ft_buf_check(int fd, unsigned char **buf)
 unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 {
 	long long		len;
+	long long		sep;
 	char			*c;
 
 	len = 1;
-	s1[BUFFER_SIZE] = '\0';
 	while (len)
 	{
 		len = read(fd, s1, BUFFER_SIZE);
@@ -53,22 +53,22 @@ unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 		else if (len == 0)
 		{
 			if (result == NULL)
-				return NULL;
+				return (NULL);
 			buf[fd] = NULL;
 			return ((unsigned char *)result);
 		}
+		s1[len] = '\0';
 		c = ft_strchr(s1, '\n');
 		if (c)
 		{
-			result = ft_strjoin(result, ft_substr(s1, 0, c - s1 + 1));
-			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, len);
-			printf("%p\n",buf[fd]);
+			sep = c - s1 + 1;
+			result = ft_strjoin(result, ft_substr(s1, 0, sep));
+			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, len - sep);
 			return ((unsigned char *)result);
 		}
 		else
 			result = ft_strjoin(result, ft_substr(s1, 0, len));
 	}
-	printf("%p\n", result);
 	return ((unsigned char *)result);
 }
 
@@ -76,11 +76,11 @@ char	*get_next_line(int fd)
 {
 	char					*stock;
 	unsigned char			*result;
-	static unsigned char	*buf[20];
+	static unsigned char	*buf[OPEN_MAX];
 
 	if (fd < 0)
 		return (NULL);
-	result = ft_buf_check(fd, buf);
+	result = ft_buf_check(fd, (char **)buf);
 	if (result)
 		return ((char *)result);
 	if (buf[fd])
