@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/31 12:18:16 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:34:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 			return (NULL);
 		else if (len == 0)
 		{
-			if (result == NULL)
+			if (!ft_strlen(result))
 				return (NULL);
 			buf[fd] = NULL;
 			return ((unsigned char *)result);
@@ -64,6 +64,7 @@ unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 			sep = c - s1 + 1;
 			result = ft_strjoin(result, ft_substr(s1, 0, sep));
 			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, len - sep);
+			// printf("result : %s\nbuf[fd] : %s\nsep : %lld\nlen : %lld\n",result, buf[fd], sep, len);
 			return ((unsigned char *)result);
 		}
 		else
