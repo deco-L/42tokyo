@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/31 14:14:58 by csakamot          #+#    #+#             */
+/*   Updated: 2023/05/31 14:14:59 by csakamot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line_bonus.h"
 
 char			*get_next_line(int fd);
@@ -19,6 +31,7 @@ unsigned char	*ft_buf_check(int fd, char **buf)
 		s1 = (char *)buf[fd];
 		buf[fd] = ft_substr(s1, c - s1 + 1, ft_strlen((const char *)buf[fd]));
 		result = ((unsigned char *)ft_substr((char *)s1, 0, c - s1 + 1));
+		free(s1);
 		return (result);
 	}
 	else

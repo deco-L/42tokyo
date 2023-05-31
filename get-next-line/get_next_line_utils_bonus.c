@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/31 14:14:53 by csakamot          #+#    #+#             */
+/*   Updated: 2023/05/31 14:14:54 by csakamot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line_bonus.h"
 
 size_t		ft_strlen(const char *str);
@@ -121,4 +133,3 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 	free((void *)s2);
 	return (result);
 }
-
