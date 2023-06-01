@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 13:32:47 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/10 14:50:54 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/29 11:46:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+int	ft_toupper(int c);
 
-int	ft_printf(const char *format, ...)
+int	ft_toupper(int c)
 {
+	if ('a' <= c && c <= 'z')
+	{
+		c -= 32;
+	}
+	return (c);
 }

@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 13:32:47 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/02 16:28:15 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/29 14:22:46 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+int	ft_isalnum(int c);
 
-int	ft_printf(const char *format, ...)
+int	ft_isalnum(int c)
 {
+	int	flag;
+
+	flag = 0;
+	if ('0' <= c && c <= '9')
+		flag = 1;
+	if ('A' <= c && c <= 'Z')
+		flag = 1;
+	if ('a' <= c && c <= 'z')
+		flag = 1;
+	return (flag);
 }

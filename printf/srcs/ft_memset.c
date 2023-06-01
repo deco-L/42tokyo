@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 13:32:47 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/15 17:22:08 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/22 14:20:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+void	*ft_memset(void *s, int c, size_t n);
 
-int	ft_printf(const char *format, ...)
+void	*ft_memset(void *s, int c, size_t n)
 {
+	size_t			i;
+	unsigned char	*buf;
+	unsigned char	cbuf;
+
+	buf = (unsigned char *) s;
+	cbuf = (unsigned char) c;
+	i = 0;
+	while (i < n)
+	{
+		buf[i] = cbuf;
+		i++;
+	}
+	return (s);
 }

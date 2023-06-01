@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 13:32:47 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/05 03:26:24 by yayoi             #+#    #+#             */
+/*   Updated: 2023/05/29 12:17:36 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
-int	ft_printf(const char *format, ...)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
+	unsigned char		*result;
+	const unsigned char	*origin;
+
+	result = (unsigned char *) dest;
+	origin = (const unsigned char *) src;
+	if (n == 0 || dest == src)
+		return (dest);
+	while (n--)
+	{
+		*result = *origin;
+		result++;
+		origin++;
+	}
+	return (dest);
 }

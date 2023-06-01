@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 13:32:47 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/16 16:47:31 by csakamot          #+#    #+#             */
+/*   Updated: 2023/05/29 11:48:39 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+char	*ft_strrchr(const char *s, int c);
 
-int	ft_printf(const char *format, ...)
+char	*ft_strrchr(const char *s, int c)
 {
+	size_t				len;
+	const unsigned char	*s1;
+	unsigned char		cbuf;
+
+	len = ft_strlen(s);
+	s1 = (const unsigned char *) s;
+	cbuf = (unsigned char) c;
+	while (len)
+	{
+		if (s1[len] == cbuf)
+			return ((char *)&s1[len]);
+		len--;
+	}
+	if (s1[len] == cbuf)
+		return ((char *)&s1[len]);
+	return (NULL);
 }

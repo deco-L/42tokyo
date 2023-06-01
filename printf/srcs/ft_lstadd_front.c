@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 13:32:47 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/30 12:16:56 by csakamot          #+#    #+#             */
+/*   Updated: 2023/05/30 13:04:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
-int	ft_printf(const char *format, ...)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (lst)
+	{
+		if (*lst)
+			new -> next = *lst;
+		*lst = new;
+	}
 }

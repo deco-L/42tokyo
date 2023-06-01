@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 13:32:47 by csakamot         ###   ########.fr       */
+/*   Created: 2023/04/27 15:04:09 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/29 14:23:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+void	*ft_calloc(size_t nmemb, size_t size);
 
-int	ft_printf(const char *format, ...)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
+	char	*c;
+
+	if (nmemb == 0 || size == 0)
+	{
+		c = (void *)malloc(1);
+		c[0] = '0';
+		return (c);
+	}
+	if (size != 0 && nmemb > (size_t)SIZE_MAX / size)
+		return (NULL);
+	c = (void *)malloc(nmemb * size);
+	if (c == NULL)
+		return (NULL);
+	ft_bzero(c, nmemb * size);
+	return ((void *)c);
 }

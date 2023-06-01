@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:14:53 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/31 14:17:20 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:18:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t		ft_strlen(const char *str);
 char		*ft_strchr(const char *str, int c);
 char		*ft_substr(const char *s, unsigned int start, size_t len);
-char		*ft_strjoin(const char *s1, const char *s2);
+char		*ft_strjoin_gnl(const char *s1, const char *s2);
 static char	*ft_in_strjoin(char *result, const char *s1, const char *s2);
 
 size_t	ft_strlen(const char *str)
