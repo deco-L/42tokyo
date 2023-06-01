@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 13:23:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 14:17:08 by csakamot         ###   ########.fr       */
+/*   Created: 2023/06/01 14:32:37 by csakamot          #+#    #+#             */
+/*   Updated: 2023/06/01 15:05:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include <stdio.h>
 
-# include <stdarg.h>
-
-typedef struct s_check
+int	main(void)
 {
-	struct s_check	*next;
-}					t_check;
-
-void	ft_putnbr_base_fd(int nbr, char *base, int fd);
-int		ft_printf(const char *format, ...);
-
-#endif
+	printf("22%saaa%%jfie%d\n", "42", printf("aaaa%s", "12345"));
+	return (0);
+}
