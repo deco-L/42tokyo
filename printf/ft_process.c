@@ -6,18 +6,18 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:44:29 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 17:23:30 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:32:46 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "libftprintf.h"
 
-void			ft_process_litter(va_list stat, t_check *check);
-void			ft_process_point(va_list stat, t_check *check);
-void			ft_process_number(va_list stat, t_check *check);
-void			ft_process_hexa(va_list stat, t_check *check);
-static int		ft_putnbr_fd_cnt(int n, int digit, int fd);
+void	ft_process_litter(va_list stat, t_check *check);
+void	ft_process_point(va_list stat, t_check *check);
+void	ft_process_number(va_list stat, t_check *check);
+void	ft_process_hexa(va_list stat, t_check *check);
+int		ft_putnbr_fd_cnt(int n, int digit, int fd);
 
 void	ft_process_litter(va_list stat, t_check *check)
 {
@@ -90,7 +90,7 @@ void	ft_process_hexa(va_list stat, t_check *check)
 	return ;
 }
 
-static int	ft_putnbr_fd_cnt(int n, int digit, int fd)
+int	ft_putnbr_fd_cnt(int n, int digit, int fd)
 {
 	long long	nbr;
 
@@ -106,7 +106,7 @@ static int	ft_putnbr_fd_cnt(int n, int digit, int fd)
 		ft_putnbr_fd(nbr / 10, fd);
 		ft_putnbr_fd(nbr % 10, fd);
 	}
-	else
+	else if (0 <= nbr && nbr <= 9)
 	{
 		digit++;
 		nbr += '0';

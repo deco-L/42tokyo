@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:29:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 16:45:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 18:54:32 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static int	flag2(unsigned long long nbr, int len, char *base)
 int	ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base)
 {
 	int	len;
-	int	digit;
 
 	len = 0;
 	while (base[len] != '\0')

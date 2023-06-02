@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:11:30 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 17:13:58 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:20:09 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	ft_process(va_list stat, t_check *check)
 		ft_process_point(stat, check);
 	if (check -> type == DECIMAL || check -> type == INTEJER)
 		ft_process_number(stat, check);
-	if (check -> type == INTEJER)
+	if (check -> type == UNSIGNED)
 		ft_process_number(stat, check);
 	if (check -> type == HEXALOW || check -> type == HEXAUPP)
 		ft_process_hexa(stat, check);
 	if (check -> type == PERCENT)
-		ft_pricess_litter(stat, check);
+		ft_process_litter(stat, check);
 	return ;
 }
 

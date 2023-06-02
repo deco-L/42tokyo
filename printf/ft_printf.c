@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 17:28:08 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:36:02 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,24 @@ int				ft_printf(const char *format, ...);
 
 int	ft_output(const char *format, va_list stat)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
+	char	*sbuf;
 
 	i = 0;
 	len = 0;
-	while (*format)
+	sbuf = (char *)format;
+	while (sbuf[i])
 	{
-		if (format[i] != '%')
+		if (sbuf[i] == '%')
 		{
-			ft_putchar_fd((char *)&format[i], 1);
+			len += ft_sp_output(sbuf, stat, ++i);
 			i++;
 		}
-		len += ft_sp_output(format, stat, ++i);
-		i += 2;
+		ft_putchar_fd(sbuf[i], 1);
+		i++;
 	}
+	len += i;
 	return (len);
 }
 
@@ -44,7 +47,7 @@ int	ft_sp_output(const char *format, va_list stat, int i)
 	t_check	*check;
 
 	check = (t_check *)ft_calloc(1, sizeof(t_check));
-	ft_check_printf(format, stat, i, check);
+	ft_ch_printf(format, stat, i, check);
 	len = check -> length;
 	free(check);
 	return (len);
@@ -60,5 +63,6 @@ int	ft_printf(const char *format, ...)
 	count = 0;
 	va_start(stat, format);
 	count = ft_output(format, stat);
+	va_end(stat);
 	return (count);
 }
