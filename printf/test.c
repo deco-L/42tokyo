@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:32:37 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 15:05:47 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:56:38 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	main(void)
 {
-	printf("22%saaa%%jfie%d\n", "42", printf("aaaa%s", "12345"));
+	char	*c;
+	unsigned long long d = -2147483646;
+
+	printf("%u\n", 4294967295);
+	printf("%llu\n", d);
 	return (0);
 }

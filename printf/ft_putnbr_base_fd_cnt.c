@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
+/*   ft_putnbr_base_fd_cnt.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:29:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 14:12:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:45:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static void	ft_number(int nb, int length, char *moto, int fd);
-static int	flag1(int nbr, int len, char *base);
-static int	flag2(int nbr, int len, char *base);
-void		ft_putnbr_base_fd(int nbr, char *base, int fd);
+static int	ft_number(int nb, int length, char *moto, int fd);
+static int	flag1(unsigned long long nbr, int len, char *base);
+static int	flag2(unsigned long long nbr, int len, char *base);
+int			ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base);
 
-static void	ft_number(int nb, int length, char *moto, int fd)
+static int	ft_number(int nb, int length, char *moto, int digit)
 {
 	if (nb >= length)
 	{
-		ft_number(nb / length, length, moto, fd);
-		ft_number(nb % length, length, moto, fd);
+		ft_number(nb / length, length, moto, 1);
+		ft_number(nb % length, length, moto, 1);
 	}
 	else
-		ft_putchar_fd(moto[nb], fd);
+	{
+		digit++;
+		ft_putchar_fd(moto[nb], 1);
+	}
 }
 
-static int	flag1(int nbr, int len, char *base)
+static int	flag1(unsigned long long nbr, int len, char *base)
 {
 	int	i;
 
@@ -50,7 +53,7 @@ static int	flag1(int nbr, int len, char *base)
 	return (nbr);
 }
 
-static int	flag2(int nbr, int len, char *base)
+static int	flag2(unsigned long long nbr, int len, char *base)
 {
 	int	i;
 	int	j;
@@ -73,9 +76,10 @@ static int	flag2(int nbr, int len, char *base)
 	return (nbr);
 }
 
-void	ft_putnbr_base_fd(int nbr, char *base, int fd)
+int	ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base)
 {
 	int	len;
+	int	digit;
 
 	len = 0;
 	while (base[len] != '\0')
@@ -86,10 +90,11 @@ void	ft_putnbr_base_fd(int nbr, char *base, int fd)
 	{
 		nbr *= -1;
 		write(1, "-", 1);
-		ft_number(nbr, len, base, fd);
+		ft_number(nbr, len, base, digit);
 	}
 	else if (nbr > 0)
-		ft_number(nbr, len, base, fd);
+		ft_number(nbr, len, base, digit);
+	return (digit);
 }
 
 // #include <stdio.h>
