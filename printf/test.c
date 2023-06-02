@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:32:37 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 23:18:16 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/03 00:54:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,24 @@ int	main(void)
 	char	*c;
 	unsigned long long d = -2147483646;
 
-	c = (char *)malloc(sizeof(char) * 5);
+	c = NULL;
 	// printf("%u\n", 42967295);
 	// printf("%llu\n", d);
-	printf("%X\n%p\n", 1234, c);
+	// printf("%X\n%p\n", 1234, c);
+	printf("%p\n", NULL);
+	printf("%p\n",c);
+	// printf("%p\n", 0);
+	c = (char *)malloc(sizeof(char) * 5);
 	ft_printf("aaa|%i|aaa%%ccc%Xbbb %s  |%p| %d %c %u %x %X\n", 123, 1234, "abcdef", c, 42, 'c', -1, 1234, 1234);
-	ft_printf("%d\n%d\n|%d|\n", ft_printf(":aaa:"), ft_printf("%x\n", 1234), ft_printf("%pa%%aa%s%d%u%i\n", c, "123", 123, 12, 999));
+	ft_printf("%p\n", NULL);
 	free(c);
+	c = NULL;
+	ft_printf("%p\n", c);
+	// ft_printf("%d\n%d\n|%d|\n", ft_printf(":aaa:"), ft_printf("%x\n", 1234), ft_printf("%pa%%aa%s%d%u%i\n", c, "123", 123, 12, 999));
+	c = (char *)malloc(sizeof(char) * 4);
+	free(c);
+	printf("%p\n", c);
+	ft_printf("%p\n", c);
 	return (0);
 }
 

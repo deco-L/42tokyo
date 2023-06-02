@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:44:29 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 23:18:31 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/03 00:53:39 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	ft_process_point(va_list stat, t_check *check)
 	p = va_arg(stat, unsigned long long);
 	if (p == 0)
 	{
-		check -> length = 3;
-		ft_putstr_fd("0x0", 1);
+		check -> length = 5;
+		ft_putstr_fd("(nil)", 1);
 		return ;
 	}
 	ft_putstr_fd("0x", 1);
