@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 14:31:10 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/01 13:58:47 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/02 17:27:22 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ SRC			= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
 				ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c\
 				ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c\
 				ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
+				ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c\
+				ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c\
 
-PRINTF_SRCS	= ft_printf.c
+PRINTF_SRCS	= ft_printf.c ft_check_printf.c ft_process.c ft_putnbr_base_fd_cnt.c
 
 SRCS		= ${addprefix ${PRE}, ${SRC}}
 

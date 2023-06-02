@@ -6,16 +6,16 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 17:20:10 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 17:28:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "libftprintf.h"
 
-int		ft_output(const char *format, va_list stat);
-int		ft_sp_output(const char *format, va_list stat, int i);
-int		ft_printf(const char *format, ...);
+static int		ft_output(const char *format, va_list stat);
+static int		ft_sp_output(const char *format, va_list stat, int i);
+int				ft_printf(const char *format, ...);
 
 
 int	ft_output(const char *format, va_list stat)
@@ -29,7 +29,7 @@ int	ft_output(const char *format, va_list stat)
 	{
 		if (format[i] != '%')
 		{
-			ft_putchar_fd(&format[i], 1);
+			ft_putchar_fd((char *)&format[i], 1);
 			i++;
 		}
 		len += ft_sp_output(format, stat, ++i);
