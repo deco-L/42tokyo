@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:23:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 20:33:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 23:18:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_check
 }					t_check;
 
 int		ft_printf(const char *format, ...);
-int		ft_putnbr_fd_cnt(int n, int digit, int fd);
 int		ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base);
 void	ft_process(va_list stat, t_check *check);
 void	ft_ch_printf(const char *format, va_list stat, int i, t_check *check);

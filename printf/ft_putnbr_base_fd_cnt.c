@@ -6,32 +6,33 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:29:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 18:54:32 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 23:18:04 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include "libftprintf.h"
 
-static int	ft_number(int nb, int length, char *moto, int fd);
-static int	flag1(unsigned long long nbr, int len, char *base);
-static int	flag2(unsigned long long nbr, int len, char *base);
-int			ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base);
+static void					ft_number(unsigned long long nb, int length, char *moto);
+static unsigned long long	flag1(unsigned long long nbr, int len, char *base);
+static unsigned long long	flag2(unsigned long long nbr, int len, char *base);
+int							ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base);
 
-static int	ft_number(int nb, int length, char *moto, int digit)
+static void	ft_number(unsigned long long nb, int length, char *moto)
 {
 	if (nb >= length)
 	{
-		ft_number(nb / length, length, moto, 1);
-		ft_number(nb % length, length, moto, 1);
+		ft_number(nb / length, length, moto);
+		ft_number(nb % length, length, moto);
 	}
 	else
 	{
-		digit++;
 		ft_putchar_fd(moto[nb], 1);
 	}
+	return ;
 }
 
-static int	flag1(unsigned long long nbr, int len, char *base)
+static unsigned long long	flag1(unsigned long long nbr, int len, char *base)
 {
 	int	i;
 
@@ -53,7 +54,7 @@ static int	flag1(unsigned long long nbr, int len, char *base)
 	return (nbr);
 }
 
-static int	flag2(unsigned long long nbr, int len, char *base)
+static unsigned long long	flag2(unsigned long long nbr, int len, char *base)
 {
 	int	i;
 	int	j;
@@ -89,37 +90,12 @@ int	ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base)
 	{
 		nbr *= -1;
 		write(1, "-", 1);
-		ft_number(nbr, len, base, digit);
+		ft_number(nbr, len, base);
 	}
 	else if (nbr > 0)
-		ft_number(nbr, len, base, digit);
+		ft_number(nbr, len, base);
+	while (nbr /= len)
+		digit++;
 	return (digit);
 }
 
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char str1[] = "0123456789ABCDEF";
-// 	char str2[] = "poneyvif";
-// 	char str3[] = "0123456789";
-// 	char str4[] = "01";
-// 	char str5[] = "";
-// 	char str6[] = "-01";
-// 	char str7[] = "011";
-// 	ft_putnbr_base(255, str1);
-// 	puts("");
-// 	ft_putnbr_base(255, str2);
-// 	puts("");
-// 	ft_putnbr_base(255, str3);
-// 	puts("");
-// 	ft_putnbr_base(42, str4);
-// 	puts("");
-// 	ft_putnbr_base(255, str5);
-// 	puts("");
-// 	ft_putnbr_base(255, str6);
-// 	puts("");
-// 	ft_putnbr_base(255, str7);
-// 	puts("");
-// 	return (0);
-// }

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 20:36:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/02 23:18:22 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ int				ft_printf(const char *format, ...);
 int	ft_output(const char *format, va_list stat)
 {
 	int		i;
+	int		count;
 	int		len;
 	char	*sbuf;
 
 	i = 0;
+	count = 0;
 	len = 0;
 	sbuf = (char *)format;
 	while (sbuf[i])
@@ -33,11 +35,15 @@ int	ft_output(const char *format, va_list stat)
 		{
 			len += ft_sp_output(sbuf, stat, ++i);
 			i++;
+			count++;
 		}
+		else
+		{
 		ft_putchar_fd(sbuf[i], 1);
 		i++;
+		}
 	}
-	len += i;
+	len += i - (count * 2);
 	return (len);
 }
 
