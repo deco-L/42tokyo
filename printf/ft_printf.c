@@ -6,17 +6,16 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 23:18:22 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/03 17:39:23 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int		ft_output(const char *format, va_list stat);
 static int		ft_sp_output(const char *format, va_list stat, int i);
 int				ft_printf(const char *format, ...);
-
 
 int	ft_output(const char *format, va_list stat)
 {
@@ -39,8 +38,8 @@ int	ft_output(const char *format, va_list stat)
 		}
 		else
 		{
-		ft_putchar_fd(sbuf[i], 1);
-		i++;
+			ft_putchar_fd(sbuf[i], 1);
+			i++;
 		}
 	}
 	len += i - (count * 2);

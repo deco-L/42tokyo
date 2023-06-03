@@ -6,17 +6,12 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:29:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 23:18:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:48:55 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "libftprintf.h"
-
-static void					ft_number(unsigned long long nb, int length, char *moto);
-static unsigned long long	flag1(unsigned long long nbr, int len, char *base);
-static unsigned long long	flag2(unsigned long long nbr, int len, char *base);
-int							ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base);
+#include "ft_printf.h"
 
 static void	ft_number(unsigned long long nb, int length, char *moto)
 {
@@ -94,8 +89,10 @@ int	ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base)
 	}
 	else if (nbr > 0)
 		ft_number(nbr, len, base);
-	while (nbr /= len)
+	while (nbr)
+	{
 		digit++;
+		nbr /= len;
+	}
 	return (digit);
 }
-

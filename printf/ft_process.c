@@ -6,12 +6,12 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:44:29 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/03 00:53:39 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/03 17:39:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_process_litter(va_list stat, t_check *check);
 void	ft_process_point(va_list stat, t_check *check);

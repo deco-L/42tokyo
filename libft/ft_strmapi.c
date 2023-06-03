@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap1.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:27:14 by yayoi             #+#    #+#             */
-/*   Updated: 2023/05/17 16:04:57 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/03 15:39:09 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_strmapi(const char *str, char (*f)(unsigned int, char));
+char	*ft_strmapi(const char *str, char (*f)(unsigned int, char));
 
-void	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
 {
 	size_t	i;
 	size_t	len;

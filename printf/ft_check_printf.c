@@ -6,12 +6,12 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:11:30 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/02 20:20:09 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/03 17:39:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_process(va_list stat, t_check *check);
 void	ft_ch_printf(const char *format, va_list stat, int i, t_check *check);
