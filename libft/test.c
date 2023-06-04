@@ -269,7 +269,7 @@ int	main(void)
 	char	**result1;
 	char	**result2;
 	char	**result3;
-	result = ft_split("hello,world,42,tokyo", ',');
+	result = ft_split("\0aaa\0bb", '\0');
 	// free(result[0]);
 	// free(result[1]);
 	// free(result[2]);
@@ -281,10 +281,10 @@ int	main(void)
 	// free(result2);
 	// result3 = ft_split(NULL, 'a');
 	// free(result3);
-	// for (int i = 0; i < 5; i++)
-	// {
-	// 	printf("ft_split : %s\n", result[i]);
-	// }
+	for (int i = 0; i < 3; i++)
+	{
+		printf("ft_split : %s\n", result[i]);
+	}
 	// for (int i = 0; i < 3; i++)
 	// {
 	// 	printf("result1[%d] : %s\n", i, result1[i]);

@@ -6,17 +6,17 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:28:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 15:11:16 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 14:40:00 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			**ft_split(const char *str, char c);
-static int		ft_check_split(char str, char c);
-static int		ft_word_cnt(const char *str, char c);
-static int		ft_letter_cnt(const char *str, char c, int i);
-static char		*ftin(char *dest, const char *str, int letter_cnt, int i);
+char		**ft_split(const char *str, char c);
+static int	ft_check_split(char str, char c);
+static int	ft_word_cnt(const char *str, char c);
+static int	ft_letter_cnt(const char *str, char c, int i);
+static char	*ftin(char *dest, const char *str, int letter_cnt, int i);
 
 static int	ft_check_split(char str, char c)
 {
@@ -94,10 +94,7 @@ char	**ft_split(const char *str, char c)
 	words = ft_word_cnt(str, c);
 	result = (char **)malloc(sizeof(char *) * (words + 1));
 	if (result == NULL)
-	{
-		free(result);
 		return (NULL);
-	}
 	while (count < words)
 	{
 		while (ft_check_split(str[i], c))

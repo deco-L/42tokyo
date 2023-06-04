@@ -6,17 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/01 14:00:48 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 14:55:14 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t		ft_strlen(const char *str);
-char		*ft_strchr(const char *str, int c);
-char		*ft_substr(const char *s, unsigned int start, size_t len);
-char		*ft_strjoin_gnl(const char *s1, const char *s2);
-static char	*ft_in_strjoin(char *result, const char *s1, const char *s2);
 
 size_t	ft_strlen(const char *str)
 {
@@ -32,14 +26,14 @@ size_t	ft_strlen(const char *str)
 
 char	*ft_strchr(const char *str, int c)
 {
-	int				i;
-	int				flag;
-	unsigned char	cbuf;
-	unsigned char	*result;
+	int					i;
+	int					flag;
+	unsigned char		cbuf;
+	const unsigned char	*result;
 
 	i = 0;
 	flag = 0;
-	result = (unsigned char *)str;
+	result = (const unsigned char *)str;
 	cbuf = (unsigned char)c;
 	if (cbuf == '\0')
 		flag++;
@@ -66,10 +60,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	i = 0;
 	result = (char *)malloc(len + 1);
 	if (result == NULL)
-	{
-		free(result);
 		return (NULL);
-	}
 	while (i < len && s[start] != '\0')
 	{
 		result[i] = s[start];

@@ -6,16 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:14:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/31 14:14:59 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 14:56:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-char			*get_next_line(int fd);
-unsigned char	*ft_buf_check(int fd, char **buf);
-unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1);
-int				ft_rech(char *res, int fd, unsigned char **buf, long long len);
 
 unsigned char	*ft_buf_check(int fd, char **buf)
 {
@@ -35,9 +30,7 @@ unsigned char	*ft_buf_check(int fd, char **buf)
 		return (result);
 	}
 	else
-	{
 		return (NULL);
-	}
 }
 
 int	ft_rech(char *res, int fd, unsigned char **buf, long long len)
@@ -96,8 +89,6 @@ char	*get_next_line(int fd)
 		return ((char *)result);
 	if (buf[fd])
 		result = buf[fd];
-	else
-		result = NULL;
 	stock = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (stock == NULL)
 		return (NULL);

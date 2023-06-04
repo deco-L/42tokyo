@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:12:55 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/31 14:02:55 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:01:11 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ int	main(int argc, char **argv)
 	// printf("%d\n", fd);
 	// free(line);
 
+	printf("------------------------");
+	write(2, "01234", 5);
 	return (0);
 }
