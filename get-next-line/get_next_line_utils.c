@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/04 14:55:14 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 17:47:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,13 +114,8 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 	else
 		s2_len = ft_strlen(s2);
 	result = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
-	if (result == NULL)
-	{
-		free((void *)s1);
-		free((void *)s2);
-		return (NULL);
-	}
-	result = ft_in_strjoin(result, s1, s2);
+	if (result != NULL)
+		result = ft_in_strjoin(result, s1, s2);
 	free((void *)s1);
 	free((void *)s2);
 	return (result);

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/04 14:55:25 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:44:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,30 @@ int	ft_rech(char *res, int fd, unsigned char **buf, long long len)
 	return (2);
 }
 
+int	ftinput(char *res, unsigned char *buf, char *s1, long long len)
+{
+	char			*c;
+	long long		sep;
+
+	c = ft_strchr(s1, '\n');
+	if (c)
+	{
+		sep = c - s1 + 1;
+		res = ft_strjoin_gnl(res, ft_substr(s1, 0, sep));
+		buf = (unsigned char *)ft_substr(s1, c - s1 + 1, len - sep);
+		return (1);
+	}
+	else
+	{
+		res = ft_strjoin_gnl(res, ft_substr(s1, 0, len));
+		return (0);
+	}
+}
+
 unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 {
+	int				flag;
 	long long		len;
-	long long		sep;
-	char			*c;
 
 	len = 1;
 	while (len)
@@ -60,18 +79,17 @@ unsigned char	*ft_reader(char *result, int fd, unsigned char **buf, char *s1)
 		if (ft_rech(result, fd, buf, len) == 1)
 			return ((unsigned char *)result);
 		else if (ft_rech(result, fd, buf, len) == 0)
-			return (NULL);
-		s1[len] = '\0';
-		c = ft_strchr(s1, '\n');
-		if (c)
 		{
-			sep = c - s1 + 1;
-			result = ft_strjoin_gnl(result, ft_substr(s1, 0, sep));
-			buf[fd] = (unsigned char *)ft_substr(s1, c - s1 + 1, len - sep);
+			free(result);
+			return (NULL);
+		}
+		s1[len] = '\0';
+			printf("%s\n", result);
+		flag = ftinput(result, buf[fd], s1, len);
+		if (flag)
+		{
 			return ((unsigned char *)result);
 		}
-		else
-			result = ft_strjoin_gnl(result, ft_substr(s1, 0, len));
 	}
 	return ((unsigned char *)result);
 }
@@ -80,7 +98,7 @@ char	*get_next_line(int fd)
 {
 	char					*stock;
 	unsigned char			*result;
-	static unsigned char	*buf[OPEN_MAX];
+	static unsigned char	*buf[OPEN_MAX] = {NULL};
 
 	if (fd < 0)
 		return (NULL);

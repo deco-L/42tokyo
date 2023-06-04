@@ -6,12 +6,12 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:29:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/03 20:48:55 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:11:10 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 static void	ft_number(unsigned long long nb, int length, char *moto)
 {

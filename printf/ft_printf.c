@@ -6,12 +6,12 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/03 17:39:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:11:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 static int		ft_output(const char *format, va_list stat);
 static int		ft_sp_output(const char *format, va_list stat, int i);

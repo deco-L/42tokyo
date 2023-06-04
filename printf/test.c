@@ -6,12 +6,12 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:32:37 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/03 15:07:51 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:24:31 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 // #include <libc.h>

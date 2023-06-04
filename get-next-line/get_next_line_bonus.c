@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:14:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/04 14:56:19 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/04 17:35:46 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ int	ft_rech(char *res, int fd, unsigned char **buf, long long len)
 	else if (len == 0)
 	{
 		if (!ft_strlen(res))
+		{
+			free(res);
 			return (0);
+		}
 		buf[fd] = NULL;
 		return (1);
 	}
