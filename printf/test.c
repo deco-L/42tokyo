@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:32:37 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/04 15:24:31 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:28:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,47 @@
 //     system("leaks -q a.out");
 // }
 
+// int	main(void)
+// {
+// 	char	*c;
+// 	unsigned long long d = -2147483646;
+
+// 	c = NULL;
+// 	// printf("%u\n", 42967295);
+// 	// printf("%llu\n", d);
+// 	// printf("%X\n%p\n", 1234, c);
+// 	// printf("%p\n", NULL);
+// 	// printf("%p\n",c);
+// 	// // printf("%p\n", 0);
+// 	// c = (char *)malloc(sizeof(char) * 5);
+// 	// ft_printf("aaa|%i|aaa%%ccc%Xbbb %s  |%p| %d %c %u %x %X\n", 123, 1234, "abcdef", c, 42, 'c', -1, 1234, 1234);
+// 	// ft_printf("%p\n", NULL);
+// 	// free(c);
+// 	// c = NULL;
+// 	// ft_printf("%p\n", c);
+// 	// ft_printf("-%d\n-%d\n-|%d|\n", ft_printf(":aaa:"), ft_printf("%x\n", 1234), ft_printf("%pa%%aa%s%d%u%i\n", c, "123", 123, 12, 999));
+// 	// c = (char *)malloc(sizeof(char) * 4);
+// 	// free(c);
+// 	// printf("%d\n", 10);
+// 	ft_printf("aa\n");
+// 	return (0);
+// }
+
+
+
 int	main(void)
 {
-	char	*c;
-	unsigned long long d = -2147483646;
+	char	*buf;
+	buf = "abcd";
 
-	c = NULL;
-	// printf("%u\n", 42967295);
-	// printf("%llu\n", d);
-	// printf("%X\n%p\n", 1234, c);
-	printf("%p\n", NULL);
-	printf("%p\n",c);
-	// printf("%p\n", 0);
-	c = (char *)malloc(sizeof(char) * 5);
-	ft_printf("aaa|%i|aaa%%ccc%Xbbb %s  |%p| %d %c %u %x %X\n", 123, 1234, "abcdef", c, 42, 'c', -1, 1234, 1234);
-	ft_printf("%p\n", NULL);
-	free(c);
-	c = NULL;
-	ft_printf("%p\n", c);
-	ft_printf("-%d\n-%d\n-|%d|\n", ft_printf(":aaa:"), ft_printf("%x\n", 1234), ft_printf("%pa%%aa%s%d%u%i\n", c, "123", 123, 12, 999));
-	c = (char *)malloc(sizeof(char) * 4);
-	free(c);
-	printf("%p\n", c);
-	ft_printf("%p\n", c);
+	printf("|%d|\n", printf("%d\n", -1));
+	ft_printf("|%d|\n", ft_printf("%d\n", -1));
+
+	printf("printf : %c%s%p%d%i%u%x%%\n", 'z', "chiaki", buf, 10, 10, 10, 10);
+	ft_printf("ft_printf : %c%s%p%d%i%u%x%%\n", 'z', "chiaki", buf, 10, 10, 10, 10);
+
+	printf("c : %d, s : %d, p : %d, d : %d, i : %d, u : %d, x : %d, %% : %d\n", printf("a%ca", 'z'), printf("a%sa", "chiaki"), printf("a%pa", buf), printf("a%da", 10), printf("a%ia", 10), printf("a%ua", 10), printf("a%xa", 10), printf("a%%a"));
+	ft_printf("c : %d, s : %d, p : %d, d : %d, i : %d, u : %d, x : %d, %% : %d\n", ft_printf("a%ca", 'z'), ft_printf("a%sa", "chiaki"), ft_printf("a%pa", buf), ft_printf("a%da", 10), ft_printf("a%ia", 10), ft_printf("a%ua", 10), ft_printf("a%xa", 10), ft_printf("a%%a"));
 	return (0);
 }
 

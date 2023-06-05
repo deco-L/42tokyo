@@ -6,14 +6,14 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:29:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/04 15:11:10 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:29:51 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static void	ft_number(unsigned long long nb, int length, char *moto)
+static void	ft_number(long long nb, int length, char *moto)
 {
 	if (nb >= length)
 	{
@@ -21,13 +21,10 @@ static void	ft_number(unsigned long long nb, int length, char *moto)
 		ft_number(nb % length, length, moto);
 	}
 	else
-	{
 		ft_putchar_fd(moto[nb], 1);
-	}
-	return ;
 }
 
-static unsigned long long	flag1(unsigned long long nbr, int len, char *base)
+static long long	flag1(long long nbr, int len, char *base)
 {
 	int	i;
 
@@ -49,7 +46,7 @@ static unsigned long long	flag1(unsigned long long nbr, int len, char *base)
 	return (nbr);
 }
 
-static unsigned long long	flag2(unsigned long long nbr, int len, char *base)
+static long long	flag2(long long nbr, int len, char *base)
 {
 	int	i;
 	int	j;
@@ -72,11 +69,13 @@ static unsigned long long	flag2(unsigned long long nbr, int len, char *base)
 	return (nbr);
 }
 
-int	ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base)
+int	ft_putnbr_base_fdcnt(long long nbr, int digit, char *base)
 {
 	int	len;
 
 	len = 0;
+	if (nbr <= 0)
+		digit++;
 	while (base[len] != '\0')
 		len++;
 	nbr = flag1(nbr, len, base);
@@ -87,7 +86,7 @@ int	ft_putnbr_base_fdcnt(unsigned long long nbr, int digit, char *base)
 		write(1, "-", 1);
 		ft_number(nbr, len, base);
 	}
-	else if (nbr > 0)
+	else if (nbr >= 0)
 		ft_number(nbr, len, base);
 	while (nbr)
 	{
