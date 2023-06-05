@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/04 15:11:28 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:18:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,24 @@ static int		ft_output(const char *format, va_list stat);
 static int		ft_sp_output(const char *format, va_list stat, int i);
 int				ft_printf(const char *format, ...);
 
+
 int	ft_output(const char *format, va_list stat)
 {
-	int		i;
-	int		count;
-	int		len;
-	char	*sbuf;
+	int	i;
+	int	len;
 
 	i = 0;
-	count = 0;
 	len = 0;
-	sbuf = (char *)format;
-	while (sbuf[i])
+	while (*format)
 	{
-		if (sbuf[i] == '%')
+		if (format[i] != '%')
 		{
-			len += ft_sp_output(sbuf, stat, ++i);
-			i++;
-			count++;
-		}
-		else
-		{
-			ft_putchar_fd(sbuf[i], 1);
+			ft_putchar_fd(&format[i], 1);
 			i++;
 		}
+		len += ft_sp_output(format, stat, ++i);
+		i += 2;
 	}
-	len += i - (count * 2);
 	return (len);
 }
 
@@ -52,7 +44,7 @@ int	ft_sp_output(const char *format, va_list stat, int i)
 	t_check	*check;
 
 	check = (t_check *)ft_calloc(1, sizeof(t_check));
-	ft_ch_printf(format, stat, i, check);
+	ft_check_printf(format, stat, i, check);
 	len = check -> length;
 	free(check);
 	return (len);
@@ -68,6 +60,5 @@ int	ft_printf(const char *format, ...)
 	count = 0;
 	va_start(stat, format);
 	count = ft_output(format, stat);
-	va_end(stat);
 	return (count);
 }
