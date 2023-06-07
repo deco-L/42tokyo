@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:44:29 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/05 17:25:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/07 14:20:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ void	ft_process_litter(va_list stat, t_check *check)
 		return ;
 	}
 	buf = va_arg(stat, char *);
-	check -> length = ft_strlen(buf);
+	if (buf == NULL)
+	{
+		check -> length += 6;
+		ft_putstr_fd("(null)", 1);
+		return ;
+	}
+	check -> length += ft_strlen(buf);
 	ft_putstr_fd(buf, 1);
 	return ;
 }
@@ -45,15 +51,9 @@ void	ft_process_point(va_list stat, t_check *check)
 	unsigned long long	p;
 
 	p = va_arg(stat, unsigned long long);
-	if (p == 0)
-	{
-		check -> length = 5;
-		ft_putstr_fd("(nil)", 1);
-		return ;
-	}
 	ft_putstr_fd("0x", 1);
-	check -> length = 2;
-	check -> length += ft_putnbr_base_fdcnt(p, 0, "0123456789abcdef");
+	check -> length += 2;
+	check -> length += ft_putnbr_base_fdcnt2(p, 0, "0123456789abcdef");
 	return ;
 }
 
@@ -75,16 +75,16 @@ void	ft_process_number(va_list stat, t_check *check)
 
 void	ft_process_hexa(va_list stat, t_check *check)
 {
-	unsigned long long	hexalow;
-	unsigned long long	hexaupp;
+	unsigned int	hexalow;
+	unsigned int	hexaupp;
 
 	if (check -> type == HEXALOW)
 	{
-		hexalow = va_arg(stat, unsigned long long);
+		hexalow = va_arg(stat, unsigned int);
 		check -> length = ft_putnbr_base_fdcnt(hexalow, 0, "0123456789abcdef");
 		return ;
 	}
-	hexaupp = va_arg(stat, unsigned long long);
+	hexaupp = va_arg(stat, unsigned int);
 	check -> length = ft_putnbr_base_fdcnt(hexaupp, 0, "0123456789ABCDEF");
 	return ;
 }

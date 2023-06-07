@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:32:37 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/05 17:28:25 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/07 14:19:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,28 @@
 // 	return (0);
 // }
 
-
-
-int	main(void)
+int main(void)
 {
-	char	*buf;
-	buf = "abcd";
-
-	printf("|%d|\n", printf("%d\n", -1));
-	ft_printf("|%d|\n", ft_printf("%d\n", -1));
-
-	printf("printf : %c%s%p%d%i%u%x%%\n", 'z', "chiaki", buf, 10, 10, 10, 10);
-	ft_printf("ft_printf : %c%s%p%d%i%u%x%%\n", 'z', "chiaki", buf, 10, 10, 10, 10);
-
-	printf("c : %d, s : %d, p : %d, d : %d, i : %d, u : %d, x : %d, %% : %d\n", printf("a%ca", 'z'), printf("a%sa", "chiaki"), printf("a%pa", buf), printf("a%da", 10), printf("a%ia", 10), printf("a%ua", 10), printf("a%xa", 10), printf("a%%a"));
-	ft_printf("c : %d, s : %d, p : %d, d : %d, i : %d, u : %d, x : %d, %% : %d\n", ft_printf("a%ca", 'z'), ft_printf("a%sa", "chiaki"), ft_printf("a%pa", buf), ft_printf("a%da", 10), ft_printf("a%ia", 10), ft_printf("a%ua", 10), ft_printf("a%xa", 10), ft_printf("a%%a"));
+	printf("%d\n", 	printf(" [%x] [%X] ", LONG_MAX, LONG_MIN));
+	printf("%d\n", ft_printf(" #%x# &%X& ", LONG_MAX, LONG_MIN));
 	return (0);
 }
+
+// int	main(void)
+// {
+// 	char	*buf;
+// 	buf = "abcd";
+
+// 	printf("|%d|\n", printf("%d\n", -1));
+// 	ft_printf("|%d|\n", ft_printf("%d\n", -1));
+
+// 	printf("printf : %c%s%p%d%i%u%x%%\n", 'z', "chiaki", buf, 10, 10, 10, 10);
+// 	ft_printf("ft_printf : %c%s%p%d%i%u%x%%\n", 'z', "chiaki", buf, 10, 10, 10, 10);
+
+// 	printf("c : %d, s : %d, p : %d, d : %d, i : %d, u : %d, x : %d, %% : %d\n", printf("a%ca", 'z'), printf("a%sa", "chiaki"), printf("a%pa", buf), printf("a%da", 10), printf("a%ia", 10), printf("a%ua", 10), printf("a%xa", 10), printf("a%%a"));
+// 	ft_printf("c : %d, s : %d, p : %d, d : %d, i : %d, u : %d, x : %d, %% : %d\n", ft_printf("a%ca", 'z'), ft_printf("a%sa", "chiaki"), ft_printf("a%pa", buf), ft_printf("a%da", 10), ft_printf("a%ia", 10), ft_printf("a%ua", 10), ft_printf("a%xa", 10), ft_printf("a%%a"));
+// 	return (0);
+// }
 
 // int	ft_putnbr_fd_cnt(int n, int digit, int fd)
 // {

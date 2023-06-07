@@ -6,14 +6,14 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:29:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/05 17:29:51 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/07 14:11:27 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "ft_printf.h"
 
-static void	ft_number(long long nb, int length, char *moto)
+static void	ft_number(unsigned long long nb, int length, char *moto)
 {
 	if (nb >= length)
 	{
@@ -24,7 +24,7 @@ static void	ft_number(long long nb, int length, char *moto)
 		ft_putchar_fd(moto[nb], 1);
 }
 
-static long long	flag1(long long nbr, int len, char *base)
+static unsigned long long	flag1(unsigned long long nbr, int len, char *base)
 {
 	int	i;
 
@@ -46,29 +46,6 @@ static long long	flag1(long long nbr, int len, char *base)
 	return (nbr);
 }
 
-static long long	flag2(long long nbr, int len, char *base)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < len)
-	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (base[i] == base[j])
-			{
-				nbr = 0;
-				return (nbr);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (nbr);
-}
-
 int	ft_putnbr_base_fdcnt(long long nbr, int digit, char *base)
 {
 	int	len;
@@ -78,16 +55,34 @@ int	ft_putnbr_base_fdcnt(long long nbr, int digit, char *base)
 		digit++;
 	while (base[len] != '\0')
 		len++;
-	nbr = flag1(nbr, len, base);
-	nbr = flag2(nbr, len, base);
+	nbr = flag1((unsigned long long)nbr, len, base);
 	if (nbr < 0)
 	{
 		nbr *= -1;
 		write(1, "-", 1);
-		ft_number(nbr, len, base);
+		ft_number((unsigned long long)nbr, len, base);
 	}
 	else if (nbr >= 0)
 		ft_number(nbr, len, base);
+	while (nbr)
+	{
+		digit++;
+		nbr /= len;
+	}
+	return (digit);
+}
+
+int	ft_putnbr_base_fdcnt2(unsigned long long nbr, int digit, char *base)
+{
+	int	len;
+
+	len = 0;
+	if (nbr <= 0)
+		digit++;
+	while (base[len] != '\0')
+		len++;
+	nbr = flag1(nbr, len, base);
+	ft_number(nbr, len, base);
 	while (nbr)
 	{
 		digit++;
