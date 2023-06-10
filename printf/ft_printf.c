@@ -6,15 +6,25 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/10 16:02:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/10 16:34:49 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_output(const char *format, va_list stat);
-static int		ft_sp_output(const char *format, va_list stat, int i);
-int				ft_printf(const char *format, ...);
+int	ft_sp_output(const char *format, va_list stat, int i)
+{
+	int		len;
+	t_check	*check;
+
+	check = (t_check *)ft_calloc(1, sizeof(t_check));
+	if (check == NULL)
+		return (0);
+	ft_ch_printf(format, stat, i, check);
+	len = check -> length;
+	free(check);
+	return (len);
+}
 
 int	ft_output(const char *format, va_list stat)
 {
@@ -38,25 +48,11 @@ int	ft_output(const char *format, va_list stat)
 	return (len);
 }
 
-int	ft_sp_output(const char *format, va_list stat, int i)
-{
-	int		len;
-	t_check	*check;
-
-	check = (t_check *)ft_calloc(1, sizeof(t_check));
-	ft_ch_printf(format, stat, i, check);
-	len = check -> length;
-	free(check);
-	return (len);
-}
-
 int	ft_printf(const char *format, ...)
 {
 	va_list	stat;
 	int		count;
 
-	if (!format)
-		return (0);
 	count = 0;
 	va_start(stat, format);
 	count = ft_output(format, stat);
