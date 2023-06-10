@@ -6,17 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:44:29 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/07 14:20:52 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:47:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include "ft_printf.h"
-
-void	ft_process_litter(va_list stat, t_check *check);
-void	ft_process_point(va_list stat, t_check *check);
-void	ft_process_number(va_list stat, t_check *check);
-void	ft_process_hexa(va_list stat, t_check *check);
 
 void	ft_process_litter(va_list stat, t_check *check)
 {

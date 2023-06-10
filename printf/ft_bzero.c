@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 16:47:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/29 11:48:39 by csakamot         ###   ########.fr       */
+/*   Created: 2023/04/27 14:41:26 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/06/10 15:49:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strrchr(const char *s, int c);
-
-char	*ft_strrchr(const char *s, int c)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t				len;
-	const unsigned char	*s1;
-	unsigned char		cbuf;
+	char	*c;
+	size_t	i;
 
-	len = ft_strlen(s);
-	s1 = (const unsigned char *) s;
-	cbuf = (unsigned char) c;
-	while (len)
+	c = (char *)s;
+	i = 0;
+	while (i < n)
 	{
-		if (s1[len] == cbuf)
-			return ((char *)&s1[len]);
-		len--;
+		c[i] = '\0';
+		i++;
 	}
-	if (s1[len] == cbuf)
-		return ((char *)&s1[len]);
-	return (NULL);
 }

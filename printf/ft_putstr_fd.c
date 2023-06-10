@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap1.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 19:27:14 by yayoi             #+#    #+#             */
-/*   Updated: 2023/05/17 16:04:57 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/10 13:40:58 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/06/10 16:01:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_strmapi(const char *str, char (*f)(unsigned int, char));
-
-void	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
+void	ft_putstr_fd(char *str, int fd)
 {
 	size_t	i;
-	size_t	len;
-	char	*result;
-	char	*src;
 
 	i = 0;
-	if (!str || !f)
-		return (NULL);
-	src = (char *)str;
-	len = ft_strlen(str);
-	result = (char *)malloc(sizeof(char) * (len + 1));
-	if (result == NULL)
-		return (NULL);
-	while (i < len)
+	if (!str)
+		return ;
+	while (str[i] != '\0')
 	{
-		result[i] = f(i, src[i]);
+		write(fd, &str[i], 1);
 		i++;
 	}
-	result[i] = '\0';
-	return (result);
+	return ;
 }
