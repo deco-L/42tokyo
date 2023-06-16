@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/06/15 17:23:28 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/16 16:00:45 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,11 +38,15 @@ AR			= ar rcs
 
 all:		$(NAME)
 
-$(NAME):	${OBJS}
-			${AR} ${NAME} ${OBJS}
+OBJ			= ${OBJS}
+ifdef WITH_BONUS
+OBJ 		+= ${BONUS_OBJS}
+endif
+bonus:		
+			make WITH_BONUS=1
 
-bonus:		${OBJS} ${BONUS_OBJS}
-			${AR} ${NAME} ${OBJS} ${BONUS_OBJS}
+$(NAME):	${OBJ}
+			${AR} ${NAME} ${OBJ}
 
 clean:
 			rm -f ${OBJS} ${BONUS_OBJS}
@@ -52,4 +56,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all
+.PHONY:		all bonus clean fclean re
