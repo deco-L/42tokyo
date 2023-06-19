@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/19 22:37:42 by csakamot         ###   ########.fr       */
+/*   Created: 2023/06/19 22:19:28 by csakamot          #+#    #+#             */
+/*   Updated: 2023/06/19 22:37:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int	main(long long argc, char **argv)
+int	input_arg_error(long long argc)
 {
-	if (input_arg_error(argc))
-		return 0;
-	ft_putchar_fd('\n', 1);
-	ft_printf("aaa2");
+	if (argc < 2)
+		return (1);
 	return (0);
 }
