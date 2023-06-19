@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/19 21:41:44 by csakamot         ###   ########.fr       */
+/*   Created: 2023/04/27 14:41:26 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/06/10 15:49:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ft_printf.h"
 
-# include <stdio.h>
+void	ft_bzero(void *s, size_t n)
+{
+	char	*c;
+	size_t	i;
 
-#endif
+	c = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		c[i] = '\0';
+		i++;
+	}
+}

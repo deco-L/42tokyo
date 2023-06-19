@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/19 21:41:44 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/08 16:46:28 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/06/10 16:01:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+	return ;
+}

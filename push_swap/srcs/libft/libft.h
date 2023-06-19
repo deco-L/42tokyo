@@ -6,12 +6,16 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 09:01:05 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/03 15:39:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/19 21:34:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef SIZE_MAX
+#  define SIZE_MAX 0xFFFFFFFFFFFFFFFFUL
+# endif
 
 # include <unistd.h>
 # include <stdlib.h>

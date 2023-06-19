@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/19 17:17:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/19 22:05:36 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	ft_putchar_fd('a', 1);
-	printf("aaa2");
+	ft_putchar_fd('\n', 1);
+	ft_printf("aaa2");
 	return (0);
 }

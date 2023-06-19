@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 15:38:38 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 12:19:11 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/10 13:40:58 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/06/10 16:01:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memchr(const void *buf, int c, size_t n);
-
-void	*ft_memchr(const void *buf, int c, size_t n)
+void	ft_putstr_fd(char *str, int fd)
 {
-	int					flag;
-	size_t				i;
-	const unsigned char	*dest;
-	unsigned char		cbuf;
-	void				*result;
+	size_t	i;
 
 	i = 0;
-	flag = 0;
-	dest = (const unsigned char *) buf;
-	cbuf = (unsigned char)c;
-	while (i < n)
+	if (!str)
+		return ;
+	while (str[i] != '\0')
 	{
-		if (dest[i] == cbuf)
-		{
-			result = (void *)&dest[i];
-			return (result);
-		}
+		write(fd, &str[i], 1);
 		i++;
 	}
-	return (NULL);
+	return ;
 }
