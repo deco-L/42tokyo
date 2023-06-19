@@ -1,20 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   error_helper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 22:19:28 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/19 22:37:30 by csakamot         ###   ########.fr       */
+/*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
+/*   Updated: 2023/06/19 22:40:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
-
-int	input_arg_error(long long argc)
-{
-	if (argc < 2)
-		return (1);
-	return (0);
-}

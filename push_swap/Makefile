@@ -6,13 +6,13 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/16 16:04:47 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/19 22:29:06 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/19 22:39:32 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 
-SRC			= push_swap.c check_error.c
+SRC			= push_swap.c error_check.c
 
 OBJS		= ${SRC:.c=.o}
 

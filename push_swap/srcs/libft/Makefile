@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/06/16 16:01:49 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/19 22:55:18 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ OBJ			= ${OBJS}
 ifdef WITH_BONUS
 OBJ 		+= ${BONUS_OBJS}
 endif
-bonus:		
+bonus:
 			make WITH_BONUS=1
 
 $(NAME):	${OBJ}
