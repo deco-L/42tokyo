@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/19 17:17:24 by csakamot         ###   ########.fr       */
+/*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
+/*   Updated: 2023/06/19 17:17:07 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(void)
-{
-	ft_putchar_fd('a', 1);
-	printf("aaa2");
-	return (0);
-}
+# include "../srcs/libft.h"
+# include <stdio.h>
+
+#endif
