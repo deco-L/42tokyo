@@ -6,19 +6,19 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/20 13:52:44 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:37:55 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int	ft_arg_less(void)
+void	ft_arg_less(void)
 {
 	ft_printf("Please enter arguments.");
-	return (1);
+	exit(EXIT_SUCCESS);
 }
 
-int	ft_one_arg_check(char **argv)
+void	ft_one_arg_check(char **argv)
 {
 	long long	i;
 
@@ -28,14 +28,13 @@ int	ft_one_arg_check(char **argv)
 		if (!ft_isdigit(argv[1][i]))
 		{
 			ft_printf("Invalid argument.");
-			return (1);
+			exit(EXIT_SUCCESS);
 		}
 		i++;
 	}
-	return (1);
 }
 
-int	ft_args_check(int argc, char **argv)
+void	ft_args_check(int argc, char **argv)
 {
 	int			i;
 	long long	j;
@@ -49,11 +48,10 @@ int	ft_args_check(int argc, char **argv)
 			if (!ft_isdigit(argv[i][j]))
 			{
 				ft_printf("Invalid argument");
-				return (1);
+				exit(EXIT_SUCCESS);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (0);
 }
