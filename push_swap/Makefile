@@ -6,13 +6,14 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/16 16:04:47 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/21 16:34:22 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/21 16:43:14 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 
-SRC			= push_swap.c error.c error_check.c std_input_error_helper.c input_arg.c input_arg_helper.c
+SRC			= push_swap.c error.c error_check.c std_input_error_helper.c input_arg.c \
+				input_arg_helper.c lstinput_helper.c
 
 OBJS		= ${SRC:.c=.o}
 

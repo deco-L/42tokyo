@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 16:16:29 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:45:58 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include "../srcs/libft/libft.h"
 # include "../srcs/ft_printf/ft_printf.h"
 
-typedef struct s_node
+typedef struct s_list
 {
 	long long		content;
-	struct s_node	*next;
-	struct s_node	*prev;
+	struct s_list	*next;
+	struct s_list	*prev;
 	int				flag;
-}				t_node;
+}				t_list;
 
 /*
 eroor
