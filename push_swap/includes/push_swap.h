@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 20:56:08 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 01:18:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		*ft_sort_array(int *sort_stack, int *index_stack, int index);
 int		*ft_int_cpy(int *dest, const int *src, int n);
 int		*ft_cc(int *ccstack, int *sort_stack, int index);
 t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index);
-t_node	*ft_mkloop_node(t_node **a_stack, int i);
+t_node	*ft_mkloop_node(t_node **a_stack, t_node *start, int i);
 t_node	*ft_new_node(t_node *a_stack, int content);
 void	ft_nodeadd_back(t_node **a_stack, t_node *new);
 
