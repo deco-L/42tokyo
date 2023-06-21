@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 16:45:58 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:18:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include "../srcs/libft/libft.h"
 # include "../srcs/ft_printf/ft_printf.h"
 
-typedef struct s_list
+typedef struct s_node
 {
 	long long		content;
-	struct s_list	*next;
-	struct s_list	*prev;
+	struct s_node	*next;
+	struct s_node	*prev;
 	int				flag;
-}				t_list;
+}				t_node;
 
 /*
 eroor
@@ -37,10 +37,11 @@ void	ft_args_check(int argc, char **argv);
 input
 */
 
-void	ft_input_arg(int argc, char **argv, int flag);
+void	ft_input_arg(int argc, char **argv, t_node a_stack, int flag);
 int		*ft_input(int *index_stack, int argc, char **argv);
 int		*ft_format_input(int *index_stack, char **argv);
 int		*ft_sort_array(int *sort_stack, int *index_stack, int index);
 int		*ft_int_cpy(int *dest, const int *src, int n);
+int		*ft_cc(int *ccstack, int *sort_stack, int index);
 
 #endif

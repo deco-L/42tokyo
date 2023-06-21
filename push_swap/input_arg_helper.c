@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 16:30:22 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:16:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,31 @@ int	*ft_int_cpy(int *dest, const int *src, int n)
 	while (i < n)
 	{
 		result[i] = src[i];
+		i++;
+	}
+	return (result);
+}
+
+int	*ft_cc(int *ccstack, int *sort_stack, int index)
+{
+	int	i;
+	int	j;
+	int	*result;
+	int	*src;
+
+	i = 0;
+	j = 0;
+	result = ccstack;
+	src = sort_stack;
+	while (i < index)
+	{
+		j = 0;
+		while (j < index)
+		{
+			if (result[i] == sort_stack[j])
+				result[i] = j;
+			j++;
+		}
 		i++;
 	}
 	return (result);
