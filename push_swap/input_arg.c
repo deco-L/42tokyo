@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 17:19:12 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:20:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_input_arg(int index, char **argv, t_node a_stack, int flag)
 		ccstack = ft_input(ccstack, index, argv);
 	sort_stack = ft_sort_array(sort_stack, ccstack, index);
 	ccstack = ft_cc(ccstack, sort_stack, index);
-	// ft_make_lst(a_stack, index);
+	ft_make_node(a_stack, index);
 	free (ccstack);
 	free (sort_stack);
 }

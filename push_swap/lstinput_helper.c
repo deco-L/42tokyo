@@ -6,13 +6,13 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 16:37:11 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 17:11:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:20:46 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-t_list	*ft_new_lst(void)
+t_list	*ft_new_node(void)
 {
 	return (NULL);
 }
