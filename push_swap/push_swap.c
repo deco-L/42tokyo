@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 15:16:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:29:23 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	flag = 0;
 	flag = ft_standard_input_error(argc, argv);
-	ft_input_arg(argc, argv, flag);
+	ft_input_arg(argc - 1, argv, flag);
 	ft_printf("aaa2");
 	return (0);
 }

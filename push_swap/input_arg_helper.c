@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 16:20:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:30:22 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	*ft_input(int *index_stack, int argc, char **argv)
 	int	i;
 
 	i = 1;
-	while (i < argc)
+	while (i <= argc)
 	{
 		index_stack[i - 1] = ft_atoi(argv[i]);
 		i++;

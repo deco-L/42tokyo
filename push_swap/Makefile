@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/16 16:04:47 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/21 15:20:05 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/21 16:34:22 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIBFT_A		= ${addprefix ${LIBFT}, libft.a}
 
 FTPRINTF_A	= ${addprefix ${FTPRINTF}, libftprintf.a}
 
-CCLIBFT		= cd ${LIBFT} && make && cd ./../..
+CCLIBFT		= cd ${LIBFT} && make bonus && cd ./../..
 
 CCFTPRINTF	= cd ${FTPRINTF} && make && cd ./../..
 
