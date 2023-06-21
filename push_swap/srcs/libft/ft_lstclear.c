@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:34:19 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/30 15:53:42 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:02:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	if (lst && del)
 	{
 		tmp = *lst;
-		while (*lst)
+		while (tmp)
 		{
-			nbuf = (*lst)-> next;
-			del ((*lst)-> content);
-			free (*lst);
+			nbuf = (tmp)-> next;
+			del ((tmp)-> content);
+			free (tmp);
 			*lst = nbuf;
 		}
 		tmp = NULL;

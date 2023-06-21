@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 17:18:01 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:56:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_node
 {
-	long long		content;
+	int				content;
 	struct s_node	*next;
 	struct s_node	*prev;
 	int				flag;
@@ -28,6 +28,7 @@ typedef struct s_node
 eroor
 */
 void	ft_malloc_error(void);
+void	ft_mallocerror_node(t_node *a_stack, int i);
 int		ft_standard_input_error(int argc, char **argv);
 void	ft_arg_less(void);
 int		ft_one_arg_check(char **argv);
@@ -37,11 +38,21 @@ void	ft_args_check(int argc, char **argv);
 input
 */
 
-void	ft_input_arg(int argc, char **argv, t_node a_stack, int flag);
+void	ft_input_arg(int argc, char **argv, t_node *a_stack, int flag);
 int		*ft_input(int *index_stack, int argc, char **argv);
 int		*ft_format_input(int *index_stack, char **argv);
 int		*ft_sort_array(int *sort_stack, int *index_stack, int index);
 int		*ft_int_cpy(int *dest, const int *src, int n);
 int		*ft_cc(int *ccstack, int *sort_stack, int index);
+t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index);
+t_node	*ft_mkloop_node(t_node **a_stack, int i);
+t_node	*ft_new_node(t_node *a_stack, int content);
+void	ft_nodeadd_back(t_node **a_stack, t_node *new);
+
+/*
+node_helper
+*/
+
+void	ft_delete_all_node(t_node **a_stack);
 
 #endif

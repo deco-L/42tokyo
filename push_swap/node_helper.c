@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lstinput_helper.c                                  :+:      :+:    :+:   */
+/*   node_helper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 16:37:11 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 17:20:46 by csakamot         ###   ########.fr       */
+/*   Created: 2023/06/21 20:45:05 by csakamot          #+#    #+#             */
+/*   Updated: 2023/06/21 20:55:33 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-t_list	*ft_new_node(void)
+void	ft_delete_all_node(t_node **a_stack)
 {
-	return (NULL);
+	t_node	*stack;
+
+	*a_stack = (*a_stack) -> next;
+	while (!((*a_stack) -> flag))
+	{
+		stack = *a_stack;
+		*a_stack = ((*a_stack) -> next);
+		free(stack);
+	}
+	free(*a_stack);
+	return ;
 }
