@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_helper.c                                     :+:      :+:    :+:   */
+/*   std_input_error_helper.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/20 20:37:55 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:21:23 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,29 @@
 
 void	ft_arg_less(void)
 {
-	ft_printf("Please enter arguments.");
-	exit(EXIT_SUCCESS);
+	ft_printf("Please enter arguments.\n");
+	exit(EXIT_FAILURE);
 }
 
-void	ft_one_arg_check(char **argv)
+int	ft_one_arg_check(char **argv)
 {
+	int			flag;
 	long long	i;
 
 	i = 0;
+	flag = 0;
 	while (argv[1][i] != '\0')
 	{
-		if (!ft_isdigit(argv[1][i]))
+		if (!(ft_isdigit(argv[1][i]) || (argv[1][i] == ' ')))
 		{
-			ft_printf("Invalid argument.");
-			exit(EXIT_SUCCESS);
+			ft_printf("Invalid argument.\n");
+			exit(EXIT_FAILURE);
 		}
+		if (argv[1][i] == ' ')
+			flag++;
 		i++;
 	}
+	return (flag);
 }
 
 void	ft_args_check(int argc, char **argv)
@@ -47,8 +52,8 @@ void	ft_args_check(int argc, char **argv)
 		{
 			if (!ft_isdigit(argv[i][j]))
 			{
-				ft_printf("Invalid argument");
-				exit(EXIT_SUCCESS);
+				ft_printf("Invalid argument.\n");
+				exit(EXIT_FAILURE);
 			}
 			j++;
 		}

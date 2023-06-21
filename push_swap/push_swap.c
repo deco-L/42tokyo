@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/20 20:33:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:16:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 
 int	main(int argc, char **argv)
 {
-	ft_printf("%d\n", ft_input_arg_error(argc, argv));
-	if (ft_input_arg_error(argc, argv))
-		return (0);
-	// ft_input_arg(argc, argv);
-	ft_putchar_fd('\n', 1);
+	int	flag;
+
+	flag = 0;
+	flag = ft_standard_input_error(argc, argv);
+	ft_input_arg(argc, argv, flag);
 	ft_printf("aaa2");
 	return (0);
+}
+
+#include <libc.h>
+
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q push_swap");
 }

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/20 20:35:35 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:16:29 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,23 @@ typedef struct s_node
 	int				flag;
 }				t_node;
 
-
-void	ft_input_arg_error(int argc, char **argv);
+/*
+eroor
+*/
+void	ft_malloc_error(void);
+int		ft_standard_input_error(int argc, char **argv);
 void	ft_arg_less(void);
-void	ft_one_arg_check(char **argv);
+int		ft_one_arg_check(char **argv);
 void	ft_args_check(int argc, char **argv);
+
+/*
+input
+*/
+
+void	ft_input_arg(int argc, char **argv, int flag);
+int		*ft_input(int *index_stack, int argc, char **argv);
+int		*ft_format_input(int *index_stack, char **argv);
+int		*ft_sort_array(int *sort_stack, int *index_stack, int index);
+int		*ft_int_cpy(int *dest, const int *src, int n);
 
 #endif
