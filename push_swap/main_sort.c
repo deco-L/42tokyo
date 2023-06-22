@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:27:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 12:25:57 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:02:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ void	ft_twoarg_sort(t_node *a_stack)
 {
 	t_node	*a_start;
 
-	a_stack = a_stack -> next;
+	if (a_stack -> flag)
+		a_stack = a_stack -> next;
 	a_start = a_stack;
 	a_stack = a_stack -> next;
 	if (a_start -> content > a_stack -> content)
-		ft_putstr("sa\n");
+		a_stack = ft_sort_rule_sa(a_start);
 	return ;
 }
 

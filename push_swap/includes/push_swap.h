@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 12:28:09 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:48:44 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index);
 sort_rule
 */
 
-void	ft_rule_sa(t_node *stack);
+t_node	*ft_sort_rule_sa(t_node *stack);
 
 /*
 node_helper
