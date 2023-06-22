@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 09:50:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:53:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(int argc, char **argv)
 
 	flag = 0;
 	flag = ft_standard_input_error(argc, argv);
-	ft_input_arg(argc - 1, argv, a_stack, flag);
+	a_stack = ft_input_arg(argc - 1, argv, a_stack, flag);
+	ft_main_sort(a_stack, argc - 1);
+	ft_delete_all_node(a_stack);
 	ft_printf("aaa2");
 	return (0);
 }
@@ -31,3 +33,9 @@ static void destructor() {
     system("leaks -q push_swap");
 }
 // compaction of coordinates
+
+	// for (int i = 0; i < argc; i++)
+	// {
+	// 	printf("a_stack[%d] content : %d flag : %d\n", i, a_stack -> content, a_stack -> flag);
+	// 	a_stack = a_stack -> next;
+	// }

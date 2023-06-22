@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 15:17:56 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 10:14:41 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:52:04 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_malloc_error(void)
 {
-	ft_printf("Malloc failed.\n");
+	ft_putstr("Malloc failed.\n");
 	exit(EXIT_FAILURE);
 }
 

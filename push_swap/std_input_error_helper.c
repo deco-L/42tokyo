@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/21 15:21:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:51:03 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_arg_less(void)
 {
-	ft_printf("Please enter arguments.\n");
+	ft_putstr("Please enter arguments.\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -29,7 +29,7 @@ int	ft_one_arg_check(char **argv)
 	{
 		if (!(ft_isdigit(argv[1][i]) || (argv[1][i] == ' ')))
 		{
-			ft_printf("Invalid argument.\n");
+			ft_putstr("Invalid argument.\n");
 			exit(EXIT_FAILURE);
 		}
 		if (argv[1][i] == ' ')
@@ -52,7 +52,7 @@ void	ft_args_check(int argc, char **argv)
 		{
 			if (!ft_isdigit(argv[i][j]))
 			{
-				ft_printf("Invalid argument.\n");
+				ft_putstr("Invalid argument.\n");
 				exit(EXIT_FAILURE);
 			}
 			j++;

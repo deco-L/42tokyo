@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   node_helper.c                                      :+:      :+:    :+:   */
+/*   sort_rule.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 20:45:05 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 12:17:42 by csakamot         ###   ########.fr       */
+/*   Created: 2023/06/22 12:26:12 by csakamot          #+#    #+#             */
+/*   Updated: 2023/06/22 12:27:42 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	ft_delete_all_node(t_node *src_stack)
+void	ft_rule_sa(t_node *stack)
 {
-	t_node	*start;
-	t_node	*stack;
-
-	start = src_stack;
-	if (src_stack -> next == NULL)
-	{
-		free(src_stack);
-		return ;
-	}
-	src_stack = src_stack -> next;
-	while (!(src_stack -> flag))
-	{
-		stack = src_stack;
-		src_stack = (src_stack -> next);
-		free(stack);
-	}
-	free(start);
 	return ;
 }

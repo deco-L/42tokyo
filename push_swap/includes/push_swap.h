@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 10:13:09 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:28:09 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_args_check(int argc, char **argv);
 input
 */
 
-void	ft_input_arg(int argc, char **argv, t_node *a_stack, int flag);
+t_node	*ft_input_arg(int argc, char **argv, t_node *a_stack, int flag);
 int		*ft_input(int *index_stack, int argc, char **argv);
 int		*ft_format_input(int *index_stack, char **argv);
 int		*ft_sort_array(int *sort_stack, int *index_stack, int index);
@@ -50,9 +50,31 @@ t_node	*ft_new_node(t_node *a_stack, int content);
 void	ft_nodeadd_back(t_node **a_stack, t_node *new);
 
 /*
+main_sort
+*/
+
+void	ft_main_sort(t_node *a_stack, int index);
+void	ft_twoarg_sort(t_node *a_stack);
+void	ft_threearg_sort(t_node *a_stack, t_node *b_stack);
+void	ft_fewargs_sort(t_node *a_stack, t_node *b_stack, int index);
+void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index);
+
+/*
+sort_rule
+*/
+
+void	ft_rule_sa(t_node *stack);
+
+/*
 node_helper
 */
 
 void	ft_delete_all_node(t_node *a_stack);
+
+/*
+else
+*/
+
+void	ft_putstr(char *str);
 
 #endif

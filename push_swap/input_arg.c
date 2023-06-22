@@ -6,13 +6,13 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 10:16:22 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 10:23:15 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	ft_input_arg(int index, char **argv, t_node *a_stack, int flag)
+t_node	*ft_input_arg(int index, char **argv, t_node *a_stack, int flag)
 {
 	int		*ccstack;
 	int		*sort_stack;
@@ -29,8 +29,8 @@ void	ft_input_arg(int index, char **argv, t_node *a_stack, int flag)
 	ccstack = ft_cc(ccstack, sort_stack, index);
 	free (sort_stack);
 	a_stack = ft_make_node(a_stack, ccstack, index);
-	ft_delete_all_node(a_stack);
 	free (ccstack);
+	return (a_stack);
 }
 
 t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
@@ -63,9 +63,3 @@ t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 		// ft_printf("%d : %d\n", i + 1, ccstack[i]);
 	// for (int i = 0; i < index; i++)
 	// 	ft_printf("%d : %d\n", i + 1, sort_stack[i]);
-
-	// 	for (int i = 0; i < index + 1; i++)
-	// {
-	// 	printf("a_stack[%d] content : %d flag : %d\n", i, a_stack -> content, a_stack -> flag);
-	// 	a_stack = a_stack -> next;
-	// }

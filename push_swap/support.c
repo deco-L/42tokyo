@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   node_helper.c                                      :+:      :+:    :+:   */
+/*   support.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 20:45:05 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 12:17:42 by csakamot         ###   ########.fr       */
+/*   Created: 2023/06/22 11:46:16 by csakamot          #+#    #+#             */
+/*   Updated: 2023/06/22 11:48:46 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	ft_delete_all_node(t_node *src_stack)
+void	ft_putstr(char *str)
 {
-	t_node	*start;
-	t_node	*stack;
+	size_t	i;
 
-	start = src_stack;
-	if (src_stack -> next == NULL)
-	{
-		free(src_stack);
+	i = 0;
+	if (!str)
 		return ;
-	}
-	src_stack = src_stack -> next;
-	while (!(src_stack -> flag))
+	while (str[i] != '\0')
 	{
-		stack = src_stack;
-		src_stack = (src_stack -> next);
-		free(stack);
+		if (write(1, &str[i], 1) == -1)
+			exit(EXIT_FAILURE);
+		i++;
 	}
-	free(start);
 	return ;
 }
