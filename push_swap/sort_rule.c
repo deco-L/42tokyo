@@ -6,13 +6,13 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:26:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 16:41:41 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:42:18 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-t_node	*ft_sort_rule_sa(t_node *stack)
+void	*ft_sort_rule_sa(t_node *stack)
 {
 	t_node	*start;
 	t_node	*above_stack;
@@ -30,10 +30,9 @@ t_node	*ft_sort_rule_sa(t_node *stack)
 	below_stack -> prev = start;
 	below_stack -> next = above_stack;
 	ft_putstr("sa\n");
-	return (start);
 }
 
-t_node	*ft_sort_rule_ra(t_node *stack)
+void	*ft_sort_rule_ra(t_node *stack)
 {
 	t_node	*start;
 
@@ -46,10 +45,9 @@ t_node	*ft_sort_rule_ra(t_node *stack)
 	stack -> prev = (start -> prev);
 	start -> prev = stack;
 	ft_putstr("ra\n");
-	return (start);
 }
 
-t_node	*ft_sort_rule_rra(t_node *stack)
+void	*ft_sort_rule_rra(t_node *stack)
 {
 	t_node	*start;
 
@@ -62,5 +60,9 @@ t_node	*ft_sort_rule_rra(t_node *stack)
 	start -> prev = stack -> prev;
 	stack -> prev = start;
 	ft_putstr("rra\n");
-	return (start);
+}
+
+void	*ft_sort_rule_pa(t_node *a_stack, t_node *b_stack)
+{
+	return ;
 }

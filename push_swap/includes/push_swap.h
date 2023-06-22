@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 15:30:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:41:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,19 @@ void	ft_threearg_sort(t_node *a_stack);
 void	ft_small_head_sort(t_node *start, t_node *stack);
 void	ft_big_head_sort(t_node *start, t_node *stack);
 void	ft_fewargs_sort(t_node *a_stack, t_node *b_stack, int index);
+int		ft_sort_checker(t_node *stack);
+void	ft_fewsort_push(t_node *a_stack, t_node *b_stack, int index);
+void	ft_fewsort_return(t_node *a_stack, t_node *b_stack, int index);
 void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index);
 
 /*
 sort_rule
 */
 
-t_node	*ft_sort_rule_sa(t_node *stack);
-t_node	*ft_sort_rule_ra(t_node *stack);
-t_node	*ft_sort_rule_rra(t_node *stack);
+void	*ft_sort_rule_sa(t_node *stack);
+void	*ft_sort_rule_ra(t_node *stack);
+void	*ft_sort_rule_rra(t_node *stack);
+void	*ft_sort_rule_pa(t_node *a_stack, t_node *b_stack);
 
 /*
 node_helper

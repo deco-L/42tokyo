@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:27:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 15:01:22 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:35:20 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ void	ft_main_sort(t_node *a_stack, int index)
 		ft_fewargs_sort(a_stack, b_stack, index);
 	else
 		ft_args_sort(a_stack, b_stack, index);
+	for (int i = 0; i < index - 3; i++)
+	{
+		printf("b_stack[%d] content : %d flag : %d point : %p prev : %p next : %p\n",\
+		 i, b_stack -> content, b_stack -> flag, b_stack, b_stack -> prev, b_stack -> next);
+		b_stack = b_stack -> next;
+	}
 	ft_delete_all_node(b_stack);
 	return ;
 }
@@ -55,18 +61,29 @@ void	ft_threearg_sort(t_node *a_stack)
 	if (a_stack -> flag)
 		a_stack = a_stack -> next;
 	if (a_stack -> content < (a_stack -> next)-> content)
-	{
 		ft_small_head_sort(a_start, a_stack);
-	}
 	else
-	{
 		ft_big_head_sort(a_start, a_stack);
-	}
 	return ;
 }
 
 void	ft_fewargs_sort(t_node *a_stack, t_node *b_stack, int index)
 {
+	int		i;
+	t_node	*a_start;
+	t_node	*b_start;
+
+	a_start = a_stack;
+	b_start = b_stack;
+	if (ft_sort_checker(a_start));
+		return ;
+	ft_fewsort_push(a_start, b_start, index);
+	ft_threearg_sort(a_start);
+	if (index == 6)
+		ft_threearg_sort(b_start);
+	else if (index == 5)
+		ft_twoarg_sort(b_start);
+	ft_fewsort_return(a_start, b_start, index);
 	return ;
 }
 
