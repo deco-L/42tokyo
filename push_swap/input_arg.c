@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 01:37:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 10:16:22 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ void	ft_input_arg(int index, char **argv, t_node *a_stack, int flag)
 	sort_stack = ft_sort_array(sort_stack, ccstack, index);
 	ccstack = ft_cc(ccstack, sort_stack, index);
 	free (sort_stack);
-	a_stack =ft_make_node(a_stack, ccstack, index);
-	// for (int i = 0; i < index; i++)
-	// 	printf("%d\n", a_stack -> content);
-	ft_delete_all_node(&a_stack);
+	a_stack = ft_make_node(a_stack, ccstack, index);
+	ft_delete_all_node(a_stack);
 	free (ccstack);
 }
 
@@ -49,21 +47,15 @@ t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 		free (ccstack);
 		ft_malloc_error();
 	}
-	ft_printf("flag : %d\nok!\n\n", a_stack -> flag); //大丈夫そう
 	while (i < index)
 	{
 		new = ft_new_node(a_stack, ccstack[i]);
 		if (!new)
-			ft_mallocerror_node(a_stack, i);
+			ft_mallocerror_node(start, i);
 		ft_nodeadd_back(&a_stack, new);
 		i++;
 	}
 	a_stack = ft_mkloop_node(&a_stack, start, i);
-	for (int i = 0; i < index + 1; i++)
-	{
-		ft_printf("content%d : %d flag : %d point : %p nextpoint : %p prevpoint : %p\n", i, start -> content, start -> flag, start, start -> next, start -> prev);
-		start = start -> next;
-	}
 	return (start);
 }
 
@@ -71,3 +63,9 @@ t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 		// ft_printf("%d : %d\n", i + 1, ccstack[i]);
 	// for (int i = 0; i < index; i++)
 	// 	ft_printf("%d : %d\n", i + 1, sort_stack[i]);
+
+	// 	for (int i = 0; i < index + 1; i++)
+	// {
+	// 	printf("a_stack[%d] content : %d flag : %d\n", i, a_stack -> content, a_stack -> flag);
+	// 	a_stack = a_stack -> next;
+	// }
