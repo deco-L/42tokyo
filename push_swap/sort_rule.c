@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:26:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 16:29:08 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:41:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_node	*ft_sort_rule_ra(t_node *stack)
 
 	start = stack;
 	stack = stack -> next;
+	(stack -> next)-> prev = start;
 	(start -> prev)-> next = stack;
 	start -> next = stack -> next;
 	stack -> next = start;
@@ -50,5 +51,16 @@ t_node	*ft_sort_rule_ra(t_node *stack)
 
 t_node	*ft_sort_rule_rra(t_node *stack)
 {
-	return (stack);
+	t_node	*start;
+
+	start = stack;
+	stack = stack -> prev;
+	(stack -> prev)-> next = start;
+	(start -> next)-> prev = stack;
+	stack -> next = start ->next;
+	start -> next = stack;
+	start -> prev = stack -> prev;
+	stack -> prev = start;
+	ft_putstr("rra\n");
+	return (start);
 }
