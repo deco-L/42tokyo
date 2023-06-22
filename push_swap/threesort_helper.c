@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 14:54:47 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 15:02:08 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:30:27 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_big_head_sort(t_node *start, t_node *stack)
 	if (stack -> content > (stack -> next)-> content)
 		ft_putstr("sa\nrra\n");
 	else if ((stack -> prev)-> content > (stack -> next)-> content)
-		ft_putstr("ra\n");
+		start = ft_sort_rule_ra(start);
 	else
 		ft_sort_rule_sa(start);
 	return ;

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 15:04:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:33:32 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	main(int argc, char **argv)
 	ft_main_sort(a_stack, argc - 1);
 	for (int i = 0; i < argc; i++)
 	{
-		printf("a_stack[%d] content : %d flag : %d\n", i, a_stack -> content, a_stack -> flag);
+		printf("a_stack[%d] content : %d flag : %d point : %p prev : %p next : %p\n",\
+		 i, a_stack -> content, a_stack -> flag, a_stack, a_stack -> prev, a_stack -> next);
 		a_stack = a_stack -> next;
 	}
 	ft_delete_all_node(a_stack);

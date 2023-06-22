@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:26:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 14:01:26 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:29:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,41 @@
 
 t_node	*ft_sort_rule_sa(t_node *stack)
 {
-	int		number;
+	t_node	*start;
 	t_node	*above_stack;
 	t_node	*below_stack;
 
+	start = stack;
 	if (stack -> flag)
 		stack = stack -> next;
 	above_stack = stack;
 	below_stack = stack -> next;
-	number = above_stack -> content;
-	above_stack -> content = below_stack -> content;
-	below_stack -> content = number;
+	start -> next = below_stack;
+	(below_stack -> next)-> prev = above_stack;
+	above_stack -> prev = below_stack;
+	above_stack -> next = below_stack -> next;
+	below_stack -> prev = start;
+	below_stack -> next = above_stack;
 	ft_putstr("sa\n");
-	return (above_stack);
+	return (start);
 }
 
-	// ft_printf("stack : point = |%p|, content = |%d|, flag = |%d|, next = |%p|, prev = |%p|\n", stack, stack -> content, stack -> flag, stack -> next, stack -> prev);
-	// ft_printf("stack : point = |%p|, content = |%d|, flag = |%d|, next = |%p|, prev = |%p|\n", above_stack, above_stack -> content, above_stack -> flag, above_stack -> next, above_stack -> prev);
+t_node	*ft_sort_rule_ra(t_node *stack)
+{
+	t_node	*start;
+
+	start = stack;
+	stack = stack -> next;
+	(start -> prev)-> next = stack;
+	start -> next = stack -> next;
+	stack -> next = start;
+	stack -> prev = (start -> prev);
+	start -> prev = stack;
+	ft_putstr("ra\n");
+	return (start);
+}
+
+t_node	*ft_sort_rule_rra(t_node *stack)
+{
+	return (stack);
+}

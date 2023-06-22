@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 15:00:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:30:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ sort_rule
 */
 
 t_node	*ft_sort_rule_sa(t_node *stack);
+t_node	*ft_sort_rule_ra(t_node *stack);
+t_node	*ft_sort_rule_rra(t_node *stack);
 
 /*
 node_helper
