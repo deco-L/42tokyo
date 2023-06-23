@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 19:05:52 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 19:43:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:42:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_sort_checker(t_node *stack)
 	while (!(stack -> flag))
 	{
 		if ((stack -> prev)-> content > stack -> content)
-			break;
+			break ;
 		stack = stack -> next;
 	}
 	if (stack -> flag)
@@ -29,28 +29,59 @@ int	ft_sort_checker(t_node *stack)
 void	ft_fewsort_push(t_node *a_stack, t_node *b_stack, int index)
 {
 	int		i;
+	int		j;
+	int		move;
 	t_node	*a_start;
-	t_node	*b_start;
 
 	i = 0;
+	move = 0;
 	a_start = a_stack;
-	b_start = b_stack;
-	while (i < index - 3)
+	while (i < index)
 	{
-		a_stack = a_stack -> next;
-		while (!(a_stack -> flag))
+		j = 0;
+		while (j < index - 3)
 		{
-			if (a_stack -> content == i + 1)
-				ft_sort_rule_pa(a_start, b_start);
-			ft_sort_rule_ra(a_start);
-			a_stack = a_stack -> next;
+			if ((a_start -> next)-> content == j + 1)
+			{
+				ft_sort_rule_pa(a_start, b_stack, 1);
+				move++;
+			}
+			j++;
 		}
+		if (move == index - 3)
+			break ;
+		ft_sort_rule_ra(a_start);
 		i++;
 	}
-	return ;
 }
 
-void	ft_fewsort_return(t_node *a_stack, t_node *b_stack, int index)
+void	ft_twoarg_resort(t_node *stack)
 {
-	return ;
+	t_node	*start;
+
+	start = stack;
+	if (stack -> flag)
+		stack = stack -> next;
+	stack = stack -> next;
+	if ((stack -> prev)-> content < stack -> content)
+		ft_sort_rule_sa(start);
 }
+
+void	ft_threearg_resort(t_node *stack)
+{
+	t_node	*start;
+
+	start = stack;
+	if (stack -> flag)
+		stack = stack -> next;
+	if (stack -> content < (stack -> next)-> content)
+		ft_small_head_resort(start, stack);
+	else
+		ft_big_head_resort(start, stack);
+}
+
+	// for (int i = 0; i < 5; i++)
+	// {
+	// 	ft_printf("content : %d, point : %p, prev : %p, next : %p\n", a_start -> content, a_start, a_start -> prev, a_start -> next);
+	// 	a_start = a_start -> next;
+	// }

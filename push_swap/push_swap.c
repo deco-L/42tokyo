@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 17:55:12 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:30:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	flag = ft_standard_input_error(argc, argv);
 	a_stack = ft_input_arg(argc - 1, argv, a_stack, flag);
 	ft_main_sort(a_stack, argc - 1);
+	ft_printf("ok!\n");
 	for (int i = 0; i < argc; i++)
 	{
 		printf("a_stack[%d] content : %d flag : %d point : %p prev : %p next : %p\n",\
@@ -32,10 +33,10 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// #include <libc.h>
+#include <libc.h>
 
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q push_swap");
-// }
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q push_swap");
+}
 // compaction of coordinates
