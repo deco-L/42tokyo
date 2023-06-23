@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 10:23:15 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:05:44 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,3 @@ t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 	a_stack = ft_mkloop_node(&a_stack, start, i);
 	return (start);
 }
-
-	// for (int i = 0; i < index; i++)
-		// ft_printf("%d : %d\n", i + 1, ccstack[i]);
-	// for (int i = 0; i < index; i++)
-	// 	ft_printf("%d : %d\n", i + 1, sort_stack[i]);

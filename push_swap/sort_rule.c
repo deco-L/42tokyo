@@ -6,13 +6,13 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:26:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/23 15:14:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:17:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	ft_sort_rule_sa(t_node *stack)
+void	ft_sort_rule_sab(t_node *stack, int mode)
 {
 	t_node	*start;
 	t_node	*above_stack;
@@ -28,11 +28,16 @@ void	ft_sort_rule_sa(t_node *stack)
 	above_stack -> next = below_stack -> next;
 	below_stack -> prev = start;
 	below_stack -> next = above_stack;
+	if (mode)
+	{
+		ft_putstr("sb\n");
+		return ;
+	}
 	ft_putstr("sa\n");
 	return ;
 }
 
-void	ft_sort_rule_ra(t_node *stack)
+void	ft_sort_rule_rab(t_node *stack, int mode)
 {
 	t_node	*start;
 
@@ -44,11 +49,16 @@ void	ft_sort_rule_ra(t_node *stack)
 	stack -> next = start;
 	stack -> prev = (start -> prev);
 	start -> prev = stack;
+	if (mode)
+	{
+		ft_putstr("rb\n");
+		return ;
+	}
 	ft_putstr("ra\n");
 	return ;
 }
 
-void	ft_sort_rule_rra(t_node *stack)
+void	ft_sort_rule_rrab(t_node *stack, int mode)
 {
 	t_node	*start;
 
@@ -60,11 +70,16 @@ void	ft_sort_rule_rra(t_node *stack)
 	start -> next = stack;
 	start -> prev = stack -> prev;
 	stack -> prev = start;
+	if (mode)
+	{
+		ft_putstr("rrb\n");
+		return ;
+	}
 	ft_putstr("rra\n");
 	return ;
 }
 
-void	ft_sort_rule_pa(t_node *move_stack, t_node *receive_stack, int mode)
+void	ft_sort_rule_pab(t_node *move_stack, t_node *receive_stack, int mode)
 {
 	t_node	*move_start;
 	t_node	*receive_start;
@@ -72,7 +87,7 @@ void	ft_sort_rule_pa(t_node *move_stack, t_node *receive_stack, int mode)
 	move_start = move_stack;
 	receive_start = receive_stack;
 	if (receive_stack -> next == NULL)
-		ft_first_sort_pa(move_stack, receive_stack);
+		ft_first_sort_pab(move_stack, receive_stack);
 	else
 	{
 		move_stack = move_stack -> next;
@@ -93,7 +108,7 @@ void	ft_sort_rule_pa(t_node *move_stack, t_node *receive_stack, int mode)
 	return ;
 }
 
-void	ft_first_sort_pa(t_node *move_stack, t_node *receive_stack)
+void	ft_first_sort_pab(t_node *move_stack, t_node *receive_stack)
 {
 	t_node	*move_start;
 

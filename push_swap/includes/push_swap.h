@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/23 14:00:39 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:09:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index);
 sort_rule
 */
 
-void	ft_sort_rule_sa(t_node *stack);
-void	ft_sort_rule_ra(t_node *stack);
-void	ft_sort_rule_rra(t_node *stack);
-void	ft_sort_rule_pa(t_node *a_stack, t_node *b_stack, int mode);
-void	ft_first_sort_pa(t_node *move_stack, t_node *receive_stack);
+void	ft_sort_rule_sab(t_node *stack, int mode);
+void	ft_sort_rule_rab(t_node *stack, int mode);
+void	ft_sort_rule_rrab(t_node *stack, int mode);
+void	ft_sort_rule_pab(t_node *a_stack, t_node *b_stack, int mode);
+void	ft_first_sort_pab(t_node *move_stack, t_node *receive_stack);
 
 /*
 node_helper
