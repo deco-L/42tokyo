@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 14:54:47 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/23 16:18:26 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/24 19:45:11 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_big_head_sort(t_node *start, t_node *stack)
 
 void	ft_small_head_resort(t_node *start, t_node *stack)
 {
-		stack = stack -> next;
+	stack = stack -> next;
 	if (stack -> content < (stack -> next)-> content)
 	{
 		ft_sort_rule_sab(start, 1);
