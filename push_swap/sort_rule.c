@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:26:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/23 16:17:41 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/24 16:12:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	ft_sort_rule_rab(t_node *stack, int mode)
 	start = stack;
 	stack = stack -> next;
 	(stack -> next)-> prev = start;
-	(start -> prev)-> next = stack;
 	start -> next = stack -> next;
+	(start -> prev)-> next = stack;
 	stack -> next = start;
 	stack -> prev = (start -> prev);
 	start -> prev = stack;
@@ -86,7 +86,7 @@ void	ft_sort_rule_pab(t_node *move_stack, t_node *receive_stack, int mode)
 
 	move_start = move_stack;
 	receive_start = receive_stack;
-	if (receive_stack -> next == NULL)
+	if (receive_stack -> next == NULL || receive_stack -> next == receive_stack)
 		ft_first_sort_pab(move_stack, receive_stack);
 	else
 	{

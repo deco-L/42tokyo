@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/23 16:09:35 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/24 15:39:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	ft_fewargs_sort(t_node *a_stack, t_node *b_stack, int index);
 int		ft_sort_checker(t_node *stack);
 void	ft_fewsort_push(t_node *a_stack, t_node *b_stack, int index);
 void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index);
+void	ft_argsort_push(t_node *a_stack, t_node *b_stack, int pivot, int group);
 
 /*
 sort_rule
