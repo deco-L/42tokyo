@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:27:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/24 21:13:06 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/25 15:02:56 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ void	ft_main_sort(t_node *a_stack, int index)
 	else if (4 <= index && index <= 6)
 		ft_fewargs_sort(a_stack, b_stack, index);
 	else
-		ft_args_sort(a_stack, b_stack, index);
-	// for (int i = 0; i < index + 1; i++)
-	// {
-	// 	printf("b_stack[%d] content : %d flag : %d point : %p prev : %p next : %p\n",\
-	// 	 i, b_stack -> content, b_stack -> flag, b_stack, b_stack -> prev, b_stack -> next);
-	// 	if (b_stack -> next == NULL)
-	// 		break ;
-	// 	b_stack = b_stack -> next;
-	// }
+		// ft_args_sort(a_stack, b_stack, index);
+	for (int i = 0; i < index + 1; i++)
+	{
+		printf("b_stack[%d] content : %d flag : %d point : %p prev : %p next : %p\n",\
+		 i, b_stack -> content, b_stack -> flag, b_stack, b_stack -> prev, b_stack -> next);
+		if (b_stack -> next == NULL)
+			break ;
+		b_stack = b_stack -> next;
+	}
 	ft_delete_all_node(b_stack);
 	return ;
 }
