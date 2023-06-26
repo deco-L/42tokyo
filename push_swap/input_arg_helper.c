@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 11:10:48 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/26 15:36:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,22 +81,21 @@ int	*ft_cc(int *ccstack, int *sort_stack, int index)
 	int	i;
 	int	j;
 	int	*result;
-	int	*src;
 
 	i = 0;
 	j = 0;
-	result = ccstack;
-	src = sort_stack;
+	result = (int *)ft_calloc(index, sizeof(int));
 	while (i < index)
 	{
 		j = 0;
 		while (j < index)
 		{
-			if (result[i] == sort_stack[j])
+			if (ccstack[i] == sort_stack[j])
 				result[i] = j + 1;
 			j++;
 		}
 		i++;
 	}
+	free(ccstack);
 	return (result);
 }
