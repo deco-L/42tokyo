@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/25 15:25:35 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:11:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int		ft_sort_checker(t_node *stack);
 void	ft_fewsort_push(t_node *a_stack, t_node *b_stack, int index);
 void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index);
 void	ft_argsort_push(t_node *a_stack, t_node *b_stack, int pivot, int group);
-void	ft_argsort_rtn(t_node *a_stack, t_node *b_stack, int index, int group);
-void	ft_surplus_rtn(t_node *a_stack, t_node *b_stack, int index, int group);
+void	ft_argsort_rtn(t_node *a_stack, t_node *b_stack, int index, int pivot);
+void	ft_surpls_rtn(t_node *a_stack, t_node *b_stack, int index, int surpls);
 void	ft_tail_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group);
 void	ft_head_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group);
 

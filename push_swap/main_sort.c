@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:27:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/25 15:02:56 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:05:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_main_sort(t_node *a_stack, int index)
 	else if (4 <= index && index <= 6)
 		ft_fewargs_sort(a_stack, b_stack, index);
 	else
-		// ft_args_sort(a_stack, b_stack, index);
+		ft_args_sort(a_stack, b_stack, index);
 	for (int i = 0; i < index + 1; i++)
 	{
 		printf("b_stack[%d] content : %d flag : %d point : %p prev : %p next : %p\n",\
@@ -100,7 +100,8 @@ void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index)
 
 	if (ft_sort_checker(a_stack))
 		return ;
-	pivot = index / 100 * 3 + 7;
+	pivot = (index / 100) * 3 + 7;
 	group = index / pivot;
 	ft_argsort_push(a_stack, b_stack, pivot, group);
+	ft_argsort_rtn(a_stack, b_stack, index, pivot);
 }
