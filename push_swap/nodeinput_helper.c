@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 16:37:11 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/23 16:06:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/27 12:21:59 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_node	*ft_mkloop_node(t_node **a_stack, t_node *start, int i)
 	}
 }
 
-t_node	*ft_new_node(t_node *a_stack, int content)
+t_node	*ft_new_node(int content)
 {
 	t_node	*new;
 

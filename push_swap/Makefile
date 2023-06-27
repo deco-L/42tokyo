@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/16 16:04:47 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/24 14:52:45 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/27 12:16:19 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,12 +49,12 @@ AR			= ar rcs
 all:		$(NAME)
 
 .c.o:
-			${CC} -c -I ${HEAD} $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 			${CCLIBFT} && \
 			${CCFTPRINTF} && \
-			${CC} ${OBJS} -L. ${LIBFT_A} ${FTPRINTF_A}  -o $(NAME)
+			${CC} ${CFLAGS} ${OBJS} -L. ${LIBFT_A} ${FTPRINTF_A}  -o $(NAME)
 
 clean:
 			${RM} ${OBJS} && ${RMLIBFT} && ${RMFTPRINTF}

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/26 15:37:41 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/27 12:19:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	t_node	*a_stack;
 
 	flag = 0;
+	a_stack = NULL;
 	flag = ft_standard_input_error(argc, argv);
 	a_stack = ft_input_arg(argc - 1, argv, a_stack, flag);
 	ft_main_sort(a_stack, argc - 1);

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/26 15:36:52 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/27 12:21:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	*ft_input(int *index_stack, int argc, char **argv)
 
 int	*ft_format_input(int *index_stack, char **argv)
 {
+	index_stack = NULL;
+	argv = NULL;
 	return (NULL);
 }
 
@@ -35,7 +37,6 @@ int	*ft_sort_array(int *sort_stack, int *index_stack, int index)
 	int	i;
 	int	j;
 	int	buff;
-	int	*result;
 
 	i = 0;
 	j = 0;

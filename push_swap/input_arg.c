@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/26 15:40:07 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/27 12:23:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 	t_node	*start;
 
 	i = 0;
+	start = NULL;
 	a_stack = ft_mkloop_node(&a_stack, start, i);
 	start = a_stack;
 	if (!a_stack)
@@ -49,7 +50,7 @@ t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 	}
 	while (i < index)
 	{
-		new = ft_new_node(a_stack, ccstack[i]);
+		new = ft_new_node(ccstack[i]);
 		if (!new)
 			ft_mallocerror_node(start, i);
 		ft_nodeadd_back(&a_stack, new);
