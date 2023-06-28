@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/27 12:19:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 17:14:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,23 @@
 int	main(int argc, char **argv)
 {
 	int		flag;
+	int		index;
+	char	**relay;
 	t_node	*a_stack;
 
 	flag = 0;
+	relay = NULL;
 	a_stack = NULL;
 	flag = ft_standard_input_error(argc, argv);
-	a_stack = ft_input_arg(argc - 1, argv, a_stack, flag);
+	if (flag)
+	{
+		ft_format_error(argv);
+		index = ft_format_input(argv[1], relay);
+		ft_printf("%s\n", relay[1]);
+		a_stack = ft_input_arg(index, relay, a_stack);
+		free(relay);
+	}
+	a_stack = ft_input_arg(argc - 1, argv, a_stack);
 	ft_main_sort(a_stack, argc - 1);
 	// ft_printf("ok!\n");
 	// for (int i = 0; i < argc; i++)
@@ -33,10 +44,10 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// #include <libc.h>
+#include <libc.h>
 
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q push_swap");
-// }
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q push_swap");
+}
 // compaction of coordinates

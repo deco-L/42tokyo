@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/26 15:15:15 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 17:08:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,20 @@ int	ft_one_arg_check(char **argv)
 
 	i = 0;
 	flag = 0;
+	if ((argv[1][i] == '-' || argv[1][i] == '+') && argv[1][i + 1] != '\0')
+		i++;
 	while (argv[1][i] != '\0')
 	{
-		if (!(ft_isdigit(argv[1][i]) || (argv[1][i] == ' ')))
+		if ((9 <= argv[1][i] && argv[1][i] <= 13) || argv[1][i] == ' ')
+		{
+			flag++;
+			return (flag);
+		}
+		else if (!ft_isdigit(argv[1][i]))
 		{
 			ft_putstr("Invalid argument.\n");
 			exit(EXIT_FAILURE);
 		}
-		if (argv[1][i] == ' ')
-			flag++;
 		i++;
 	}
 	return (flag);
@@ -48,9 +53,11 @@ void	ft_args_check(int argc, char **argv)
 	while (i < argc)
 	{
 		j = 0;
+		if ((argv[i][j] == '-' || argv[i][j] == '+') && argv[i][j + 1] != '\0')
+			j++;
 		while (argv[i][j] != '\0')
 		{
-			if (!(ft_isdigit(argv[i][j]) || argv[i][j] == '-'))
+			if (!ft_isdigit(argv[i][j]))
 			{
 				ft_putstr("Invalid argument.\n");
 				exit(EXIT_FAILURE);
@@ -58,5 +65,26 @@ void	ft_args_check(int argc, char **argv)
 			j++;
 		}
 		i++;
+	}
+}
+
+void	ft_format_error(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[1][i] != '\0')
+	{
+		if ((argv[1][i] == '-' || argv[1][i] == '+') && argv[1][i + 1] != '\0')
+			i++;
+		else if (ft_isdigit(argv[1][i]))
+			i++;
+		else if ((9 <= argv[1][i] && argv[1][i] <= 13) || argv[1][i] == ' ')
+			i++;
+		else
+		{
+			ft_putstr("Invalid error.");
+			exit(EXIT_FAILURE);
+		}
 	}
 }

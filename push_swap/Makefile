@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/16 16:04:47 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/27 12:16:19 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/28 16:14:31 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME		= push_swap
 SRC			= push_swap.c error.c error_check.c std_input_error_helper.c input_arg.c \
 				input_arg_helper.c nodeinput_helper.c node_helper.c main_sort.c support.c \
 				sort_rule.c threesort_helper.c fewsort_helper.c argssort_helper.c sort_helper.c \
+				format_input.c
 
 OBJS		= ${SRC:.c=.o}
 

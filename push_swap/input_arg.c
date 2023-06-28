@@ -6,25 +6,27 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/27 12:23:25 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:29:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-t_node	*ft_input_arg(int index, char **argv, t_node *a_stack, int flag)
+t_node	*ft_input_arg(int index, char **argv, t_node *a_stack)
 {
 	int		*ccstack;
 	int		*sort_stack;
 
 	ccstack = ft_calloc(index, sizeof(int));
-	sort_stack = ft_calloc(index, sizeof(int));
-	if (!ccstack || !sort_stack)
+	if (!ccstack)
 		ft_malloc_error();
-	if (flag)
-		ccstack = ft_format_input(ccstack, argv);
-	else
-		ccstack = ft_input(ccstack, index, argv);
+	sort_stack = ft_calloc(index, sizeof(int));
+	if (!sort_stack)
+	{
+		free(ccstack);
+		ft_malloc_error();
+	}
+	ccstack = ft_input(ccstack, index, argv);
 	sort_stack = ft_sort_array(sort_stack, ccstack, index);
 	ccstack = ft_cc(ccstack, sort_stack, index);
 	free (sort_stack);

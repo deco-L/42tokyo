@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/27 12:21:08 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:14:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,6 @@ int	*ft_input(int *index_stack, int argc, char **argv)
 		i++;
 	}
 	return (index_stack);
-}
-
-int	*ft_format_input(int *index_stack, char **argv)
-{
-	index_stack = NULL;
-	argv = NULL;
-	return (NULL);
 }
 
 int	*ft_sort_array(int *sort_stack, int *index_stack, int index)
