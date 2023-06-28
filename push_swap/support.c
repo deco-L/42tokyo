@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:46:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/22 11:48:46 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 21:56:58 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,19 @@ void	ft_putstr(char *str)
 		i++;
 	}
 	return ;
+}
+
+void	ft_array_delete(char **relay)
+{
+	int	i;
+
+	i = 1;
+	free(relay[0]);
+	while (relay[i] != NULL)
+	{
+		free(relay[i]);
+		i++;
+	}
+	free(relay[i]);
+	free(relay);
 }

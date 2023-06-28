@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 16:14:19 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:32:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,9 @@ int	*ft_int_cpy(int *dest, const int *src, int n)
 {
 	int	i;
 	int	*result;
-	int	*origin;
 
 	i = 0;
 	result = dest;
-	origin = (int *)src;
 	while (i < n)
 	{
 		result[i] = src[i];

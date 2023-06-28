@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 16:46:54 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 21:05:03 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ input
 
 t_node	*ft_input_arg(int argc, char **argv, t_node *a_stack);
 int		*ft_input(int *index_stack, int argc, char **argv);
-int		ft_format_input(char *argv, char **relay);
+char	**ft_format_input(char *argv, char **relay);
 int		*ft_sort_array(int *sort_stack, int *index_stack, int index);
 int		*ft_int_cpy(int *dest, const int *src, int n);
 int		*ft_cc(int *ccstack, int *sort_stack, int index);
@@ -94,5 +94,6 @@ else
 */
 
 void	ft_putstr(char *str);
+void	ft_array_delete(char **relay);
 
 #endif

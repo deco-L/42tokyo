@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 17:08:43 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 21:54:04 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void	ft_format_error(char **argv)
 	i = 0;
 	while (argv[1][i] != '\0')
 	{
-		if ((argv[1][i] == '-' || argv[1][i] == '+') && argv[1][i + 1] != '\0')
+		if ((argv[1][i] == '-' || argv[1][i] == '+') \
+		&& ft_isdigit(argv[1][i + 1]))
 			i++;
 		else if (ft_isdigit(argv[1][i]))
 			i++;

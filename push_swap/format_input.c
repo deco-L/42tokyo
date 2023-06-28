@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:56:47 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 17:28:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/28 22:04:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,12 @@ static int	ft_litter_count(char *argv)
 	return (count);
 }
 
-static void ft_split_error(char **relay, int words)
+static void	ft_split_error(char **relay, int words)
 {
 	int	i;
-	int	j;
 	int	flag;
 
-	i = 0;
-	j = 0;
+	i = 1;
 	flag = 0;
 	while (i < words)
 	{
@@ -72,21 +70,25 @@ static void ft_split_error(char **relay, int words)
 		}
 		i++;
 	}
-	while (j < i)
+	if (flag)
 	{
-		free(relay[j]);
-		j++;
+		while (i--)
+			free(relay[i]);
+		free(relay);
 	}
+	ft_putstr("Malloc error.");
+	exit(EXIT_FAILURE);
 }
 
-int	ft_format_input(char *argv, char **relay)
+char	**ft_format_input(char *argv, char **relay)
 {
 	int	i;
 	int	words;
 	int	litter;
 
-	i = 0;
-	words = ft_words_count(argv);
+	i = 1;
+	words = 1;
+	words += ft_words_count(argv);
 	relay = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!relay)
 		ft_malloc_error();
@@ -96,14 +98,12 @@ int	ft_format_input(char *argv, char **relay)
 			argv++;
 		litter = ft_litter_count(argv);
 		relay[i] = (char *)malloc(sizeof(char) * (litter + 1));
-		ft_printf("[%d] : |%s|\n", i, argv);
+		if (!relay[i])
+			ft_split_error(relay, words);
 		ft_strlcpy(relay[i], argv, litter + 1);
 		argv += litter;
 		i++;
 	}
 	relay[i] = NULL;
-	ft_split_error(relay, words);
-	for (int j = 0; relay[j] != NULL; j++)
-		ft_printf("relay[%d] : %s\n", j, relay[j]);
-	return (words);
+	return (relay);
 }
