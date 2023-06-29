@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 12:00:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/29 10:55:06 by csakamot         ###   ########.fr       */
+/*   Created: 2023/06/29 13:30:46 by csakamot          #+#    #+#             */
+/*   Updated: 2023/06/29 13:31:44 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef MINITALK_H
+# define MINITALK_H
 
-# include "../srcs/libft/libft.h"
-# include "../srcs/ft_printf/ft_printf.h"
-# include "../minilibx_mms_20200219/mlx.h"
-# include <math.h>
-
-void	ft_depiction_window(int height, int width);
+# include "./../srcs/ft_printf/ft_printf.h"
 
 #endif
