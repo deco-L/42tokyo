@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 12:00:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/29 16:50:50 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/10 14:20:42 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/29 12:04:33 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <math.h>
-# include "../srcs/libft/libft.h"
-# include "../srcs/ft_printf/ft_printf.h"
-# include "../minilibx_mms_20200219/mlx.h"
+void	ft_putnbr_fd(int n, int fd);
 
-void	ft_depiction_window(int height, int width);
+void	ft_putnbr_fd(int n, int fd)
+{
+	long long	nbr;
 
-#endif
+	nbr = (long long) n;
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		nbr *= -1;
+	}
+	if (nbr > 9)
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
+	}
+	else
+	{
+		nbr += '0';
+		write(fd, &nbr, 1);
+	}
+	return ;
+}

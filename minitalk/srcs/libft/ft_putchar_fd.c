@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 12:00:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/29 16:50:50 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/08 16:46:28 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/20 18:56:02 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <math.h>
-# include "../srcs/libft/libft.h"
-# include "../srcs/ft_printf/ft_printf.h"
-# include "../minilibx_mms_20200219/mlx.h"
+void	ft_putchar_fd(char c, int fd);
 
-void	ft_depiction_window(int height, int width);
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+	return ;
+}

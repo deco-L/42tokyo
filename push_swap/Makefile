@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/16 16:04:47 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/29 13:28:39 by csakamot         ###   ########.fr        #
+#    Updated: 2023/06/29 16:42:03 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ $(NAME):	${OBJS}
 			${CCLIBFT} && \
 			${CCFTPRINTF} && \
 			${CC} ${CFLAGS} ${OBJS} -L. ${LIBFT_A} ${FTPRINTF_A}  -o $(NAME)
+			${CC} ${CFLAGS} ${OBJS} -L. ${LIBFT_A} ${FTPRINTF_A}  -o push_swap2
 
 clean:
 			${RM} ${OBJS} && ${RMLIBFT} && ${RMFTPRINTF}

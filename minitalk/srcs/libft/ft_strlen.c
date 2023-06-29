@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 12:00:01 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/29 16:50:50 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/08 17:10:12 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/16 16:14:46 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <math.h>
-# include "../srcs/libft/libft.h"
-# include "../srcs/ft_printf/ft_printf.h"
-# include "../minilibx_mms_20200219/mlx.h"
+size_t	ft_strlen(const char *str);
 
-void	ft_depiction_window(int height, int width);
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
 
-#endif
+	len = 0;
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+	return (len);
+}
