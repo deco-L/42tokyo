@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/01 01:09:19 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 02:54:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ t_node	*ft_input_arg(int index, char **argv, t_node *a_stack)
 	return (a_stack);
 }
 
+static void	ft_error_inputnode(int *ccstack, t_node *start, int i, int mode)
+{
+	free(ccstack);
+	if(mode)
+		ft_malloc_error();
+	ft_mallocerror_node(start, i);
+}
+
 t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 {
 	int		i;
@@ -48,15 +56,12 @@ t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 	a_stack = ft_mkloop_node(&a_stack, start, i);
 	start = a_stack;
 	if (!a_stack)
-	{
-		free (ccstack);
-		ft_malloc_error();
-	}
+		ft_error_inputnode(ccstack, start, i, 1);
 	while (i < index)
 	{
 		new = ft_new_node(ccstack[i]);
 		if (!new)
-			ft_mallocerror_node(start, i);
+			ft_error_inputnode(ccstack, start, i, 0);
 		ft_nodeadd_back(&a_stack, new);
 		i++;
 	}
