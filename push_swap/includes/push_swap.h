@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 14:10:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:49:33 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ input
 t_node	*ft_input_arg(int argc, char **argv, t_node *a_stack);
 int		*ft_input(int *index_stack, int argc, char **argv);
 char	**ft_format_input(char *argv, char **relay);
+void	ft_samenbr_check(int *ccstack, int *sort_stack, int index);
 int		*ft_sort_array(int *sort_stack, int *index_stack, int index);
 int		*ft_int_cpy(int *dest, const int *src, int n);
 int		*ft_cc(int *ccstack, int *sort_stack, int index);
@@ -68,6 +69,8 @@ int		ft_sort_checker(t_node *stack);
 void	ft_fewsort_push(t_node *a_stack, t_node *b_stack, int index);
 void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index);
 void	ft_argsort_push(t_node *a_stack, t_node *b_stack, int pivot, int group);
+int		ft_pushcheck_head(int check, int index, int group);
+int		ft_pushcheck_tail(int check, int center, int index, int group);
 void	ft_argsort_rtn(t_node *a_stack, t_node *b_stack, int index, int pivot);
 void	ft_surpls_rtn(t_node *a_stack, t_node *b_stack, int index, int surpls);
 void	ft_tail_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group);

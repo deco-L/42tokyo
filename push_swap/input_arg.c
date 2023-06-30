@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 21:54:58 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:56:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_node	*ft_input_arg(int index, char **argv, t_node *a_stack)
 		ft_malloc_error();
 	}
 	ccstack = ft_input(ccstack, index, argv);
+	ft_samenbr_check(ccstack, sort_stack, index);
 	sort_stack = ft_sort_array(sort_stack, ccstack, index);
 	ccstack = ft_cc(ccstack, sort_stack, index);
 	free (sort_stack);
@@ -60,4 +61,28 @@ t_node	*ft_make_node(t_node *a_stack, int *ccstack, int index)
 	}
 	a_stack = ft_mkloop_node(&a_stack, start, i);
 	return (start);
+}
+
+void	ft_samenbr_check(int *ccstack, int *sort_stack, int index)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < index)
+	{
+		j = i + 1;
+		while (j < index)
+		{
+			if (ccstack[i] == ccstack[j])
+			{
+				ft_putstr("Invalid argument.\n");
+				free(ccstack);
+				free(sort_stack);
+				exit(EXIT_FAILURE);
+			}
+			j++;
+		}
+		i++;
+	}
 }
