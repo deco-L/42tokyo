@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/01 00:59:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 01:09:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_node	*ft_input_arg(int index, char **argv, t_node *a_stack)
 		free(ccstack);
 		ft_malloc_error();
 	}
-	ccstack = ft_input(ccstack, index, argv);
+	ccstack = ft_input(ccstack, sort_stack, index, argv);
 	ft_samenbr_check(ccstack, sort_stack, index);
 	sort_stack = ft_sort_array(sort_stack, ccstack, index);
 	ccstack = ft_cc(ccstack, sort_stack, index);

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:35:04 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 14:33:48 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 01:19:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_space(const char *nptr, int i);
 static int	ft_pulmi(const char *nptr, int i);
-static int	ftch(const char *nptr, unsigned long long result, int count, int i);
+static int	ftch(const char *nptr, long long result, int count, int i);
 int			ft_atoi(const char	*nptr);
 
 static int	ft_space(const char *nptr, int i)
@@ -49,7 +49,7 @@ static int	ft_pulmi(const char *nptr, int i)
 	return (flag);
 }
 
-static int	ftch(const char *nptr, unsigned long long result, int count, int i)
+static int	ftch(const char *nptr, long long result, int count, int i)
 {
 	int	flag;
 

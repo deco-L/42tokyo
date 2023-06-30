@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 22:16:05 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 01:09:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ input
 */
 
 t_node	*ft_input_arg(int argc, char **argv, t_node *a_stack);
-int		*ft_input(int *index_stack, int argc, char **argv);
+int		*ft_input(int *index_stack, int*sort_stack, int argc, char **argv);
 char	**ft_format_input(char *argv, char **relay);
 void	ft_samenbr_check(int *ccstack, int *sort_stack, int index);
 int		*ft_sort_array(int *sort_stack, int *index_stack, int index);

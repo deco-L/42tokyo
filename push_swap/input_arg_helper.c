@@ -6,19 +6,31 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 20:32:57 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 01:19:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int	*ft_input(int *index_stack, int argc, char **argv)
+int	*ft_input(int *index_stack, int *sort_stack, int argc, char **argv)
 {
-	int	i;
+	int		i;
+	int		buff;
+	size_t	len;
 
 	i = 1;
 	while (i <= argc)
 	{
+		buff = ft_atoi(argv[i]);
+		len = ft_strlen(argv[i]);
+		ft_printf("%d\n", buff);
+		if (len > 2 && (buff == -1 || buff == 0))
+		{
+			free(index_stack);
+			free(sort_stack);
+			ft_putstr("Invalid argument.\n");
+			exit(EXIT_FAILURE);
+		}
 		index_stack[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
