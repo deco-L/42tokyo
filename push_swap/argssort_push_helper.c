@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:48:08 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 15:42:44 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:15:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,8 @@ int	ft_pushcheck_head(int check, int index, int group)
 	return (0);
 }
 
-int	ft_pushcheck_tail(int check, int center, int index, int group)
+int	ft_pushcheck_tail(int check, int center, int group)
 {
-	int	margin;
-
-	margin = 0;
-	if (index - (index / group) * group)
-	{
-		margin = group / 2;
-	}
 	if (center < check && check <= center + group)
 		return (1);
 	return (0);

@@ -6,34 +6,29 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 20:35:38 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 14:47:00 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:13:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	ft_rtn_fnbr(t_node *b_stack, int count, int rtnnbr)
+void	ft_rtn_fnbr(t_node *b_stack, int rtnnbr)
 {
 	int		rab;
 	int		rrab;
-	int		flag;
-	t_node	*start;
 
-	flag = 0;
-	start = b_stack;
-	rab = ft_serch_rab(b_stack, count, rtnnbr);
-	rrab = ft_serch_rrab(b_stack, count, rtnnbr);
+	rab = ft_serch_rab(b_stack, rtnnbr);
+	rrab = ft_serch_rrab(b_stack, rtnnbr);
 	ft_last_rtn(b_stack, rab, rrab);
 }
 
-int	ft_serch_rab(t_node *b_stack, int count, int rtnnbr)
+int	ft_serch_rab(t_node *b_stack, int rtnnbr)
 {
 	int		i;
 	t_node	*start;
 
 	i = 0;
 	start = b_stack;
-	count = 0;
 	while (start -> content != rtnnbr)
 	{
 		start = start -> next;
@@ -42,14 +37,13 @@ int	ft_serch_rab(t_node *b_stack, int count, int rtnnbr)
 	return (i);
 }
 
-int	ft_serch_rrab(t_node *b_stack, int count, int rtnnbr)
+int	ft_serch_rrab(t_node *b_stack, int rtnnbr)
 {
 	int		i;
 	t_node	*start;
 
 	i = 0;
 	start = b_stack;
-	count = 0;
 	while (start -> content != rtnnbr)
 	{
 		start = start -> prev;

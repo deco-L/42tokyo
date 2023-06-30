@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 15:49:33 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:16:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ void	ft_fewsort_push(t_node *a_stack, t_node *b_stack, int index);
 void	ft_args_sort(t_node *a_stack, t_node *b_stack, int index);
 void	ft_argsort_push(t_node *a_stack, t_node *b_stack, int pivot, int group);
 int		ft_pushcheck_head(int check, int index, int group);
-int		ft_pushcheck_tail(int check, int center, int index, int group);
+int		ft_pushcheck_tail(int check, int center, int group);
 void	ft_argsort_rtn(t_node *a_stack, t_node *b_stack, int index, int pivot);
 void	ft_surpls_rtn(t_node *a_stack, t_node *b_stack, int index, int surpls);
 void	ft_tail_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group);
 void	ft_head_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group);
-void	ft_rtn_fnbr(t_node *b_stack, int count, int rtnnbr);
-int		ft_serch_rab(t_node *b_stack, int count, int rtnnbr);
-int		ft_serch_rrab(t_node *b_stack, int count, int rtnnbr);
+void	ft_rtn_fnbr(t_node *b_stack, int rtnnbr);
+int		ft_serch_rab(t_node *b_stack, int rtnnbr);
+int		ft_serch_rrab(t_node *b_stack, int rtnnbr);
 void	ft_last_rtn(t_node *b_stack, int rab, int rrab);
 
 /*

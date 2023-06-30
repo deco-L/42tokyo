@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:49:37 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 15:34:28 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:16:44 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_argsort_push(t_node *a_stack, t_node *b_stack, int pivot, int group)
 			i++;
 			ft_sort_rule_pab(a_stack, b_stack, 1);
 		}
-		else if (ft_pushcheck_tail(check, center, j, group))
+		else if (ft_pushcheck_tail(check, center, group))
 		{
 			j++;
 			ft_sort_rule_pab(a_stack, b_stack, 1);
@@ -81,7 +81,7 @@ void	ft_surpls_rtn(t_node *a_stack, t_node *b_stack, int index, int surpls)
 			i++;
 			continue ;
 		}
-		ft_rtn_fnbr(b_stack, surpls - i, index - i);
+		ft_rtn_fnbr(b_stack, index - i);
 	}
 }
 
@@ -98,7 +98,7 @@ void	ft_tail_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group)
 			i++;
 			continue ;
 		}
-		ft_rtn_fnbr(b_stack, group - i, rtnnbr - i);
+		ft_rtn_fnbr(b_stack, rtnnbr - i);
 	}
 }
 
@@ -115,7 +115,7 @@ void	ft_head_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group)
 			i++;
 			continue ;
 		}
-		ft_rtn_fnbr(b_stack, group - i, rtnnbr - i);
+		ft_rtn_fnbr(b_stack, rtnnbr - i);
 	}
 }
 
