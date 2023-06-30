@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 15:56:57 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 00:37:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_node	*ft_input_arg(int index, char **argv, t_node *a_stack)
 	sort_stack = ft_calloc(index, sizeof(int));
 	if (!sort_stack)
 	{
+		ft_array_delete(argv);
 		free(ccstack);
 		ft_malloc_error();
 	}
