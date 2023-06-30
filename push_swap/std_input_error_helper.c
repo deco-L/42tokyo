@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 21:54:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/30 23:28:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int	ft_one_arg_check(char **argv)
 
 	i = 0;
 	flag = 0;
+	if (argv[1][0] == '\0')
+	{
+		ft_putstr("Invalid argument.\n");
+		exit(EXIT_FAILURE);
+	}
 	if ((argv[1][i] == '-' || argv[1][i] == '+') && argv[1][i + 1] != '\0')
 		i++;
 	while (argv[1][i] != '\0')
@@ -53,6 +58,11 @@ void	ft_args_check(int argc, char **argv)
 	while (i < argc)
 	{
 		j = 0;
+		if (argv[i][0] == '\0')
+		{
+			ft_putstr("Invalid argument.\n");
+			exit(EXIT_FAILURE);
+		}
 		if ((argv[i][j] == '-' || argv[i][j] == '+') && argv[i][j + 1] != '\0')
 			j++;
 		while (argv[i][j] != '\0')
