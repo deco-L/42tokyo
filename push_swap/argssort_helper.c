@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:49:37 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/26 16:28:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:52:56 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,9 @@ void	ft_argsort_rtn(t_node *a_stack, t_node *b_stack, int index, int pivot)
 
 void	ft_surpls_rtn(t_node *a_stack, t_node *b_stack, int index, int surpls)
 {
-	int	i;
-	int	mode;
+	int		i;
 
 	i = 0;
-	mode = 1;
 	while (i < surpls)
 	{
 		if ((b_stack -> next)-> content == index - i)
@@ -83,27 +81,15 @@ void	ft_surpls_rtn(t_node *a_stack, t_node *b_stack, int index, int surpls)
 			i++;
 			continue ;
 		}
-		if (index - surpls < (b_stack -> prev)-> content && mode == 1)
-		{
-			ft_sort_rule_rrab(b_stack, 1);
-			continue ;
-		}
-		else if (index - surpls < (b_stack -> next)-> content && mode == -1)
-		{
-			ft_sort_rule_rab(b_stack, 1);
-			continue ;
-		}
-		mode *= -1;
+		ft_rtn_fnbr(b_stack, surpls - i, index - i);
 	}
 }
 
 void	ft_tail_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group)
 {
 	int	i;
-	int	mode;
 
 	i = 0;
-	mode = 1;
 	while (i < group)
 	{
 		if ((b_stack -> next)-> content == rtnnbr - i)
@@ -112,27 +98,15 @@ void	ft_tail_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group)
 			i++;
 			continue ;
 		}
-		if (rtnnbr - group < (b_stack -> prev)-> content && mode == 1)
-		{
-			ft_sort_rule_rrab(b_stack, 1);
-			continue ;
-		}
-		else if (rtnnbr - group < (b_stack -> next)-> content && mode == -1)
-		{
-			ft_sort_rule_rab(b_stack, 1);
-			continue ;
-		}
-		mode *= -1;
+		ft_rtn_fnbr(b_stack, group - i, rtnnbr - i);
 	}
 }
 
 void	ft_head_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group)
 {
 	int	i;
-	int	mode;
 
 	i = 0;
-	mode = 1;
 	while (i < group)
 	{
 		if ((b_stack -> next)-> content == rtnnbr - i)
@@ -141,16 +115,35 @@ void	ft_head_return(t_node *a_stack, t_node *b_stack, int rtnnbr, int group)
 			i++;
 			continue ;
 		}
-		if (rtnnbr - group < (b_stack -> next)-> content && mode == 1)
-		{
-			ft_sort_rule_rab(b_stack, 1);
-			continue ;
-		}
-		else if (rtnnbr - group < (b_stack -> prev)-> content && mode == -1)
-		{
-			ft_sort_rule_rrab(b_stack, 1);
-			continue ;
-		}
-		mode *= -1;
+		ft_rtn_fnbr(b_stack, group - i, rtnnbr - i);
 	}
 }
+
+// void	ft_surpls_rtn(t_node *a_stack, t_node *b_stack, int index, int surpls)
+// {
+// 	int	i;
+// 	int	mode;
+
+// 	i = 0;
+// 	mode = 1;
+// 	while (i < surpls)
+// 	{
+// 		if ((b_stack -> next)-> content == index - i)
+// 		{
+// 			ft_sort_rule_pab(b_stack, a_stack, 0);
+// 			i++;
+// 			continue ;
+// 		}
+// 		if (index - surpls < (b_stack -> prev)-> content && mode == 1)
+// 		{
+// 			ft_sort_rule_rrab(b_stack, 1);
+// 			continue ;
+// 		}
+// 		else if (index - surpls < (b_stack -> next)-> content && mode == -1)
+// 		{
+// 			ft_sort_rule_rab(b_stack, 1);
+// 			continue ;
+// 		}
+// 		mode *= -1;
+// 	}
+// }
