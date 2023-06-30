@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 15:17:56 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 20:32:07 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 00:54:36 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ void	ft_malloc_error(void)
 void	ft_mallocerror_node(t_node *a_stack, int index)
 {
 	int		i;
+	t_node	*stack;
 
 	i = 0;
 	while (i < index + 1)
 	{
-		a_stack = a_stack -> next;
+		stack = a_stack -> next;
 		free(a_stack);
+		a_stack = stack;
 		i++;
 	}
 	ft_printf("Malloc failed.\n");
