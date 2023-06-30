@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/01 01:19:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 02:17:12 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ int	*ft_input(int *index_stack, int *sort_stack, int argc, char **argv)
 	i = 1;
 	while (i <= argc)
 	{
-		buff = ft_atoi(argv[i]);
+		buff = ft_atoi_push(argv[i]);
 		len = ft_strlen(argv[i]);
-		ft_printf("%d\n", buff);
 		if (len > 2 && (buff == -1 || buff == 0))
 		{
 			free(index_stack);
