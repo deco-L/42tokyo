@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:09:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 15:54:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 17:50:02 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,10 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// #include <libc.h>
+#include <libc.h>
 
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q push_swap");
-// }
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q push_swap");
+}
 // compaction of coordinates
-
-	// ft_printf("ok!\n");
-	// for (int i = 0; i < argc; i++)
-	// {
-	// 	printf("a_stack[%d] content : %d flag : %d point : %p prev : %p next : %p\n", i, a_stack -> content, a_stack -> flag, a_stack, a_stack -> prev, a_stack -> next);
-	// 	a_stack = a_stack -> next;
-	// }

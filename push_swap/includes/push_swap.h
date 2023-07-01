@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/01 13:08:45 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 16:06:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_arg_less(void);
 int		ft_one_arg_check(char **argv);
 void	ft_args_check(int argc, char **argv);
 void	ft_format_error(char **argv);
+void	ft_invalid_arg(void);
 
 /*
 input

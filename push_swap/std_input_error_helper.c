@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 23:28:30 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 17:50:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int	ft_one_arg_check(char **argv)
 	i = 0;
 	flag = 0;
 	if (argv[1][0] == '\0')
-	{
-		ft_putstr("Invalid argument.\n");
-		exit(EXIT_FAILURE);
-	}
+		ft_invalid_arg();
 	if ((argv[1][i] == '-' || argv[1][i] == '+') && argv[1][i + 1] != '\0')
 		i++;
 	while (argv[1][i] != '\0')
@@ -40,10 +37,7 @@ int	ft_one_arg_check(char **argv)
 			return (flag);
 		}
 		else if (!ft_isdigit(argv[1][i]))
-		{
-			ft_putstr("Invalid argument.\n");
-			exit(EXIT_FAILURE);
-		}
+			ft_invalid_arg();
 		i++;
 	}
 	return (flag);
@@ -59,19 +53,13 @@ void	ft_args_check(int argc, char **argv)
 	{
 		j = 0;
 		if (argv[i][0] == '\0')
-		{
-			ft_putstr("Invalid argument.\n");
-			exit(EXIT_FAILURE);
-		}
+			ft_invalid_arg();
 		if ((argv[i][j] == '-' || argv[i][j] == '+') && argv[i][j + 1] != '\0')
 			j++;
 		while (argv[i][j] != '\0')
 		{
 			if (!ft_isdigit(argv[i][j]))
-			{
-				ft_putstr("Invalid argument.\n");
-				exit(EXIT_FAILURE);
-			}
+				ft_invalid_arg();
 			j++;
 		}
 		i++;
@@ -81,21 +69,34 @@ void	ft_args_check(int argc, char **argv)
 void	ft_format_error(char **argv)
 {
 	int	i;
+	int	flag;
 
 	i = 0;
+	flag = 0;
 	while (argv[1][i] != '\0')
 	{
 		if ((argv[1][i] == '-' || argv[1][i] == '+') \
 		&& ft_isdigit(argv[1][i + 1]))
 			i++;
 		else if (ft_isdigit(argv[1][i]))
+		{
+			flag++;
 			i++;
+		}
 		else if ((9 <= argv[1][i] && argv[1][i] <= 13) || argv[1][i] == ' ')
 			i++;
 		else
-		{
-			ft_putstr("Invalid error.");
-			exit(EXIT_FAILURE);
-		}
+			ft_invalid_arg();
 	}
+	if (flag)
+		return ;
+	ft_putstr("Invalid argument.\n");
+	exit (EXIT_FAILURE);
+}
+
+void	ft_invalid_arg(void)
+{
+	ft_putstr("Invalid argument.\n");
+	exit (EXIT_FAILURE);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:46:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/01 13:05:35 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 17:44:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_array_delete(char **relay)
 	int	i;
 
 	i = 1;
-	free(relay[0]);
 	while (relay[i] != NULL)
 	{
 		free(relay[i]);
