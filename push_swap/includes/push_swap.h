@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:12:13 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/01 02:11:42 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 13:08:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	ft_delete_all_node(t_node *a_stack);
 else
 */
 
-void	ft_putstr(char *str);
+void	ft_putstr(const char *str);
 void	ft_array_delete(char **relay);
 int		ft_atoi_push(const char *nptr);
 

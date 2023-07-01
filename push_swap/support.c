@@ -6,13 +6,13 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:46:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/28 21:56:58 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/01 13:05:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(const char *str)
 {
 	size_t	i;
 
