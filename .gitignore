@@ -3,4 +3,5 @@
 !*/
 !Makefile
 
+minilibx_test/minilibx-linux
 *.out

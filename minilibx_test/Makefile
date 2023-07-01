@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/01 19:07:03 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/01 19:56:06 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ PRE			= ./srcs/
 
 HEAD		= ./includes/
 
-MLX			= ./minilibx_opengl_20191021/
+MLX			= ./minilibx-linux/
 
 CC			= cc
 
