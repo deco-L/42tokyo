@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/01 19:56:06 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/01 20:33:21 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,6 @@ MLX			= ./minilibx-linux/
 
 CC			= cc
 
-CCMLX		= cd ${MLX} && make && cd ./../
-
 CFLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -fr
@@ -38,14 +36,12 @@ all:		${NAME}
 
 .c.o:
 			${CC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o}
-			${CC} ${CFLAGS} -I ${MLX} -c $< -o $@
+			${CC} ${CFLAGS} -I ${mlx} -c $< -o $@
 
 $(NAME):	${OBJS}
-			${CCMLX} && \
-			${CC} ${CFLAGS} ${OBJS} libmlx.a -L ${MLX} -l ${MLX} -framework OpenGL -framework AppKit -o ${NAME}
+			${CC} ${CFLAGS} ${OBJS} -L ${mlx} -l ${mlx} -framework OpenGL -framework AppKit -o ${NAME}
 
 clean:
-			${RMMLX} && \
 			${RM} ${OBJS} && ${RM} && ${RM}
 
 fclean:		clean
