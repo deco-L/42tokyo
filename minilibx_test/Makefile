@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/01 20:33:21 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/03 21:23:09 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,11 @@ PRE			= ./srcs/
 
 HEAD		= ./includes/
 
-MLX			= ./minilibx-linux/
+MLX			= ./mlx_linux/
 
 CC			= cc
+
+CCMLX		= cd ${MLX} && make && cd ./../
 
 CFLAGS		= -Wall -Wextra -Werror
 
@@ -34,15 +36,16 @@ AR			= ar rcs
 
 all:		${NAME}
 
-.c.o:
+%.o:%.c
+			$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 			${CC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o}
-			${CC} ${CFLAGS} -I ${mlx} -c $< -o $@
 
 $(NAME):	${OBJS}
-			${CC} ${CFLAGS} ${OBJS} -L ${mlx} -l ${mlx} -framework OpenGL -framework AppKit -o ${NAME}
+			${CCMLX} && \
+			$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:
-			${RM} ${OBJS} && ${RM} && ${RM}
+			${RM} ${OBJS} && ${RMMLX}
 
 fclean:		clean
 			${RM} ${NAME}

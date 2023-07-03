@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   minilibx_test.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/03 21:18:37 by csakamot         ###   ########.fr       */
+/*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
+/*   Updated: 2023/07/03 21:09:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minilibx_test.h"
+#ifndef MINILIBX_TEST_H
+# define MINILIBX_TEST_H
 
-int	main(void)
-{
-	void	*mlx;
-	void	*mlx_win;
+# include <mlx.h>
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1000, "Hello world!");
-	mlx_loop(mlx);
-	return (0);
-}
+#endif
