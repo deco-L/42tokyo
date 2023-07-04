@@ -6,17 +6,18 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/04 16:01:56 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:56:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minitalk_test.h"
 
-volatile sig_atomic_t	g_char = 0;
+// volatile sig_atomic_t	g_char = 0;
 
 void	signal_handler(int signum)
 {
 	static int	i;
+	static int	g_char;
 	char		c;
 
 	g_char = g_char << 1;
@@ -35,6 +36,9 @@ void	signal_handler(int signum)
 
 int	main(void)
 {
+	static int	g_char;
+
+	g_char = 0;
 	ft_printf("not good minitalk server pid=%d\n", getpid());
 	signal(SIGUSR1, signal_handler);
 	signal(SIGUSR2, signal_handler);
