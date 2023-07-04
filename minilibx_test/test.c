@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/03 21:18:37 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/05 03:53:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,22 @@
 
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
+	t_data	data;
+	t_img	img;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1000, "Hello world!");
-	mlx_loop(mlx);
-	return (0);
+	data.mlx_ptr = mlx_init();
+	if (data.mlx_ptr == NULL)
+		return (MLX_ERROR);
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, \
+									WINDOW_HEIGHT, "Hello world!");
+	if (data.win_ptr == NULL)
+	{
+		free(data.win_ptr);
+		return (MLX_ERROR);
+	}
+	mlx_loop_hook(data.mlx_ptr, &render, &data);
+	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
+	mlx_loop(data.mlx_ptr);
+	mlx_destroy_display(data.mlx_ptr);
+	free(data.mlx_ptr);
 }

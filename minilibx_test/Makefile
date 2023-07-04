@@ -6,13 +6,14 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/03 21:23:09 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/05 04:13:59 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= test
 
-SRC			= test.c
+SRC			= test.c minilibx_test_helper.c minilibx_color_helper.c minilibx_win_helper.c minilibx_render_helper.c \
+				make_rectangle.c
 
 OBJS		= ${SRC:.c=.o}
 
@@ -38,7 +39,6 @@ all:		${NAME}
 
 %.o:%.c
 			$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
-			${CC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 			${CCMLX} && \
