@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:17:15 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/04 12:26:30 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/05 17:05:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ int	main(void)
 	signal(SIGINT, handler1);
 	signal(SIGALRM, handler2);
 	alarm(5);
-
 	while (1)
 	{
 	}
-
 	return (0);
 }
