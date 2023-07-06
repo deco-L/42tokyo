@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:07 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/06 16:19:35 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 17:07:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void	send_str(const pid_t pid, char *str)
 {
 	while (*str)
 	{
-		signal(SIGUSR1, ft_check);
-		signal(SIGUSR2, ft_check);
 		ft_send_char(pid, *str);
 		str++;
 	}
@@ -54,6 +52,7 @@ int	main(int argc, char **argv)
 	if (argc != 3)
 		return (1);
 	pid = ft_atoi(argv[1]);
+	signal(SIGUSR1, ft_check);
 	send_str(pid, argv[2]);
 }
 

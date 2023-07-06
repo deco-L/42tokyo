@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/06 16:01:33 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 17:02:34 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 void	signal_handler(int signum, siginfo_t *info, void *dummy)
 {
 	static int						i;
-	static volatile sig_atomic_t	g_char;
+	static volatile sig_atomic_t	charbuff;
 	char							c;
 
 	dummy = NULL;
-	g_char = g_char << 1;
+	charbuff = charbuff << 1;
 	if (signum == SIGUSR1)
-		g_char |= 1;
+		charbuff |= 1;
 	else if (signum == SIGUSR2)
 		;
 	i++;
-	c = 0xff & g_char;
+	c = 0xff & charbuff;
 	if (i == 8)
 	{
 		write(STDOUT_FILENO, &c, 1);
 		kill(info->si_pid, SIGUSR1);
 		i = 0;
-		g_char = 0;
+		charbuff = 0;
 	}
 }
 
