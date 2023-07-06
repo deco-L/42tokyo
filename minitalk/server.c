@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/06 17:02:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 20:33:34 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	signal_handler(int signum, siginfo_t *info, void *dummy)
 
 	dummy = NULL;
 	charbuff = charbuff << 1;
-	if (signum == SIGUSR1)
+	if (signum == SIGUSR1 && !dummy)
 		charbuff |= 1;
-	else if (signum == SIGUSR2)
-		;
 	i++;
 	c = 0xff & charbuff;
 	if (i == 8)

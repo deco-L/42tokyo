@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:23:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/10 16:03:42 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 20:37:11 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include <stdint.h>
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
