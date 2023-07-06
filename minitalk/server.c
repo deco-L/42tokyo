@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/06 15:51:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:01:33 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,23 @@ void	signal_handler(int signum, siginfo_t *info, void *dummy)
 
 int	main(void)
 {
-	struct sigaction	act;
+	struct sigaction	act1;
+	struct sigaction	act2;
 
 	ft_printf("not good minitalk server pid=%d\n", getpid());
-	ft_memset(&act, 0, sizeof(sigaction));
-	act.sa_sigaction = signal_handler;
-	act.sa_flags = SA_SIGINFO;
-	sigaddset(&act.sa_mask, SIGUSR2);
-	ft_printf("sa_flags = %d, sa_mask = %d\n", act.sa_flags, act.sa_mask);
+	ft_memset(&act1, 0, sizeof(sigaction));
+	ft_memset(&act2, 0, sizeof(sigaction));
+	act1.sa_sigaction = signal_handler;
+	act2.sa_sigaction = signal_handler;
+	act1.sa_flags = SA_SIGINFO;
+	act2.sa_flags = SA_SIGINFO;
+	sigaddset(&act1.sa_mask, SIGUSR2);
+	sigaddset(&act2.sa_mask, SIGUSR1);
+	ft_printf("sa_flags = %d, sa_mask = %d\n", act1.sa_flags, act2.sa_mask);
 	while (1)
 	{
-		sigaction(SIGUSR1, &act, NULL);
-		sigaction(SIGUSR2, &act, NULL);
+		sigaction(SIGUSR1, &act1, NULL);
+		sigaction(SIGUSR2, &act2, NULL);
 		pause();
 	}
 	return (0);

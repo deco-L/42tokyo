@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:07 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/06 15:46:07 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:19:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_send_char(const pid_t pid, char c)
 		else
 			kill(pid, SIGUSR2);
 		digit--;
-		usleep(150);
+		usleep(300);
 	}
 }
 
