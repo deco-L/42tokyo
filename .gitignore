@@ -3,6 +3,7 @@
 !*/
 !Makefile
 
+*.a
 *.o
 minilibx_test/mlx_linux
 *.out
