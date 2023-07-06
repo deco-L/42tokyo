@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/29 13:05:55 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/29 16:48:33 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/06 15:46:45 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,8 @@ all:		$(NAME)
 $(NAME):	${OBJS}
 			${CCLIBFT} && \
 			${CCFTPRINTF} && \
-			${CC} ${CFLAGS} ${CLIENT_OBJS} -L. ${LIBFT_A} ${FTPRINTF_A} -o client
-			${CC} ${CFLAGS} ${SERVER_OBJS} -L. ${LIBFT_A} ${FTPRINTF_A} -o server
+			${CC} ${CLIENT_OBJS} -L. ${LIBFT_A} ${FTPRINTF_A} -o client
+			${CC} ${SERVER_OBJS} -L. ${LIBFT_A} ${FTPRINTF_A} -o server
 
 clean:
 			${RM} ${OBJS} && \

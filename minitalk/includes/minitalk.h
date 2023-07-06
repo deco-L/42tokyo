@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 13:30:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/30 16:29:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:43:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 client
 */
 
-void	ft_send_signal(int pid, unsigned char chare);
 
 /*
 server
