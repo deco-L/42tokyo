@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 17:26:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:07:09 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // volatile sig_atomic_t	g_char = 0;
 
-void	signal_handler(int signum)
+void	signal_handler(int signum, siginfo_t *info, void *dummy)
 {
 	static int	i;
 	static int	g_char;
@@ -30,19 +30,34 @@ void	signal_handler(int signum)
 	if (i == 8)
 	{
 		write(STDOUT_FILENO, &c, 1);
+		kill(info->si_pid, SIGUSR1);
 		i = 0;
+		g_char = 0;
 	}
 }
 
 int	main(void)
 {
-	static int	g_char;
+	struct sigaction	act;
 
-	g_char = 0;
 	ft_printf("not good minitalk server pid=%d\n", getpid());
-	signal(SIGUSR1, signal_handler);
-	signal(SIGUSR2, signal_handler);
+	ft_memset(&act, 0, sizeof(sigaction));
+	act.sa_sigaction = signal_handler;
+	act.sa_flags = SA_SIGINFO;
+	sigaddset(&act.sa_mask, SIGUSR2);
+	ft_printf("sa_mask = %d, sa_flag = %d\n", act.sa_flags, act.sa_mask);
 	while (1)
+	{
+		sigaction(SIGUSR1, &act, NULL);
+		sigaction(SIGUSR2, &act, NULL);
 		pause();
+	}
 	return (0);
+}
+
+#include <libc.h>
+
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q server");
 }

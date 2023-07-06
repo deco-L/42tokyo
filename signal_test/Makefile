@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/29 13:05:55 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/29 16:48:33 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/06 12:57:22 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ AR			= ar rcs
 all:		$(NAME)
 
 .c.o:
-			${CC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o}
+			${CC} -c -I ${HEAD} $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 			${CCLIBFT} && \
