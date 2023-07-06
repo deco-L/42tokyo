@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/06 15:07:09 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:31:03 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(void)
 	act.sa_sigaction = signal_handler;
 	act.sa_flags = SA_SIGINFO;
 	sigaddset(&act.sa_mask, SIGUSR2);
-	ft_printf("sa_mask = %d, sa_flag = %d\n", act.sa_flags, act.sa_mask);
+	ft_printf("sa_flags = %d, sa_mask = %d\n", act.sa_flags, act.sa_mask);
 	while (1)
 	{
 		sigaction(SIGUSR1, &act, NULL);
