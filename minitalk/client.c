@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:07 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/07 15:56:59 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/07 16:16:33 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,14 @@ int	main(int argc, char **argv)
 		ft_printf("input ./client <server_pid> <text>\n");
 		exit(EXIT_FAILURE);
 	}
-	while (argv[1][i++] != '\0')
+	while (argv[1][i] != '\0')
 	{
 		if (ft_isdigit(argv[1][i]) != 1)
 		{
 			ft_printf("input ./client <server_pid> <text>\n");
 			exit(EXIT_FAILURE);
 		}
+		i++;
 	}
 	pid = ft_atoi(argv[1]);
 	signal(SIGUSR1, ft_check);

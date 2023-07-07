@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/07 15:43:57 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/07 16:13:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(void)
 	struct sigaction	act1;
 	struct sigaction	act2;
 
-	ft_printf("not good minitalk server pid=%d\n", getpid());
+	ft_printf("minitalk server pid=%d\n", getpid());
 	ft_memset(&act1, 0, sizeof(sigaction));
 	ft_memset(&act2, 0, sizeof(sigaction));
 	act1.sa_sigaction = signal_handler;
