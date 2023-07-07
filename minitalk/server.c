@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/07 16:13:19 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/07 16:42:29 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	signal_handler(int signum, siginfo_t *info, void *dummy)
 		c = 0;
 		charbuff = 0;
 	}
+	charbuff = charbuff << 1;
 	charbuff |= (signum == SIGUSR1);
 	i++;
 	if (i == 8)
@@ -58,7 +59,6 @@ void	signal_handler(int signum, siginfo_t *info, void *dummy)
 	usleep(100);
 	if (kill(info->si_pid, SIGUSR2) == -1)
 		ft_signal_error();
-	charbuff = charbuff << 1;
 }
 
 int	main(void)
