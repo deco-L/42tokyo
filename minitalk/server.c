@@ -6,31 +6,59 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/06 20:33:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/07 15:43:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minitalk.h"
 
+void	ft_signal_error(void)
+{
+	ft_putstr_fd("Signal Error.\n", STDOUT_FILENO);
+	exit(EXIT_FAILURE);
+}
+
+int	ft_put_message(char *c, int *pid, volatile sig_atomic_t *cbuff)
+{
+	*c = 0xff & *cbuff;
+	*cbuff = 0;
+	ft_printf("%c", *c);
+	if (*c == '\0')
+	{
+		if (kill(*pid, SIGUSR1) == -1)
+			ft_signal_error();
+		return (0);
+	}
+	return (0);
+}
+
 void	signal_handler(int signum, siginfo_t *info, void *dummy)
 {
 	static int						i;
+	static int						client_pid;
+	static int						current_pid;
 	static volatile sig_atomic_t	charbuff;
-	char							c;
+	static char						c;
 
-	dummy = NULL;
-	charbuff = charbuff << 1;
-	if (signum == SIGUSR1 && !dummy)
-		charbuff |= 1;
-	i++;
-	c = 0xff & charbuff;
-	if (i == 8)
+	(void)dummy;
+	if (!client_pid)
+		client_pid = info->si_pid;
+	current_pid = info->si_pid;
+	if (client_pid != current_pid)
 	{
-		write(STDOUT_FILENO, &c, 1);
-		kill(info->si_pid, SIGUSR1);
+		client_pid = current_pid;
 		i = 0;
+		c = 0;
 		charbuff = 0;
 	}
+	charbuff |= (signum == SIGUSR1);
+	i++;
+	if (i == 8)
+		i = ft_put_message(&c, &client_pid, &charbuff);
+	usleep(100);
+	if (kill(info->si_pid, SIGUSR2) == -1)
+		ft_signal_error();
+	charbuff = charbuff << 1;
 }
 
 int	main(void)
@@ -43,17 +71,16 @@ int	main(void)
 	ft_memset(&act2, 0, sizeof(sigaction));
 	act1.sa_sigaction = signal_handler;
 	act2.sa_sigaction = signal_handler;
+	sigemptyset(&act1.sa_mask);
+	sigemptyset(&act2.sa_mask);
 	act1.sa_flags = SA_SIGINFO;
 	act2.sa_flags = SA_SIGINFO;
 	sigaddset(&act1.sa_mask, SIGUSR2);
 	sigaddset(&act2.sa_mask, SIGUSR1);
-	ft_printf("sa_flags = %d, sa_mask = %d\n", act1.sa_flags, act2.sa_mask);
+	sigaction(SIGUSR1, &act1, NULL);
+	sigaction(SIGUSR2, &act2, NULL);
 	while (1)
-	{
-		sigaction(SIGUSR1, &act1, NULL);
-		sigaction(SIGUSR2, &act2, NULL);
 		pause();
-	}
 	return (0);
 }
 

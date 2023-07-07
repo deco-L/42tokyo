@@ -6,11 +6,17 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:07 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/06 17:07:50 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/07 15:56:59 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minitalk.h"
+
+void	ft_signal_error(void)
+{
+	ft_putstr_fd("Signal Error.\n", STDOUT_FILENO);
+	exit(EXIT_FAILURE);
+}
 
 void	ft_send_char(const pid_t pid, char c)
 {
@@ -20,20 +26,31 @@ void	ft_send_char(const pid_t pid, char c)
 	while (digit >= 0)
 	{
 		if (c & (1 << digit))
-			kill(pid, SIGUSR1);
+		{
+			if (kill(pid, SIGUSR1) == -1)
+				ft_signal_error();
+		}
 		else
-			kill(pid, SIGUSR2);
+		{
+			if (kill(pid, SIGUSR2) == -1)
+				ft_signal_error();
+		}
 		digit--;
-		usleep(300);
+		pause();
+		usleep(100);
 	}
 }
 
-void	ft_check(int signal)
+void	ft_check(const int signal)
 {
+	static int	bit;
+
 	if (signal == SIGUSR1)
-		ft_putstr_fd("sucsess!\n", STDOUT_FILENO);
+		ft_printf("Sucsess! Send %d bits.\n", ++bit);
+	else if (signal == SIGUSR2)
+		bit++;
 	else
-		ft_putstr_fd("No relation!\n", STDOUT_FILENO);
+		ft_putstr_fd("No Relation!\n", STDOUT_FILENO);
 }
 
 void	send_str(const pid_t pid, char *str)
@@ -43,16 +60,31 @@ void	send_str(const pid_t pid, char *str)
 		ft_send_char(pid, *str);
 		str++;
 	}
+	ft_send_char(pid, '\0');
 }
 
 int	main(int argc, char **argv)
 {
-	int	pid;
+	size_t	i;
+	int		pid;
 
+	i = 0;
 	if (argc != 3)
-		return (1);
+	{
+		ft_printf("input ./client <server_pid> <text>\n");
+		exit(EXIT_FAILURE);
+	}
+	while (argv[1][i++] != '\0')
+	{
+		if (ft_isdigit(argv[1][i]) != 1)
+		{
+			ft_printf("input ./client <server_pid> <text>\n");
+			exit(EXIT_FAILURE);
+		}
+	}
 	pid = ft_atoi(argv[1]);
 	signal(SIGUSR1, ft_check);
+	signal(SIGUSR2, ft_check);
 	send_str(pid, argv[2]);
 }
 
