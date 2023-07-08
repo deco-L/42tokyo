@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:57:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/01 15:38:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 13:43:12 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_samenbr_check(int *ccstack, int *sort_stack, int index)
 		{
 			if (ccstack[i] == ccstack[j])
 			{
-				ft_putstr("Invalid argument.\n");
+				ft_printf("Invalid argument.\n");
 				free(ccstack);
 				free(sort_stack);
 				exit(EXIT_FAILURE);

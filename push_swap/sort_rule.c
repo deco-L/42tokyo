@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:26:12 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/24 16:12:50 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 13:15:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	ft_sort_rule_sab(t_node *stack, int mode)
 	below_stack -> next = above_stack;
 	if (mode)
 	{
-		ft_putstr("sb\n");
+		ft_printf("sb\n");
 		return ;
 	}
-	ft_putstr("sa\n");
+	ft_printf("sa\n");
 	return ;
 }
 
@@ -51,10 +51,10 @@ void	ft_sort_rule_rab(t_node *stack, int mode)
 	start -> prev = stack;
 	if (mode)
 	{
-		ft_putstr("rb\n");
+		ft_printf("rb\n");
 		return ;
 	}
-	ft_putstr("ra\n");
+	ft_printf("ra\n");
 	return ;
 }
 
@@ -72,10 +72,10 @@ void	ft_sort_rule_rrab(t_node *stack, int mode)
 	stack -> prev = start;
 	if (mode)
 	{
-		ft_putstr("rrb\n");
+		ft_printf("rrb\n");
 		return ;
 	}
-	ft_putstr("rra\n");
+	ft_printf("rra\n");
 	return ;
 }
 
@@ -101,10 +101,10 @@ void	ft_sort_rule_pab(t_node *move_stack, t_node *receive_stack, int mode)
 	}
 	if (mode)
 	{
-		ft_putstr("pb\n");
+		ft_printf("pb\n");
 		return ;
 	}
-	ft_putstr("pa\n");
+	ft_printf("pa\n");
 	return ;
 }
 
