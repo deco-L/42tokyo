@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:07 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/07 16:16:33 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 14:43:15 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_check(const int signal)
 	static int	bit;
 
 	if (signal == SIGUSR1)
-		ft_printf("Sucsess! Send %d bits.\n", ++bit);
+		ft_printf("Sucsess! Send %d signal.\n", ++bit);
 	else if (signal == SIGUSR2)
 		bit++;
 	else
