@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 04:00:41 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 04:04:40 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:03:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minilibx_test.h"
+#include "includes/minilibx_test_mac.h"
 
 int	render_rect(t_data *data, t_rect rect)
 {
