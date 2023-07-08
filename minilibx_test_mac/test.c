@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/08 17:45:43 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 18:00:59 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,17 @@ int	main(void)
 		return (MLX_ERROR);
 	}
 	img.img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
+}
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
 }
 
 #include <libc.h>

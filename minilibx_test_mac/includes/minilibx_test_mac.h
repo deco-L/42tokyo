@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/08 17:20:25 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:56:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,6 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
-typedef struct s_rext
-{
-	int		x;
-	int		y;
-	int		width;
-	int		height;
-	int		color;
-}			t_rect;
-
 /*
 win_helper
 */
@@ -61,7 +52,6 @@ int		render(t_data *data);
 /*
 make
 */
-int		render_rect(t_data *data, t_rect rect);
 
 /*
 get_pixel
