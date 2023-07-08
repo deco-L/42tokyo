@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/08 17:35:27 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:45:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ int	main(void)
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, \
 									WINDOW_HEIGHT, "Hello world!");
 	if (data.win_ptr == NULL)
+	{
+		free(data.win_ptr);
 		return (MLX_ERROR);
-	mlx_loop_hook(data.mlx_ptr, &render, &data);
+	}
+	img.img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
-	free(data.mlx_ptr);
 }
 
 #include <libc.h>
