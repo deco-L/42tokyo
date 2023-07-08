@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/08 17:58:47 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/08 19:35:43 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ all:		${NAME}
 
 %.o:%.c
 			${CCMLX} && \
-			$(CC) -Imlx -O3 -c $< -o $@
+			$(CC) -Imlx -c $< -o $@
 
 $(NAME):	${OBJS}
 			$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)

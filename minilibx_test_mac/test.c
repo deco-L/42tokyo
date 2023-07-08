@@ -6,11 +6,19 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/08 18:00:59 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:23:48 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minilibx_test_mac.h"
+
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
 
 int	main(void)
 {
@@ -29,16 +37,10 @@ int	main(void)
 	}
 	img.img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 0, 0);
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
-}
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
 }
 
 #include <libc.h>
