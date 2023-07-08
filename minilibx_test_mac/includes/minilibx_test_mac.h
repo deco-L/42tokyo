@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/08 16:16:53 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:20:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define WINDOW_HEIGHT 600
 # define MLX_ERROR 1
 # define RED_PIXEL 0xFF0000
-# define GREEN_PIXEL 0xFF00
+# define GREEN_PIXEL 0x00FF00
 
 typedef struct s_data
 {
