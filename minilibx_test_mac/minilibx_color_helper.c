@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 00:01:23 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 00:11:08 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 16:26:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minilibx_test.h"
+#include "includes/minilibx_test_mac.h"
 
 int	create_trgb(int t, int r, int g, int b)
 {

@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 03:34:27 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 04:07:29 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 16:26:42 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minilibx_test.h"
+#include "includes/minilibx_test_mac.h"
 
 int	render(t_data *data)
 {

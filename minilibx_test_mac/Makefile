@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/08 15:19:48 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/08 16:26:12 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,11 +38,11 @@ AR			= ar rcs
 all:		${NAME}
 
 %.o:%.c
-			$(CC) ${CFLAGS} -Imlx -O3 -c $< -o $@
+			${CCMLX} && \
+			$(CC) -Imlx -O3 -c $< -o $@
 
 $(NAME):	${OBJS}
-			${CCMLX} && \
-			$(CC) $(OBJS) -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz -o $(NAME)
+			$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 			${RM} ${OBJS} && ${RMMLX}

@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 03:53:01 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 16:25:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minilibx_test.h"
+#include "includes/minilibx_test_mac.h"
 
 int	main(void)
 {
@@ -28,8 +28,7 @@ int	main(void)
 		return (MLX_ERROR);
 	}
 	mlx_loop_hook(data.mlx_ptr, &render, &data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_loop(data.mlx_ptr);
-	mlx_destroy_display(data.mlx_ptr);
+	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
 	free(data.mlx_ptr);
 }
