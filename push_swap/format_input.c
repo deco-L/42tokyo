@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:56:47 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/08 13:40:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:08:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_forsplit_ch(char str)
 {
-	if ((9 <= str && str <= 13) || str == ' ')
+	if ((9 <= str && str <= 13) || str == ' ' || str == '\0')
 		return (1);
 	return (0);
 }
