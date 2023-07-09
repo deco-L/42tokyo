@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/08 20:07:14 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/09 18:08:13 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ HEAD		= ./includes/
 
 MLX			= ./mlx/
 
-CC			= cc
+CC			= gcc
 
 CCMLX		= cd ${MLX} && make && cd ./../
 
@@ -37,12 +37,11 @@ AR			= ar rcs
 all:		${NAME}
 
 %.o:%.c
-			$(CC) -Imlx -c $< -o $@
+			$(CC) -I/usr/include -Imlx -O3 -c $< -o $@
 
 $(NAME):	${OBJS}
 			${CCMLX} && \
-			$(CC) $(OBJS) -L. mlx/libmlx.a -framework OpenGL -framework AppKit -o $(NAME)
-
+			$(CC) $(OBJS) -I/usr/X11/include -Lmlx -lmlx_Darwin -L/usr/X11/include/../lib -Imlx -lXext -lX11 -o $(NAME)
 clean:
 			${RM} ${OBJS} && ${RMMLX}
 
