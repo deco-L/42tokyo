@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/09 18:19:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/09 18:29:32 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int	main(void)
 	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 0, 0);
 	mlx_loop(data.mlx_ptr);
-	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
-	mlx_destroy_display(data.mlx_ptr);
 }
 
 #include <libc.h>
