@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   minilibx_color_helper.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 17:10:12 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/06/10 16:05:37 by csakamot         ###   ########.fr       */
+/*   Created: 2023/07/05 00:01:23 by csakamot          #+#    #+#             */
+/*   Updated: 2023/07/05 00:11:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "includes/minilibx_test.h"
 
-size_t	ft_strlen(const char *str)
+int	create_trgb(int t, int r, int g, int b)
 {
-	size_t	len;
+	return (t << 24 | r << 16 | g << 8 | b);
+}
 
-	len = 0;
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	return (len);
+int	get_t(int trgb)
+{
+	return ((trgb >> 24) & 0xFF);
+}
+
+int	get_r(int trgb)
+{
+	return ((trgb >> 16) & 0xFF);
+}
+
+int	get_g(int trgb)
+{
+	return ((trgb >> 8) & 0xFF);
+}
+
+int	get_b(int trgb)
+{
+	return (trgb & 0xFF);
 }

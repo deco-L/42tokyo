@@ -5,36 +5,50 @@
 #                                                     +:+ +:+         +:+      #
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/31 14:31:10 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/10 16:03:24 by csakamot         ###   ########.fr        #
+#    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
+#    Updated: 2023/07/05 04:13:59 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC			= ft_bzero.c ft_calloc.c ft_putchar_fd.c ft_putstr_fd.c ft_printf.c\
-				ft_check_printf.c ft_process.c ft_putnbr_base_fd_cnt.c ft_strlen.c\
+NAME		= test
+
+SRC			= test.c minilibx_test_helper.c minilibx_color_helper.c minilibx_win_helper.c minilibx_render_helper.c \
+				make_rectangle.c
 
 OBJS		= ${SRC:.c=.o}
 
-NAME		= libftprintf.a
+PRE			= ./srcs/
 
-RM			= rm -f
+HEAD		= ./includes/
+
+MLX			= ./mlx_linux/
 
 CC			= cc
 
-CFLAGS 		= -Wall -Wextra -Werror
+CCMLX		= cd ${MLX} && make && cd ./../
+
+CFLAGS		= -Wall -Wextra -Werror
+
+RM			= rm -fr
+
+RMMLX		= cd ${MLX} && make clean && cd ./../
 
 AR			= ar rcs
 
-all:		$(NAME)
+all:		${NAME}
+
+%.o:%.c
+			$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME):	${OBJS}
-			${AR} ${NAME} ${OBJS}
+			${CCMLX} && \
+			$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:
-			rm -f ${OBJS}
+			${RM} ${OBJS} && ${RMMLX}
 
 fclean:		clean
-			rm -f ${NAME}
+			${RM} ${NAME}
 
 re:			fclean all
 

@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/27 12:07:59 by csakamot          #+#    #+#              #
-#    Updated: 2023/06/29 13:16:20 by csakamot         ###   ########.fr        #
+#    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
+#    Updated: 2023/07/09 18:08:13 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= so_long
+NAME		= test
 
-SRC			= so_long.c window_helper.c
+SRC			= test.c
 
 OBJS		= ${SRC:.c=.o}
 
@@ -20,47 +20,30 @@ PRE			= ./srcs/
 
 HEAD		= ./includes/
 
-MLX			= ./minilibx_mms_20200219/
+MLX			= ./mlx/
 
-LIBFT		= ${addprefix ${PRE}, libft/}
+CC			= gcc
 
-FTPRINTF	= ${addprefix ${PRE}, ft_printf/}
-
-LIBFT_A		= ${addprefix ${LIBFT}, libft.a}
-
-FTPRINTF_A	= ${addprefix ${FTPRINTF}, libftprintf.a}
-
-CCLIBFT		= cd ${LIBFT} && make bonus && cd ./../..
-
-CCFTPRINTF	= cd ${FTPRINTF} && make && cd ./../..
-
-CCMLX		= cd ${MLX} && make && cd ./..
-
-CC			= cc
+CCMLX		= cd ${MLX} && make && cd ./../
 
 CFLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -fr
 
-RMLIBFT		= cd ${LIBFT} && make fclean && cd ./../..
-
-RMFTPRINTF	= cd ${FTPRINTF} && make fclean && cd ./../..
+RMMLX		= cd ${MLX} && make clean && cd ./../
 
 AR			= ar rcs
 
 all:		${NAME}
 
-.c.o:
-			${CC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o} && \
-			${CC} ${CFLAGS} -I ${mlx} -c -o $@
+%.o:%.c
+			$(CC) -I/usr/include -Imlx -O3 -c $< -o $@
 
 $(NAME):	${OBJS}
-			${CCLIBFT} && \
-			${CCFTPRINTF} && \
-			${CC} ${CFLAGS} ${OBJS} -L. ${LIBFT_A} ${FTPRINTF_A} ${mlx} -framework OpenGL -framework AppKit -o ${NAME}
-
+			${CCMLX} && \
+			$(CC) $(OBJS) -I/usr/X11/include -Lmlx -lmlx_Darwin -L/usr/X11/include/../lib -Imlx -lXext -lX11 -o $(NAME)
 clean:
-			${RM} ${OBJS} && ${RMLIBFT} && ${RMFTPRINTF}
+			${RM} ${OBJS} && ${RMMLX}
 
 fclean:		clean
 			${RM} ${NAME}

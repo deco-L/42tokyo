@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   minilibx_render_helper.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/29 10:20:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/29 10:53:58 by csakamot         ###   ########.fr       */
+/*   Created: 2023/07/05 03:34:27 by csakamot          #+#    #+#             */
+/*   Updated: 2023/07/05 04:07:29 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/so_long.h"
+#include "includes/minilibx_test.h"
 
-int	main(void)
+int	render(t_data *data)
 {
-	ft_depiction_window(1000, 1000);
+	render_rect(data, (t_rect){WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100, \
+													100, 100, GREEN_PIXEL});
+	render_rect(data, (t_rect){0, 0, 100, 100, RED_PIXEL});
+	return (0);
 }
