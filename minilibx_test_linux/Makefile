@@ -6,14 +6,13 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/05 04:13:59 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/12 21:22:38 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= test
 
-SRC			= test.c minilibx_test_helper.c minilibx_color_helper.c minilibx_win_helper.c minilibx_render_helper.c \
-				make_rectangle.c
+SRC			= test.c color.c c_to_i_color.c render_rect.c render_circle.c
 
 OBJS		= ${SRC:.c=.o}
 

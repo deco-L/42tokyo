@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minilibx_test.h                                    :+:      :+:    :+:   */
+/*   so_long_linux.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 04:10:14 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:52:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <math.h>
 # include <mlx.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
 
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600

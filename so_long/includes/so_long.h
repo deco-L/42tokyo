@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/12 12:14:57 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:52:55 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <math.h>
 # include <mlx.h>
 
 # define WINDOW_WIDTH 900
