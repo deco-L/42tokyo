@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minilibx_test_mac.h                                :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/09 18:08:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:14:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINILIBX_TEST_MAC_H
-# define MINILIBX_TEST_MAC_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include <unistd.h>
 # include <stdlib.h>

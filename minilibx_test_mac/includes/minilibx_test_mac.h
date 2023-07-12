@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/09 18:08:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:39:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,17 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
+typedef struct s_rext
+{
+	int		x;
+	int		y;
+	int		width;
+	int		height;
+	int		color;
+}			t_rect;
+
+typedef unsigned char	t_uchar;
+
 /*
 win_helper
 */
@@ -47,15 +58,18 @@ int		handle_keypress(int keysym, t_data *data);
 /*
 render
 */
-int		render(t_data *data);
+int		render_rect(t_data *data, t_img *img);
+int		create_rect(t_img *img, t_rect rect);
 
 /*
 make
 */
 
 /*
-get_pixel
+put_pixel
 */
+
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 
 /*
 color
@@ -65,5 +79,10 @@ int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
+int		ctoi_create_trgb(t_uchar t, t_uchar r, t_uchar g, t_uchar b);
+t_uchar	ctoi_get_t(int trgb);
+t_uchar	ctoi_get_r(int trgb);
+t_uchar	ctoi_get_g(int trgb);
+t_uchar	ctoi_get_b(int trgb);
 
 #endif
