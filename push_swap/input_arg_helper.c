@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:52:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/08 13:41:43 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/12 09:47:55 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	*ft_input(int *index_stack, int *sort_stack, int argc, char **argv)
 		{
 			free(index_stack);
 			free(sort_stack);
-			ft_printf("Invalid argument.\n");
+			ft_printf("Error : Invalid argument.\n");
 			exit(EXIT_FAILURE);
 		}
 		index_stack[i - 1] = ft_atoi(argv[i]);
