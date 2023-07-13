@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/13 14:47:59 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:18:37 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,19 @@
 # include <mlx.h>
 
 # define ESC 65307
-# define WINDOW_WIDTH 900
-# define WINDOW_HEIGHT 600
+# define WINDOW_WIDTH 1080
+# define WINDOW_HEIGHT 900
 # define MLX_ERROR 1
-# define WHITE_PIXEL 0xFFFFFF
-# define RED_PIXEL 0xFF0000
-# define GREEN_PIXEL 0x00FF00
-# define BLUE_PIXEL 0x0000FF
+# define WHITE_PIXEL 0x00FFFFFF
+# define RED_PIXEL 0x00FF0000
+# define GREEN_PIXEL 0x0000FF00
+# define BLUE_PIXEL 0x000000FF
 
 typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	void	*img;
 }				t_data;
 
 typedef struct s_img

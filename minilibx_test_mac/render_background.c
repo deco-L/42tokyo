@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 09:53:23 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/13 14:12:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:25:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,19 @@ void	render_background(t_img *img, int color)
 
 int	*render_rainbow_color(int *color)
 {
-	if (get_b(*color) == 0 && get_r(*color))
-	{
-		*color -= 0x010000;
-		*color += 0x000100;
-	}
-	else if (get_r(*color) == 0 && get_g(*color))
-	{
-		*color -= 0x000100;
-		*color += 0x000001;
-	}
-	else if (get_g(*color) == 0 && get_b(*color))
-	{
-		*color -= 0x000001;
-		*color += 0x010000;
-	}
+	if (get_r(*color) == 0xFF && get_g(*color) != 0xFF && get_b(*color) == 0)
+		*color += 0x00000100;
+	else if (get_r(*color) != 0 && get_g(*color) == 0xFF && get_b(*color) == 0)
+		*color -= 0x00010000;
+	else if (get_r(*color) == 0 && get_g(*color) == 0xFF && \
+											get_b(*color) != 0xFF)
+		*color += 0x00000001;
+	else if (get_r(*color) == 0 && get_g(*color) != 0 && get_b(*color) == 0xFF)
+		*color -= 0x00000100;
+	else if (get_r(*color) != 0xFF && get_g(*color) == 0 && \
+											get_b(*color) == 0xFF)
+		*color += 0x00010000;
+	else if (get_r(*color) == 0xFF && get_g(*color) == 0 && get_b(*color) != 0)
+		*color -= 0x00000001;
 	return (*color);
 }
