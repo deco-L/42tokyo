@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/12 21:29:52 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:49:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,16 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 /*
 color
 */
+
 int		create_trgb(int t, int r, int g, int b);
 int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
+int		ctoi_create_trgb(t_uchar t, t_uchar r, t_uchar g, t_uchar b);
+t_uchar	ctoi_get_t(int trgb);
+t_uchar	ctoi_get_r(int trgb);
+t_uchar	ctoi_get_g(int trgb);
+t_uchar	ctoi_get_b(int trgb);
 
 #endif

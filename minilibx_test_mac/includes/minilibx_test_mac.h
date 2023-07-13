@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/12 20:52:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:41:23 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600
 # define MLX_ERROR 1
+# define WHITE_PIXEL 0xFFFFFF
 # define RED_PIXEL 0xFF0000
 # define GREEN_PIXEL 0x00FF00
+# define BLUE_PIXEL 0x0000FF
 
 typedef struct s_data
 {
@@ -49,6 +51,14 @@ typedef struct s_rext
 	int		color;
 }			t_rect;
 
+typedef struct s_circle
+{
+	int		x;
+	int		y;
+	int		r;
+	int		color;
+}			t_circle;
+
 typedef unsigned char	t_uchar;
 
 /*
@@ -59,8 +69,12 @@ int		handle_keypress(int keysym, t_data *data);
 /*
 render
 */
+int		*render_rainbow_color(int *color);
+void	render_background(t_img *img, int color);
 int		render_rect(t_data *data, t_img *img);
 int		create_rect(t_img *img, t_rect rect);
+int		render_circle(t_data *data, t_img *img);
+void	create_circle(t_img *img, t_circle circle);
 
 /*
 make
@@ -75,6 +89,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 /*
 color
 */
+
 int		create_trgb(int t, int r, int g, int b);
 int		get_t(int trgb);
 int		get_r(int trgb);

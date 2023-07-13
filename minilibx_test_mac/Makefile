@@ -6,13 +6,13 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/12 13:29:47 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/13 09:58:04 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= test
 
-SRC			= test.c color.c c_to_i_color.c render_rect.c
+SRC			= test.c color.c c_to_i_color.c render_rect.c render_circle.c render_background.c
 
 OBJS		= ${SRC:.c=.o}
 
