@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 09:53:23 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/13 12:43:15 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/13 14:12:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	render_background(t_img *img, int color)
 		j = 0;
 		while (j < WINDOW_WIDTH)
 			my_mlx_pixel_put(img, j++, i, color);
-		printf("%d\n", color);
 		render_rainbow_color(&color);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/13 12:41:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/13 14:47:59 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <mlx.h>
 
+# define ESC 65307
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600
 # define MLX_ERROR 1
