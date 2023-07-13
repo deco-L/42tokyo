@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/13 13:45:26 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/13 13:47:35 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME		= so_long
 
 
 ##------------Srcs-------------##
-SRC			= test.c
+SRC			= so_long.c
 
 GNLSRCS		= get_next_line_bonus.c get_next_line_utils_bonus.c
 ##-----------------------------##
