@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/12 14:32:14 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:45:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/so_long.h"
+#include "../includes/so_long.h"
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
@@ -25,6 +25,7 @@ int	main(void)
 	t_data	data;
 	t_img	img;
 
+	ft_printf("aaa\n");
 	data.mlx_ptr = mlx_init();
 	if (data.mlx_ptr == NULL)
 		return (MLX_ERROR);
