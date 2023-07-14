@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/13 16:18:37 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/14 14:39:07 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,16 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img;
+	int		width;
+	int		height;
 }				t_data;
 
 typedef struct s_img
 {
 	void	*img;
 	char	*addr;
+	int		width;
+	int		height;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;

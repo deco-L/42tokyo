@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/13 16:22:56 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/14 15:30:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	main(void)
 {
 	t_data	data;
 	t_img	img;
+	t_img	floor;
+	void	*floor_b;
 
 	data.mlx_ptr = mlx_init();
 	if (data.mlx_ptr == NULL)
@@ -62,14 +64,17 @@ int	main(void)
 	img.img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	data.img = img.img;
-	render_background(&img, create_trgb(0, 255, 255, 255));
-	render_rect(&data, &img);
-	render_circle(&data, &img);
-	my_mlx_pixel_put(&img, 500, 500, 0x00FF0000);
-	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 0, 0);
+	// render_background(&img, create_trgb(0, 255, 255, 255));
+	// render_rect(&data, &img);
+	// render_circle(&data, &img);
+	// my_mlx_pixel_put(&img, 500, 500, 0x00FF0000);
+	floor.img = mlx_xpm_file_to_image(data.mlx_ptr, "./texture/Grass.xpm", &floor.width, &floor.height);
+	if (floor.img == NULL)
+		exit(EXIT_FAILURE);
+	floor.addr = mlx_get_data_addr(floor.img, &floor.bits_per_pixel, &floor.line_length, &floor.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, floor.img, 0, 0);
 	mlx_hook(data.win_ptr, 2, 1L << 0, press_key_event, &data);
 	mlx_hook(data.win_ptr, 17, 1L << 2, press_button_event, &data);
-	mlx_hook(data.win_ptr, 9, 0, on_expose, &data);
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_display(data.mlx_ptr);
 }
