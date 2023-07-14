@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minilibx_win_helper.c                              :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 03:26:41 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 03:57:33 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/08 17:10:12 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/06/10 16:05:37 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minilibx_test.h"
+#include "ft_printf.h"
 
-int	handle_keypress(int keysym, t_data *data)
+size_t	ft_strlen(const char *str)
 {
-	if (keysym == XK_Escape)
+	size_t	len;
+
+	len = 0;
+	while (str[len] != '\0')
 	{
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		data->win_ptr = NULL;
+		len++;
 	}
-	return (0);
+	return (len);
 }

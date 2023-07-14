@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_rectangle.c                                   :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 04:00:41 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 04:04:40 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/11 16:58:53 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/16 16:14:35 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minilibx_test.h"
+#include "libft.h"
 
-int	render_rect(t_data *data, t_rect rect)
+char	*ft_strdup(const char *str);
+
+char	*ft_strdup(const char *str)
 {
-	int	i;
-	int	j;
+	size_t	len;
+	char	*dest;
 
-	if (data->win_ptr == NULL)
-		return (1);
-	i = rect.y;
-	while (i < rect.y + rect.height)
-	{
-		j = rect.x;
-		while (j < rect.x + rect.width)
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, j++, i, rect.color);
-		++i;
-	}
-	return (0);
+	len = ft_strlen(str);
+	dest = (char *)malloc(sizeof(char) * (len + 1));
+	if (dest == NULL)
+		return (NULL);
+	ft_strlcpy(dest, str, len + 1);
+	return (dest);
 }

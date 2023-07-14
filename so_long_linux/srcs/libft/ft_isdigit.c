@@ -1,13 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minilibx_test_helper.c                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 23:22:34 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/05 03:52:58 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/02 17:06:05 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/05/29 14:21:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minilibx_test.h"
+#include "libft.h"
+
+int	ft_isdigit(int c);
+
+int	ft_isdigit(int c)
+{
+	int	flag;
+
+	flag = 0;
+	if ('0' <= c && c <= '9')
+		flag = 1;
+	return (flag);
+}

@@ -6,35 +6,87 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/05 04:13:59 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/14 21:42:37 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= test
+##----Executable File Name-----##
+NAME		= solong
+##-----------------------------##
 
-SRC			= test.c minilibx_test_helper.c minilibx_color_helper.c minilibx_win_helper.c minilibx_render_helper.c \
-				make_rectangle.c
 
-OBJS		= ${SRC:.c=.o}
 
+##-----Directory Location------##
 PRE			= ./srcs/
 
 HEAD		= ./includes/
 
 MLX			= ./mlx_linux/
 
-CC			= cc
+LIBFT		= ${addprefix ${PRE}, libft/}
 
-CCMLX		= cd ${MLX} && make && cd ./../
+PRINTF		= ${addprefix ${LIBFT}, printf/}
+
+GNL			= ${addprefix ${LIBFT}, get_next_line/}
+##-----------------------------##
+
+
+
+##------------Srcs-------------##
+SRC			= so_long.c create_window.c close_window.c
+
+GNLSRCS		= get_next_line_bonus.c get_next_line_utils_bonus.c
+##-----------------------------##
+
+
+
+##-----------Object------------##
+OBJS		= ${addprefix ${PRE}, ${SRC:.c=.o}}
+
+GNLOBJS		= ${GNLSRCS:.c=.o}
+##-----------------------------##
+
+
+
+##----------conpiler-----------##
+CC			= cc
 
 CFLAGS		= -Wall -Wextra -Werror
 
+CCLIBFT		= cd ${LIBFT} && make bonus && cd ./../../
+
+CCPRINTF	= cd ${PRINTF} && make && cd ./../../../
+
+CCGNL		= cd ${GNL} && ${CC} -c ${GNLSRCS} && ${AR} gnl.a ${GNLOBJS} && cd ./../../../
+
+CCMLX		= cd ${MLX} && make && cd ./../
+##-----------------------------##
+
+
+
+##------------remove-----------##
 RM			= rm -fr
 
 RMMLX		= cd ${MLX} && make clean && cd ./../
 
+RMLIBFT		= cd ${LIBFT} && make fclean && cd ./../../
+
+RMPRINTF	= cd ${PRINTF} && make fclean && cd ./../../../
+
+RMGNL		= cd ${GNL} && ${RM} ${GNLOBJS} gnl.a && cd ./../../../
+##-----------------------------##
+
+
+
+##-----------archive-----------##
 AR			= ar rcs
 
+ARCHIVES	= ${addprefix ${LIBFT}, libft.a} ${addprefix ${PRINTF}, libftprintf.a} ${addprefix ${GNL}, gnl.a}
+##-----------------------------##
+
+
+
+##--------Makefile rule--------##
 all:		${NAME}
 
 %.o:%.c
@@ -42,10 +94,17 @@ all:		${NAME}
 
 $(NAME):	${OBJS}
 			${CCMLX} && \
-			$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-
+			${CCLIBFT} && \
+			${CCPRINTF} && \
+			${CCGNL} && \
+			$(CC) ${CFLAGS} $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+# -fsanitize=address
 clean:
-			${RM} ${OBJS} && ${RMMLX}
+			${RM} ${OBJS} && \
+			${RMMLX} && \
+			${RMLIBFT} && \
+			${RMPRINTF} && \
+			${RMGNL}
 
 fclean:		clean
 			${RM} ${NAME}
@@ -53,3 +112,4 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+##-----------------------------##
