@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   new_window.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 12:33:36 by csakamot         ###   ########.fr       */
+/*   Created: 2023/07/14 12:00:36 by csakamot          #+#    #+#             */
+/*   Updated: 2023/07/14 12:05:51 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(void)
+void	ft_create_window(t_data *data)
 {
-	t_data	data;
-	t_img	img;
-
-	ft_create_window(&data);
-	mlx_hook(data.win_ptr, 17, 1L << 2, ft_closing_process, &data);
-	mlx_loop(data.mlx_ptr);
-	return (0);
-}
-
-#include <libc.h>
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q solong");
+	data->mlx_ptr = mlx_init();
+	if (data->mlx_ptr == NULL)
+		exit(EXIT_FAILURE);
+	data->win_ptr = mlx_new_window(data->mlx_ptr, WINDOW_WIDTH, \
+											WINDOW_HEIGHT, "so_long");
+	if (data->win_ptr == NULL)
+	{
+		free(data->win_ptr);
+		exit(EXIT_FAILURE);
+	}
 }

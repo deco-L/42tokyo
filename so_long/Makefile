@@ -6,28 +6,12 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/13 13:47:35 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/14 12:35:26 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ##----Executable File Name-----##
-NAME		= so_long
-##-----------------------------##
-
-
-
-##------------Srcs-------------##
-SRC			= so_long.c
-
-GNLSRCS		= get_next_line_bonus.c get_next_line_utils_bonus.c
-##-----------------------------##
-
-
-
-##-----------Object------------##
-OBJS		= ${addprefix ${PRE}, ${SRC:.c=.o}}
-
-GNLOBJS		= ${GNLSRCS:.c=.o}
+NAME		= solong
 ##-----------------------------##
 
 
@@ -44,6 +28,22 @@ LIBFT		= ${addprefix ${PRE}, libft/}
 PRINTF		= ${addprefix ${LIBFT}, printf/}
 
 GNL			= ${addprefix ${LIBFT}, get_next_line/}
+##-----------------------------##
+
+
+
+##------------Srcs-------------##
+SRC			= so_long.c create_window.c close_window.c
+
+GNLSRCS		= get_next_line_bonus.c get_next_line_utils_bonus.c
+##-----------------------------##
+
+
+
+##-----------Object------------##
+OBJS		= ${addprefix ${PRE}, ${SRC:.c=.o}}
+
+GNLOBJS		= ${GNLSRCS:.c=.o}
 ##-----------------------------##
 
 
@@ -97,8 +97,9 @@ $(NAME):	${OBJS}
 			${CCLIBFT} && \
 			${CCPRINTF} && \
 			${CCGNL} && \
-			$(CC) $(OBJS) -I/usr/X11/include -Lmlx -lmlx_Darwin -L/usr/X11/include/../lib \
+			$(CC) $(CFLAGS) $(OBJS) -I/usr/X11/include -Lmlx -lmlx_Darwin -L/usr/X11/include/../lib \
 							-Imlx -lXext -lX11  -Lsrcs ${ARCHIVES} -o $(NAME)
+# -fsanitize=address
 clean:
 			${RM} ${OBJS} && \
 			${RMMLX} && \
