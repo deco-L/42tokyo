@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 22:24:00 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/14 23:45:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,27 @@
 
 # include "../srcs/libft/printf/ft_printf.h"
 # include "../srcs/libft/get_next_line/get_next_line_bonus.h"
+# include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
 # include <mlx.h>
 
-/*
-+++Window_Size+++
-*/
+/*---Window_Size---*/
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600
+/*-----------------*/
 
-/*
-+++Keycode+++
-*/
+
+
+/*---Keycode---*/
 # define ESC 65307
+/*-------------*/
 
+
+
+/*---Structure_Declaration---*/
 typedef struct s_game
 {
 	void	*mlx_ptr;
@@ -47,18 +51,44 @@ typedef struct s_img
 	int		line_length;
 	int		endian;
 }				t_img;
+/*---------------------------*/
 
-/*
-+++Windows_Related+++
-*/
 
+
+/*---Windows_Related---*/
 void	ft_create_window(t_game *data);
 int		ft_closing_process(t_game *data);
+/*---------------------*/
 
-/*
-+++Keypress_Event+++
-*/
 
+
+/*---Map_Related---*/
+void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture);
+void	ft_input_map(int fd, t_game *game);
+/*-----------------*/
+
+
+
+/*---Keypress_Event---*/
 int		ft_key_hook(int keycode, t_game *game);
+/*--------------------*/
+
+
+
+/*---Check---*/
+void	ft_check_arg(int argc, char **argv);
+/*-----------*/
+
+
+
+/*---Error---*/
+void	ft_error_msg(char *error_msg);
+/*-----------*/
+
+
+
+/*---Helper---*/
+int		ft_strrncmp(const char *s1, const char *s2, size_t n);
+/*------------*/
 
 #endif

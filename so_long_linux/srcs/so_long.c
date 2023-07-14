@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 22:28:26 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/14 22:59:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ void	ft_hook_list(t_game *game)
 	mlx_expose_hook(game->win_ptr, ft_display_on, game);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_game	game;
-	t_img	img;
+	t_img	texture;
 
+	ft_init_map(argc, argv, &game, &texture);
 	ft_create_window(&game);
 	ft_hook_list(&game);
 	mlx_loop(game.mlx_ptr);
