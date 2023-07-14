@@ -6,22 +6,22 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:00:36 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 21:36:25 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/14 22:23:18 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_linux.h"
 
-void	ft_create_window(t_data *data)
+void	ft_create_window(t_game *game)
 {
-	data->mlx_ptr = mlx_init();
-	if (data->mlx_ptr == NULL)
+	game->mlx_ptr = mlx_init();
+	if (game->mlx_ptr == NULL)
 		exit(EXIT_FAILURE);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, WINDOW_WIDTH, \
+	game->win_ptr = mlx_new_window(game->mlx_ptr, WINDOW_WIDTH, \
 											WINDOW_HEIGHT, "so_long");
-	if (data->win_ptr == NULL)
+	if (game->win_ptr == NULL)
 	{
-		free(data->win_ptr);
+		free(game->win_ptr);
 		exit(EXIT_FAILURE);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 21:34:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/14 22:24:00 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,23 @@
 # include <math.h>
 # include <mlx.h>
 
+/*
++++Window_Size+++
+*/
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600
-# define RED_PIXEL 0xFF0000
-# define GREEN_PIXEL 0x00FF00
 
-typedef struct s_data
+/*
++++Keycode+++
+*/
+# define ESC 65307
+
+typedef struct s_game
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img;
-}				t_data;
+	char	**map;
+}				t_game;
 
 typedef struct s_img
 {
@@ -43,10 +49,16 @@ typedef struct s_img
 }				t_img;
 
 /*
-+++Windows_related+++
++++Windows_Related+++
 */
 
-void	ft_create_window(t_data *data);
-int		ft_closing_process(t_data *data);
+void	ft_create_window(t_game *data);
+int		ft_closing_process(t_game *data);
+
+/*
++++Keypress_Event+++
+*/
+
+int		ft_key_hook(int keycode, t_game *game);
 
 #endif
