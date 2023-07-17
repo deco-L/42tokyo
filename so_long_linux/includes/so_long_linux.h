@@ -6,13 +6,14 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 23:45:25 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:10:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_LINUX_H
 # define SO_LONG_LINUX_H
 
+# include "../srcs/libft/libft.h"
 # include "../srcs/libft/printf/ft_printf.h"
 # include "../srcs/libft/get_next_line/get_next_line_bonus.h"
 # include <fcntl.h>
@@ -41,6 +42,8 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
+	int		*map_w;
+	int		map_h;
 }				t_game;
 
 typedef struct s_img
@@ -89,6 +92,7 @@ void	ft_error_msg(char *error_msg);
 
 /*---Helper---*/
 int		ft_strrncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strjoin_solong(const char *s1, const char *s2);
 /*------------*/
 
 #endif

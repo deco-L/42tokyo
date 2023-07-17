@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/14 23:28:34 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/17 18:59:08 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,8 +98,8 @@ $(NAME):	${OBJS}
 			${CCLIBFT} && \
 			${CCPRINTF} && \
 			${CCGNL} && \
-			$(CC) ${CFLAGS} $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-# -fsanitize=address
+			$(CC) ${CFLAGS} -fsanitize=address $(OBJS) -L. ${ARCHIVES} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+# 
 clean:
 			${RM} ${OBJS} && \
 			${RMMLX} && \

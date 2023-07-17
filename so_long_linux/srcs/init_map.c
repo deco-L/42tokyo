@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 23:44:03 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/17 20:16:12 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,37 @@ void	ft_check_arg(int argc, char **argv)
 	return ;
 }
 
+char	*ft_singl_col_input(int fd, char *line)
+{
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	while (1)
+	{
+		str = get_next_line(fd);
+		if (str == NULL)
+			break ;
+		line = ft_strjoin_solong(line, str);
+		i++;
+	}
+	return (line);
+}
+
 void	ft_input_map(int fd, t_game *game)
 {
+	char	*line;
+
+	line = ft_calloc(1, 1);
+	line = ft_singl_col_input(fd, line);
+	game -> map = ft_split(line, '\n');
+	free (line);
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%s\n", game -> map[i]);
+		free(game -> map[i]);
+	}
+	free (game -> map);
 	return ;
 }
 
@@ -35,5 +64,6 @@ void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture)
 	if (fd == -1)
 		ft_error_msg("File not found.");
 	ft_input_map(fd, game);
+	close (fd);
 	return ;
 }

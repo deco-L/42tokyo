@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:50:41 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/31 13:09:06 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:43:54 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 # include <stdio.h>
 
 char		*get_next_line(int fd);
-size_t		ft_strlen(const char *str);
-char		*ft_strchr(const char *str, int c);
-char		*ft_substr(const char *s, unsigned int start, size_t len);
+size_t		ft_strlen_gnl(const char *str);
+char		*ft_strchr_gnl(const char *str, int c);
+char		*ft_substr_gnl(const char *s, unsigned int start, size_t len);
 char		*ft_strjoin_gnl(const char *s1, const char *s2);
 
 #endif

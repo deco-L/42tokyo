@@ -6,13 +6,13 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:14:53 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/04 14:56:37 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:43:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_gnl(const char *str)
 {
 	size_t	len;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr_gnl(const char *str, int c)
 {
 	int					i;
 	int					flag;
@@ -48,14 +48,14 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr_gnl(const char *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	char	*result;
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start > ft_strlen_gnl(s))
 		return ((char *)malloc(1));
 	i = 0;
 	result = (char *)malloc(len + 1);
@@ -108,11 +108,11 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 	if (s1 == NULL)
 		s1_len = 0;
 	else
-		s1_len = ft_strlen(s1);
+		s1_len = ft_strlen_gnl(s1);
 	if (s2 == NULL)
 		s2_len = 0;
 	else
-		s2_len = ft_strlen(s2);
+		s2_len = ft_strlen_gnl(s2);
 	result = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (result == NULL)
 	{

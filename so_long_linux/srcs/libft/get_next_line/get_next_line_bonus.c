@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:14:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 21:43:53 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:45:26 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 char	*ft_buf_check(int fd, char **buf)
 {
-	char	*s1;
-	char	*c;
-	char	*result;
+	unsigned int	newl;
+	char			*s1;
+	char			*c;
+	char			*result;
 
 	if (buf[fd] == NULL)
 		return (NULL);
-	c = ft_strchr(buf[fd], '\n');
+	c = ft_strchr_gnl(buf[fd], '\n');
 	if (c)
 	{
 		s1 = buf[fd];
-		buf[fd] = ft_substr(s1, c - s1 + 1, ft_strlen((const char *)buf[fd]));
-		result = (ft_substr(s1, 0, c - s1 + 1));
+		newl = c - s1 + 1;
+		buf[fd] = ft_substr_gnl(s1, newl, ft_strlen_gnl((const char *)buf[fd]));
+		result = (ft_substr_gnl(s1, 0, newl));
 		free(s1);
 		return (result);
 	}
@@ -39,7 +41,7 @@ int	ft_read_check(char *res, int fd, char **buf, long long len)
 		return (0);
 	else if (len == 0)
 	{
-		if (!ft_strlen(res))
+		if (!ft_strlen_gnl(res))
 			return (0);
 		buf[fd] = NULL;
 		return (1);
@@ -64,14 +66,14 @@ char	*ft_input(char *result, int fd, char **buf, char *s1)
 			return (NULL);
 		}
 		s1[len] = '\0';
-		c = ft_strchr(s1, '\n');
+		c = ft_strchr_gnl(s1, '\n');
 		if (c)
 		{
-			result = ft_strjoin_gnl(result, ft_substr(s1, 0, c - s1 + 1));
-			buf[fd] = ft_substr(s1, c - s1 + 1, len - (c - s1 + 1));
+			result = ft_strjoin_gnl(result, ft_substr_gnl(s1, 0, c - s1 + 1));
+			buf[fd] = ft_substr_gnl(s1, c - s1 + 1, len - (c - s1 + 1));
 			return (result);
 		}
-		result = ft_strjoin_gnl(result, ft_substr(s1, 0, len));
+		result = ft_strjoin_gnl(result, ft_substr_gnl(s1, 0, len));
 	}
 	return (result);
 }
