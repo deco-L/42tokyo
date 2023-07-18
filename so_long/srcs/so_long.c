@@ -6,20 +6,34 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 12:33:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:51:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(void)
+int	ft_display_on(void)
 {
-	t_data	data;
-	t_img	img;
+	printf("on!\n");
+	return (0);
+}
 
-	ft_create_window(&data);
-	mlx_hook(data.win_ptr, 17, 1L << 2, ft_closing_process, &data);
-	mlx_loop(data.mlx_ptr);
+void	ft_hook_list(t_game *game)
+{
+	mlx_key_hook(game->win_ptr, ft_key_hook, game);
+	mlx_hook(game->win_ptr, 17, 1L << 2, ft_closing_process, game);
+	mlx_expose_hook(game->win_ptr, ft_display_on, game);
+}
+
+int	main(int argc, char **argv)
+{
+	t_game	game;
+	t_img	texture;
+
+	ft_init_map(argc, argv, &game, &texture);
+	ft_create_window(&game);
+	ft_hook_list(&game);
+	mlx_loop(game.mlx_ptr);
 	return (0);
 }
 

@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 17:10:12 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/07/17 19:17:03 by csakamot         ###   ########.fr       */
+/*   Created: 2023/07/14 21:50:40 by csakamot          #+#    #+#             */
+/*   Updated: 2023/07/18 15:48:59 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
 
-size_t	ft_strlen(const char *str);
-
-size_t	ft_strlen(const char *str)
+int	ft_key_hook(int keycode, t_game *game)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	return (len);
+	if (keycode == ESC)
+		ft_closing_process(game);
+	return (0);
 }

@@ -1,74 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:14:53 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/17 19:43:43 by csakamot         ###   ########.fr       */
+/*   Created: 2023/07/14 23:05:41 by csakamot          #+#    #+#             */
+/*   Updated: 2023/07/18 15:48:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../includes/so_long.h"
 
-size_t	ft_strlen_gnl(const char *str)
+int	ft_strrncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	len;
+	size_t				c1_len;
+	size_t				c2_len;
 
-	len = 0;
-	if (!str)
+	c1_len = ft_strlen(s1);
+	c2_len = ft_strlen(s2);
+	if (n == 0)
 		return (0);
-	while (str[len] != '\0')
-		len++;
-	return (len);
-}
-
-char	*ft_strchr_gnl(const char *str, int c)
-{
-	int					i;
-	int					flag;
-	unsigned char		cbuf;
-	const unsigned char	*result;
-
-	i = 0;
-	flag = 0;
-	result = (const unsigned char *)str;
-	cbuf = (unsigned char)c;
-	if (cbuf == '\0')
-		flag++;
-	while (result[i] != '\0')
+	while (n-- && s1[--c1_len] != '\0' && s2[--c2_len] != '\0')
 	{
-		if (result[i] == cbuf)
-			return ((char *)&result[i]);
-		i++;
+		if (s1[c1_len] != s2[c2_len])
+			break ;
 	}
-	if (flag)
-		return ((char *)&result[i]);
-	return (NULL);
-}
-
-char	*ft_substr_gnl(const char *s, unsigned int start, size_t len)
-{
-	size_t	i;
-	char	*result;
-
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen_gnl(s))
-		return ((char *)malloc(1));
-	i = 0;
-	result = (char *)malloc(len + 1);
-	if (result == NULL)
-		return (NULL);
-	while (i < len && s[start] != '\0')
-	{
-		result[i] = s[start];
-		start++;
-		i++;
-	}
-	result[i] = '\0';
-	return (result);
+	return (s1[c1_len] - s2[c2_len]);
 }
 
 static char	*ft_in_strjoin(char *result, const char *s1, const char *s2)
@@ -99,7 +57,7 @@ static char	*ft_in_strjoin(char *result, const char *s1, const char *s2)
 	return (result);
 }
 
-char	*ft_strjoin_gnl(const char *s1, const char *s2)
+char	*ft_strjoin_solong(const char *s1, const char *s2)
 {
 	char	*result;
 	size_t	s1_len;
@@ -108,11 +66,11 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 	if (s1 == NULL)
 		s1_len = 0;
 	else
-		s1_len = ft_strlen_gnl(s1);
+		s1_len = ft_strlen(s1);
 	if (s2 == NULL)
 		s2_len = 0;
 	else
-		s2_len = ft_strlen_gnl(s2);
+		s2_len = ft_strlen(s2);
 	result = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (result == NULL)
 	{

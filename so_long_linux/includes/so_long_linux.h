@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/17 19:10:53 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:47:54 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,9 @@
 # define WINDOW_HEIGHT 600
 /*-----------------*/
 
-
-
 /*---Keycode---*/
 # define ESC 65307
 /*-------------*/
-
-
 
 /*---Structure_Declaration---*/
 typedef struct s_game
@@ -56,39 +52,27 @@ typedef struct s_img
 }				t_img;
 /*---------------------------*/
 
-
-
 /*---Windows_Related---*/
 void	ft_create_window(t_game *data);
 int		ft_closing_process(t_game *data);
 /*---------------------*/
-
-
 
 /*---Map_Related---*/
 void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture);
 void	ft_input_map(int fd, t_game *game);
 /*-----------------*/
 
-
-
 /*---Keypress_Event---*/
 int		ft_key_hook(int keycode, t_game *game);
 /*--------------------*/
-
-
 
 /*---Check---*/
 void	ft_check_arg(int argc, char **argv);
 /*-----------*/
 
-
-
 /*---Error---*/
 void	ft_error_msg(char *error_msg);
 /*-----------*/
-
-
 
 /*---Helper---*/
 int		ft_strrncmp(const char *s1, const char *s2, size_t n);

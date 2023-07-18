@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_window.c                                       :+:      :+:    :+:   */
+/*   create_window.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:00:36 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 12:05:51 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:48:36 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_create_window(t_data *data)
+void	ft_create_window(t_game *game)
 {
-	data->mlx_ptr = mlx_init();
-	if (data->mlx_ptr == NULL)
+	game->mlx_ptr = mlx_init();
+	if (game->mlx_ptr == NULL)
 		exit(EXIT_FAILURE);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, WINDOW_WIDTH, \
+	game->win_ptr = mlx_new_window(game->mlx_ptr, WINDOW_WIDTH, \
 											WINDOW_HEIGHT, "so_long");
-	if (data->win_ptr == NULL)
+	if (game->win_ptr == NULL)
 	{
-		free(data->win_ptr);
+		free(game->win_ptr);
 		exit(EXIT_FAILURE);
 	}
 }

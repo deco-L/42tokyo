@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 17:10:12 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/07/17 19:17:03 by csakamot         ###   ########.fr       */
+/*   Created: 2023/07/14 23:24:45 by csakamot          #+#    #+#             */
+/*   Updated: 2023/07/18 15:48:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
 
-size_t	ft_strlen(const char *str);
-
-size_t	ft_strlen(const char *str)
+void	ft_error_msg(char *error_msg)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	return (len);
+	ft_printf("%s\n", error_msg);
+	exit(EXIT_FAILURE);
 }
