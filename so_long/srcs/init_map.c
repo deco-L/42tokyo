@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/18 15:48:55 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:02:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_check_arg(int argc, char **argv)
 {
 	if (argc != 2)
-		ft_error_msg("Invalid number of argument.");
+		ft_error_msg("Error\nInvalid number of argument.");
 	if (ft_strrncmp(argv[1], ".ber", 4))
-		ft_error_msg("Invalid argument.");
+		ft_error_msg("Error\nInvalid argument.");
 	return ;
 }
 
@@ -46,12 +46,7 @@ void	ft_input_map(int fd, t_game *game)
 	line = ft_singl_col_input(fd, line);
 	game -> map = ft_split(line, '\n');
 	free (line);
-	for (int i = 0; i < 5; i++)
-	{
-		printf("%s\n", game -> map[i]);
-		free(game -> map[i]);
-	}
-	free (game -> map);
+	ft_check_map(game);
 	return ;
 }
 
@@ -62,8 +57,14 @@ void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture)
 	ft_check_arg(argc, argv);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		ft_error_msg("File not found.");
+		ft_error_msg("Error\nFile not found.");
 	ft_input_map(fd, game);
+	for (int i = 0; game -> map[i]; i++)
+	{
+		printf("%s\n", game -> map[i]);
+		free(game -> map[i]);
+	}
+	free(game -> map);
 	close (fd);
 	return ;
 }
