@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:57:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/19 17:30:43 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/20 10:25:02 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@ void	ft_check_map(t_game *game)
 	{
 		cow = ft_strlen(game -> map[row]);
 		if (0 < cow && cow < 4)
-		{
-			if ((cow == 1 && !ft_strchr(game -> map[row], '\n')) || cow != 1)
-				ft_error_msg("Error\nCannot create map.\n");
-			i++;
-			continue ;
-		}
+			ft_error_msg("Error\nCannot create map.\n");
 		else
 		{
 			if (game -> map_w == 0)
@@ -36,6 +31,6 @@ void	ft_check_map(t_game *game)
 				ft_error_msg("Error\nCannot create map.\n");
 			game -> map_h++;
 		}
-		i++;
+		row++;
 	}
 }

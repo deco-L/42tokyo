@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/19 17:02:05 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/20 10:22:39 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture)
 {
 	int	fd;
 
+	ft_memset(game, 0, sizeof(t_game));
 	ft_check_arg(argc, argv);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)

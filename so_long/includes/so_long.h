@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/19 17:00:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/20 10:08:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ int		ft_closing_process(t_game *data);
 void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture);
 void	ft_input_map(int fd, t_game *game);
 /*-----------------*/
+
+/*---Check_Map---*/
+void	ft_check_map(t_game *game);
+/*---------------*/
 
 /*---Keypress_Event---*/
 int		ft_key_hook(int keycode, t_game *game);
