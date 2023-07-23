@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/18 15:47:54 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:50:31 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,15 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
-	int		*map_w;
-	int		map_h;
+	size_t	map_w;
+	size_t	map_h;
 }				t_game;
 
 typedef struct s_img
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	void	*floor;
+	int		floor_w;
+	int		floor_h;
 }				t_img;
 /*---------------------------*/
 
@@ -57,10 +55,16 @@ void	ft_create_window(t_game *data);
 int		ft_closing_process(t_game *data);
 /*---------------------*/
 
+/*---Texture_Related---*/
+void	ft_init_texture(t_game *game, t_img *texture);
+/*--------------------*/
+
 /*---Map_Related---*/
+void	ft_check_map(t_game *game);
 void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture);
 void	ft_input_map(int fd, t_game *game);
-/*-----------------*/
+void	ft_create_map(t_game *game, t_img *texture);
+/*---------------*/
 
 /*---Keypress_Event---*/
 int		ft_key_hook(int keycode, t_game *game);

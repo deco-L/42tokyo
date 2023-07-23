@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/20 10:08:06 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:55:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
-	int		map_w;
-	int		map_h;
+	size_t	map_w;
+	size_t	map_h;
 }				t_game;
 
 typedef struct s_img
