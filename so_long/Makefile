@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/19 16:57:39 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/24 09:47:11 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ GNL			= ${addprefix ${LIBFT}, get_next_line/}
 
 ##------------Srcs-------------##
 SRC			= so_long.c create_window.c close_window.c key_hook.c init_map.c \
-				check_map.c helper.c error.c
+				init_texture.c create_map.c check_map.c helper.c error.c
 
 GNLSRCS		= get_next_line_bonus.c get_next_line_utils_bonus.c
 ##-----------------------------##

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/20 10:22:39 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/24 09:48:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_check_arg(int argc, char **argv)
 {
 	if (argc != 2)
-		ft_error_msg("Error\nInvalid number of argument.");
+		ft_error_msg("Invalid number of argument.");
 	if (ft_strrncmp(argv[1], ".ber", 4))
-		ft_error_msg("Error\nInvalid argument.");
+		ft_error_msg("Invalid argument.");
 	return ;
 }
 
@@ -61,11 +61,7 @@ void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture)
 		ft_error_msg("Error\nFile not found.");
 	ft_input_map(fd, game);
 	for (int i = 0; game -> map[i]; i++)
-	{
 		printf("%s\n", game -> map[i]);
-		free(game -> map[i]);
-	}
-	free(game -> map);
 	close (fd);
 	return ;
 }
