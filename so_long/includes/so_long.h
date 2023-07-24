@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/24 10:41:25 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/24 12:28:56 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600
 /*-----------------*/
+
+/*---Map---*/
+# define SIZE 32
+# define WALL "./texture/map/wall.xpm"
+# define FLOOR "./texture/map/floor.xpm"
+# define ESCAPE "./texture/map/esc.xpm"
+# define ITEM "./texture/map/item.xpm"
+# define PLAYER "./texture/player/p_idle_f.xpm"
+/*---------*/
 
 /*---Keycode---*/
 # define ESC 65307
