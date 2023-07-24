@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/24 09:47:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/24 13:06:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ int	main(int argc, char **argv)
 	t_img	texture;
 
 	ft_init_map(argc, argv, &game, &texture);
-	ft_create_window(&game);
+	game.mlx_ptr = mlx_init();
+	if (game.mlx_ptr == NULL)
+		exit(EXIT_FAILURE);
 	ft_init_texture(&game, &texture);
+	ft_create_window(&game, &texture);
 	ft_create_map(&game, &texture);
 	ft_hook_list(&game);
 	mlx_loop(game.mlx_ptr);

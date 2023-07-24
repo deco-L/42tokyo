@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/24 12:28:56 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/24 13:07:09 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_img
 /*---------------------------*/
 
 /*---Windows_Related---*/
-void	ft_create_window(t_game *data);
+void	ft_create_window(t_game *data, t_img *texture);
 int		ft_closing_process(t_game *data);
 /*---------------------*/
 
