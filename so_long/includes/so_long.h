@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/24 13:07:09 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:46:22 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@
 /*---------*/
 
 /*---Keycode---*/
-# define ESC 65307
+# define KEY_ESC 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
 /*-------------*/
 
 /*---Structure_Declaration---*/
@@ -49,6 +53,9 @@ typedef struct s_game
 	char	**map;
 	size_t	map_w;
 	size_t	map_h;
+	int		x;
+	int		y;
+	int		walk_cnt;
 }				t_game;
 
 typedef struct s_img
@@ -85,10 +92,15 @@ void	ft_check_map(t_game *game);
 void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture);
 void	ft_input_map(int fd, t_game *game);
 void	ft_create_map(t_game *game, t_img *texture);
+void	ft_set_player(t_game *game);
 /*---------------*/
 
 /*---Keypress_Event---*/
 int		ft_key_hook(int keycode, t_game *game);
+void	ft_move_w(t_game *game);
+void	ft_move_a(t_game *game);
+void	ft_move_s(t_game *game);
+void	ft_move_d(t_game *game);
 /*--------------------*/
 
 /*---Check---*/
