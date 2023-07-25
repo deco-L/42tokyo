@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/25 12:46:22 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/25 16:58:14 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,6 @@
 /*-------------*/
 
 /*---Structure_Declaration---*/
-typedef struct s_game
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	char	**map;
-	size_t	map_w;
-	size_t	map_h;
-	int		x;
-	int		y;
-	int		walk_cnt;
-}				t_game;
-
 typedef struct s_img
 {
 	void	*wall;
@@ -76,6 +64,19 @@ typedef struct s_img
 	int		player_w;
 	int		player_h;
 }				t_img;
+
+typedef struct s_game
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	char	**map;
+	size_t	map_w;
+	size_t	map_h;
+	size_t	x;
+	size_t	y;
+	int		walk_cnt;
+	t_img	*texture;
+}				t_game;
 /*---------------------------*/
 
 /*---Windows_Related---*/
@@ -97,10 +98,10 @@ void	ft_set_player(t_game *game);
 
 /*---Keypress_Event---*/
 int		ft_key_hook(int keycode, t_game *game);
-void	ft_move_w(t_game *game);
-void	ft_move_a(t_game *game);
-void	ft_move_s(t_game *game);
-void	ft_move_d(t_game *game);
+void	ft_move_w(t_game *game, t_img *texture, int x, int y);
+void	ft_move_a(t_game *game, t_img *texture, int x, int y);
+void	ft_move_s(t_game *game, t_img *texture, int x, int y);
+void	ft_move_d(t_game *game, t_img *texture, int x, int y);
 /*--------------------*/
 
 /*---Check---*/

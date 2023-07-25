@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 17:07:55 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/24 12:26:55 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/25 16:54:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	ft_init_texture(t_game *game, t_img *texture)
 		ITEM, &texture->item_w, &texture->item_h);
 	texture->player = mlx_xpm_file_to_image(game->mlx_ptr, \
 	PLAYER, &texture->player_w, &texture->player_h);
+	game->texture = texture;
 	printf("%d, %d\n", texture->wall_w, texture->wall_h);
 	printf("%d, %d\n", texture->floor_w, texture->floor_h);
 	printf("%d, %d\n", texture->esc_w, texture->esc_h);
+	printf("%d, %d\n", texture->item_w, texture->item_h);
+	printf("%d, %d\n", texture->player_w, texture->player_h);
 }
