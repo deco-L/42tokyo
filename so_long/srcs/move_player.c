@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:32:03 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/27 13:34:00 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:21:32 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_move_w(t_game *game, t_img *texture, int x, int y)
 		game->map[y - 1][x] = '0';
 		ft_move_player(game, texture, x, y - 1);
 	}
-	else if (game->map[y - 1][x] == 'E' && game->coin_flag == 1)
+	else if (game->map[y - 1][x] == 'E' && game->coin_flag == game->coin_cnt)
 	{
 		game->map[y - 1][x] = '0';
 		ft_move_player(game, texture, x, y - 1);
@@ -37,11 +37,11 @@ void	ft_move_a(t_game *game, t_img *texture, int x, int y)
 		ft_move_player(game, texture, x - 1, y);
 	else if (game->map[y][x - 1] == 'C')
 	{
-		game->coin_flag = 1;
+		game->coin_flag++;
 		game->map[y][x - 1] = '0';
 		ft_move_player(game, texture, x - 1, y);
 	}
-	else if (game->map[y][x - 1] == 'E' && game->coin_flag == 1)
+	else if (game->map[y][x - 1] == 'E' && game->coin_flag == game->coin_cnt)
 	{
 		game->map[y][x - 1] = '0';
 		ft_move_player(game, texture, x - 1, y);
@@ -60,7 +60,7 @@ void	ft_move_s(t_game *game, t_img *texture, int x, int y)
 		game->map[y + 1][x] = '0';
 		ft_move_player(game, texture, x, y + 1);
 	}
-	else if (game->map[y + 1][x] == 'E' && game->coin_flag == 1)
+	else if (game->map[y + 1][x] == 'E' && game->coin_flag == game->coin_cnt)
 	{
 		game->map[y + 1][x] = '0';
 		ft_move_player(game, texture, x, y + 1);
@@ -79,7 +79,7 @@ void	ft_move_d(t_game *game, t_img *texture, int x, int y)
 		game->map[y][x + 1] = '0';
 		ft_move_player(game, texture, x + 1, y);
 	}
-	else if (game->map[y][x + 1] == 'E' && game->coin_flag == 1)
+	else if (game->map[y][x + 1] == 'E' && game->coin_flag == game->coin_cnt)
 	{
 		game->map[y][x + 1] = '0';
 		ft_move_player(game, texture, x + 1, y);
