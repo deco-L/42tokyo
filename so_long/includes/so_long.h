@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/25 16:58:14 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:27:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_game
 	size_t	map_h;
 	size_t	x;
 	size_t	y;
+	int		coin_flag;
 	int		walk_cnt;
 	t_img	*texture;
 }				t_game;
@@ -93,6 +94,7 @@ void	ft_check_map(t_game *game);
 void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture);
 void	ft_input_map(int fd, t_game *game);
 void	ft_create_map(t_game *game, t_img *texture);
+void	ft_put_img(t_game *game, void	*img, int x, int y);
 void	ft_set_player(t_game *game);
 /*---------------*/
 
@@ -102,6 +104,7 @@ void	ft_move_w(t_game *game, t_img *texture, int x, int y);
 void	ft_move_a(t_game *game, t_img *texture, int x, int y);
 void	ft_move_s(t_game *game, t_img *texture, int x, int y);
 void	ft_move_d(t_game *game, t_img *texture, int x, int y);
+void	ft_move_player(t_game *game, t_img *texture, int x, int y);
 /*--------------------*/
 
 /*---Check---*/
