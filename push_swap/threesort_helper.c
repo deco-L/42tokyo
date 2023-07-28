@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 14:54:47 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/24 19:45:11 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/28 22:45:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	ft_small_head_sort(t_node *start, t_node *stack)
 		return ;
 	else if ((stack -> prev)-> content < (stack -> next)-> content)
 	{
-		ft_sort_rule_rab(start, 0);
-		ft_sort_rule_sab(start, 0);
 		ft_sort_rule_rrab(start, 0);
+		ft_sort_rule_sab(start, 0);
 	}
 	else
 		ft_sort_rule_rrab(start, 0);
@@ -65,9 +64,8 @@ void	ft_big_head_resort(t_node *start, t_node *stack)
 		return ;
 	else if ((stack -> prev)-> content > (stack -> next)-> content)
 	{
-		ft_sort_rule_rab(start, 1);
-		ft_sort_rule_sab(start, 1);
 		ft_sort_rule_rrab(start, 1);
+		ft_sort_rule_sab(start, 1);
 	}
 	else
 		ft_sort_rule_rrab(start, 1);

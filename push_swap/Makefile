@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/16 16:04:47 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/01 02:11:28 by csakamot         ###   ########.fr        #
+#    Updated: 2023/07/28 22:29:34 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ CCFTPRINTF	= cd ${FTPRINTF} && make && cd ./../..
 CC			= cc
 
 CFLAGS		= -Wall -Wextra -Werror
+#-fsanitize=address
 
 RM			= rm -fr
 

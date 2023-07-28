@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:40:51 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/12 09:48:22 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/28 22:31:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,13 @@ void	ft_format_error(char **argv)
 	}
 	if (flag)
 		return ;
-	ft_printf("Error : Invalid argument.\n");
+	ft_printf("Error\n");
 	exit (EXIT_FAILURE);
 }
 
 void	ft_invalid_arg(void)
 {
-	ft_printf("Error : Invalid argument.\n");
+	ft_printf("Error\n");
 	exit (EXIT_FAILURE);
 	return ;
 }

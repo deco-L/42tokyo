@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:56:47 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/12 09:47:44 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/28 22:37:49 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	ft_split_error(char **relay, int words)
 			free(relay[i]);
 		free (relay);
 	}
-	ft_printf("Error : Malloc failed.");
+	ft_printf("Error\n");
 	exit(EXIT_FAILURE);
 }
 
