@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/23 17:09:46 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/04 12:42:07 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,10 +91,10 @@ ARCHIVES	= ${addprefix ${LIBFT}, libft.a} ${addprefix ${PRINTF}, libftprintf.a} 
 all:		${NAME}
 
 %.o:%.c
-			$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+			${CCMLX} && \
+			$(CC) -I/usr/include -Imlx_linux -c $< -o $@
 
 $(NAME):	${OBJS}
-			${CCMLX} && \
 			${CCLIBFT} && \
 			${CCPRINTF} && \
 			${CCGNL} && \
