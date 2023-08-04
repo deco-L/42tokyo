@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/07/25 12:34:31 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/04 12:35:48 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,10 +55,10 @@ CC			= cc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-CCLIBFT		= cd ${LIBFT} && make bonus && cd ./../../
+CCLIBFT		= cd ${LIBFT} && make -s bonus && cd ./../../ && echo 'maked libft'
 
-CCPRINTF	= cd ${PRINTF} && make && cd ./../../../
-
+CCPRINTF	= cd ${PRINTF} && make -s && cd ./../../../ && echo 'maked printf'
+ 
 CCGNL		= cd ${GNL} && ${CC} -c ${GNLSRCS} && ${AR} gnl.a ${GNLOBJS} && cd ./../../../
 
 CCMLX		= cd ${MLX} && make && cd ./../
@@ -92,10 +92,10 @@ ARCHIVES	= ${addprefix ${LIBFT}, libft.a} ${addprefix ${PRINTF}, libftprintf.a} 
 all:		${NAME}
 
 %.o:%.c
+			${CCMLX} && \
 			$(CC) -I/usr/include -Imlx -O3 -c $< -o $@
 
 $(NAME):	${OBJS}
-			${CCMLX} && \
 			${CCLIBFT} && \
 			${CCPRINTF} && \
 			${CCGNL} && \
