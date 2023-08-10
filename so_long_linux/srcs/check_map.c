@@ -6,13 +6,13 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:57:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/23 16:52:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/10 19:31:22 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_linux.h"
 
-void	ft_check_map(t_game *game)
+void	ft_check_matrix(t_game *game)
 {
 	size_t	row;
 	size_t	cow;
@@ -33,4 +33,35 @@ void	ft_check_map(t_game *game)
 		}
 		row++;
 	}
+}
+
+void	ft_check_character(t_game *game)
+{
+	size_t	width;
+	size_t	height;
+
+	height = 0;
+	while (height < game->map_h)
+	{
+		width = 0;
+		while (width < game->map_w)
+		{
+			if (game->map[height][width] != '0' \
+					&& game->map[height][width] != '1'\
+					&& game->map[height][width] != 'C' \
+					&& game->map[height][width] != 'E' \
+					&& game->map[height][width] != 'P')
+				ft_error_msg("Error\nInvalid argument.");
+			else if (game->map[height][width] == 'C')
+				game->coin_cnt++;
+			width++;
+		}
+		height++;
+	}
+}
+
+void	ft_check_map(t_game *game)
+{
+	ft_check_matrix(game);
+	ft_check_character(game);
 }

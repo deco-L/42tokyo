@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:14:22 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 12:17:59 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:19:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_memcmp(const void *s1, const void *s2, size_t size);
+#include "libft_include/libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t size)
 {

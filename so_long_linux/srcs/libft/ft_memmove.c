@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:39:35 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 11:59:28 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:20:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dest, const void *src, size_t size);
+#include "libft_include/libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t size)
 {

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 21:50:40 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 22:23:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/10 19:33:22 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 int	ft_key_hook(int keycode, t_game *game)
 {
-	if (keycode == ESC)
+	if (keycode == KEY_ESC)
 		ft_closing_process(game);
+	else if (keycode == KEY_W)
+		ft_move_w(game, game->texture, game->x, game->y);
+	else if (keycode == KEY_A)
+		ft_move_a(game, game->texture, game->x, game->y);
+	else if (keycode == KEY_S)
+		ft_move_s(game, game->texture, game->x, game->y);
+	else if (keycode == KEY_D)
+		ft_move_d(game, game->texture, game->x, game->y);
 	return (0);
 }

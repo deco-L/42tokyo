@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/08/04 12:42:07 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/10 20:09:07 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,65 +24,46 @@ HEAD		= ./includes/
 MLX			= ./mlx_linux/
 
 LIBFT		= ${addprefix ${PRE}, libft/}
-
-PRINTF		= ${addprefix ${LIBFT}, printf/}
-
-GNL			= ${addprefix ${LIBFT}, get_next_line/}
 ##-----------------------------##
 
 
 
 ##------------Srcs-------------##
 SRC			= so_long.c create_window.c close_window.c key_hook.c init_map.c \
-				init_texture.c create_map.c check_map.c helper.c error.c \
-
-GNLSRCS		= get_next_line_bonus.c get_next_line_utils_bonus.c
+				init_texture.c create_map.c check_map.c move_player.c helper.c \
+				error.c
 ##-----------------------------##
 
 
 
 ##-----------Object------------##
 OBJS		= ${addprefix ${PRE}, ${SRC:.c=.o}}
-
-GNLOBJS		= ${GNLSRCS:.c=.o}
 ##-----------------------------##
 
 
 
 ##----------conpiler-----------##
-CC			= cc
-
 CFLAGS		= -Wall -Wextra -Werror
 
-CCLIBFT		= cd ${LIBFT} && make bonus && cd ./../../
+CCLIBFT		= make -s -C srcs/libft
 
-CCPRINTF	= cd ${PRINTF} && make && cd ./../../../
-
-CCGNL		= cd ${GNL} && ${CC} -c ${GNLSRCS} && ${AR} gnl.a ${GNLOBJS} && cd ./../../../
-
-CCMLX		= cd ${MLX} && make && cd ./../
+CCMLX		= make -s -i -C mlx_linux
 ##-----------------------------##
 
 
 
 ##------------remove-----------##
-RM			= rm -fr
+RMMLX		= cd ${MLX} && make -s clean && cd ./../
 
-RMMLX		= cd ${MLX} && make clean && cd ./../
-
-RMLIBFT		= cd ${LIBFT} && make fclean && cd ./../../
-
-RMPRINTF	= cd ${PRINTF} && make fclean && cd ./../../../
-
-RMGNL		= cd ${GNL} && ${RM} ${GNLOBJS} gnl.a && cd ./../../../
+RMLIBFT		= cd ${LIBFT} && make -s fclean && cd ./../../
 ##-----------------------------##
 
 
 
 ##-----------archive-----------##
-AR			= ar rcs
+ARFLAG		= rcs
 
-ARCHIVES	= ${addprefix ${LIBFT}, libft.a} ${addprefix ${PRINTF}, libftprintf.a} ${addprefix ${GNL}, gnl.a}
+ARCHIVES	= ${addprefix ${LIBFT}, libft.a}
 ##-----------------------------##
 
 
@@ -91,24 +72,24 @@ ARCHIVES	= ${addprefix ${LIBFT}, libft.a} ${addprefix ${PRINTF}, libftprintf.a} 
 all:		${NAME}
 
 %.o:%.c
-			${CCMLX} && \
-			$(CC) -I/usr/include -Imlx_linux -c $< -o $@
+			$(CC) -I/usr/include -Imlx -c $< -o $@
 
 $(NAME):	${OBJS}
-			${CCLIBFT} && \
-			${CCPRINTF} && \
-			${CCGNL} && \
-			$(CC) ${CFLAGS} -fsanitize=address $(OBJS) -L. ${ARCHIVES} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-#
+			@echo "object file		compiled"
+			@${CCMLX}
+			@${CCLIBFT}
+			@$(CC) ${CFLAGS} -fsanitize=address $(OBJS) -L. ${ARCHIVES} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+			@echo "created			solong"
+# -fsanitize=address
 clean:
-			${RM} ${OBJS} && \
-			${RMMLX} && \
-			${RMLIBFT} && \
-			${RMPRINTF} && \
-			${RMGNL}
+			@${RM} ${OBJS}
+			@${RMMLX}
+			@${RMLIBFT}
+			@echo "object file		removed"
 
 fclean:		clean
-			${RM} ${NAME}
+			@${RM} ${NAME}
+				@echo "solong			removed"
 
 re:			fclean all
 

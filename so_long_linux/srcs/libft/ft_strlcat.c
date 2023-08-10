@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 01:50:50 by yayoi             #+#    #+#             */
-/*   Updated: 2023/05/29 11:57:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:17:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_include/libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 

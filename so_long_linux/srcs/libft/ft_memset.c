@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 17:22:08 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/22 14:20:05 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:20:10 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memset(void *s, int c, size_t n);
+#include "libft_include/libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

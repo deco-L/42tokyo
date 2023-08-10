@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:38:38 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/07/14 21:40:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/10 19:54:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *buf, int c, size_t n);
+#include "libft_include/libft.h"
 
 void	*ft_memchr(const void *buf, int c, size_t n)
 {

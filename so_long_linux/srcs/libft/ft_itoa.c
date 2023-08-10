@@ -6,15 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 22:50:17 by yayoi             #+#    #+#             */
-/*   Updated: 2023/05/29 12:20:29 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:14:29 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char		*ft_itoa(int n);
-static int	get_digit(long long nbr);
-static char	*insert_number(long long nbr, char *result, unsigned int digit);
+#include "libft_include/libft.h"
 
 static int	get_digit(long long nbr)
 {

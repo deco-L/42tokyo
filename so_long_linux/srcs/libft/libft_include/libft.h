@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 09:01:05 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/17 19:54:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/10 19:54:27 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <stdint.h>
 # include <limits.h>
+# include "ft_printf.h"
+# include "get_next_line.h"
+
+# define SIZE_MAX 0xffffffffffffffff
 
 typedef struct s_list
 {

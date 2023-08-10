@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:47:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 11:46:19 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:21:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_tolower(int c);
+#include "libft_include/libft.h"
 
 int	ft_tolower(int c)
 {

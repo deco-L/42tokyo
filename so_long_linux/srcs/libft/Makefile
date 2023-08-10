@@ -6,54 +6,65 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/06/16 16:00:45 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/10 14:15:12 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME		= libft.a
+NAME			= libft.a
 
-SRC			= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
-				ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c\
-				ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c\
-				ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c\
-				ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c\
-				ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c\
-				ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
+FTPRINTF		= ft_printf/
 
-OBJS		= ${SRC:.c=.o}
+GNL				= gnl/
 
-BONUS_SRC	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
-				ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c\
+SRC				= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
+					ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
+					ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
+					ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c \
+					ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c \
+					ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c\
+					ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
+					ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
+					ft_tolower.c ft_toupper.c ft_lstnew.c ft_lstadd_front.c \
+					ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
+					ft_lstclear.c ft_lstiter.c ft_lstmap.c\
 
-BONUS_OBJS	= ${BONUS_SRC:.c=.o}
+FTPRINTF_SRC	= ft_printf.c ft_check_printf.c ft_process.c ft_putnbr_base_fd_cnt.c
 
-CC			= cc
+GNL_SRC			= get_next_line.c get_next_line_utils.c
 
-CFLAGS		= -Wall -Wextra -Werror
+FTPRINTF_OBJS	= ${FTPRINTF_SRC:.c=.o}
 
-RM			= rm -fr
+GNL_OBJS		= ${GNL_SRC:.c=.o}
 
-AR			= ar rcs
+OBJS			= ${SRC:.c=.o}
 
-all:		$(NAME)
+CFLAGS			= -Wall -Wextra -Werror
 
-OBJ			= ${OBJS}
-ifdef WITH_BONUS
-OBJ 		+= ${BONUS_OBJS}
-endif
-bonus:		
-			make WITH_BONUS=1
+ARFLAG			= rcs
 
-$(NAME):	${OBJ}
-			${AR} ${NAME} ${OBJ}
+all:			$(NAME)
+
+%.o:%.c
+				@${CC} ${CFLAGS} -I libft_include -c $< -o $@
+
+$(NAME):		${OBJS}
+				@echo "libft			compiled"
+				@${CC} ${CFLAGS} -I libft_include -c ${addprefix ${FTPRINTF}, ${FTPRINTF_SRC}}
+				@echo "ft_printf		compiled"
+				@${CC} ${CFLAGS} -I libft_include -c ${addprefix ${GNL}, ${GNL_SRC}}
+				@echo "gnl			compiled"
+				@${AR} ${ARFLAG} ${NAME} ${OBJS} ${FTPRINTF_OBJS} ${GNL_OBJS}
+				@echo "libft.a			created"
 
 clean:
-			rm -f ${OBJS} ${BONUS_OBJS}
+				@${RM} ${OBJS} ${FTPRINTF_OBJS} ${GNL_OBJS}
+				@echo "libft_object file	removed"
 
-fclean:		clean
-			rm -f ${NAME}
+fclean:			clean
+				@${RM} ${NAME}
+				@echo "libft.a			removed"
 
-re:			fclean all
+re:				fclean all
 
-.PHONY:		all bonus clean fclean re
+.PHONY:			all bonus clean fclean re
