@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/08/10 20:38:41 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/10 20:45:25 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,8 @@ $(NAME):	${OBJS}
 			@echo "object file		compiled"
 			@${CCMLX}
 			@${CCLIBFT}
-			@$(CC) ${CFLAGS} -fsanitize=address $(OBJS) -L. ${ARCHIVES} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+			@$(CC) ${CFLAGS} -fsanitize=address $(OBJS) -L. ${ARCHIVES} \
+				-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 			@echo "created			solong\n\n"
 			@echo "                                     .__                         "
 			@echo "                      __________     |  |   ____   ____    ____  "
@@ -87,6 +88,7 @@ $(NAME):	${OBJS}
 			@echo "                    /____  >____/____|____/\____/|___|  /\___  / "
 			@echo "                         \/    /_____/                \//_____/  "
 # -fsanitize=address
+
 clean:
 			@${RM} ${OBJS}
 			@${RMMLX}
