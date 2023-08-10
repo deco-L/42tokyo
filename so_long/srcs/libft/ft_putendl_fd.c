@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:59:24 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 12:16:54 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:20:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putendl_fd(char *str, int fd);
+#include "libft_include/libft.h"
 
 void	ft_putendl_fd(char *str, int fd)
 {

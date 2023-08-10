@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:06:05 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 14:21:28 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:14:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isdigit(int c);
+#include "libft_include/libft.h"
 
 int	ft_isdigit(int c)
 {

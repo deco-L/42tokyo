@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:24:04 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/17 19:43:27 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:21:27 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_substr(const char *s, unsigned int start, size_t len);
+#include "libft_include/libft.h"
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {

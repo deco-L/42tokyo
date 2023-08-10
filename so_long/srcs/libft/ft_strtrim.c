@@ -6,16 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:03:00 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/20 17:14:53 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:21:23 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static int		ft_check_trim(const char s1, const char *set);
-static size_t	ft_setlen(const char *s1, const char *set, size_t len_s1);
-static char		*fti(char *result, const char *s1, const char *set, size_t len);
-char			*ft_strtrim(const char *s1, const char *set);
+#include "libft_include/libft.h"
 
 static int	ft_check_trim(const char s1, const char *set)
 {

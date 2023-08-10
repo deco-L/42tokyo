@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:11:30 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/10 15:46:33 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:59:26 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft_include/ft_printf.h"
 
 void	ft_process(va_list stat, t_check *check)
 {

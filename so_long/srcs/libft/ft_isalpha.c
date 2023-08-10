@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:49:06 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 14:21:59 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:13:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalpha(int c);
+#include "libft_include/libft.h"
 
 int	ft_isalpha(int c)
 {

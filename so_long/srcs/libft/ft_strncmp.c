@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:51:07 by yayoi             #+#    #+#             */
-/*   Updated: 2023/05/29 11:49:12 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:21:10 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+#include "libft_include/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

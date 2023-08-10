@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:23:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/14 21:41:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:44:37 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <stdarg.h>
 # include <limits.h>
 # include <stdlib.h>
-# include <stdint.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "libft.h"
 
 # define CHAR		1
 # define STRING		2
@@ -45,10 +45,5 @@ void	ft_process_litter(va_list stat, t_check *check);
 void	ft_process_point(va_list stat, t_check *check);
 void	ft_process_number(va_list stat, t_check *check);
 void	ft_process_hexa(va_list stat, t_check *check);
-void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *str, int fd);
-size_t	ft_strlen(const char *str);
 
 #endif

@@ -6,16 +6,14 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/27 14:15:39 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:32:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../srcs/libft/libft.h"
-# include "../srcs/libft/printf/ft_printf.h"
-# include "../srcs/libft/get_next_line/get_next_line_bonus.h"
+# include "../srcs/libft/libft_include/libft.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>

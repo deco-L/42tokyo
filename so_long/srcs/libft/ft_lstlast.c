@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:46:03 by csakamot          #+#    #+#             */
-/*   Updated: 2023/05/30 13:08:44 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:18:41 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-t_list	*ft_lstlast(t_list *lst);
+#include "libft_include/libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

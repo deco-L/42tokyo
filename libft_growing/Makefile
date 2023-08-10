@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 02:35:02 by yayoi             #+#    #+#              #
-#    Updated: 2023/08/09 15:21:00 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/10 14:14:27 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,12 +54,12 @@ $(NAME):		${OBJS}
 				@echo "ft_printf	compiled"
 				@${CC} ${CFLAGS} -I libft_include -c ${addprefix ${GNL}, ${GNL_SRC}}
 				@echo "gnl		compiled"
-				@${AR} ${ARFLAG} ${NAME} ${OBJS}
+				@${AR} ${ARFLAG} ${NAME} ${OBJS} ${FTPRINTF_OBJS} ${GNL_OBJS}
 				@echo "libft.a		created"
 
 clean:
 				@${RM} ${OBJS} ${FTPRINTF_OBJS} ${GNL_OBJS}
-				@echo "object file	removed"
+				@echo "libft_object file	removed"
 
 fclean:			clean
 				@${RM} ${NAME}

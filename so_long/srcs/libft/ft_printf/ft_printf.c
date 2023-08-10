@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:31:48 by csakamot          #+#    #+#             */
-/*   Updated: 2023/06/10 16:34:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:59:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft_include/ft_printf.h"
 
 int	ft_sp_output(const char *format, va_list stat, int i)
 {

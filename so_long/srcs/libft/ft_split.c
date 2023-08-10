@@ -6,16 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:28:36 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/07/17 20:12:39 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/10 14:10:42 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char		**ft_split(const char *str, char c);
-static int	ft_check_split(char str, char c);
-static int	ft_word_cnt(const char *str, char c);
-static int	ft_letter_cnt(const char *str, char c, int i);
+#include "libft_include/libft.h"
 
 static int	ft_check_split(char str, char c)
 {

@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:08:07 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 12:01:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:20:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *str, int c);
+#include "libft_include/libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {

@@ -6,13 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:20:42 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/05/29 12:04:33 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:20:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putnbr_fd(int n, int fd);
+#include "libft_include/libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
