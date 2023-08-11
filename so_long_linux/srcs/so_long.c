@@ -6,14 +6,22 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/10 19:33:39 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/11 16:50:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_linux.h"
 
-int	ft_display_on(void)
+void	ft_mlx_init(t_game *game)
 {
+	game->mlx_ptr = mlx_init();
+	if (game->mlx_ptr == NULL)
+		exit(EXIT_FAILURE);
+}
+
+int	ft_display_on(t_game *game)
+{
+	ft_create_map(game, game->texture);
 	printf("on!\n");
 	return (0);
 }
@@ -31,9 +39,7 @@ int	main(int argc, char **argv)
 	t_img	texture;
 
 	ft_init_map(argc, argv, &game, &texture);
-	game.mlx_ptr = mlx_init();
-	if (game.mlx_ptr == NULL)
-		exit(EXIT_FAILURE);
+	ft_mlx_init(&game);
 	ft_init_texture(&game, &texture);
 	ft_create_window(&game, &texture);
 	ft_hook_list(&game);

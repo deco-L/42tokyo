@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/10 19:33:01 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/11 19:12:46 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char	*ft_singl_col_input(int fd, char *line)
 		line = ft_strjoin_solong(line, str);
 		i++;
 	}
+	ft_mapcheck_blank_line(line);
 	return (line);
 }
 

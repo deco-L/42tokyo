@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/08/10 22:04:53 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/11 19:15:19 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,9 @@ LIBFT		= ${addprefix ${PRE}, libft/}
 
 
 ##------------Srcs-------------##
-SRC			= so_long.c create_window.c close_window.c key_hook.c init_map.c \
-				init_texture.c create_map.c check_map.c move_player.c helper.c \
-				error.c
+SRC			= so_long.c create_window.c close_window.c key_hook.c \
+				init_map.c init_texture.c create_map.c check_map1.c \
+				check_map2.c move_player.c helper.c error.c
 ##-----------------------------##
 
 
@@ -80,7 +80,7 @@ $(NAME):	${OBJS}
 			@${CCLIBFT}
 			@$(CC) ${CFLAGS} -fsanitize=address $(OBJS) -L. ${ARCHIVES} \
 				-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-			@echo "created			solong\n\n"
+			@echo "solong			created\n\n"
 			@echo "            ██████  ▒█████   ██▓     ▒█████   ███▄    █   ▄████ "
 			@echo "          ▒██    ▒ ▒██▒  ██▒▓██▒    ▒██▒  ██▒ ██ ██   █  ██▒ ▀█▒"
 			@echo "          ░ ▓██▄   ▒██░  ██▒▒██░    ▒██░  ██▒▓██  ██ ██▒▒██░▄▄▄░"
@@ -100,11 +100,14 @@ clean:
 
 fclean:		clean
 			@${RM} ${NAME}
-				@echo "solong			removed"
+			@echo "solong			removed"
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+exe:		re
+			@make -s clean
+
+.PHONY:		all clean fclean re exe
 ##-----------------------------##
 
 #			@echo "                                     .__                         "
