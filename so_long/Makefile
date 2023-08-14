@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/08/10 14:28:06 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/14 16:53:29 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,9 @@ LIBFT		= ${addprefix ${PRE}, libft/}
 
 
 ##------------Srcs-------------##
-SRC			= so_long.c create_window.c close_window.c key_hook.c init_map.c \
-				init_texture.c create_map.c check_map.c move_player.c helper.c \
-				error.c
+SRC			= so_long.c create_window.c close_window.c key_hook.c \
+				init_map.c init_texture.c create_map.c check_map1.c \
+				check_map2.c move_player.c helper.c error.c
 ##-----------------------------##
 
 
@@ -45,17 +45,17 @@ OBJS		= ${addprefix ${PRE}, ${SRC:.c=.o}}
 ##----------conpiler-----------##
 CFLAGS		= -Wall -Wextra -Werror
 
-CCLIBFT		= cd ${LIBFT} && make && cd ./../../
+CCLIBFT		= make -s -C srcs/libft
 
-CCMLX		= cd ${MLX} && make && cd ./../
+CCMLX		= make -s -i -C mlx
 ##-----------------------------##
 
 
 
 ##------------remove-----------##
-RMMLX		= cd ${MLX} && make clean && cd ./../
+RMMLX		= cd ${MLX} && make -s clean && cd ./../
 
-RMLIBFT		= cd ${LIBFT} && make fclean && cd ./../../
+RMLIBFT		= cd ${LIBFT} && make -s fclean && cd ./../../
 ##-----------------------------##
 
 
@@ -80,7 +80,16 @@ $(NAME):	${OBJS}
 			@${CCLIBFT}
 			@$(CC) $(CFLAGS) $(OBJS) -I/usr/X11/include -Lmlx -lmlx_Darwin -L/usr/X11/include/../lib \
 															-Imlx -lXext -lX11  -Lsrcs ${ARCHIVES} -o $(NAME)
-			@echo "created			solong"
+			@echo "solong			created\n\n"
+			@echo "            ██████  ▒█████   ██▓     ▒█████   ███▄    █   ▄████ "
+			@echo "          ▒██    ▒ ▒██▒  ██▒▓██▒    ▒██▒  ██▒ ██ ██   █  ██▒ ▀█▒"
+			@echo "          ░ ▓██▄   ▒██░  ██▒▒██░    ▒██░  ██▒▓██  ██ ██▒▒██░▄▄▄░"
+			@echo "            ▒   ██▒▒██   ██░▒██░    ▒██   ██░▓██▒  █▌██▒░▓█  ██▓"
+			@echo "          ▒██████▒▒░ ████▓▒░░██████▒░ ████▓▒░▒██░   ███░░▒▓███▀▒"
+			@echo "          ▒ ▒▓▒ ▒ ░░ ▒░▒░▒░ ░ ▒░▓  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒  ░▒   ▒ "
+			@echo "          ░ ░▒  ░ ░  ░ ▒ ▒░ ░ ░ ▒  ░  ░ ▒ ▒░ ░ ░░   ░ ▒░  ░   ░ "
+			@echo "          ░  ░  ░  ░ ░ ░ ▒    ░ ░   ░ ░ ░ ▒     ░   ░ ░ ░ ░   ░ "
+			@echo "                ░      ░ ░      ░  ░    ░ ░           ░       ░ "
 # -fsanitize=address
 clean:
 			@${RM} ${OBJS}
@@ -90,9 +99,12 @@ clean:
 
 fclean:		clean
 			@${RM} ${NAME}
-				@echo "solong			removed"
+			@echo "solong			removed"
 
 re:			fclean all
+
+exe:		re
+			@make -s clean
 
 .PHONY:		all clean fclean re
 ##-----------------------------##

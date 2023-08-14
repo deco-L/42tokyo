@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/10 13:32:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/14 16:46:56 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdint.h>
 # include <stdio.h>
+# include <stddef.h>
+# include <limits.h>
 # include <math.h>
 # include <mlx.h>
 
@@ -80,6 +83,7 @@ typedef struct s_game
 /*---------------------------*/
 
 /*---Windows_Related---*/
+void	ft_mlx_init(t_game *game);
 void	ft_create_window(t_game *data, t_img *texture);
 int		ft_closing_process(t_game *data);
 /*---------------------*/
@@ -98,18 +102,18 @@ void	ft_set_player(t_game *game);
 
 /*---Keypress_Event---*/
 int		ft_key_hook(int keycode, t_game *game);
-void	ft_move_w(t_game *game, t_img *texture, int x, int y);
-void	ft_move_a(t_game *game, t_img *texture, int x, int y);
-void	ft_move_s(t_game *game, t_img *texture, int x, int y);
-void	ft_move_d(t_game *game, t_img *texture, int x, int y);
+void	ft_move_wasd(t_game *game, t_img *texture, int x, int y);
 void	ft_move_player(t_game *game, t_img *texture, int x, int y);
 /*--------------------*/
 
 /*---Check---*/
 void	ft_check_arg(int argc, char **argv);
 void	ft_check_map(t_game *game);
-void	ft_check_matrix(t_game *game);
-void	ft_check_character(t_game *game);
+void	ft_mapcheck_empty(t_game *game);
+void	ft_mapcheck_blank_line(char *line);
+void	ft_mapcheck_matrix(t_game *game);
+void	ft_mapcheck_rectangle(t_game *game);
+void	ft_mapcheck_character(t_game *game);
 /*-----------*/
 
 /*---Error---*/

@@ -1,18 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:57:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/27 14:23:33 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/14 16:52:03 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_check_matrix(t_game *game)
+void	ft_mapcheck_blank_line(char *line)
+{
+	size_t	i;
+	size_t	flag;
+
+	i = 0;
+	flag = 0;
+	while (line[i] != '\0')
+	{
+		if (line[i] != '\n')
+			break ;
+		i++;
+	}
+	while (line[i] != '\0')
+	{
+		if (line[i] == '\n')
+			flag++;
+		if (line[i] != '\n' && flag == 1)
+			flag = 0;
+		else if (line[i] != '\n' && flag > 1)
+			ft_error_msg("Error\nThe map contains an blank line.");
+		i++;
+	}
+	return ;
+}
+
+void	ft_mapcheck_matrix(t_game *game)
 {
 	size_t	row;
 	size_t	cow;
@@ -21,21 +47,23 @@ void	ft_check_matrix(t_game *game)
 	while (game -> map[row])
 	{
 		cow = ft_strlen(game -> map[row]);
-		if (0 < cow && cow < 4)
-			ft_error_msg("Error\nCannot create map.\n");
+		if (0 < cow && cow < 3)
+			ft_error_msg("Error\nInvalid map.");
 		else
 		{
 			if (game -> map_w == 0)
 				game -> map_w = cow;
 			if (game -> map_w != cow && game -> map_w)
-				ft_error_msg("Error\nCannot create map.\n");
+				ft_error_msg("Error\nInvalid map.");
 			game -> map_h++;
 		}
 		row++;
 	}
+	if (0 < row && row < 3)
+		ft_error_msg("Error\nInvalid map.");
 }
 
-void	ft_check_character(t_game *game)
+void	ft_mapcheck_character(t_game *game)
 {
 	size_t	width;
 	size_t	height;
@@ -51,7 +79,7 @@ void	ft_check_character(t_game *game)
 					&& game->map[height][width] != 'C' \
 					&& game->map[height][width] != 'E' \
 					&& game->map[height][width] != 'P')
-				ft_error_msg("Error\nInvalid argument.");
+				ft_error_msg("Error\nMap contains invalid characters.");
 			else if (game->map[height][width] == 'C')
 				game->coin_cnt++;
 			width++;
@@ -60,8 +88,17 @@ void	ft_check_character(t_game *game)
 	}
 }
 
+void	ft_mapcheck_rectangle(t_game *game)
+{
+	if (game -> map_h == game -> map_w)
+		ft_error_msg("Error\nThe map is not rectangular.\n");
+	return ;
+}
+
 void	ft_check_map(t_game *game)
 {
-	ft_check_matrix(game);
-	ft_check_character(game);
+	ft_mapcheck_empty(game);
+	ft_mapcheck_matrix(game);
+	ft_mapcheck_character(game);
+	ft_mapcheck_rectangle(game);
 }
