@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/11 19:12:46 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/20 17:02:00 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_check_arg(int argc, char **argv)
 	if (argc != 2)
 		ft_error_msg("Invalid number of argument.");
 	if (ft_strrncmp(argv[1], ".ber", 4))
-		ft_error_msg("Invalid argument.");
+		ft_error_msg("The extension is not .ber");
 	return ;
 }
 

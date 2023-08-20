@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/11 19:22:57 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/20 17:36:51 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,11 @@ typedef struct s_game
 	size_t	map_h;
 	size_t	x;
 	size_t	y;
-	int		coin_cnt;
-	int		coin_flag;
-	int		walk_cnt;
+	size_t	player_cnt;
+	size_t	exit_cnt;
+	size_t	coin_cnt;
+	size_t	coin_flag;
+	size_t	walk_cnt;
 	t_img	*texture;
 }				t_game;
 /*---------------------------*/
@@ -114,6 +116,9 @@ void	ft_mapcheck_blank_line(char *line);
 void	ft_mapcheck_matrix(t_game *game);
 void	ft_mapcheck_rectangle(t_game *game);
 void	ft_mapcheck_character(t_game *game);
+void	ft_mapcheck_invalid_ch(t_game *game);
+void	ft_mapcheck_required_ch(t_game *game);
+void	ft_mapcheck_duplicates_ch(t_game *game);
 /*-----------*/
 
 /*---Error---*/
