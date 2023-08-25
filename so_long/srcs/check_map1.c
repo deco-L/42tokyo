@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:57:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/25 15:32:25 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:19:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	ft_check_map(t_game *game)
 {
 	ft_mapcheck_empty(game);
 	ft_mapcheck_matrix(game);
+	ft_mapcheck_large_map(game);
 	ft_mapcheck_character(game);
 	ft_mapcheck_rectangle(game);
 }

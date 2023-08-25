@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:15:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/25 15:27:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:11:56 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,13 @@ void	ft_mapcheck_duplicates_ch(t_game *game)
 		ft_error_msg("Error\nPlayer is duplicated.");
 	else if (game->exit_cnt != 1)
 		ft_error_msg("Error\nExits are duplicated.");
+	return ;
+}
+
+void	ft_mapcheck_large_map(t_game *game)
+{
+	printf("%d, %d\n", game->map_h, game->map_w);
+	if (game->map_h > 32 || game->map_w > 60)
+		ft_error_msg("Error\nMap is too large.");
 	return ;
 }
