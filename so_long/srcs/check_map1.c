@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:57:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/14 16:52:03 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/25 15:32:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,50 +48,32 @@ void	ft_mapcheck_matrix(t_game *game)
 	{
 		cow = ft_strlen(game -> map[row]);
 		if (0 < cow && cow < 3)
-			ft_error_msg("Error\nInvalid map.");
+			ft_error_msg("Error\nMap is too small.");
 		else
 		{
 			if (game -> map_w == 0)
 				game -> map_w = cow;
 			if (game -> map_w != cow && game -> map_w)
-				ft_error_msg("Error\nInvalid map.");
+				ft_error_msg("Error\nThe map is not rectangular.");
 			game -> map_h++;
 		}
 		row++;
 	}
 	if (0 < row && row < 3)
-		ft_error_msg("Error\nInvalid map.");
+		ft_error_msg("Error\nMap is too small.");
 }
 
 void	ft_mapcheck_character(t_game *game)
 {
-	size_t	width;
-	size_t	height;
-
-	height = 0;
-	while (height < game->map_h)
-	{
-		width = 0;
-		while (width < game->map_w)
-		{
-			if (game->map[height][width] != '0' \
-					&& game->map[height][width] != '1'\
-					&& game->map[height][width] != 'C' \
-					&& game->map[height][width] != 'E' \
-					&& game->map[height][width] != 'P')
-				ft_error_msg("Error\nMap contains invalid characters.");
-			else if (game->map[height][width] == 'C')
-				game->coin_cnt++;
-			width++;
-		}
-		height++;
-	}
+	ft_mapcheck_invalid_ch(game);
+	ft_mapcheck_required_ch(game);
+	ft_mapcheck_duplicates_ch(game);
 }
 
 void	ft_mapcheck_rectangle(t_game *game)
 {
 	if (game -> map_h == game -> map_w)
-		ft_error_msg("Error\nThe map is not rectangular.\n");
+		ft_error_msg("Error\nThe map is not rectangular.");
 	return ;
 }
 
