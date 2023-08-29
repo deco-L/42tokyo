@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/14 16:50:40 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:05:20 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_mlx_init(t_game *game)
 int	ft_display_on(t_game *game)
 {
 	ft_create_map(game, game->texture);
-	printf("on!\n");
 	return (0);
 }
 
