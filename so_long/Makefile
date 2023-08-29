@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/08/29 16:32:03 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/29 17:34:14 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ LIBFT		= ${addprefix ${PRE}, libft/}
 ##------------Srcs-------------##
 SRC			= so_long.c create_window.c close_window.c key_hook.c \
 				init_map.c init_texture.c create_map.c check_map1.c \
-				check_map2.c move_player.c helper.c error.c
+				check_map2.c check_map3.c move_player.c helper.c error.c
 ##-----------------------------##
 
 

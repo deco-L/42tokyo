@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/29 16:42:44 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:35:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void	ft_mapcheck_large_map(t_game *game);
 void	ft_mapcheck_invalid_ch(t_game *game);
 void	ft_mapcheck_required_ch(t_game *game);
 void	ft_mapcheck_duplicates_ch(t_game *game);
+void	ft_mapcheck_wall_less(t_game *game);
 /*-----------*/
 
 /*---Error---*/
