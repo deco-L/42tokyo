@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:48:14 by csakamot          #+#    #+#             */
-/*   Updated: 2023/07/07 18:06:28 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:48:56 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	signal_handler(int signum, siginfo_t *info, void *dummy)
 	i++;
 	if (i == 8)
 		i = ft_put_message(&c, &client_pid, &charbuff);
-	usleep(100);
+	// usleep(100);
 	if (kill(info->si_pid, SIGUSR2) == -1)
 		ft_signal_error();
 }

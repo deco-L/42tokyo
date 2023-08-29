@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/25 16:10:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:42:44 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include <mlx.h>
 
 /*---Window_Size---*/
-# define WINDOW_WIDTH 1920
-# define WINDOW_HEIGHT 1080
+# define WINDOW_WIDTH 2560
+# define WINDOW_HEIGHT 1440
 /*-----------------*/
 
 /*---Map---*/
