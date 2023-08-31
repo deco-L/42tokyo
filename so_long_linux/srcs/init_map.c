@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/20 17:02:00 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:16:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,9 @@ void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture)
 	ft_input_map(fd, game);
 	ft_check_map(game);
 	ft_set_player(game);
-	for (int i = 0; game -> map[i]; i++)
-		printf("%s\n", game -> map[i]);
 	close (fd);
 	return ;
 }
+
+	// for (int i = 0; game -> map[i]; i++)
+	// 	printf("%s\n", game -> map[i]);

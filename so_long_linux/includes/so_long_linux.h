@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/20 17:36:51 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:13:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include "../mlx_linux/mlx.h"
 
 /*---Window_Size---*/
-# define WINDOW_WIDTH 900
-# define WINDOW_HEIGHT 600
+# define WINDOW_WIDTH 1920
+# define WINDOW_HEIGHT 1080
 /*-----------------*/
 
 /*---Map---*/
@@ -116,9 +116,11 @@ void	ft_mapcheck_blank_line(char *line);
 void	ft_mapcheck_matrix(t_game *game);
 void	ft_mapcheck_rectangle(t_game *game);
 void	ft_mapcheck_character(t_game *game);
+void	ft_mapcheck_large_map(t_game *game);
 void	ft_mapcheck_invalid_ch(t_game *game);
 void	ft_mapcheck_required_ch(t_game *game);
 void	ft_mapcheck_duplicates_ch(t_game *game);
+void	ft_mapcheck_wall_less(t_game *game);
 /*-----------*/
 
 /*---Error---*/
