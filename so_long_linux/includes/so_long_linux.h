@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/31 16:13:43 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:55:33 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_init_texture(t_game *game, t_img *texture);
 /*--------------------*/
 
 /*---Map_Related---*/
-void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture);
+void	ft_init_map(int argc, char **argv, t_game *game);
 void	ft_input_map(int fd, t_game *game);
 void	ft_create_map(t_game *game, t_img *texture);
 void	ft_put_img(t_game *game, void	*img, int x, int y);

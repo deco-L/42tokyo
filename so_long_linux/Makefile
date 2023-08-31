@@ -6,26 +6,30 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/08/31 17:38:27 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/31 19:43:32 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ##----Executable File Name-----##
 NAME		= solong
+
+NAME_BONUS	= solong_bonus
 ##-----------------------------##
 
 
 
 ##-----Directory Location------##
+HEAD		= ./includes/
+
 PRE			= ./srcs/
+
+MLX			= ./mlx_linux/
 
 MANDATORY	= ${addprefix ${PRE}, srcs_mandatory/}
 
 BONUS		= ${addprefix ${PRE}, srcs_bonus/}
 
-HEAD		= ./includes/
-
-MLX			= ./mlx_linux/
+OBJ			=${addprefix ${PRE}, obj/}
 
 LIBFT		= ${addprefix ${PRE}, libft/}
 ##-----------------------------##
@@ -81,15 +85,24 @@ ARCHIVES	= ${addprefix ${LIBFT}, libft.a}
 ##--------Makefile rule--------##
 all:		${NAME}
 
-%.o:%.c
-			$(CC) -I/usr/include -Imlx -c $< -o $@
+EXE_NAME	= ${NAME}
+OBJ			= ${OBJS}
+ifdef WITH_BONUS
+EXE_NAME	= ${NAME_BONUS}
+OBJ 		= ${OBJS_BONUS}
+endif
+bonus:
+			@make -s WITH_BONUS=1
 
-$(NAME):	${OBJS}
+%.o:%.c
+			@${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
+
+$(NAME):	${OBJ}
 			@echo "object file		compiled"
 			@${CCMLX}
 			@${CCLIBFT}
-			@$(CC) ${CFLAGS} -fsanitize=address $(OBJS) -L. ${ARCHIVES} \
-				-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+			@${CC} ${CFLAGS} $(OBJ) -L. ${ARCHIVES} \
+				-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o ${EXE_NAME}
 			@echo "solong			created\n\n"
 			@echo "            ██████  ▒█████   ██▓     ▒█████   ███▄    █   ▄████ "
 			@echo "          ▒██    ▒ ▒██▒  ██▒▓██▒    ▒██▒  ██▒ ██ ██   █  ██▒ ▀█▒"
@@ -104,13 +117,15 @@ $(NAME):	${OBJS}
 
 clean:
 			@${RM} ${OBJS}
+			@${RM} ${OBJS_BONUS}
 			@${RMMLX}
 			@${RMLIBFT}
 			@echo "object file		removed"
 
 fclean:		clean
 			@${RM} ${NAME}
-			@echo "solong			removed"
+			@${RM} ${NAME_BONUS}
+			@echo "exevutable file		removed"
 
 re:			fclean all
 
