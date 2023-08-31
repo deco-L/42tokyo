@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/08/31 16:12:53 by csakamot         ###   ########.fr        #
+#    Updated: 2023/08/31 17:38:27 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,10 @@ NAME		= solong
 ##-----Directory Location------##
 PRE			= ./srcs/
 
+MANDATORY	= ${addprefix ${PRE}, srcs_mandatory/}
+
+BONUS		= ${addprefix ${PRE}, srcs_bonus/}
+
 HEAD		= ./includes/
 
 MLX			= ./mlx_linux/
@@ -29,15 +33,21 @@ LIBFT		= ${addprefix ${PRE}, libft/}
 
 
 ##------------Srcs-------------##
-SRC			= so_long.c create_window.c close_window.c key_hook.c \
+SRCS		= so_long.c create_window.c close_window.c key_hook.c \
 				init_map.c init_texture.c create_map.c check_map1.c \
-				check_map2.c check_map3.c move_player.c helper.c error.c
+				check_map2.c check_map3.c move_player.c helper.c error.c \
+
+BONUS_SRCS	= so_long.c create_window.c close_window.c key_hook.c \
+				init_map.c init_texture.c create_map.c check_map1.c \
+				check_map2.c check_map3.c move_player.c helper.c error.c \
 ##-----------------------------##
 
 
 
 ##-----------Object------------##
-OBJS		= ${addprefix ${PRE}, ${SRC:.c=.o}}
+OBJS		= ${addprefix ${MANDATORY}, ${SRCS:.c=.o}}
+
+OBJS_BONUS	= ${addprefix ${BONUS}, ${BONUS_SRCS:.c=.o}}
 ##-----------------------------##
 
 
