@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 17:02:15 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 23:34:58 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 00:01:15 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ void	ft_create_map(t_game *game, t_img *texture)
 				ft_put_img(game, texture->esc, SIZE * width, SIZE * height);
 			if (game->map[height][width] == 'C')
 				ft_put_img(game, texture->item, SIZE * width, SIZE * height);
-			if (game->map[height][width] == 'P')
-				ft_put_img(game, texture->player, SIZE * width, SIZE * height);
+			if (game->map[height][width] == 'P' && !game->pl_mode)
+				ft_put_img(game, texture->player1, SIZE * width, SIZE * height);
+			if (game->map[height][width] == 'P' && game->pl_mode)
+				ft_put_img(game, texture->player2, SIZE * width, SIZE * height);
 			width++;
 		}
 		height++;

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 21:11:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 23:30:51 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 00:06:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@
 # define FLOOR "./texture/map/floor.xpm"
 # define ESCAPE "./texture/map/esc.xpm"
 # define ITEM "./texture/map/coin.xpm"
-# define PLAYER "./texture/player/p_idle_front1.xpm"
+# define PLAYER1 "./texture/player/p_idle_front1.xpm"
+# define PLAYER2 "./texture/player/p_idle_front2.xpm"
 # define BLACK_BACK "./texture/back/black.xpm"
 /*---------*/
 
@@ -55,7 +56,8 @@ typedef struct s_img
 	void	*floor;
 	void	*item;
 	void	*esc;
-	void	*player;
+	void	*player1;
+	void	*player2;
 	void	*back;
 	int		wall_w;
 	int		wall_h;
@@ -65,8 +67,10 @@ typedef struct s_img
 	int		item_h;
 	int		esc_w;
 	int		esc_h;
-	int		player_w;
-	int		player_h;
+	int		player1_w;
+	int		player1_h;
+	int		player2_w;
+	int		player2_h;
 	int		back_w;
 	int		back_h;
 }				t_img;
@@ -77,6 +81,7 @@ typedef struct s_game
 	void	*win_ptr;
 	char	**map;
 	char	*walk_cnt_display;
+	int		pl_mode;
 	int		walk_cnt;
 	size_t	map_w;
 	size_t	map_h;
@@ -107,6 +112,7 @@ void	ft_create_map(t_game *game, t_img *texture);
 void	ft_put_walkcnt(t_game *game, t_img *texture);
 void	ft_put_img(t_game *game, void	*img, int x, int y);
 void	ft_set_player(t_game *game);
+int		ft_loop_hook(t_game *game);
 /*---------------*/
 
 /*---Keypress_Event---*/
@@ -114,6 +120,10 @@ int		ft_key_hook(int keycode, t_game *game);
 void	ft_move_wasd(t_game *game, t_img *texture, int x, int y);
 void	ft_move_player(t_game *game, t_img *texture, int x, int y);
 /*--------------------*/
+
+/*---animation---*/
+void	ft_run_anime(t_game *game, t_img *texture);
+/*--------------*/
 
 /*---Check---*/
 void	ft_check_arg(int argc, char **argv);
