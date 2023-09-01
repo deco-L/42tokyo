@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 21:11:14 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 21:59:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 # define WALL "./texture/map/wall.xpm"
 # define FLOOR "./texture/map/floor.xpm"
 # define ESCAPE "./texture/map/esc.xpm"
-# define ITEM "./texture/map/item.xpm"
-# define PLAYER "./texture/player/p_idle_f.xpm"
+# define ITEM "./texture/map/coin.xpm"
+# define PLAYER "./texture/player/p_idle_front1.xpm"
 /*---------*/
 
 /*---Keycode---*/

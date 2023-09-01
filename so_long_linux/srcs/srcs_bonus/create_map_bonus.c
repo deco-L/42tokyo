@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 17:02:15 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 23:34:58 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,24 @@ void	ft_create_map(t_game *game, t_img *texture)
 		}
 		height++;
 	}
+	ft_put_walkcnt(game, game->texture);
+}
+
+void	ft_put_walkcnt(t_game *game, t_img *texture)
+{
+	size_t	width;
+
+	width = 0;
+	while (width < game->map_w * 2)
+	{
+		ft_put_img(game, texture->back, BACK_SIZE * width, 160);
+		width++;
+	}
+	game->walk_cnt_display = ft_itoa(game->walk_cnt);
+	if (!game->walk_cnt_display)
+		ft_error_msg("Error\nMallo failed.");
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 0, 170, 0xFF0000, "walk count :");
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 100, 170, 0xFF0000, game->walk_cnt_display);
+	game->walk_cnt++;
+	free(game->walk_cnt_display);
 }

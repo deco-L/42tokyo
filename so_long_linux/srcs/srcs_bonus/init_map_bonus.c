@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 22:39:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ void	ft_input_map(int fd, t_game *game)
 
 	line = ft_calloc(1, 1);
 	line = ft_singl_col_input(fd, line);
-	game -> map = ft_split(line, '\n');
+	game->map = ft_split(line, '\n');
+	if (!game->map)
+		ft_error_msg("Error\nMalloc failed.");
 	free (line);
 	return ;
 }

@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/01 21:09:29 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/01 23:10:27 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,13 +93,13 @@ bonus:
 			@make -s WITH_BONUS=1
 
 %.o:%.c
-			@${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
+			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
 
 $(NAME):	${OBJ}
 			@echo "object file		compiled"
 			@${CCMLX}
 			@${CCLIBFT}
-			@${CC} ${CFLAGS} $(OBJ) -L. ${ARCHIVES} \
+			@${CC} ${CFLAGS} -fsanitize=address $(OBJ) -L. ${ARCHIVES} \
 				-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o ${EXE_NAME}
 			@echo "solong			created\n\n"
 			@echo "            ██████  ▒█████   ██▓     ▒█████   ███▄    █   ▄████ "
@@ -126,6 +126,8 @@ fclean:		clean
 			@echo "exevutable file		removed"
 
 re:			fclean all
+
+rebonus:	fclean bonus
 
 exe:		all bonus
 			@make -s clean

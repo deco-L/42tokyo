@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 21:11:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 21:11:45 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 23:30:51 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@
 
 /*---Map---*/
 # define SIZE 32
+# define BACK_SIZE 16
 # define WALL "./texture/map/wall.xpm"
 # define FLOOR "./texture/map/floor.xpm"
 # define ESCAPE "./texture/map/esc.xpm"
-# define ITEM "./texture/map/item.xpm"
-# define PLAYER "./texture/player/p_idle_f.xpm"
+# define ITEM "./texture/map/coin.xpm"
+# define PLAYER "./texture/player/p_idle_front1.xpm"
+# define BLACK_BACK "./texture/back/black.xpm"
 /*---------*/
 
 /*---Keycode---*/
@@ -54,6 +56,7 @@ typedef struct s_img
 	void	*item;
 	void	*esc;
 	void	*player;
+	void	*back;
 	int		wall_w;
 	int		wall_h;
 	int		floor_w;
@@ -64,6 +67,8 @@ typedef struct s_img
 	int		esc_h;
 	int		player_w;
 	int		player_h;
+	int		back_w;
+	int		back_h;
 }				t_img;
 
 typedef struct s_game
@@ -71,6 +76,8 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
+	char	*walk_cnt_display;
+	int		walk_cnt;
 	size_t	map_w;
 	size_t	map_h;
 	size_t	x;
@@ -79,7 +86,6 @@ typedef struct s_game
 	size_t	exit_cnt;
 	size_t	coin_cnt;
 	size_t	coin_flag;
-	size_t	walk_cnt;
 	t_img	*texture;
 }				t_game;
 /*---------------------------*/
@@ -98,6 +104,7 @@ void	ft_init_texture(t_game *game, t_img *texture);
 void	ft_init_map(int argc, char **argv, t_game *game);
 void	ft_input_map(int fd, t_game *game);
 void	ft_create_map(t_game *game, t_img *texture);
+void	ft_put_walkcnt(t_game *game, t_img *texture);
 void	ft_put_img(t_game *game, void	*img, int x, int y);
 void	ft_set_player(t_game *game);
 /*---------------*/

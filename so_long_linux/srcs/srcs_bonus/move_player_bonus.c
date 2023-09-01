@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:32:03 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 23:15:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_move_player(t_game *game, t_img *texture, int x, int y)
 	game->x = x;
 	game->y = y;
 	ft_create_map(game, texture);
-	ft_printf("Count of movements: %d\n", ++game->walk_cnt);
 }
 
 void	ft_move_wasd(t_game *game, t_img *texture, int x, int y)
