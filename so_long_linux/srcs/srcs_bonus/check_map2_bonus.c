@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:15:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 03:46:33 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ void	ft_mapcheck_invalid_ch(t_game *game)
 		while (width < game->map_w)
 		{
 			if (game->map[height][width] != '0' \
-					&& game->map[height][width] != '1'\
+					&& game->map[height][width] != '1' \
 					&& game->map[height][width] != 'C' \
 					&& game->map[height][width] != 'E' \
-					&& game->map[height][width] != 'P')
+					&& game->map[height][width] != 'P' \
+					&& game->map[height][width] != 'X')
 				ft_error_msg("Error\nMap contains invalid characters.");
 			width++;
 		}
@@ -55,6 +56,8 @@ void	ft_mapcheck_required_ch(t_game *game)
 		{
 			if (game->map[height][width] == 'C')
 				game->coin_cnt++;
+			else if (game->map[height][width] == 'X')
+				game->enemy_cnt++;
 			else if (game->map[height][width] == 'P')
 				game->player_cnt++;
 			else if (game->map[height][width] == 'E')

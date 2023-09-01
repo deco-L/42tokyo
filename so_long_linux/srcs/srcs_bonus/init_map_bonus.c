@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 22:39:47 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 04:13:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	ft_set_player(t_game *game)
 		{
 			if (game -> map[y][x] == 'P')
 			{
-				game -> x = x;
-				game -> y = y;
+				game->x = x;
+				game->y = y;
 			}
 			if (game -> x && game -> y)
 				break ;

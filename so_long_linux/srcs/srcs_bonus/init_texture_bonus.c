@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 17:07:55 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 23:41:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 03:20:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_init_texture(t_game *game, t_img *texture)
 	PLAYER2, &texture->player2_w, &texture->player2_h);
 	texture->back = mlx_xpm_file_to_image(game->mlx_ptr, \
 	BLACK_BACK, &texture->back_w, &texture->back_h);
+	texture->enemy = mlx_xpm_file_to_image(game->mlx_ptr, \
+	ENEMY, &texture->enemy_w, &texture->enemy_h);
 	game->texture = texture;
 }
 

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 21:11:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/02 00:06:52 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 04:23:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define ITEM "./texture/map/coin.xpm"
 # define PLAYER1 "./texture/player/p_idle_front1.xpm"
 # define PLAYER2 "./texture/player/p_idle_front2.xpm"
+# define ENEMY "./texture/enemy/enemy.xpm"
 # define BLACK_BACK "./texture/back/black.xpm"
 /*---------*/
 
@@ -58,6 +59,7 @@ typedef struct s_img
 	void	*esc;
 	void	*player1;
 	void	*player2;
+	void	*enemy;
 	void	*back;
 	int		wall_w;
 	int		wall_h;
@@ -71,6 +73,8 @@ typedef struct s_img
 	int		player1_h;
 	int		player2_w;
 	int		player2_h;
+	int		enemy_w;
+	int		enemy_h;
 	int		back_w;
 	int		back_h;
 }				t_img;
@@ -83,10 +87,14 @@ typedef struct s_game
 	char	*walk_cnt_display;
 	int		pl_mode;
 	int		walk_cnt;
+	int		enemy_cnt;
+	int		enemy_nbr;
 	size_t	map_w;
 	size_t	map_h;
 	size_t	x;
 	size_t	y;
+	size_t	enemy_x;
+	size_t	enemy_y;
 	size_t	player_cnt;
 	size_t	exit_cnt;
 	size_t	coin_cnt;
@@ -109,6 +117,7 @@ void	ft_init_texture(t_game *game, t_img *texture);
 void	ft_init_map(int argc, char **argv, t_game *game);
 void	ft_input_map(int fd, t_game *game);
 void	ft_create_map(t_game *game, t_img *texture);
+void	ft_render_map(t_game *game, t_img *texture, size_t x, size_t y);
 void	ft_put_walkcnt(t_game *game, t_img *texture);
 void	ft_put_img(t_game *game, void	*img, int x, int y);
 void	ft_set_player(t_game *game);
@@ -123,6 +132,8 @@ void	ft_move_player(t_game *game, t_img *texture, int x, int y);
 
 /*---animation---*/
 void	ft_run_anime(t_game *game, t_img *texture);
+void	ft_roaming_enemy(t_game *game, int nbr, size_t width, size_t height);
+void	ft_move_enemy(t_game *game, t_img *texture, int x, int y);
 /*--------------*/
 
 /*---Check---*/
