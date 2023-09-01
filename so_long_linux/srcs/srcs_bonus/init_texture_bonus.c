@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_texture.c                                     :+:      :+:    :+:   */
+/*   init_texture_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 17:07:55 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/31 17:40:40 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long_linux.h"
+#include "../../includes/so_long_linux_bonus.h"
 
 void	ft_init_texture(t_game *game, t_img *texture)
 {

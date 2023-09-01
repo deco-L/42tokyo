@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_player.c                                      :+:      :+:    :+:   */
+/*   move_player_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:32:03 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/31 17:40:40 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long_linux.h"
+#include "../../includes/so_long_linux_bonus.h"
 
 void	ft_move_player(t_game *game, t_img *texture, int x, int y)
 {

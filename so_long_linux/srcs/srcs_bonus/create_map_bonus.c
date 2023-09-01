@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_map.c                                       :+:      :+:    :+:   */
+/*   create_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 17:02:15 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/31 17:56:20 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long_linux.h"
+#include "../../includes/so_long_linux_bonus.h"
 
 void	ft_put_img(t_game *game, void	*img, int x, int y)
 {

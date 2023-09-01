@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map.c                                         :+:      :+:    :+:   */
+/*   init_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/31 17:54:03 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long_linux.h"
+#include "../../includes/so_long_linux_bonus.h"
 
 void	ft_check_arg(int argc, char **argv)
 {

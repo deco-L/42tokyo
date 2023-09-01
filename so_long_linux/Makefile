@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/08/31 19:43:32 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/01 21:09:29 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,6 @@ MANDATORY	= ${addprefix ${PRE}, srcs_mandatory/}
 
 BONUS		= ${addprefix ${PRE}, srcs_bonus/}
 
-OBJ			=${addprefix ${PRE}, obj/}
-
 LIBFT		= ${addprefix ${PRE}, libft/}
 ##-----------------------------##
 
@@ -41,9 +39,9 @@ SRCS		= so_long.c create_window.c close_window.c key_hook.c \
 				init_map.c init_texture.c create_map.c check_map1.c \
 				check_map2.c check_map3.c move_player.c helper.c error.c \
 
-BONUS_SRCS	= so_long.c create_window.c close_window.c key_hook.c \
-				init_map.c init_texture.c create_map.c check_map1.c \
-				check_map2.c check_map3.c move_player.c helper.c error.c \
+BONUS_SRCS	= so_long_bonus.c create_window_bonus.c close_window_bonus.c key_hook_bonus.c \
+				init_map_bonus.c init_texture_bonus.c create_map_bonus.c check_map1_bonus.c \
+				check_map2_bonus.c check_map3_bonus.c move_player_bonus.c helper_bonus.c error_bonus.c \
 ##-----------------------------##
 
 
@@ -129,7 +127,7 @@ fclean:		clean
 
 re:			fclean all
 
-exe:		re
+exe:		all bonus
 			@make -s clean
 
 .PHONY:		all clean fclean re exe

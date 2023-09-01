@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_linux.h                                    :+:      :+:    :+:   */
+/*   so_long_linux_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 21:11:14 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/01 21:11:16 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/01 21:11:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_LINUX_H
-# define SO_LONG_LINUX_H
+#ifndef SO_LONG_LINUX_BONUS_H
+# define SO_LONG_LINUX_BONUS_H
 
 # include "../srcs/libft/libft_include/libft.h"
 # include <fcntl.h>

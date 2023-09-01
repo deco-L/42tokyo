@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   close_window_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 23:24:45 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/31 17:40:40 by csakamot         ###   ########.fr       */
+/*   Created: 2023/07/14 12:11:56 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/01 21:13:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long_linux.h"
+#include "../../includes/so_long_linux_bonus.h"
 
-void	ft_error_msg(char *error_msg)
+int	ft_closing_process(t_game *game)
 {
-	ft_printf("%s\n", error_msg);
-	exit(EXIT_FAILURE);
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	exit(EXIT_SUCCESS);
 }
