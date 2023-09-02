@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:00:36 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 23:13:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:10:18 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_create_window(t_game *game, t_img *texture)
 		free(game->win_ptr);
 		exit(EXIT_FAILURE);
 	}
-	ft_create_map(game, texture);
+	ft_create_map(game, texture, NO_CNT);
 }

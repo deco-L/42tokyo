@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 21:11:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/02 04:23:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:09:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,34 @@
 # include "../mlx_linux/mlx.h"
 
 /*---Window_Size---*/
-# define WINDOW_WIDTH 1920
-# define WINDOW_HEIGHT 1080
+# define WINDOW_WIDTH	1920
+# define WINDOW_HEIGHT	1080
 /*-----------------*/
 
+/*---Switck---*/
+# define CNT			1
+# define NO_CNT			0
+/*-----------*/
+
 /*---Map---*/
-# define SIZE 32
-# define BACK_SIZE 16
-# define WALL "./texture/map/wall.xpm"
-# define FLOOR "./texture/map/floor.xpm"
-# define ESCAPE "./texture/map/esc.xpm"
-# define ITEM "./texture/map/coin.xpm"
-# define PLAYER1 "./texture/player/p_idle_front1.xpm"
-# define PLAYER2 "./texture/player/p_idle_front2.xpm"
-# define ENEMY "./texture/enemy/enemy.xpm"
-# define BLACK_BACK "./texture/back/black.xpm"
+# define SIZE			32
+# define BACK_SIZE		16
+# define WALL			"./texture/map/wall.xpm"
+# define FLOOR			"./texture/map/floor.xpm"
+# define ESCAPE			"./texture/map/esc.xpm"
+# define ITEM			"./texture/map/coin.xpm"
+# define PLAYER1		"./texture/player/p_idle_front1.xpm"
+# define PLAYER2		"./texture/player/p_idle_front2.xpm"
+# define ENEMY			"./texture/enemy/enemy.xpm"
+# define BLACK_BACK		"./texture/back/black.xpm"
 /*---------*/
 
 /*---Keycode---*/
-# define KEY_ESC 65307
-# define KEY_W 119
-# define KEY_A 97
-# define KEY_S 115
-# define KEY_D 100
+# define KEY_ESC		65307
+# define KEY_W			119
+# define KEY_A			97
+# define KEY_S			115
+# define KEY_D			100
 /*-------------*/
 
 /*---Structure_Declaration---*/
@@ -116,10 +121,10 @@ void	ft_init_texture(t_game *game, t_img *texture);
 /*---Map_Related---*/
 void	ft_init_map(int argc, char **argv, t_game *game);
 void	ft_input_map(int fd, t_game *game);
-void	ft_create_map(t_game *game, t_img *texture);
+void	ft_create_map(t_game *game, t_img *texture, int cnt);
 void	ft_render_map(t_game *game, t_img *texture, size_t x, size_t y);
-void	ft_put_walkcnt(t_game *game, t_img *texture);
-void	ft_put_img(t_game *game, void	*img, int x, int y);
+void	ft_put_walkcnt(t_game *game, t_img *texture, int cnt);
+void	ft_put_img(t_game *game, void *img, int x, int y);
 void	ft_set_player(t_game *game);
 int		ft_loop_hook(t_game *game);
 /*---------------*/
@@ -131,8 +136,8 @@ void	ft_move_player(t_game *game, t_img *texture, int x, int y);
 /*--------------------*/
 
 /*---animation---*/
-void	ft_run_anime(t_game *game, t_img *texture);
-void	ft_roaming_enemy(t_game *game, int nbr, size_t width, size_t height);
+void	ft_animetion(t_game *game, t_img *texture);
+void	ft_roaming_enemy(t_game *game, size_t width, size_t height);
 void	ft_move_enemy(t_game *game, t_img *texture, int x, int y);
 /*--------------*/
 

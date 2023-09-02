@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 23:52:09 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/02 04:42:07 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:04:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ int	ft_loop_hook(t_game *game)
 	static int	count;
 
 	count++;
-	while (count == 15000)
+	if (count == 4000)
 	{
 		if (!game->pl_mode)
 			game->pl_mode++;
 		else
 			game->pl_mode--;
-		ft_run_anime(game, game->texture);
+		ft_animetion(game, game->texture);
 		count = 0;
 	}
 	return (0);
 }
 
-void	ft_run_anime(t_game *game, t_img *texture)
+void	ft_animetion(t_game *game, t_img *texture)
 {
 	int		nbr;
 	size_t	width;
@@ -48,7 +48,7 @@ void	ft_run_anime(t_game *game, t_img *texture)
 			if (game->map[height][width] == 'P' && game->pl_mode)
 				ft_put_img(game, texture->player2, SIZE * width, SIZE * height);
 			if (game->map[height][width] == 'X')
-				ft_roaming_enemy(game, nbr, width, height);
+				ft_roaming_enemy(game, width, height);
 			width++;
 		}
 		height++;
@@ -56,11 +56,11 @@ void	ft_run_anime(t_game *game, t_img *texture)
 	return ;
 }
 
-void	ft_roaming_enemy(t_game *game, int nbr, size_t width, size_t height)
+void	ft_roaming_enemy(t_game *game, size_t width, size_t height)
 {
 	int	directions;
 
-	directions = nbr % 4;
+	directions = rand() % 4;
 	if (game->enemy_nbr == 0)
 	{
 		game->enemy_x = width;
@@ -86,5 +86,5 @@ void	ft_move_enemy(t_game *game, t_img *texture, int x, int y)
 	game->map[y][x] = c;
 	game->enemy_x = x;
 	game->enemy_y = y;
-	ft_create_map(game, texture);
+	ft_create_map(game, texture, NO_CNT);
 }

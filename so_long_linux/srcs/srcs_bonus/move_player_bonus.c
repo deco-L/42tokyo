@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:32:03 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/02 04:43:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:04:46 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_move_player(t_game *game, t_img *texture, int x, int y)
 	game->map[y][x] = c;
 	game->x = x;
 	game->y = y;
-	ft_create_map(game, texture);
+	ft_create_map(game, texture, CNT);
 }
 
 void	ft_move_wasd(t_game *game, t_img *texture, int x, int y)

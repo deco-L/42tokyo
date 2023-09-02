@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 17:02:15 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/02 03:32:38 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:09:58 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_put_img(t_game *game, void	*img, int x, int y)
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, img, x, y);
 }
 
-void	ft_create_map(t_game *game, t_img *texture)
+void	ft_create_map(t_game *game, t_img *texture, int cnt)
 {
 	size_t	width;
 	size_t	height;
@@ -33,7 +33,7 @@ void	ft_create_map(t_game *game, t_img *texture)
 		}
 		height++;
 	}
-	ft_put_walkcnt(game, game->texture);
+	ft_put_walkcnt(game, game->texture, cnt);
 }
 
 void	ft_render_map(t_game *game, t_img *texture, size_t width, size_t height)
@@ -54,7 +54,7 @@ void	ft_render_map(t_game *game, t_img *texture, size_t width, size_t height)
 		ft_put_img(game, texture->enemy, SIZE * width, SIZE * height);
 }
 
-void	ft_put_walkcnt(t_game *game, t_img *texture)
+void	ft_put_walkcnt(t_game *game, t_img *texture, int cnt)
 {
 	size_t	width;
 
@@ -71,6 +71,7 @@ void	ft_put_walkcnt(t_game *game, t_img *texture)
 					0, game->map_h * SIZE + 10, 0xFF0000, "walk count :");
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
 				100, game->map_h * SIZE + 10, 0xFF0000, game->walk_cnt_display);
-	game->walk_cnt++;
+	if (cnt == CNT)
+		game->walk_cnt++;
 	free(game->walk_cnt_display);
 }
