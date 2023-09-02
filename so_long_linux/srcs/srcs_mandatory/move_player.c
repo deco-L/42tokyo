@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:32:03 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/31 17:40:40 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:13:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_move_wasd(t_game *game, t_img *texture, int x, int y)
 	{
 		game->map[y][x] = '0';
 		ft_move_player(game, texture, x, y);
+		ft_printf("GAME CLEAR\n");
 		ft_closing_process(game);
 	}
 	return ;

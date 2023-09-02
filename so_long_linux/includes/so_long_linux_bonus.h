@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 21:11:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/02 18:09:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:18:40 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ typedef struct s_game
 	int		pl_mode;
 	int		walk_cnt;
 	int		enemy_cnt;
-	int		enemy_nbr;
 	size_t	map_w;
 	size_t	map_h;
 	size_t	x;

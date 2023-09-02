@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/02 17:57:22 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/02 20:18:54 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ bonus:
 			@make -s WITH_BONUS=1
 
 %.o:%.c
-			${CC} -I/usr/include -Imlx -c $< -o $@
+			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
 
 $(NAME):	${OBJ}
 			@echo "object file		compiled"
