@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 23:52:09 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/02 20:19:07 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/03 00:21:51 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_loop_hook(t_game *game)
 	static int	count;
 
 	count++;
-	if (count == 8000)
+	if (count == 10000)
 	{
 		if (!game->pl_mode)
 			game->pl_mode++;
@@ -35,6 +35,8 @@ void	ft_animetion(t_game *game, t_img *texture)
 	size_t	height;
 
 	height = 0;
+	game->enemy_x = 0;
+	game->enemy_y = 0;
 	while (height < game->map_h)
 	{
 		width = 0;
@@ -44,7 +46,8 @@ void	ft_animetion(t_game *game, t_img *texture)
 				ft_put_img(game, texture->player1, SIZE * width, SIZE * height);
 			if (game->map[height][width] == 'P' && game->pl_mode)
 				ft_put_img(game, texture->player2, SIZE * width, SIZE * height);
-			if (game->map[height][width] == 'X' && game->enemy_cnt)
+			if (game->map[height][width] == 'X' && game->enemy_cnt \
+			&& (game->enemy_x != width || game->enemy_y != height))
 				ft_roaming_enemy(game, width, height);
 			width++;
 		}
