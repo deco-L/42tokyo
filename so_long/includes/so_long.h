@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/03 12:53:51 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/03 16:20:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,16 @@
 /*---------*/
 
 /*---Keycode---*/
-# define KEY_ESC		65307
-# define KEY_W			119
-# define KEY_A			97
-# define KEY_S			115
-# define KEY_D			100
+# define KEY_ESC		53
+# define KEY_W			13
+# define KEY_A			0
+# define KEY_S			1
+# define KEY_D			2
+// # define KEY_ESC		65307
+// # define KEY_W			119
+// # define KEY_A			97
+// # define KEY_S			115
+// # define KEY_D			100
 /*-------------*/
 
 /*---Structure_Declaration---*/

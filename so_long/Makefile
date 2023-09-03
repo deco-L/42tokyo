@@ -6,14 +6,14 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/03 16:08:39 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/03 16:36:20 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ##----Executable File Name-----##
 NAME		= so_long
 
-NAME_BONUS	= so_long_bonus
+NAME_BONUS	= solong_bonus
 ##-----------------------------##
 
 
@@ -22,8 +22,6 @@ NAME_BONUS	= so_long_bonus
 HEAD		= ./includes/
 
 PRE			= ./srcs/
-
-MLX			= ./mlx/
 
 MANDATORY	= ${addprefix ${PRE}, srcs_mandatory/}
 
@@ -60,14 +58,11 @@ CFLAGS		= -Wall -Wextra -Werror
 
 CCLIBFT		= make -s -C srcs/libft
 
-CCMLX		= make -s -i -C mlx
 ##-----------------------------##
 
 
 
 ##------------remove-----------##
-RMMLX		= cd ${MLX} && make -s clean && cd ./../
-
 RMLIBFT		= cd ${LIBFT} && make -s fclean && cd ./../../
 ##-----------------------------##
 
@@ -94,14 +89,12 @@ bonus:
 			@make -s WITH_BONUS=1
 
 %.o:%.c
-			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
+			@${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
 
 $(NAME):	${OBJ}
 			@echo "object file		compiled"
-			@${CCMLX}
 			@${CCLIBFT}
-			@$(CC) $(CFLAGS) $(OBJ) -I/usr/X11/include -Lmlx -lmlx_Darwin -L/usr/X11/include/../lib \
-															-Imlx -lXext -lX11  -Lsrcs ${ARCHIVES} -o ${EXE_NAME}
+			@$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit  -Lsrcs ${ARCHIVES} -o ${EXE_NAME}
 			@echo "solong			created\n\n"
 			@echo "            ██████  ▒█████   ██▓     ▒█████   ███▄    █   ▄████ "
 			@echo "          ▒██    ▒ ▒██▒  ██▒▓██▒    ▒██▒  ██▒ ██ ██   █  ██▒ ▀█▒"
@@ -116,7 +109,6 @@ $(NAME):	${OBJ}
 clean:
 			@${RM} ${OBJS}
 			@${RM} ${OBJS_BONUS}
-			@${RMMLX}
 			@${RMLIBFT}
 			@echo "object file		removed"
 
