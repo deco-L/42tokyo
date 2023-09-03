@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/29 19:24:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/03 13:19:11 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long_bonus.h"
 
 void	ft_mlx_init(t_game *game)
 {
@@ -21,7 +21,7 @@ void	ft_mlx_init(t_game *game)
 
 int	ft_display_on(t_game *game)
 {
-	ft_create_map(game, game->texture);
+	ft_create_map(game, game->texture, NO_CNT);
 	return (0);
 }
 
@@ -37,19 +37,19 @@ int	main(int argc, char **argv)
 	t_game	game;
 	t_img	texture;
 
-	ft_init_map(argc, argv, &game, &texture);
+	ft_init_map(argc, argv, &game);
 	ft_mlx_init(&game);
 	ft_init_texture(&game, &texture);
 	ft_create_window(&game, &texture);
 	ft_hook_list(&game);
-	mlx_string_put(game.mlx_ptr, game.win_ptr, 0, 160, 0x00FF0000, "so_long");
+	mlx_loop_hook(game.mlx_ptr, ft_loop_hook, &game);
 	mlx_loop(game.mlx_ptr);
 	return (0);
 }
 
-#include <libc.h>
+// #include <libc.h>
 
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q solong");
-}
+// __attribute__((destructor))
+// static void destructor() {
+//     system("leaks -q solong");
+// }

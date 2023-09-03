@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:57:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/29 17:37:19 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/03 12:51:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 void	ft_mapcheck_blank_line(char *line)
 {

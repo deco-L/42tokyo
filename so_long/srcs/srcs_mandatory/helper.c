@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 23:05:41 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/14 16:52:03 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/03 12:51:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 int	ft_strrncmp(const char *s1, const char *s2, size_t n)
 {

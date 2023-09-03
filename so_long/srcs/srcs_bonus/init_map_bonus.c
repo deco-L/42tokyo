@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map.c                                         :+:      :+:    :+:   */
+/*   init_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/29 17:01:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/03 12:51:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long_bonus.h"
 
 void	ft_check_arg(int argc, char **argv)
 {
 	if (argc != 2)
 		ft_error_msg("Invalid number of argument.");
 	if (ft_strrncmp(argv[1], ".ber", 4))
-		ft_error_msg("Invalid argument.");
+		ft_error_msg("The extension is not .ber");
 	return ;
 }
 
@@ -45,7 +45,9 @@ void	ft_input_map(int fd, t_game *game)
 
 	line = ft_calloc(1, 1);
 	line = ft_singl_col_input(fd, line);
-	game -> map = ft_split(line, '\n');
+	game->map = ft_split(line, '\n');
+	if (!game->map)
+		ft_error_msg("Error\nMalloc failed.");
 	free (line);
 	return ;
 }
@@ -63,8 +65,8 @@ void	ft_set_player(t_game *game)
 		{
 			if (game -> map[y][x] == 'P')
 			{
-				game -> x = x;
-				game -> y = y;
+				game->x = x;
+				game->y = y;
 			}
 			if (game -> x && game -> y)
 				break ;
@@ -77,7 +79,7 @@ void	ft_set_player(t_game *game)
 	return ;
 }
 
-void	ft_init_map(int argc, char **argv, t_game *game, t_img *texture)
+void	ft_init_map(int argc, char **argv, t_game *game)
 {
 	int	fd;
 

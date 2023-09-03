@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_player.c                                      :+:      :+:    :+:   */
+/*   move_player_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:32:03 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/14 16:52:03 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/03 12:51:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long_bonus.h"
 
 void	ft_move_player(t_game *game, t_img *texture, int x, int y)
 {
@@ -21,8 +21,7 @@ void	ft_move_player(t_game *game, t_img *texture, int x, int y)
 	game->map[y][x] = c;
 	game->x = x;
 	game->y = y;
-	ft_create_map(game, texture);
-	ft_printf("Count of movements: %d\n", ++game->walk_cnt);
+	ft_create_map(game, texture, CNT);
 }
 
 void	ft_move_wasd(t_game *game, t_img *texture, int x, int y)
@@ -39,6 +38,12 @@ void	ft_move_wasd(t_game *game, t_img *texture, int x, int y)
 	{
 		game->map[y][x] = '0';
 		ft_move_player(game, texture, x, y);
+		ft_printf("GAME CLEAR\n");
+		ft_closing_process(game);
+	}
+	else if (game->map[y][x] == 'X')
+	{
+		ft_printf("GAME OVER\n");
 		ft_closing_process(game);
 	}
 	return ;

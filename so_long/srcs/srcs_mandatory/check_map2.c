@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:15:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/29 17:04:42 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/03 13:06:10 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 void	ft_mapcheck_empty(t_game *game)
 {

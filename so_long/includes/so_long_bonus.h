@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/03 12:53:51 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/01 21:11:16 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/03 12:41:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../srcs/libft/libft_include/libft.h"
 # include <fcntl.h>
@@ -29,13 +29,22 @@
 # define WINDOW_HEIGHT	1440
 /*-----------------*/
 
+/*---Switck---*/
+# define CNT			1
+# define NO_CNT			0
+/*-----------*/
+
 /*---Map---*/
 # define SIZE			32
+# define BACK_SIZE		16
 # define WALL			"./texture/map/wall.xpm"
 # define FLOOR			"./texture/map/floor.xpm"
 # define ESCAPE			"./texture/map/esc.xpm"
 # define ITEM			"./texture/map/coin.xpm"
-# define PLAYER			"./texture/player/p_idle_front1.xpm"
+# define PLAYER1		"./texture/player/p_idle_front1.xpm"
+# define PLAYER2		"./texture/player/p_idle_front2.xpm"
+# define ENEMY			"./texture/enemy/enemy.xpm"
+# define BLACK_BACK		"./texture/back/black.xpm"
 /*---------*/
 
 /*---Keycode---*/
@@ -53,7 +62,10 @@ typedef struct s_img
 	void	*floor;
 	void	*item;
 	void	*esc;
-	void	*player;
+	void	*player1;
+	void	*player2;
+	void	*enemy;
+	void	*back;
 	int		wall_w;
 	int		wall_h;
 	int		floor_w;
@@ -62,8 +74,14 @@ typedef struct s_img
 	int		item_h;
 	int		esc_w;
 	int		esc_h;
-	int		player_w;
-	int		player_h;
+	int		player1_w;
+	int		player1_h;
+	int		player2_w;
+	int		player2_h;
+	int		enemy_w;
+	int		enemy_h;
+	int		back_w;
+	int		back_h;
 }				t_img;
 
 typedef struct s_game
@@ -71,15 +89,20 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
+	char	*walk_cnt_display;
+	int		pl_mode;
+	int		walk_cnt;
+	int		enemy_cnt;
 	size_t	map_w;
 	size_t	map_h;
 	size_t	x;
 	size_t	y;
+	size_t	enemy_x;
+	size_t	enemy_y;
 	size_t	player_cnt;
 	size_t	exit_cnt;
 	size_t	coin_cnt;
 	size_t	coin_flag;
-	size_t	walk_cnt;
 	t_img	*texture;
 }				t_game;
 /*---------------------------*/
@@ -97,9 +120,12 @@ void	ft_init_texture(t_game *game, t_img *texture);
 /*---Map_Related---*/
 void	ft_init_map(int argc, char **argv, t_game *game);
 void	ft_input_map(int fd, t_game *game);
-void	ft_create_map(t_game *game, t_img *texture);
-void	ft_put_img(t_game *game, void	*img, int x, int y);
+void	ft_create_map(t_game *game, t_img *texture, int cnt);
+void	ft_render_map(t_game *game, t_img *texture, size_t x, size_t y);
+void	ft_put_walkcnt(t_game *game, t_img *texture, int cnt);
+void	ft_put_img(t_game *game, void *img, int x, int y);
 void	ft_set_player(t_game *game);
+int		ft_loop_hook(t_game *game);
 /*---------------*/
 
 /*---Keypress_Event---*/
@@ -107,6 +133,12 @@ int		ft_key_hook(int keycode, t_game *game);
 void	ft_move_wasd(t_game *game, t_img *texture, int x, int y);
 void	ft_move_player(t_game *game, t_img *texture, int x, int y);
 /*--------------------*/
+
+/*---animation---*/
+void	ft_animetion(t_game *game, t_img *texture);
+void	ft_roaming_enemy(t_game *game, size_t width, size_t height);
+void	ft_move_enemy(t_game *game, t_img *texture, int x, int y);
+/*--------------*/
 
 /*---Check---*/
 void	ft_check_arg(int argc, char **argv);
