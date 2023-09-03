@@ -6,12 +6,12 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/02 20:18:54 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/03 16:08:26 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ##----Executable File Name-----##
-NAME		= solong
+NAME		= so_long
 
 NAME_BONUS	= solong_bonus
 ##-----------------------------##
