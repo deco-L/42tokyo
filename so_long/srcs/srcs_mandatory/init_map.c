@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 22:51:58 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/03 12:51:13 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 02:27:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,33 +50,6 @@ void	ft_input_map(int fd, t_game *game)
 	return ;
 }
 
-void	ft_set_player(t_game *game)
-{
-	size_t	x;
-	size_t	y;
-
-	y = 0;
-	while (game -> map[y] != NULL)
-	{
-		x = 0;
-		while (game -> map[y][x] != '\0')
-		{
-			if (game -> map[y][x] == 'P')
-			{
-				game -> x = x;
-				game -> y = y;
-			}
-			if (game -> x && game -> y)
-				break ;
-			x++;
-		}
-		if (game -> x && game -> y)
-			break ;
-		y++;
-	}
-	return ;
-}
-
 void	ft_init_map(int argc, char **argv, t_game *game)
 {
 	int	fd;
@@ -88,7 +61,6 @@ void	ft_init_map(int argc, char **argv, t_game *game)
 		ft_error_msg("Error\nFile not found.");
 	ft_input_map(fd, game);
 	ft_check_map(game);
-	ft_set_player(game);
 	close (fd);
 	return ;
 }

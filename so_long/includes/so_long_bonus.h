@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 21:11:16 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/03 16:21:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 02:27:38 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,6 @@ void	ft_create_map(t_game *game, t_img *texture, int cnt);
 void	ft_render_map(t_game *game, t_img *texture, size_t x, size_t y);
 void	ft_put_walkcnt(t_game *game, t_img *texture, int cnt);
 void	ft_put_img(t_game *game, void *img, int x, int y);
-void	ft_set_player(t_game *game);
 int		ft_loop_hook(t_game *game);
 /*---------------*/
 
@@ -151,7 +150,6 @@ void	ft_check_map(t_game *game);
 void	ft_mapcheck_empty(t_game *game);
 void	ft_mapcheck_blank_line(char *line);
 void	ft_mapcheck_matrix(t_game *game);
-void	ft_mapcheck_rectangle(t_game *game);
 void	ft_mapcheck_character(t_game *game);
 void	ft_mapcheck_large_map(t_game *game);
 void	ft_mapcheck_invalid_ch(t_game *game);

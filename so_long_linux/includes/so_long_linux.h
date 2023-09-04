@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/01 21:59:50 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 03:20:42 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,14 @@ typedef struct s_game
 	size_t	map_h;
 	size_t	x;
 	size_t	y;
+	size_t	exit_x;
+	size_t	exit_y;
 	size_t	player_cnt;
 	size_t	exit_cnt;
 	size_t	coin_cnt;
 	size_t	coin_flag;
+	size_t	coin_path_flag;
+	size_t	exit_path_flag;
 	size_t	walk_cnt;
 	t_img	*texture;
 }				t_game;
@@ -99,7 +103,6 @@ void	ft_init_map(int argc, char **argv, t_game *game);
 void	ft_input_map(int fd, t_game *game);
 void	ft_create_map(t_game *game, t_img *texture);
 void	ft_put_img(t_game *game, void	*img, int x, int y);
-void	ft_set_player(t_game *game);
 /*---------------*/
 
 /*---Keypress_Event---*/
@@ -114,13 +117,16 @@ void	ft_check_map(t_game *game);
 void	ft_mapcheck_empty(t_game *game);
 void	ft_mapcheck_blank_line(char *line);
 void	ft_mapcheck_matrix(t_game *game);
-void	ft_mapcheck_rectangle(t_game *game);
 void	ft_mapcheck_character(t_game *game);
 void	ft_mapcheck_large_map(t_game *game);
 void	ft_mapcheck_invalid_ch(t_game *game);
 void	ft_mapcheck_required_ch(t_game *game);
+void	ft_set_start_end(t_game *game, size_t x, size_t y);
 void	ft_mapcheck_duplicates_ch(t_game *game);
 void	ft_mapcheck_wall_less(t_game *game);
+void	ft_mapcheck_path(t_game *game);
+void	ft_coin_path_search(t_game *game, size_t count, size_t x, size_t y);
+void	ft_exit_path_search(t_game *game, size_t x, size_t y);
 /*-----------*/
 
 /*---Error---*/

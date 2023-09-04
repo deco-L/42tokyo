@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/03 16:20:47 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 02:27:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ void	ft_init_map(int argc, char **argv, t_game *game);
 void	ft_input_map(int fd, t_game *game);
 void	ft_create_map(t_game *game, t_img *texture);
 void	ft_put_img(t_game *game, void	*img, int x, int y);
-void	ft_set_player(t_game *game);
 /*---------------*/
 
 /*---Keypress_Event---*/
@@ -119,7 +118,6 @@ void	ft_check_map(t_game *game);
 void	ft_mapcheck_empty(t_game *game);
 void	ft_mapcheck_blank_line(char *line);
 void	ft_mapcheck_matrix(t_game *game);
-void	ft_mapcheck_rectangle(t_game *game);
 void	ft_mapcheck_character(t_game *game);
 void	ft_mapcheck_large_map(t_game *game);
 void	ft_mapcheck_invalid_ch(t_game *game);

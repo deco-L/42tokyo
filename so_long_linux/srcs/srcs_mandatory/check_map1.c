@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:57:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/08/31 17:40:40 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 03:27:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,6 @@ void	ft_mapcheck_character(t_game *game)
 	ft_mapcheck_duplicates_ch(game);
 }
 
-void	ft_mapcheck_rectangle(t_game *game)
-{
-	if (game -> map_h == game -> map_w)
-		ft_error_msg("Error\nThe map is not rectangular.");
-	return ;
-}
-
 void	ft_check_map(t_game *game)
 {
 	ft_mapcheck_empty(game);
@@ -84,5 +77,5 @@ void	ft_check_map(t_game *game)
 	ft_mapcheck_large_map(game);
 	ft_mapcheck_wall_less(game);
 	ft_mapcheck_character(game);
-	ft_mapcheck_rectangle(game);
+	ft_mapcheck_path(game);
 }

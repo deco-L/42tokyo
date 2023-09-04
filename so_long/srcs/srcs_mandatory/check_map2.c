@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:15:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/03 13:06:10 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 02:49:15 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,11 @@ void	ft_mapcheck_required_ch(t_game *game)
 			if (game->map[height][width] == 'C')
 				game->coin_cnt++;
 			else if (game->map[height][width] == 'P')
+			{
+				game->x = width;
+				game->y = height;
 				game->player_cnt++;
+			}
 			else if (game->map[height][width] == 'E')
 				game->exit_cnt++;
 			width++;
@@ -65,7 +69,6 @@ void	ft_mapcheck_required_ch(t_game *game)
 	}
 	if (!(game->coin_cnt && game->player_cnt && game->exit_cnt))
 		ft_error_msg("Error\nMap does not contain required characters.");
-	return ;
 }
 
 void	ft_mapcheck_duplicates_ch(t_game *game)

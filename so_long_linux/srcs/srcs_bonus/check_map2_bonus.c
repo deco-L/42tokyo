@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:15:31 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/02 03:46:33 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 02:46:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,27 @@ void	ft_mapcheck_required_ch(t_game *game)
 	size_t	height;
 
 	height = 0;
-	while (height < game->map_h)
+	while (height++ < game->map_h)
 	{
 		width = 0;
-		while (width < game->map_w)
+		while (width++ < game->map_w)
 		{
-			if (game->map[height][width] == 'C')
+			if (game->map[height - 1][width - 1] == 'C')
 				game->coin_cnt++;
-			else if (game->map[height][width] == 'X')
+			else if (game->map[height - 1][width - 1] == 'X')
 				game->enemy_cnt++;
-			else if (game->map[height][width] == 'P')
+			else if (game->map[height - 1][width - 1] == 'P')
+			{
+				game->x = width - 1;
+				game->y = height - 1;
 				game->player_cnt++;
-			else if (game->map[height][width] == 'E')
+			}
+			else if (game->map[height - 1][width - 1] == 'E')
 				game->exit_cnt++;
-			width++;
 		}
-		height++;
 	}
 	if (!(game->coin_cnt && game->player_cnt && game->exit_cnt))
 		ft_error_msg("Error\nMap does not contain required characters.");
-	return ;
 }
 
 void	ft_mapcheck_duplicates_ch(t_game *game)
