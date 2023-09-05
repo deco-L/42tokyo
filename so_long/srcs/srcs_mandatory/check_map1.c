@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:57:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/05 02:12:30 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 13:50:50 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,28 @@ void	ft_check_map(t_game *game)
 	ft_mapcheck_large_map(game);
 	ft_mapcheck_wall_less(game);
 	ft_mapcheck_character(game);
+	ft_mapcheck_path(game);
+}
+
+void	ft_return_map(t_game *game)
+{
+	size_t	width;
+	size_t	height;
+
+	height = 0;
+	while (height < game->map_h)
+	{
+		width = 0;
+		while (width < game->map_w)
+		{
+			if (game->map[height][width] == 'P' - 1 \
+			|| game->map[height][width] == '0' - 1 \
+			|| game->map[height][width] == 'C' - 1 \
+			|| game->map[height][width] == 'E' - 1)
+				game->map[height][width]++;
+			width++;
+		}
+		height++;
+	}
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/05 02:27:43 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 13:58:58 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@
 /*---------*/
 
 /*---Keycode---*/
-# define KEY_ESC		53
-# define KEY_W			13
-# define KEY_A			0
-# define KEY_S			1
-# define KEY_D			2
-// # define KEY_ESC		65307
-// # define KEY_W			119
-// # define KEY_A			97
-// # define KEY_S			115
-// # define KEY_D			100
+// # define KEY_ESC		53
+// # define KEY_W			13
+// # define KEY_A			0
+// # define KEY_S			1
+// # define KEY_D			2
+# define KEY_ESC		65307
+# define KEY_W			119
+# define KEY_A			97
+# define KEY_S			115
+# define KEY_D			100
 /*-------------*/
 
 /*---Structure_Declaration---*/
@@ -80,10 +80,14 @@ typedef struct s_game
 	size_t	map_h;
 	size_t	x;
 	size_t	y;
+	size_t	exit_x;
+	size_t	exit_y;
 	size_t	player_cnt;
 	size_t	exit_cnt;
 	size_t	coin_cnt;
 	size_t	coin_flag;
+	size_t	coin_path_flag;
+	size_t	exit_path_flag;
 	size_t	walk_cnt;
 	t_img	*texture;
 }				t_game;
@@ -122,8 +126,14 @@ void	ft_mapcheck_character(t_game *game);
 void	ft_mapcheck_large_map(t_game *game);
 void	ft_mapcheck_invalid_ch(t_game *game);
 void	ft_mapcheck_required_ch(t_game *game);
+void	ft_set_start_end(t_game *game, size_t x, size_t y);
 void	ft_mapcheck_duplicates_ch(t_game *game);
 void	ft_mapcheck_wall_less(t_game *game);
+void	ft_mapcheck_path(t_game *game);
+void	ft_coin_path_search(t_game *game, size_t count, size_t x, size_t y);
+void	ft_exit_path_search(t_game *game, size_t x, size_t y);
+void	ft_return_path(t_game *game, size_t x, size_t y);
+void	ft_return_map(t_game *game);
 /*-----------*/
 
 /*---Error---*/
