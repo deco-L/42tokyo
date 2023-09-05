@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:54:06 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/05 03:20:42 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/05 22:59:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,8 @@ void	ft_mapcheck_wall_less(t_game *game);
 void	ft_mapcheck_path(t_game *game);
 void	ft_coin_path_search(t_game *game, size_t count, size_t x, size_t y);
 void	ft_exit_path_search(t_game *game, size_t x, size_t y);
+void	ft_return_path(t_game *game, size_t x, size_t y);
+void	ft_return_map(t_game *game);
 /*-----------*/
 
 /*---Error---*/
