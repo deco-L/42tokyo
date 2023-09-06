@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:12:52 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/05 16:20:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/06 14:22:48 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ void	ft_mapcheck_path(t_game *game)
 	ft_coin_path_search(game, 0, game->x, game->y);
 	if (!game->coin_path_flag)
 		ft_error_msg("Error\nThere is no path to the goal on this map.");
+	ft_exit_path_search(game, game->exit_x, game->exit_y);
+	for (size_t i = 0; i < game->map_h; i++)
+		printf("%s\n", game->map[i]);
+	if (!game->exit_path_flag)
+		ft_error_msg("Error\nThere is no path to the goal on this map.");
 	ft_return_map(game);
 	return ;
 }
@@ -66,32 +71,25 @@ void	ft_set_start_end(t_game *game, size_t x, size_t y)
 
 void	ft_coin_path_search(t_game *game, size_t count, size_t x, size_t y)
 {
-	for (size_t i = 0; i < game->map_h; i++)
-		printf("%s\n", game->map[i]);
-	printf("%ld, %ld, %ld, %ld\n", x, y, count, game->exit_path_flag);
 	if (!game->coin_path_flag)
 	{
+		for (size_t i = 0; i < game->map_h; i++)
+			printf("%s\n", game->map[i]);
 		if (game->map[y][x] == 'C')
 			count++;
-		if (game->map[y][x] == 'E')
-			game->exit_path_flag++;
 		game->map[y][x]--;
-		if (count == game->coin_cnt && game->exit_path_flag)
+		if (count == game->coin_cnt)
 		{
 			game->coin_path_flag++;
 			ft_return_path(game, x, y);
 		}
-		if (game->map[y - 1][x] == '0' || game->map[y - 1][x] == 'C' \
-											|| game->map[y - 1][x] == 'E')
+		if (game->map[y - 1][x] == '0' || game->map[y - 1][x] == 'C')
 			ft_coin_path_search(game, count, x, y - 1);
-		if (game->map[y][x - 1] == '0' || game->map[y][x - 1] == 'C' \
-												|| game->map[y][x - 1] == 'E')
+		if (game->map[y][x - 1] == '0' || game->map[y][x - 1] == 'C')
 			ft_coin_path_search(game, count, x - 1, y);
-		if (game->map[y + 1][x] == '0' || game->map[y + 1][x] == 'C' \
-												|| game->map[y + 1][x] == 'E')
+		if (game->map[y + 1][x] == '0' || game->map[y + 1][x] == 'C')
 			ft_coin_path_search(game, count, x, y + 1);
-		if (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'C' \
-												|| game->map[y][x + 1] == 'E')
+		if (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'C')
 			ft_coin_path_search(game, count, x + 1, y);
 		ft_return_path(game, x, y);
 	}
@@ -105,21 +103,3 @@ void	ft_return_path(t_game *game, size_t x, size_t y)
 		game->map[y][x] == 'P' - 1)
 		game->map[y][x]++;
 }
-
-// void	ft_exit_path_search(t_game *game, size_t x, size_t y)
-// {
-// 	if (game->map[y][x] == 'C')
-// 		game->exit_path_flag++;
-// 	game->map[y][x]++;
-// 	if (game->exit_path_flag)
-// 		return ;
-// 	if (game->map[y - 1][x] == '0' || game->map[y - 1][x] == 'C')
-// 		ft_exit_path_search(game, x, y - 1);
-// 	else if (game->map[y][x - 1] == '0' || game->map[y][x - 1] == 'C')
-// 		ft_exit_path_search(game, x - 1, y);
-// 	else if (game->map[y + 1][x] == '0' || game->map[y + 1][x] == 'C')
-// 		ft_exit_path_search(game, x, y + 1);
-// 	else if (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'C')
-// 		ft_exit_path_search(game, x + 1, y);
-// 	return ;
-// }
