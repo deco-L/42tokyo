@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/06 13:40:11 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/08 15:42:23 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,7 +103,7 @@ $(NAME):	${OBJ}
 			@${CCLIBFT}
 			@$(CC) $(CFLAGS) $(OBJ) -I/usr/X11/include -Lmlx -lmlx_Darwin -L/usr/X11/include/../lib \
 															-Imlx -lXext -lX11  -Lsrcs ${ARCHIVES} -o ${EXE_NAME}
-			@echo "solong			created\n\n"
+			@echo "exevutable file		created\n\n"
 			@echo "            ██████  ▒█████   ██▓     ▒█████   ███▄    █   ▄████ "
 			@echo "          ▒██    ▒ ▒██▒  ██▒▓██▒    ▒██▒  ██▒ ██ ██   █  ██▒ ▀█▒"
 			@echo "          ░ ▓██▄   ▒██░  ██▒▒██░    ▒██░  ██▒▓██  ██ ██▒▒██░▄▄▄░"
@@ -133,5 +133,5 @@ rebonus:	fclean bonus
 exe:		all bonus
 			@make -s clean
 
-.PHONY:		all clean fclean re exe
+.PHONY:		all clean fclean re exe bonus
 ##-----------------------------##

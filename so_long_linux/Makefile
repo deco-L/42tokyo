@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/05 23:03:13 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/08 15:42:42 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,7 +134,7 @@ rebonus:	fclean bonus
 exe:		all bonus
 			@make -s clean
 
-.PHONY:		all clean fclean re exe
+.PHONY:		all clean fclean re exe bonus
 ##-----------------------------##
 
 #			@echo "                                     .__                         "

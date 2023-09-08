@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:20:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/03 13:25:27 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:36:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ int	main(int argc, char **argv)
 
 // __attribute__((destructor))
 // static void destructor() {
-//     system("leaks -q solong");
+//     system("leaks -q so_long_bonus");
 // }
