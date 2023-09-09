@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/03 14:06:19 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/09 18:43:08 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ HEAD		= ./includes/
 
 
 ##------------Srcs-------------##
-SRC			= 
+SRC			= philo.c
 ##-----------------------------##
 
 
@@ -52,11 +52,11 @@ ARFLAG		= rcs
 all:		${NAME}
 
 %.o:%.c
-			$(CC) -I/usr/include -Imlx -c $< -o $@
+			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
 
-$(NAME):	${OBJS}
+${NAME}:	${OBJS}
 			@echo "object file		compiled"
-			@$(CC) $(CFLAGS) $(OBJS) -I/usr/X11/include ${ARCHIVES} -o $(NAME)
+			@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 			@echo "philo			created\n\n"
 # -fsanitize=address
 clean:
@@ -65,12 +65,12 @@ clean:
 
 fclean:		clean
 			@${RM} ${NAME}
-			@echo "solong			removed"
+			@echo "philo			removed"
 
 re:			fclean all
 
 exe:		re
 			@make -s clean
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re exe
 ##-----------------------------##
