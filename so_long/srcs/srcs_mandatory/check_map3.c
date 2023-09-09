@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:12:52 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/07 15:28:31 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/09 12:12:14 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,30 @@ void	ft_coin_path_search(t_game *game, size_t count, size_t x, size_t y)
 			ft_coin_path_search(game, count, x, y + 1);
 		if (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'C')
 			ft_coin_path_search(game, count, x + 1, y);
+	}
+}
+
+void	ft_exit_path_search(t_game *game, size_t x, size_t y)
+{
+	if (!game->exit_path_flag)
+	{
+		if (game->map[y][x] == 'C' || game->map[y][x] == 'P')
+		{
+			game->exit_path_flag++;
+			return ;
+		}
+		game->map[y][x]--;
+		if (game->map[y - 1][x] == '0' || game->map[y - 1][x] == 'C' \
+											|| game->map[y - 1][x] == 'P')
+			ft_exit_path_search(game, x, y - 1);
+		if (game->map[y][x - 1] == '0' || game->map[y][x - 1] == 'C' \
+											|| game->map[y - 1][x] == 'P')
+			ft_exit_path_search(game, x - 1, y);
+		if (game->map[y + 1][x] == '0' || game->map[y + 1][x] == 'C' \
+											|| game->map[y + 1][x] == 'P')
+			ft_exit_path_search(game, x, y + 1);
+		if (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'C' \
+											|| game->map[y][x + 1] == 'P')
+			ft_exit_path_search(game, x + 1, y);
 	}
 }
