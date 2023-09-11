@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/10 22:18:28 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/11 13:30:16 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ ARFLAG		= rcs
 all:		${NAME}
 
 %.o:%.c
-			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
+			${CC} ${CFLAGS} -I${HEAD} -c $< -o $@
 
 ${NAME}:	${OBJS}
 			@echo "object file		compiled"
@@ -64,7 +64,7 @@ ${NAME}:	${OBJS}
 			@echo "      /::\:\__\ /::\/\__\ /\/::\__\ /:/__/    /:/\:\__\ "
 			@echo "      \/\::/  / \/\::/  / \::/\/__/ \:\  \    \:\/:/  / "
 			@echo "         \/__/    /:/  /   \:\__\    \:\__\    \::/  /  "
-			@echo "                  \/__/     \/__/     \/__/     \/__/   "
+			@echo "                  \/__/     \/__/     \/__/     \/__/   \n\n\n"
 
 # -fsanitize=address
 clean:
