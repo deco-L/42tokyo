@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/12 10:28:52 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/12 13:20:04 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,8 @@ RMLIBFT		= cd ${LIBFT} && make -s fclean && cd ./../../
 
 ##-----------archive-----------##
 ARFLAG		= rcs
+
+ARCHIVES	= ${addprefix ${LIBFT}, libft.a}
 ##-----------------------------##
 
 
@@ -62,12 +64,12 @@ ARFLAG		= rcs
 all:		${NAME}
 
 %.o:%.c
-			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
+			${CC} -I/usr/include -Imlx -c $< -o $@
 
 ${NAME}:	${OBJS}
 			@${CCLIBFT}
 			@echo "object file		compiled"
-			@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+			@${CC} ${CFLAGS} ${OBJS} -Lsrcs ${ARCHIVES} -lreadline -o ${NAME}
 			@echo "minishell		created\n\n"
 			@echo "    ███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     "
 			@echo "    ████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     "
