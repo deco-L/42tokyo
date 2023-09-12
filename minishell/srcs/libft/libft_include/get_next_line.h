@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:50:41 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/12 11:03:28 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/13 03:18:54 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+
+# define FOPEN_MAX 20
 
 char		*get_next_line(int fd);
 size_t		ft_strlen_gnl(const char *str);

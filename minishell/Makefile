@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/12 13:20:04 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/13 03:20:39 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,7 @@ ${NAME}:	${OBJS}
 # -fsanitize=address
 clean:
 			@${RM} ${OBJS}
+			@${RMLIBFT}
 			@echo "object file		removed"
 
 fclean:		clean
