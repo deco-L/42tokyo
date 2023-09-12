@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/12 11:20:39 by csakamot         ###   ########.fr       */
+/*   Created: 2023/04/27 14:41:26 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/08/09 12:11:39 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft_include/libft.h"
 
-# include "../srcs/libft/libft_include/libft.h"
-# include <dirent.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <stdio.h>
-# include <string.h>
-# include <signal.h>
-# include <termios.h>
-# include <termcap.h>
+void	ft_bzero(void *s, size_t n)
+{
+	char	*c;
+	size_t	i;
 
-#endif
+	c = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		c[i] = '\0';
+		i++;
+	}
+}

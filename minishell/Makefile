@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/11 13:50:39 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/12 10:28:52 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,11 @@ NAME		= minishell
 
 
 ##-----Directory Location------##
+HEAD		= ./includes/
+
 PRE			= ./srcs/
 
-HEAD		= ./includes/
+LIBFT		= ${addprefix ${PRE}, libft/}
 ##-----------------------------##
 
 
@@ -38,6 +40,14 @@ OBJS		= ${addprefix ${PRE}, ${SRC:.c=.o}}
 
 ##----------conpiler-----------##
 CFLAGS		= -Wall -Wextra -Werror
+
+CCLIBFT		= make -s -C srcs/libft
+##-----------------------------##
+
+
+
+##------------remove-----------##
+RMLIBFT		= cd ${LIBFT} && make -s fclean && cd ./../../
 ##-----------------------------##
 
 
@@ -55,6 +65,7 @@ all:		${NAME}
 			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
 
 ${NAME}:	${OBJS}
+			@${CCLIBFT}
 			@echo "object file		compiled"
 			@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 			@echo "minishell		created\n\n"

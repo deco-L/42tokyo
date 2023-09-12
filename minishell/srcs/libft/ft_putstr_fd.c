@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/12 11:20:39 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/10 13:40:58 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/08/09 12:17:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft_include/libft.h"
 
-# include "../srcs/libft/libft_include/libft.h"
-# include <dirent.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <stdio.h>
-# include <string.h>
-# include <signal.h>
-# include <termios.h>
-# include <termcap.h>
+void	ft_putstr_fd(char *str, int fd);
 
-#endif
+void	ft_putstr_fd(char *str, int fd)
+{
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i] != '\0')
+	{
+		write(fd, &str[i], 1);
+		i++;
+	}
+	return ;
+}

@@ -6,11 +6,15 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:32:08 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/11 13:32:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/12 10:52:18 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/minishell.h"
+
 int	main(void)
 {
+	pid_t	i;
+
 	return (0);
 }

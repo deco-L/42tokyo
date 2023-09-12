@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/12 11:20:39 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/10 14:20:42 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/08/09 12:20:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft_include/libft.h"
 
-# include "../srcs/libft/libft_include/libft.h"
-# include <dirent.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <stdio.h>
-# include <string.h>
-# include <signal.h>
-# include <termios.h>
-# include <termcap.h>
+void	ft_putnbr_fd(int n, int fd)
+{
+	long long	nbr;
 
-#endif
+	nbr = (long long) n;
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		nbr *= -1;
+	}
+	if (nbr > 9)
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
+	}
+	else
+	{
+		nbr += '0';
+		write(fd, &nbr, 1);
+	}
+	return ;
+}

@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/12 11:20:39 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/29 15:50:41 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/12 11:03:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "../srcs/libft/libft_include/libft.h"
-# include <dirent.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <stdio.h>
-# include <string.h>
-# include <signal.h>
-# include <termios.h>
-# include <termcap.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 33
+# endif
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+
+char		*get_next_line(int fd);
+size_t		ft_strlen_gnl(const char *str);
+char		*ft_strchr_gnl(const char *str, int c);
+char		*ft_substr_gnl(const char *s, unsigned int start, size_t len);
+char		*ft_strjoin_gnl(const char *s1, const char *s2);
 
 #endif

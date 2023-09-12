@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/12 11:20:39 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/11 16:58:53 by sakamoto          #+#    #+#             */
+/*   Updated: 2023/08/09 12:21:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft_include/libft.h"
 
-# include "../srcs/libft/libft_include/libft.h"
-# include <dirent.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <stdio.h>
-# include <string.h>
-# include <signal.h>
-# include <termios.h>
-# include <termcap.h>
+char	*ft_strdup(const char *str)
+{
+	size_t	len;
+	char	*dest;
 
-#endif
+	len = ft_strlen(str);
+	dest = (char *)malloc(sizeof(char) * (len + 1));
+	if (dest == NULL)
+		return (NULL);
+	ft_strlcpy(dest, str, len + 1);
+	return (dest);
+}

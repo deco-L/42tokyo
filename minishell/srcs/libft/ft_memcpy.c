@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/12 11:20:39 by csakamot         ###   ########.fr       */
+/*   Created: 2023/05/05 03:26:24 by yayoi             #+#    #+#             */
+/*   Updated: 2023/08/09 12:20:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft_include/libft.h"
 
-# include "../srcs/libft/libft_include/libft.h"
-# include <dirent.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <stdio.h>
-# include <string.h>
-# include <signal.h>
-# include <termios.h>
-# include <termcap.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char		*result;
+	const unsigned char	*origin;
 
-#endif
+	result = (unsigned char *) dest;
+	origin = (const unsigned char *) src;
+	if (n == 0 || dest == src)
+		return (dest);
+	while (n--)
+	{
+		*result = *origin;
+		result++;
+		origin++;
+	}
+	return (dest);
+}
