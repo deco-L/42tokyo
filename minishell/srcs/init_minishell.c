@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   init_minishell.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:32:08 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/13 12:16:26 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/13 11:40:38 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/13 11:42:45 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int	main(int argc, char **argv)
+void	init_minishell(t_init *state)
 {
-	t_init	state;
-
-	init_minishell(&state);
-	standby_state(&state);
-	return (0);
-}
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q minishell");
+	ft_memset(state, 0, sizeof(t_init));
+	return ;
 }

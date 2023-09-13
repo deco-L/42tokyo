@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   standby_state.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:32:08 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/13 12:16:26 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/13 11:36:44 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/13 12:15:58 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int	main(int argc, char **argv)
+void	standby_state(t_init *state)
 {
-	t_init	state;
+	size_t	count;
 
-	init_minishell(&state);
-	standby_state(&state);
-	return (0);
-}
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q minishell");
+	count = 0;
+	while (1)
+	{
+		state->command = readline("minishell$");
+		printf("%zu, %s\n", count++, state->command);
+		if (!state->command)
+		{
+			free(state->command);
+			break ;
+		}
+		free(state->command);
+	}
+	return ;
 }
