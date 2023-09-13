@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/12 13:17:48 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:22:44 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,10 @@
 # include <signal.h>
 # include <termios.h>
 # include <termcap.h>
+
+typedef struct s_init
+{
+	char	*prompt;
+}				t_init;
 
 #endif

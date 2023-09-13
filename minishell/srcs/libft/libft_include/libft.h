@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 09:01:05 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/13 03:16:14 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:25:13 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # include "ft_printf.h"
 # include "get_next_line.h"
 
-# define SIZE_MAX 0xffffffffffffffff
+# ifndef SIZE_MAX
+#  define SIZE_MAX 0xffffffffffffffff
+# endif
 
 typedef struct s_list
 {
