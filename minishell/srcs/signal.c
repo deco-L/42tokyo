@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:50:11 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/13 16:35:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:16:36 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 static void	signal_handler(int signum, siginfo_t *info, void *dummy)
 {
+	int	wstatus;
 
 	(void)dummy;
 	if (signum == SIGINT)
 	{
+		waitpid(info->si_pid, &wstatus, WUNTRACED);
 		return ;
 	}
 	return ;
