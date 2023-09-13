@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/13 13:59:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:50:02 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ void	standby_state(t_init *state);
 
 
 /*---signal---*/
-void	signal_minishell(t_signal *sig_act);
+void	signal_minishell(struct sigaction action);
 /*------------*/
 #endif

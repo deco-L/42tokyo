@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:50:11 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/13 13:58:34 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:35:04 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,20 @@
 
 static void	signal_handler(int signum, siginfo_t *info, void *dummy)
 {
+
 	(void)dummy;
-	exit(EXIT_SUCCESS);
+	if (signum == SIGINT)
+	{
+		return ;
+	}
+	return ;
 }
 
-void	signal_minishell(t_signal *sig_act)
+void	signal_minishell(struct sigaction action)
 {
-	sig_act->action.sa_sigaction = signal_handler;
-	sigemptyset(&(sig_act->action).sa_mask);
-	sig_act->action.sa_flags = SA_SIGINFO;
-	sigaction(SIGINT, &(sig_act->action), NULL);
+	action.sa_sigaction = signal_handler;
+	sigemptyset(&action.sa_mask);
+	action.sa_flags = SA_SIGINFO;
+	sigaction(SIGINT, &action, NULL);
 	return ;
 }
