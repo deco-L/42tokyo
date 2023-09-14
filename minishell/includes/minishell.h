@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 13:28:20 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:27:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <signal.h>
+# include <sys/types.h>
 # include <sys/wait.h> //linux
 # include <termios.h>
 # include <termcap.h>

@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:32:08 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 13:13:19 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:46:53 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ int	main(void)
 
 // 	env = getenv("HTTPS_PROXY");
 // 	printf("%s\n", env);
-// 	errno = execve("", argv, NULL);
-// 	printf("errno:%d\n", errno);
+// 	// errno = execve("", argv, NULL);
+// 	// printf("errno:%d\n", errno);
+// 	perror("fork");
 // 	return (0);
 // }
 
