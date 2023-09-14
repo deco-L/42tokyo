@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:36:44 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/13 13:06:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 10:56:39 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	standby_state(t_init *state)
 	while (1)
 	{
 		state->command = readline("minishell$");
-		printf("%zu, %s\n", count++, state->command);
+		// printf("%zu, %s\n", count++, state->command);
+		printf("\n");
 		free(state->command);
 	}
 	return ;
