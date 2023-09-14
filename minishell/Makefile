@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/14 17:13:11 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/15 03:02:46 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ ARCHIVES	= ${addprefix ${LIBFT}, libft.a}
 all:		${NAME}
 
 %.o:%.c
-			${CC} -I/usr/include -Imlx -c $< -o $@
+			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
 
 ${NAME}:	${OBJS}
 			@${CCLIBFT}

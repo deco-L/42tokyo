@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:24:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 18:12:57 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/15 03:14:25 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ void	external_command(t_init *state, t_exe *exe_built, char *prompt)
 		exit(EXIT_FAILURE);
 	else if (exe_built->pid == 0)
 	{
-		printf("child\n");
+		// printf("child\n");
 		exe_command(state, exe_built->command);
-		printf("ok!\n");
 		exit(EXIT_SUCCESS);
 	}
 	else
