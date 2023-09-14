@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   malloc_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:32:08 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 13:13:19 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/14 13:22:32 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/14 13:27:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int	main(void)
+void	double_array_free(char **array)
 {
-	t_init	state;
+	size_t	index;
 
-	init_minishell(&state);
-	signal_minishell(state.signal->action);
-	standby_state(&state);
-	return (0);
-}
-
-// int	main(int argc, char **argv)
-// {
-// 	const char	*env;
-
-// 	env = getenv("HTTPS_PROXY");
-// 	printf("%s\n", env);
-// 	errno = execve("", argv, NULL);
-// 	printf("errno:%d\n", errno);
-// 	return (0);
-// }
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q minishell");
+	index = 0;
+	while (array[index])
+	{
+		free(array[index]);
+		index++;
+	}
+	free(array);
+	return ;
 }

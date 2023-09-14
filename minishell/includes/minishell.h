@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 11:15:38 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:28:20 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,17 @@ typedef struct s_signal
 	struct sigaction	action;
 }				t_signal;
 
+typedef struct s_exe
+{
+	pid_t	pid;
+	char	**command;
+}				t_exe;
+
 typedef struct s_init
 {
-	char		*command;
+	char		*prompt;
 	char		**env;
+	t_exe		*exe;
 	t_signal	*signal;
 }				t_init;
 /*---------------------------*/
@@ -53,7 +60,19 @@ void	standby_state(t_init *state);
 
 
 
+/*---built_in---*/
+void	built_in(t_init *state, t_exe *exe_built, char *command);
+/*--------------*/
+
+
+
 /*---signal---*/
 void	signal_minishell(struct sigaction action);
 /*------------*/
+
+
+
+/*---free---*/
+void	double_array_free(char **array);
+/*----------*/
 #endif
