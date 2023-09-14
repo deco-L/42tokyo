@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:36:44 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 17:15:48 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:03:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	standby_state(t_init *state)
 		state->prompt = readline("minishell$");
 		external_command(state, state->exe, state->prompt);
 		free(state->prompt);
-		// printf("ok!\n");
 	}
 	return ;
 }

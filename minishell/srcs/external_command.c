@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:24:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 17:16:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:12:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	exe_command(t_init *state, char **command)
 	char	*exe;
 
 	exe = ft_strjoin(BINARY, command[0]);
+	printf("exe:%s\n", exe);
 	execve(exe, command, state->env);
 	perror("execve");
 	free(exe);
@@ -29,6 +30,7 @@ void	external_command(t_init *state, t_exe *exe_built, char *prompt)
 
 	status = 0;
 	exe_built->command = ft_split(prompt, ' ');
+	// exe_command(state, exe_built->command);
 	exe_built->pid = fork();
 	printf("process:%d\n", exe_built->pid);
 	if (exe_built->pid < 0)
@@ -37,6 +39,7 @@ void	external_command(t_init *state, t_exe *exe_built, char *prompt)
 	{
 		printf("child\n");
 		exe_command(state, exe_built->command);
+		printf("ok!\n");
 		exit(EXIT_SUCCESS);
 	}
 	else

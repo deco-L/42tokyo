@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:32:08 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 15:55:02 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:09:02 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,13 @@ int	main(void)
 
 // int	main(int argc, char **argv)
 // {
-// 	const char	*env;
-
-// 	env = getenv("HTTPS_PROXY");
-// 	printf("%s\n", env);
-// 	// errno = execve("", argv, NULL);
+// 	execve("/bin/ls", argv, NULL);
 // 	// printf("errno:%d\n", errno);
-// 	perror("fork");
+// 	// perror("fork");
 // 	return (0);
 // }
 
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q minishell");
-}
+// __attribute__((destructor))
+// static void destructor() {
+//     system("leaks -q minishell");
+// }
