@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 14:27:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:21:26 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@
 # include <termios.h>
 # include <termcap.h>
 /*-------------*/
+
+
+
+/*---path---*/
+# define BINARY	"/bin/"
+/*----------*/
 
 
 
@@ -61,9 +67,9 @@ void	standby_state(t_init *state);
 
 
 
-/*---built_in---*/
-void	built_in(t_init *state, t_exe *exe_built, char *command);
-/*--------------*/
+/*---external_command---*/
+void	external_command(t_init *state, t_exe *exe_built, char *prompt);
+/*---------------------*/
 
 
 
