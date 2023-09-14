@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 16:21:26 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/15 06:02:18 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,18 @@ typedef struct s_init
 void	init_minishell(t_init *state);
 void	standby_state(t_init *state);
 
-
+/*---built_in---*/
+int		judge_built_in(char *exe_command);
+void	built_in_cd(void);
+void	built_in_echo(void);
+void	built_in_env(void);
+void	built_in_exit(void);
+void	built_in_pwd(void);
+void	built_in_unset(void);
+/*--------------*/
 
 /*---external_command---*/
-void	external_command(t_init *state, t_exe *exe_built, char *prompt);
+void	external_command(t_init *state, t_exe *exe_built);
 /*---------------------*/
 
 

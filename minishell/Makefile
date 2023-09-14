@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/15 03:02:46 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/15 05:53:15 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ LIBFT		= ${addprefix ${PRE}, libft/}
 
 ##------------Srcs-------------##
 SRC			= minishell.c init_minishell.c standby_state.c signal.c \
-				external_command.c malloc_free.c
+				external_command.c built_in.c built_in_cd.c built_in_echo.c \
+				built_in_env.c built_in_exit.c built_in_pwd.c built_in_unset.c \
+				malloc_free.c
 ##-----------------------------##
 
 
