@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:24:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 16:30:40 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:16:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	exe_command(t_init *state, char **command)
 
 	exe = ft_strjoin(BINARY, command[0]);
 	execve(exe, command, state->env);
+	perror("execve");
 	free(exe);
 	return ;
 }
@@ -25,12 +26,10 @@ void	exe_command(t_init *state, char **command)
 void	external_command(t_init *state, t_exe *exe_built, char *prompt)
 {
 	int		status;
-	pid_t	wait;
 
 	status = 0;
 	exe_built->command = ft_split(prompt, ' ');
 	exe_built->pid = fork();
-	// exe_command(state, exe_built->command);
 	printf("process:%d\n", exe_built->pid);
 	if (exe_built->pid < 0)
 		exit(EXIT_FAILURE);
@@ -38,15 +37,10 @@ void	external_command(t_init *state, t_exe *exe_built, char *prompt)
 	{
 		printf("child\n");
 		exe_command(state, exe_built->command);
-		sleep(2);
 		exit(EXIT_SUCCESS);
 	}
 	else
-	{
-		wait = waitpid(exe_built->pid, &status, 0);
-		printf("parent\n");
-		exit(EXIT_SUCCESS);
-	}
+		waitpid(exe_built->pid, &status, 0);
 	double_array_free(exe_built->command);
 	return ;
 }
