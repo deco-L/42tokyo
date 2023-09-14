@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:24:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 16:22:17 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:30:40 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	external_command(t_init *state, t_exe *exe_built, char *prompt)
 
 	status = 0;
 	exe_built->command = ft_split(prompt, ' ');
-	exe_command(state, exe_built->command);
 	exe_built->pid = fork();
+	// exe_command(state, exe_built->command);
 	printf("process:%d\n", exe_built->pid);
 	if (exe_built->pid < 0)
 		exit(EXIT_FAILURE);
 	else if (exe_built->pid == 0)
 	{
-		printf("child:%s\n", exe_built->command[0]);
+		printf("child\n");
 		exe_command(state, exe_built->command);
 		sleep(2);
 		exit(EXIT_SUCCESS);
