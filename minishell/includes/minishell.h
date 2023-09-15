@@ -6,14 +6,12 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 12:18:56 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/15 13:32:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
-
-
 
 /*---include---*/
 # include "../srcs/libft/libft_include/libft.h"
@@ -60,11 +58,11 @@ void	init_minishell(t_init *state);
 void	standby_state(t_init *state);
 
 /*---built_in---*/
-int		judge_built_in(char *exe_command);
+int		judge_built_in(t_init *state, char *exe_command);
 void	built_in_cd(void);
 void	built_in_echo(void);
 void	built_in_env(void);
-void	built_in_exit(void);
+void	built_in_exit(t_init *state);
 void	built_in_pwd(void);
 void	built_in_unset(void);
 /*--------------*/

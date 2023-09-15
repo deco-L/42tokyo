@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:36:44 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 12:53:59 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/15 13:30:54 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	standby_state(t_init *state)
 	{
 		state->prompt = readline("minishell$");
 		state->exe->command = ft_split(state->prompt, ' ');
-		if (judge_built_in(state->exe->command[0]))
+		if (judge_built_in(state, state->exe->command[0]))
 			external_command(state, state->exe);
 		double_array_free(state->exe->command);
 		free(state->prompt);
