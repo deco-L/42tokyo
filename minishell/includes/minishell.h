@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 13:32:16 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:13:21 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	standby_state(t_init *state);
 int		judge_built_in(t_init *state, char *exe_command);
 void	built_in_cd(void);
 void	built_in_echo(void);
-void	built_in_env(void);
+void	built_in_env(t_init *state);
 void	built_in_exit(t_init *state);
 void	built_in_pwd(void);
 void	built_in_unset(void);
