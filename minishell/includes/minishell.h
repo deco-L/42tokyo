@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 06:02:18 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/15 12:18:56 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,9 @@
 # include <termcap.h>
 /*-------------*/
 
-
-
 /*---path---*/
 # define BINARY	"/bin/"
 /*----------*/
-
-
 
 /*---Structure_Declaration---*/
 typedef struct s_signal
@@ -60,8 +56,6 @@ typedef struct s_init
 }				t_init;
 /*---------------------------*/
 
-
-
 void	init_minishell(t_init *state);
 void	standby_state(t_init *state);
 
@@ -79,13 +73,9 @@ void	built_in_unset(void);
 void	external_command(t_init *state, t_exe *exe_built);
 /*---------------------*/
 
-
-
 /*---signal---*/
 void	signal_minishell(struct sigaction action);
 /*------------*/
-
-
 
 /*---free---*/
 void	double_array_free(char **array);

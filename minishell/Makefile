@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/15 05:53:15 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/15 12:46:54 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,12 +67,12 @@ ARCHIVES	= ${addprefix ${LIBFT}, libft.a}
 all:		${NAME}
 
 %.o:%.c
-			${CC} ${CFLAGS} -I/usr/include -Imlx -c $< -o $@
+			${CC} -I/usr/include -Imlx -c $< -o $@
 
 ${NAME}:	${OBJS}
 			@${CCLIBFT}
 			@echo "object file		compiled"
-			@${CC} ${CFLAGS} ${OBJS} -Lsrcs ${ARCHIVES} -lreadline -o ${NAME}
+			@${CC} ${CFLAGS} -fsanitize=address ${OBJS} -Lsrcs ${ARCHIVES} -lreadline -o ${NAME}
 			@echo "minishell		created\n\n"
 			@echo "    ███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     "
 			@echo "    ████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     "
