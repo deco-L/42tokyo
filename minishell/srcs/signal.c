@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:50:11 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 03:05:47 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/17 02:58:15 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	signal_handler(int signum, siginfo_t *info, void *dummy)
 	(void)dummy;
 	if (signum == SIGINT)
 	{
-		printf("%d\n", info->si_pid);
+		rl_redisplay();
 		return ;
 	}
 	return ;

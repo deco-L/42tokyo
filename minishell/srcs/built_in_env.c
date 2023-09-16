@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 05:36:17 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 17:18:00 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/17 02:40:39 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	built_in_env(t_init *state)
 {
-	size_t	i;
+	size_t		i;
+	extern char	**environ;
 
 	i = 0;
 	printf("env:Not yet implemented.\n");
-	while (state->env[i])
+	while (environ[i])
 	{
-		printf("%s\n", state->env[i]);
+		printf("%s\n", environ[i]);
 		i++;
 	}
 	return ;

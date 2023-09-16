@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:24:46 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/17 02:19:55 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/17 02:39:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static void	exe_ext_command(t_init *state, t_exe *exe_ext, char **command)
 {
-	char	*exe;
+	char		*exe;
+	extern char	**environ;
 
 	exe = ft_strjoin(BINARY, command[0]);
 	exe_ext->exe_flag = execve(exe, command, environ);

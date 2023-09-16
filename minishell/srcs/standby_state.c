@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:36:44 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/16 19:02:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/17 02:57:43 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	standby_state(t_init *state)
 {
 	while (1)
 	{
+		rl_on_new_line();
 		state->prompt = readline("minishell$");
+		add_history(state->prompt);
 		if (!*(state)->prompt)
 		{
 			free(state->prompt);
