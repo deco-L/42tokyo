@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/16 17:58:08 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/17 02:20:17 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ typedef struct s_exe
 typedef struct s_init
 {
 	char		*prompt;
-	char		**env;
 	t_exe		*exe;
 	t_signal	*signal;
 }				t_init;
