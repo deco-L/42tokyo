@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:32:08 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 17:12:01 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:08:34 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,23 @@ int	main(void)
 
 // int	main(int argc, char **argv)
 // {
-// 	extern char	**environ;
+// 	char	*str = "echo";
+// 	char	**array;
+// 	// extern char	**environ;
 
-// 	for (int i = 0; environ[i]; i++)
-// 		printf("%s\n", environ[i]);
+// 	array = ft_split(str, ' ');
+// 	for (int i = 0; array[i]; i++)
+// 		printf("%s\n", array[i]);
+// 	double_array_free(array);
+// 	// for (int i = 0; environ[i]; i++)
+// 	// 	printf("%s\n", environ[i]);
 // 	// execve("/bin/ls", argv, NULL);
 // 	// printf("errno:%d\n", errno);
 // 	// perror("fork");
 // 	return (0);
 // }
 
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q minishell");
-}
+// __attribute__((destructor))
+// static void destructor() {
+//     system("leaks -q minishell");
+// }

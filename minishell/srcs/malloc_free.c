@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:22:32 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/14 14:57:15 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:37:26 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	double_array_free(char **array)
 	size_t	index;
 
 	index = 0;
-	while (array[index])
+	while (array[index] != NULL)
 	{
 		free(array[index]);
 		index++;
 	}
+	free(array);
 	return ;
 }

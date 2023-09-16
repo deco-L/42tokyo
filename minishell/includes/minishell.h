@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 17:13:21 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:58:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_signal
 typedef struct s_exe
 {
 	pid_t	pid;
+	size_t	exe_flag;
 	char	**command;
 }				t_exe;
 
@@ -58,7 +59,7 @@ void	init_minishell(t_init *state);
 void	standby_state(t_init *state);
 
 /*---built_in---*/
-int		judge_built_in(t_init *state, char *exe_command);
+int		judge_built_in(t_init *state, char **exe_buil_command);
 void	built_in_cd(void);
 void	built_in_echo(void);
 void	built_in_env(t_init *state);
