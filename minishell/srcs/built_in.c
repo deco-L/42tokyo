@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 05:18:37 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/16 18:15:56 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:42:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	judge_built_in(t_init *state, char **exe_built_command)
 	size_t	len;
 
 	len = ft_strlen(exe_built_command[0]);
-	printf("len%zu, command:%s\n", len, exe_built_command[0]);
+	// printf("len%zu, command:%s\n", len, exe_built_command[0]);
 	if (len == 2 && !ft_strncmp(exe_built_command[0], "cd", len))
 		built_in_cd();
 	else if (len == 4 && !ft_strncmp(exe_built_command[0], "echo", len))
