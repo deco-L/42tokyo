@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   built_in_exit.c                                    :+:      :+:    :+:   */
+/*   built_in_pwd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 05:36:15 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/16 17:38:19 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/15 05:36:13 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/18 20:34:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/built_in.h"
 
-void	built_in_exit(t_init *state)
+void	built_in_pwd(void)
 {
-	printf("exit:Not yet implemented.\n");
-	// double_array_free(state->exe->command);
-	free(state->prompt);
-	exit(EXIT_SUCCESS);
+	char	*wd_path;
+
+	wd_path = NULL;
+	ft_printf("pwd:Not yet implemented.\n");
+	wd_path = getcwd(wd_path, PATH_MAX);
+	ft_printf("%s\n", wd_path);
+	free(wd_path);
 	return ;
 }

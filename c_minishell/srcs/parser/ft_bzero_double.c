@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   built_in_echo.c                                    :+:      :+:    :+:   */
+/*   ft_bzero_double.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 05:36:20 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/16 16:10:22 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/18 16:28:12 by yhirai            #+#    #+#             */
+/*   Updated: 2023/09/19 18:20:51 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
-void	built_in_echo(void)
+void	ft_bzero_double(char **str)
 {
-	printf("echo:Not yet implemented.\n");
-	return ;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (str[i] != NULL)
+	{
+		j = 0;
+		while (str[i][j] != '\0')
+		{
+			str[i][j] = '\0';
+			j++;
+		}
+		str[i] = NULL;
+		i++;
+	}
 }

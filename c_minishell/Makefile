@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/17 15:25:04 by csakamot         ###   ########.fr        #
+#    Updated: 2023/09/21 14:54:50 by hiraiyuina       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,22 +21,36 @@ HEAD		= ./includes/
 
 PRE			= ./srcs/
 
+BUILTIN		= built_in/
+
+LEXER		= lexer/
+
+PARSER		= parser/
+
 LIBFT		= ${addprefix ${PRE}, libft/}
 ##-----------------------------##
 
 
 
 ##------------Srcs-------------##
-SRC			= minishell.c init_minishell.c standby_state.c signal.c \
-				external_command.c built_in.c built_in_cd.c built_in_echo.c \
-				built_in_env.c built_in_exit.c built_in_pwd.c built_in_unset.c \
-				malloc_free.c
+#MAINSRC		= minishell.c init_minishell.c init_env.c standby_state.c \
+				signal.c external_command.c malloc_free.c
+
+#BULITINSRC	= built_in.c built_in_cd.c built_in_echo.c built_in_env.c \
+				built_in_exit.c built_in_pwd.c built_in_unset.c built_in_main.c \
+				built_in_export.c
+
+LEXERSRC	= lexer_main.c split_word.c single_quotation.c double_quotation.c
+
+PARSERSRC	= parser_main.c split_pipe.c list_new.c list_add_back.c parser_contents.c ft_bzero_double.c make_add_node.c
+
+SRCS		= ${MAINSRC} ${addprefix ${BUILTIN}, ${BULITINSRC}} ${addprefix ${LEXER}, ${LEXERSRC}} ${addprefix ${PARSER}, ${PARSERSRC}}
 ##-----------------------------##
 
 
 
 ##-----------Object------------##
-OBJS		= ${addprefix ${PRE}, ${SRC:.c=.o}}
+OBJS		= ${addprefix ${PRE}, ${SRCS:.c=.o}}
 ##-----------------------------##
 
 
@@ -67,20 +81,20 @@ ARCHIVES	= ${addprefix ${LIBFT}, libft.a}
 all:		${NAME}
 
 %.o:%.c
-			${CC} -I/usr/include -Imlx -c $< -o $@
+			${CC} ${CFLAGS} -I/usr/include -c $< -o $@
 
 ${NAME}:	${OBJS}
 			@${CCLIBFT}
 			@echo "object file		compiled"
-			@${CC} ${CFLAGS} -fsanitize=address ${OBJS} -Lsrcs ${ARCHIVES} -lreadline -o ${NAME}
-			@echo "minishell		created\n\n"
-			@echo "    ███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     "
-			@echo "    ████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     "
-			@echo "    ██╔████╔██║██║██╔██╗ ██║██║███████╗███████║█████╗  ██║     ██║     "
-			@echo "    ██║╚██╔╝██║██║██║╚██╗██║██║╚════██║██╔══██║██╔══╝  ██║     ██║     "
-			@echo "    ██║ ╚═╝ ██║██║██║ ╚████║██║███████║██║  ██║███████╗███████╗███████╗"
-			@echo "    ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝"
-			@echo "                                                                       "
+			@${CC} ${CFLAGS} ${OBJS} -Lsrcs ${ARCHIVES} -lreadline -o ${NAME}
+#			@echo "minishell		created\n\n"
+#			@echo "    ███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     "
+#			@echo "    ████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     "
+#			@echo "    ██╔████╔██║██║██╔██╗ ██║██║███████╗███████║█████╗  ██║     ██║     "
+#			@echo "    ██║╚██╔╝██║██║██║╚██╗██║██║╚════██║██╔══██║██╔══╝  ██║     ██║     "
+#			@echo "    ██║ ╚═╝ ██║██║██║ ╚████║██║███████║██║  ██║███████╗███████╗███████╗"
+#			@echo "    ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝"
+#			@echo "                                                                       "
 
 
 # -fsanitize=address

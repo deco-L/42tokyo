@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signal.c                                           :+:      :+:    :+:   */
+/*   single_quotation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 12:50:11 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/18 11:50:07 by yhirai           ###   ########.fr       */
+/*   Created: 2023/09/17 16:39:08 by yhirai            #+#    #+#             */
+/*   Updated: 2023/09/18 12:12:18 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
-static void	signal_handler(int signum, siginfo_t *info, void *dummy)
+static size_t	count_char(char *str)
 {
-	(void)dummy;
-	(void)info;
-	if (signum == SIGINT)
-	{
-		rl_redisplay();
-		return ;
-	}
-	return ;
+	size_t	i;
+
+	i = 1;
+	while (str[i] != '\'' && str[i] != '\0')
+		i++;
+	i++;
+	return (i);
 }
 
-void	signal_minishell(struct sigaction action)
+char	*single_quotation(char **str)
 {
-	action.sa_sigaction = signal_handler;
-	sigemptyset(&action.sa_mask);
-	action.sa_flags = SA_SIGINFO;
-	sigaction(SIGINT, &action, NULL);
-	return ;
+	char	*result;
+	char	*tmp;
+	size_t	len;
+
+	tmp = *str;
+	len = count_char(tmp);
+	result = ft_substr(tmp, 0, len);
+	if (tmp[len] == ' ' && tmp[len] != '\0')
+		len++;
+	*str += len;
+	return (result);
 }

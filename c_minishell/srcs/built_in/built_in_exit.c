@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   built_in_exit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 15:38:38 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/09/13 03:16:42 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/15 05:36:15 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/18 20:34:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_include/libft.h"
+#include "../../includes/built_in.h"
 
-void	*ft_memchr(const void *buf, int c, size_t n)
+void	built_in_exit(t_init *state)
 {
-	size_t				i;
-	const unsigned char	*dest;
-	unsigned char		cbuf;
-	void				*result;
-
-	i = 0;
-	dest = (const unsigned char *) buf;
-	cbuf = (unsigned char)c;
-	while (i < n)
-	{
-		if (dest[i] == cbuf)
-		{
-			result = (void *)&dest[i];
-			return (result);
-		}
-		i++;
-	}
-	return (NULL);
+	ft_printf("exit:Not yet implemented.\n");
+	// double_array_free(state->exe->command);
+	free(state->prompt);
+	exit(EXIT_SUCCESS);
+	return ;
 }

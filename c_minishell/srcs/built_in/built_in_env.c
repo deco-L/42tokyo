@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   built_in_env.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 15:38:38 by sakamoto          #+#    #+#             */
-/*   Updated: 2023/09/13 03:16:42 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/15 05:36:17 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/19 19:00:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_include/libft.h"
+#include "../../includes/built_in.h"
 
-void	*ft_memchr(const void *buf, int c, size_t n)
+void	built_in_env(t_init *state, t_env *env_variable)
 {
-	size_t				i;
-	const unsigned char	*dest;
-	unsigned char		cbuf;
-	void				*result;
+	size_t		i;
 
+	(void)state;
 	i = 0;
-	dest = (const unsigned char *) buf;
-	cbuf = (unsigned char)c;
-	while (i < n)
+	env_variable = env_variable->next;
+	while (!env_variable->head)
 	{
-		if (dest[i] == cbuf)
-		{
-			result = (void *)&dest[i];
-			return (result);
-		}
+		ft_printf("%s\n", env_variable->variable);
+		env_variable = env_variable->next;
 		i++;
 	}
-	return (NULL);
+	return ;
 }

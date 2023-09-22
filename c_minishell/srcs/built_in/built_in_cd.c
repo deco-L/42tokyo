@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   built_in_env.c                                     :+:      :+:    :+:   */
+/*   built_in_cd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 05:36:17 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/17 02:40:39 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/15 05:36:22 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/18 20:34:19 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/built_in.h"
 
-void	built_in_env(t_init *state)
+void	built_in_cd(void)
 {
-	size_t		i;
-	extern char	**environ;
-
-	i = 0;
-	printf("env:Not yet implemented.\n");
-	while (environ[i])
-	{
-		printf("%s\n", environ[i]);
-		i++;
-	}
+	ft_printf("cd:Not yet implemented.\n");
 	return ;
 }

@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   built_in_unset.c                                   :+:      :+:    :+:   */
+/*   built_in.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 05:36:10 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/15 05:42:36 by csakamot         ###   ########.fr       */
+/*   Created: 2023/09/17 18:39:46 by csakamot          #+#    #+#             */
+/*   Updated: 2023/09/18 19:24:08 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#ifndef BUILT_IN_H
+# define BUILT_IN_H
 
-void	built_in_unset(void)
-{
-	printf("unset:Not yet implemented.\n");
-	return ;
-}
+/*---include---*/
+# include "minishell.h"
+/*-------------*/
+
+/*---Structure_Declaration---*/
+
+/*---------------------------*/
+
+#endif
