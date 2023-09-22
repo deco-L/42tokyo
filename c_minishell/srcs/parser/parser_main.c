@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 15:03:54 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/22 12:17:47 by csakamot         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:44:36 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,9 @@ int	main(void)
 	// }
 	ft_free(result, head);
 	return (0);
+}
+
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q minishell");
 }
