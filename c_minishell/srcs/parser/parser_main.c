@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 15:03:54 by csakamot          #+#    #+#             */
-/*   Updated: 2023/09/21 14:56:47 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2023/09/22 12:17:47 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(void)
 {
 	t_parser	*node;
 	t_parser	*head;
-	t_file		*file;
+	// t_file		*file;
 	char		**result;
 	size_t		i;
 	char		str[] = "cat < file | echo -n a | echo -n -n -n \"Hello World\"";
@@ -86,22 +86,22 @@ int	main(void)
 		i++;
 	}
 	printf("\n---------------------------\n\n");
-	node = parser_main(lexer_main(str));
+	node = parser_main(result);
 	head = node;
-	while (node != NULL)
-	{
-		printf("cmd|[%s]%p\n", node->cmd, node->cmd);
-		printf("option|[%s]%p\n", node->option, node->option);
-		printf("str|[%s]%p\n", node->str, node->str);
-		file = node->redirect;
-		while (file != NULL)
-		{
-			printf("redirect|[%s]%p\n", file->file_name, file->file_name);
-			file = file->next;
-		}
-		printf("=============================\n");
-		node = node->next;
-	}
+	// while (node != NULL)
+	// {
+	// 	printf("cmd|[%s]%p\n", node->cmd, node->cmd);
+	// 	printf("option|[%s]%p\n", node->option, node->option);
+	// 	printf("str|[%s]%p\n", node->str, node->str);
+	// 	file = node->redirect;
+	// 	while (file != NULL)
+	// 	{
+	// 		printf("redirect|[%s]%p\n", file->file_name, file->file_name);
+	// 		file = file->next;
+	// 	}
+	// 	printf("=============================\n");
+	// 	node = node->next;
+	// }
 	ft_free(result, head);
 	return (0);
 }

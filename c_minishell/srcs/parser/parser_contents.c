@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_contents.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:05:35 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2023/09/21 14:57:40 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2023/09/22 12:34:04 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

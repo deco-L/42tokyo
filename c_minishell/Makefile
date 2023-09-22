@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+         #
+#    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/21 14:54:50 by hiraiyuina       ###   ########.fr        #
+#    Updated: 2023/09/22 12:20:05 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
