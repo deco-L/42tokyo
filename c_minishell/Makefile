@@ -5,10 +5,11 @@
 #                                                     +:+ +:+         +:+      #
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2023/09/22 12:20:05 by csakamot         ###   ########.fr        #
+#    Created: Invalid date        by                   #+#    #+#              #
+#    Updated: 2023/09/23 15:48:05 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 ##----Executable File Name-----##
 NAME		= minishell
@@ -27,24 +28,28 @@ LEXER		= lexer/
 
 PARSER		= parser/
 
+ERROR_P     = parser/Error_parser/
+
 LIBFT		= ${addprefix ${PRE}, libft/}
 ##-----------------------------##
 
 
 
 ##------------Srcs-------------##
-#MAINSRC		= minishell.c init_minishell.c init_env.c standby_state.c \
-				signal.c external_command.c malloc_free.c
+# MAINSRC		= minishell.c init_minishell.c init_env.c init_exp.c \
+# 				standby_state.c signal.c external_command.c malloc_free.c
 
-#BULITINSRC	= built_in.c built_in_cd.c built_in_echo.c built_in_env.c \
-				built_in_exit.c built_in_pwd.c built_in_unset.c built_in_main.c \
-				built_in_export.c
+# BULITINSRC	= built_in.c built_in_cd.c built_in_echo.c built_in_env.c \
+# 				built_in_exit.c built_in_pwd.c built_in_unset.c built_in_main.c \
+# 				built_in_export.c built_in_helper.c
 
 LEXERSRC	= lexer_main.c split_word.c single_quotation.c double_quotation.c
 
-PARSERSRC	= parser_main.c split_pipe.c list_new.c list_add_back.c parser_contents.c ft_bzero_double.c make_add_node.c
+PARSERSRC	= parser_main.c split_pipe.c list_new.c list_add_back.c parser_contents.c parser_utils.c etc.c
 
-SRCS		= ${MAINSRC} ${addprefix ${BUILTIN}, ${BULITINSRC}} ${addprefix ${LEXER}, ${LEXERSRC}} ${addprefix ${PARSER}, ${PARSERSRC}}
+ERROR_P_SRC = malloc_error.c
+
+SRCS		= ${MAINSRC} ${addprefix ${BUILTIN}, ${BULITINSRC}} ${addprefix ${LEXER}, ${LEXERSRC}} ${addprefix ${PARSER}, ${PARSERSRC}} ${addprefix ${ERROR_P}, ${ERROR_P_SRC}}
 ##-----------------------------##
 
 
@@ -64,7 +69,7 @@ CCLIBFT		= make -s -C srcs/libft
 
 
 ##------------remove-----------##
-RMLIBFT		= cd ${LIBFT} && make -s fclean && cd ./../../
+RMLIBFT		= make fclean -s -C srcs/libft
 ##-----------------------------##
 
 
@@ -81,12 +86,12 @@ ARCHIVES	= ${addprefix ${LIBFT}, libft.a}
 all:		${NAME}
 
 %.o:%.c
-			${CC} ${CFLAGS} -I/usr/include -c $< -o $@
+			${CC} ${CFLAGS} -I/usr/include -I/usr/local/opt/readline/include -c $< -o $@
 
 ${NAME}:	${OBJS}
 			@${CCLIBFT}
 			@echo "object file		compiled"
-			@${CC} ${CFLAGS} ${OBJS} -Lsrcs ${ARCHIVES} -lreadline -o ${NAME}
+			@${CC} ${CFLAGS} ${OBJS} -Lsrcs -lreadline -L/usr/local/Cellar/readline/8.2.1/lib/ ${ARCHIVES} -o ${NAME}
 #			@echo "minishell		created\n\n"
 #			@echo "    ███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     "
 #			@echo "    ████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     "
